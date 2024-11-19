@@ -16,6 +16,10 @@
 
 The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the Flight Controller is critical for flying safely.  
 
+```{attention}
+Make sure, you are not using a "charging only" USB cable
+```
+
 ## Installing Betaflight Configurator (BFC)
 Betaflight Configurator is an app that allows the base station to connect directly to the Flight Controller and access its configuration interface.
 
