@@ -16,11 +16,11 @@
 
 The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the Flight Controller is critical for flying safely.  
 
-## Installing Dependencies and Flashing Betaflight Firmware
+## Installing Dependencies and Flashing Ardupilot Firmware
 
 ### 1. Install dfu-util and screen:
 
-- Connect to the Raspberry Pi through ssh.
+- Connect the flight controller to a laptop running Ubuntu.
 - Update the package list:
 
 ```bash
@@ -30,7 +30,7 @@ sudo apt update
 - Install `dfu-util` and `screen`:
 
 ```bash
-sudo apt install dfu-util screen
+sudo apt install dfu-util
 ```
 
 ### 2. Entering DFU Mode:
@@ -55,13 +55,13 @@ List of devices in DFU mode output by `dfu-util`.
 Run the following command:
 
 ```bash
-wget https://github.com/duckietown/duckiedrone-ardupilot-driver/blob/69a5482d72d4414c13cd7cde0c382b043074161d/assets/arducopter_with_bl_v4_5_5.bin
+wget https://github.com/duckietown/duckiedrone-ardupilot-driver/blob/6f3bfa7fe7ad8ab06c829e1f915409ab7486f42f/assets/speedybeef4v3_bl.bin
 ```
 
 Run `dfu-util` to flash the firmware:
 
 ```bash
-sudo dfu-util -a 0 -s 0x08000000:leave -d 0483:df11 -D arducopter_with_bl_v4_5_5.bin
+sudo dfu-util -a 0 -s 0x08000000:leave -d 0483:df11 -D speedybeef4v3_bl.bin
 ```
 
 ```{tip}
@@ -71,13 +71,28 @@ Explanation of the `dfu-util` command:
 * `dfu-util`: The name of the utility used for flashing firmware.
 * `-a 0`: Selects the first DFU device (adjust if there are multiple).
 * `-s 0x08000000:leave`: Sets the address and size for the new firmware.
-* `-d 0483:df11`: Defines the vendor ID (0483) and product ID (df11) for Betaflight devices.
-* `-D arducopter_with_bl_v4_5_5.bin`: Specifies the filename of the firmware to be flashed.
+* `-d 0483:df11`: Defines the vendor ID (0483) and product ID (df11) for Ardupilot devices.
+* `-D speedybeef4v3_bl.bin`: Specifies the filename of the firmware to be flashed.
 ```
 
-### 4. Exit and Disconnect:
+The flashing process might take a few minutes. Once finished, the flight controller will reboot.
 
-- The flashing process might take a few minutes. Once finished, the flight controller will reboot.
+### Install the Ardupilot firmware
+
+You will need to flash a custom build of the Ardupilot firmware, it can be downloaded from [this link](https://github.com/duckietown/duckiedrone-ardupilot-driver/blob/6f3bfa7fe7ad8ab06c829e1f915409ab7486f42f/assets/arducopter.bin).
+
+1. Start QGroundControl.
+2. Go into the "Vehicle Setup" tab by first clicking on the QGroundControl logo.
+      ![vehicle_setup](../_images/fc-setup/vehicle_setup.png)
+3. Go into the "Firmware Flasher" tab by clicking on "Firmware" in the left sidebar.
+      ![firmware_tab](../_images/fc-setup/firmware_tab.png)
+4. Connect the Flight Controller through USB and select the `Ardupilot` option for the firmware, ticking `Advanced Settings` and then selecting `Custom firmware file...`. A file manager window will open to allow you to pick the `arducopter.bin` file you have just downloaded.
+      ![firmware_selection](../_images/fc-setup/firmware_selection.png)
+
+Here is a video summing up the process:
+
+```{vimeo} 1045397898
+```
 
 ## Starting the drone software stack
 
@@ -124,7 +139,7 @@ By following these steps, you will be able to install QGroundControl, connect to
      - **Linux**: Follow the package manager or AppImage instructions provided on the QGroundControl download page.
    - Once installed, launch QGroundControl.
 
-2. Connect to Your Vehicle via TCP:
+1. Connect to Your Vehicle via TCP:
    - Open QGroundControl on your computer.
    - Go to the **Comm Links** section by clicking on the **Q** application icon in the top left corner.
    - Select **Add** to create a new communication link.
@@ -132,21 +147,21 @@ By following these steps, you will be able to install QGroundControl, connect to
    - Set the **Host Address** to `<robot_name>.local` and the **Port** to `5760`.
    - Click **Connect** to establish the connection with your flight controller.
 
-3. Access the Vehicle Setup:
+1. Access the Vehicle Setup:
    - Once connected, open the menu by clicking on the by clicking on the **Q** application icon in the top left corner and open the **Vehicle Setup** page from the popup menu that appears.
 
-4. Navigate to Parameters:
+1. Navigate to Parameters:
    - In the Vehicle Setup menu, select the **Parameters** tab to view the configurable parameters for your vehicle.
 
-5. Load the `.param` File:
+1. Load the `.param` File:
    - In the Parameters screen, click on the **Tools** menu in the top right corner.
    - Select **Load from file…** from the dropdown menu.
    - Browse to the location of your `.param` file on your computer, select it, and click **Open**.
 
-6. Apply the Parameters:
+1. Apply the Parameters:
    - QGroundControl will load and apply the parameters from the file to your vehicle. Progress indicators or messages will confirm that the parameters are being applied.
 
-7. Reboot the Vehicle:
+1. Reboot the Vehicle:
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.
 
