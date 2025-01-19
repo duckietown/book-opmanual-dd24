@@ -8,12 +8,12 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-        - file: preliminaries/safety
-        - file: preliminaries/prerequisites
-        - file: preliminaries/multimeters
-        - file: preliminaries/included-materials
-        - file: preliminaries/other-materials
-        - file: preliminaries/software-initialization
+        - file: preliminaries/drone-safety
+        - file: preliminaries/duckiedrone-prerequisites-guide
+        - file: preliminaries/duckiedrone-multimeter-usage-guide
+        - file: preliminaries/duckiedrone-whats-in-the-box
+        - file: preliminaries/duckiedrone-additional-materials
+        - file: preliminaries/duckiedrone-software-initialization
         - file: preliminaries/flying-your-drone
 
     # - caption: Hardware build DD24

@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: book-opmanual-dd24
+title: book-opmanual-duckiedrone-dd24
 author: The Duckietown, Inc.
-logo: logo.png
+logo: duckietown-logo.png
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: ["_build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints"]
 
