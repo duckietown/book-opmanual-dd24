@@ -201,6 +201,26 @@ Do not just unplug the SD crad from the base station
 
 You are now ready for the first boot.
 
+(raspberrypi5-sdcard-setup)
+## Raspberry Pi 5 Software Initialization
+
+```{warning}
+The Raspberry Pi 5 support is experimental, expect some functionalities to be broken. If you are not an advanced user (you should be comfortable with using the shell and ssh) it is suggested to use a Raspberry Pi 4.
+```
+
+The Raspberry Pi 5 uses a different base image than the Raspberry Pi 4, based on the most recent Raspberry Pi OS Bookworm. You can flash the image through the dts, which you can set up following the instructions provided in the Duckiebot manual. The steps are the following:
+
+1. Install the duckietown shell on your laptop according to [these instructions](book-opmanual-duckiebot:laptop-setup).
+2. After installing the duckietown shell, you can flash the sd card following [the same procedure used for duckiebots](book-opmanual-duckiebot:burn-sd-card-instructions). Make sure to change the `--type` and `--configuration` flags to `--type duckiedrone --configuration DD24`. An example command to flash the sd card for a Duckiedrone could be:
+
+      ```bash
+      duckietown shell init_sd_card --hostname [!MY_ROBOT_NAME] --type duckiedrone --configuration DD24 --country US --wifi [!miwifi]:[!mypassword]
+      ```
+
+    ```{attention}
+    Make sure to specify the country you are using your drone in through the `--country` flag, otherwise the WiFi will be disabled by default to comply with regulations.
+    ```
+
 ## Troubleshooting
 
 ````{trouble}
