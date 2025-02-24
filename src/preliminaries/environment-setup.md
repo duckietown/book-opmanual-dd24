@@ -23,6 +23,18 @@ To make it possible for you to develop your own code on the drone, you need to s
     docker pull duckietown/dt-ros-interface:ente-arm64v8
     dt-autoboot
     ```
+    ```
+    docker run \
+    --name kvstore \
+    --restart unless-stopped \
+    --network host \
+    --privileged \
+    -e DT_SUPERUSER=1 \
+    -v /data:/data \
+    -v /data/ramdisk/dtps:/dtps \
+    -v /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket \
+    docker.io/duckietown/dt-kvstore:v0.2.2-arm64v8
+    ```
 
 1. Clone the repository to your Duckiedrone's SD card and switch to the branch `ente`:
 
