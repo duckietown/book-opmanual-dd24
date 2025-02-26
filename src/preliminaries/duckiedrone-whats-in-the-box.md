@@ -20,7 +20,7 @@ Duckiedrones, as well as all other Duckietown hardware, are available on the [Du
 The Duckiedrone *yellow* box.
 ```
 
-```{figure} ../_images/components-official/whats-in-the-box-duckiedrone-dd24.png
+```{figure} ../_images/components-official/whats-in-the-box-duckiedrone-dd24.jpg
 :name: in-the-box
 :align: left
 :alt: Components included in the Duckiedrone DD24 box, including essential parts for building the drone.
