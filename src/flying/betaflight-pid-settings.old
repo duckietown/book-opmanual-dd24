@@ -1,5 +1,4 @@
 (betaflight-pid-settings)=
-
 # Flight Controller PID Tuning
 
 ```{needget}

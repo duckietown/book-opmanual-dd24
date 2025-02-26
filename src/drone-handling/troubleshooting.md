@@ -1,16 +1,14 @@
-(build_troubleshooting)=
+```{seo}
+:description: Troubleshoot common Duckiedrone (DD24) build issues, including power, Raspberry Pi, camera, flight controller, and flight stability problems.
+:keywords: Duckiedrone troubleshooting, DD24 power issues, Raspberry Pi boot failure, flight controller debugging, camera not working, drone flight stability, motor issues
+```
 
+(dd24-build_troubleshooting)=
 # Troubleshooting
-It is very very common for something to go wrong during your build.
-Count on it.  The goal is to systematically figure out what is wrong
-and fix it.  Mastering this process is essential to any robot project,
-because things will always go wrong.
 
-The high-level bit when troubleshooting is to try to isolate the
-problem systematically.  Rather than simply redoing part of the build
-or replacing a part, try to systematically verify what parts are
-working and what parts are not working.  Your drone will not fly until
-everything works!
+It is not uncommon for something to go wrong during the build process, that is why we need to learn how to debug problems. Having a systematic approach is essential to any robotics project.
+
+When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not.  Your drone will not fly until _everything_ works!
 
 ## Power issues
 
@@ -46,8 +44,7 @@ that the Raspberry Pi is receiving 5 volts from the UBEC.
 
 ## Raspberry Pi Issues
 
-Most of the next debugging steps require getting "into" your Raspberry Pi using ssh,
- check the [](./first-connection.md) chapter if you are not connected.
+Most of the next debugging steps require getting "into" your Raspberry Pi using `ssh`, check the [](./first-connection.md) chapter if you are not connected.
 
 ```{trouble}
 My Raspberry Pi is receiving power and turning the red light on, but it doesn't boot.
@@ -133,5 +130,5 @@ calibrated following as in [](esc_calibration).
 
 A well-tuned drone can hover with velocity zero with some drifting,
 but not too much.  It should be able to hover with position
-hold indefinintely.
+hold indefinitely.
 

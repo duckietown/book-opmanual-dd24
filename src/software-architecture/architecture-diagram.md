@@ -1,13 +1,19 @@
+```{seo}
+:description: Learn about the Duckiedrone (DD24) software architecture, including ROS nodes for flight control, state estimation, optical flow, and hardware interfaces.
+:keywords: Duckiedrone software architecture, DD24 ROS nodes, flight control, state estimation, optical flow, hardware interfaces, PID controller, imu data, ToF sensors
+```
+
+(dd24-sw-architecture-autonomy)=
 # Software Architecture
 
-This section elaborates on all the DTPS and ROS nodes that run on the Duckiedrone to enable it to fly autonomously.
+This section elaborates on all the `DTPS` and ROS nodes that run on the Duckiedrone.
 
 ```{figure} ../_images/software-architecture/software-architecture.drawio.png
 :width: 100%
+:alt: Duckiedrone (DD24) software architecture diagram. 
 
 Nodes composing the Duckiedrone autonomous flight stack
 ```
-
 
 ## Hardware interfaces
 

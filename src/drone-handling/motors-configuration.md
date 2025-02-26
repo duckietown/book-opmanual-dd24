@@ -1,3 +1,9 @@
+```{seo}
+:description: Configure and verify the motor spinning direction of your Duckiedrone (DD24) using QGroundControl to ensure correct flight behavior.
+:keywords: Duckiedrone motor configuration, DD24 motor direction, QGroundControl motor setup, SpeedyBee F405 v3, BetaflightX frame, ESC motor reversal
+```
+
+(dd24-motor-configuration)=
 # Configure motor spinning direction
 
 Now you have to set up the motor spinning direction on the flight controller in QGroundControl.

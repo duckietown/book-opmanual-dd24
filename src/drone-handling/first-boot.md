@@ -1,3 +1,8 @@
+```{seo}
+:description: Learn how to perform the first boot of your Duckiedrone (DD24), configure network settings, and ensure a smooth startup process.
+:keywords: Duckiedrone first boot, DD24 setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
+```
+
 (sec:first-boot)=
 # First boot
 
@@ -6,10 +11,8 @@ There is only one first time you can connect to your Duckiedrone. Savor the expe
 ```{needget}
 
 *   An assembled `DD24`
-
 *   A `DD24` initialized SD card, see [](sw-initialization)
 ---
-
 
 *   A live `DD24`
 ```

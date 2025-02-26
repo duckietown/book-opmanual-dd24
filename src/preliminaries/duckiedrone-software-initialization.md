@@ -1,24 +1,18 @@
-
 ```{seo}
 :description: Step-by-step guide to initializing the Duckiedrone software, including flashing the SD card and customizing settings.
 :keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, configuration
 ```
 
+(dd24-sw-init)=
 # Software Initialization
 
-```{admonition} What you will need
-:class: note
+```{needget}
 
 * A computer (a.k.a. “base station”) with an internet connection
-
 * Balena Etcher or similar program
-
 * A micro SD card (32GB, U3, Class 10), e.g., that from your Duckiebox 
-
 * A micro SD card reader, e.g., that from your Duckiebox
-```
-
-```{admonition} What you will get
+---
 
 * A DD24 initialized and customized micro SD card
 ```

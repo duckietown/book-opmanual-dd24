@@ -1,5 +1,10 @@
-# Common issues
+```{seo}
+:description: Troubleshooting common issues with the Duckiedrone DD24, including power issues, connectivity problems, motor behavior, and software errors.
+:keywords: Duckiedrone, troubleshooting, Raspberry Pi, flight controller, motors, software issues, connectivity, dd24 faq
+```
 
+(dd24-troubleshooting-faq)=
+# Common issues
 
 ```{trouble}
 The red light on the Raspberry Pi :
@@ -36,7 +41,7 @@ The `roscore` screen does not startup.
 ---
 Quit the screen by typing the tick (\`) followed by colon (`:`) and the type the word `quit` and press enter. You will not see the tick and colon typing, but you will see "quit" as you type at the bottom of the screen. 
 
-Check if there re multiple screens running by typing `screen -ls` in the terminal.
+Check if there are multiple screens running by typing `screen -ls` in the terminal.
 
 You will need to quit each socket found so that only one screen session is running. To do so:
 

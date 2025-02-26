@@ -1,3 +1,8 @@
+```{seo}
+:description: Learn how to connect to your Duckiedrone (DD24) using the Duckietown Dashboard in client or access point mode.
+:keywords: Duckiedrone first connection, DD24 network setup, Duckietown Dashboard, AP mode, CL mode, robotics WiFi configuration
+```
+
 (first_connection)=
 # First connection
 
@@ -6,13 +11,10 @@ You are now ready to connect to your Duckiedrone through the Duckietown Dashboar
 ```{needget}
 
 *   A live `DD24` ([First Boot](sec:first-boot))
-
 *   A base station with wireless connectivity, or a pre-existing network
-
 ---
 
 *   A fully operational `DD24`
-
 ```
 
 

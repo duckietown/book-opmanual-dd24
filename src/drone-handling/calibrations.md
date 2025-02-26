@@ -1,4 +1,14 @@
-# Accelerometer calibrations
+```{seo}
+:description: Learn how to calibrate the accelerometer and camera on the Duckiedrone (DD24) for stable flight using Betaflight and the Dashboard.
+:keywords: Duckiedrone accelerometer calibration, Duckiedrone camera calibration, Betaflight calibration, IMU calibration, flight controller calibration, DD24 setup
+```
+
+(dd24-sensor-calibration)=
+# Sensor Calibration
+
+Sensors produce data. To help make sense of this data and transform it into information, it is useful to calibrate sensors.
+
+## Accelerometer calibrations
 
 The IMU is embedded in the flight controller and includes a gyroscope and an accelerometer, which respectively produce angular rate (in degrees/second) and linear acceleration measurements (normalized to gravitational acceleration at sea level $g = 9.81 \frac{m}{s^2}$).
 

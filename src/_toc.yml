@@ -26,24 +26,24 @@ parts:
       chapters:
           - file: drone-handling/first-boot
           - file: drone-handling/first-connection
-          - file: preliminaries/flight-controller-initialization
+          - file: drone-handling/flight-controller-initialization
           - file: drone-handling/motors-configuration
           - file: drone-handling/troubleshooting
-          - file: datasheets/index
+      #    - file: datasheets/index #still has old dd21 files and pics are awfully rendered
 
     - caption: Using the drone
       maxdepth: 2
       numbered: False
       chapters:
-          - file: flying/environment-setup
-          - file: flying/betaflight-pid-settings
+      #    - file: flying/environment-setup
+          - file: flying/duckiedrone-flight-controller-pid-tuning
           - file: flying/diagnostic
 
     - caption: Learning Experiences
       maxdepth: 2
       numbered: False      
       chapters:
-          - file : learning-experiences/index
+          - file: learning-experiences/index
           - file: learning-experiences/supported-lxs
           
     - caption: Software Architecture
