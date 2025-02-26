@@ -1,16 +1,16 @@
+```{seo}
+:description: Instructions to initialize the flight controller on the Duckietown Duckiedrone model DD24. 
+:keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization
+```
+
+(dd24-fc-init)=
 # Initializing the Flight Controller
 
-```{admonition} What you will need
-:class: note
-
+```{needget}
 * A base station computer
 * Flight Controller
 * USB to USB-C cable
-```
-
-
-```{admonition} What you will get
-
+---
 * An up-to-date, initialized Flight Controller
 ```
 
