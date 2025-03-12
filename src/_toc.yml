@@ -12,6 +12,8 @@ parts:
         - file: preliminaries/prerequisites
         - file: preliminaries/multimeters
         - file: preliminaries/included-materials
+          sections:
+              - file: preliminaries/dd24-components-description
         - file: preliminaries/other-materials
         - file: preliminaries/software-initialization
         - file: preliminaries/flight-controller-initialization
