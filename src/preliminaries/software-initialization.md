@@ -8,7 +8,7 @@
 
 * Balena Etcher or similar program
 
-* A micro SD card (32GB, U3, Class 10), e.g., that from your Duckiebox 
+* A micro SD card (32GB or 64GB, U3, Class 10), e.g., that from your Duckiebox 
 
 * A micro SD card reader, e.g., that from your Duckiebox
 ```

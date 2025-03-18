@@ -1,6 +1,9 @@
 (prelim-dd24-box-component-description)=
 # Description of Components (`DD24`)
 
+Most components in the Duckiedrone box are functional, i.e., the serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful. 
+
+We provide below a brief description of each component in the box.
 
 (component-raspberry-pi-4-4gb)=
 ## Raspberry Pi 4 - Model B - 4GB
@@ -18,7 +21,7 @@ The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This lit
 
 The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
-The Duckiedrone is compatible with the Raspberry Pi 5 too, but initialization instructions are different from the 4 version. 
+The Duckiedrone is compatible with the Raspberry Pi 5 too, but initialization instructions are different from the 4 version.
 
 (component-64gb-microsd-card-class-10-u3)=
 ## 64GB MicroSD card - Class 10 U3
@@ -32,6 +35,16 @@ The Duckiedrone is compatible with the Raspberry Pi 5 too, but initialization in
 64GB Class 10 mini SD card
 ```
 
+The microSD card is the core memory of the Drone. 
+
+While it does look like a regular SD card with 64GB of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the drone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop. 
+
+```{note}
+
+The microSD card is inserted directly in the Raspberry Pi. Do not use the microSD adapter below during flight.
+
+```
+
 (component-microsd-to-usb-adapter)=
 ## MicroSD to USB adapter
 
@@ -42,6 +55,13 @@ The Duckiedrone is compatible with the Raspberry Pi 5 too, but initialization in
 :alt: SD card USB adapter
 
 SD card USB adapter
+```
+This USB-A microSD adapter is included in the box to support the first initialization of the microSD card. 
+
+[One of the very first steps](sw-initialization) in the assembly process is to insert the microSD card in the adapter, and plug the adapter in your base station (laptop or desktop, not provided in the box) to install the correct software on Duckiedrone. 
+
+```{warning}
+Do not plug the microSD card adapter in the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
 ```
 
 (component-rpi-camera-g-fisheye-lens)=
@@ -55,6 +75,10 @@ SD card USB adapter
 
 Raspberry Pi camera with Fisheye lens, and cable
 ```
+
+The camera is an extremely important sensor for the Duckiedrone autonomous operation, allowing it to perceive the environment visually. 
+
+This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/product/rpi-camera.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
 ## Time of flight sensors sensor
