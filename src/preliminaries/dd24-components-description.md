@@ -10,7 +10,7 @@ We provide below a brief description of each component in the box.
 
 ```{figure} ../_images/components-official-dd24/rpi4.jpg
 :name: rpi4
-:width: 300px
+:width: 400px
 :align: center
 :alt: Raspberry Pi 4 Model B, 4GB RAM
 
@@ -76,9 +76,9 @@ Do not plug the microSD card adapter in the Raspberry Pi during flight. The micr
 Raspberry Pi camera with Fisheye lens, and cable
 ```
 
-The camera is an extremely important sensor for the Duckiedrone autonomous operation, allowing it to perceive the environment visually. 
+The camera is an extremely important sensor for Duckiedrone autonomous operations, allowing it to perceive the environment visually. 
 
-This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/product/rpi-camera.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
+This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
 ## Time of flight sensors sensor
@@ -92,15 +92,14 @@ This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/product/rpi
 Time of Flight Sensor (back, front)
 ```
 
-VL53L1X, Black PCB, 5x
+Time of flight (ToF) sensors are distance measurement sensors. The Duckiedrone mounts five, one on each side and one looking down to measure altitude. The principle of operation is the measurement of the return time of light bouncing off obstacles, so we can think of them as 1D lidars.
 
-ToF sensor cable - 15cm, 4-pin JST 1.5mm
-ToF sensor cable - 23cm, 4-pin JST 1.5mm
+The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm, and 23cm 4-pin JST 1.5mm cables. 
 
 (component-motors-cw-lhi-dx2205-2300kv)=
 ## Motors (CW)
 
-```{figure} ../_images/components-official-dd24/dd24-motors-1.jpg
+```{figure} ../_images/components-official-dd24/dd24-motors-black-cw.jpg
 :name: dd24-motors-cw
 :width: 300px
 :align: center
@@ -109,12 +108,20 @@ ToF sensor cable - 23cm, 4-pin JST 1.5mm
 Brushless DC Motors (Clockwise - CW) 
 ```
 
- - LHI DX2205 2300KV
+The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. This racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+
+Note that there are two pairs of motors, distinguishable by the color of the top nut. 
+
+```{note}
+**Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
+```
+
+If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent that the nuts come off (along with the propellers) during flight.
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
 
-```{figure} ../_images/components-official-dd24/dd24-motors-2.jpg
+```{figure} ../_images/components-official-dd24/dd24-motors-red-ccw.jpg
 :name: dd24-motors-cw
 :width: 300px
 :align: center
@@ -123,33 +130,71 @@ Brushless DC Motors (Clockwise - CW)
 Brushless DC Motors (Counter-clockwise - CCW) 
 ```
 
- - LHI DX2205 2300KV
+These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in counter-clockwise direction.
+
+```{note}
+**Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
+```
 
 (component-propellers-cw-diatone-polycarbonate-4040)=
 ## Propellers (CW and CCW) 
 
-```{figure} ../_images/components-official-dd24/dd24-props.jpg
+```{figure} ../_images/components-official-dd24/props-cw-ccw-arrows.png
 :name: dd24-propellers
-:width: 300px
+:width: 400px
 :align: center
 :alt: Drone propellers
 
 Propellers (CW and CCW) 
 ```
 
-- Diatone Polycarbonate 4040
+The Duckiedrone (`DD24`) mounts four Diatone Polycarbonate 4040, 4x4 (in) three-bladed propellers ("props"), each weighing 3.5g. 
+
+The box contains a full spare set, i.e., 4x CW and 4x CCW props. 
+
+As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other for counter-clockwise (CCW). 
+
+To distinguish CW from CCW propellers, find the arrows impressed on the backside, as show in [](dd24-propellers).
+
 
 (component-lipo-battery-1500mah-4s-148v-xt60)=
-## LiPo Battery - 1500mAh, 4S, 14.8V, XT60 connector
+## Battery 
 
 ```{figure} ../_images/components-official-dd24/dd24-battery.jpg
-:name: name-unique
+:name: dd24-battery
 :width: 300px
 :align: center
-:alt: text
+:alt: Duckietown Duckiedrone DD24 LiPo battery
 
-Text 
+The Duckiedrone battery
 ```
+
+The battery provides power for the Duckiedrone to operate, and is therefore essential to autonomous operations. 
+
+The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on Wikipedia](https://en.wikipedia.org/wiki/Lithium_polymer_battery)) with the following technical specifications:
+
+- Cells: 4
+- Output Voltage: 14.8V
+- Capacity: 1500mAh
+- Discharge Rating: 35C
+- Weight: 178g
+- Dimensions: 16x35x33mm
+
+Here is good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
+
+```{attention}
+Before doing anything with the Duckietown battery, ready the [Duckietown Safety Guidelines](preliminaries-safety).
+```
+
+```{warning}
+Lithium-Ion batteries are fire hazards and must be handled with care. 
+
+If for any reason your battery looks punctured or otherwise damaged, do not use it and dispose of it immediately. 
+
+You can learn how to safely dispose of a LiPo battery, e.g., here: [Oscar Liang's Guide on Disposing LiPo batteries](https://oscarliang.com/dispose-lipo-battery-safely/). 
+```
+
+The Duckietown battery connects to the drone through a 10cm long XT60 connector, and should be charged using the provided battery charger.
 
 (component-battery-charger-2-4s-liion-lipoly-25w)=
 ## Battery charger
