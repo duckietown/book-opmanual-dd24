@@ -14,55 +14,71 @@ To operate the drone, you must have a laptop or personal computer capable of con
 
 ### OS Requirements
 
-At this time, it is not possible to flash your SD card on a Chromebook. You will need a Linux, Windows, or macOS device to configure the SD card during the build. After configuration, any OS can be used.
+(prelim-dd24-other-materials-required)=
+# Other Required Materials
+
+## Base Station (Laptop)
+
+This section contains what you will need to build and fly your drone that is not included in the kit.
+In order to fly the drone, you must have a laptop or personal computer that is capable of connecting to the internet.
+
+### OS Requirements
+
+At this time, it is not possible to flash your SD card on a Chromebook. You will need a Linux, Windows, or macOS device to configure the SD card during the build, but you can use any OS after this the configuration.
 
 ### Software Requirements
 
-You will also need to install the following software on your base station:
+Additionally, you will need to install the following software on your base station.
 
-1. *Betaflight Configurator*. This application allows you to set up your Flight Controller.
+1. *Betaflight Configurator*. This is an application that will allow you to set up your Flight Controller.
 
     ```{note}
-    You will install this software later in the manual.
+    You will install this later in the manual.
     ```
 
-2. [Balena Etcher](https://etcher.balena.io/#download-etcher)
+1. [Balena Etcher](https://etcher.balena.io/#download-etcher)
 
-## Essential Soldering Tools
+## Soldering Tools
+
+Essential:
 
 ```{figure} ../_images/tools/Soldering_iron_and_accessories.jpg
-:name: soldering-tools
-:alt: A soldering iron with base, sponge, and solder.
-:align: left
+:name: soldering-iron
+:width: 300px
+:align: center
+:alt: Example of soldering iron, sponge and solder
 
-Soldering iron with base, sponge, and solder.
+Soldering iron with base, sponge and solder
 ```
 
-- Soldering iron
-- Solder
-- Brass wool or sponge to clean the soldering iron
+- soldering iron
+- solder
+- brass wool or sponge to clean soldering iron
 
 ```{figure} ../_images/tools/Ideal_Reflex_wire_stripper.jpg
-:name: wire-stripper
-:alt: Wire strippers used for preparing wires for soldering.
-:align: left
+:name: fig-wire-stripper
+:width: 300px
+:align: center
+:alt: Example of wire stripper
 
-Wire strippers.
+Example of wire stripper
 ```
 
-- Wire strippers
-- Safety goggles
-- Fume extractor
-- Multimeter
-- Helping hands
+- wire strippers
+- safety goggles
+- fume extractor
+- multimeter
+- helping hands
 
-### Nice to Have
+Nice to have:
 
-- Solder remover (solder sucker or desoldering wick) to fix mistakes
-- Soldering mat
-- Tweezers or pliers
-- Flush cutters
+- solder remover (either solder sucker or de-soldering wick) to fix mistakes
+- soldering mat
+- tweezers or pliers
+- flush cutters
 
-## Miscellaneous Tools
+
+## Miscellanea Tools
 
 - Double-sided tape
+- Joypad

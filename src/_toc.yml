@@ -12,6 +12,8 @@ parts:
         - file: preliminaries/duckiedrone-prerequisites-guide
         - file: preliminaries/duckiedrone-multimeter-usage-guide
         - file: preliminaries/duckiedrone-whats-in-the-box
+          sections:
+            - file: preliminaries/dd24-components-description
         - file: preliminaries/duckiedrone-additional-materials
         - file: preliminaries/duckiedrone-software-initialization
       #  - file: preliminaries/flying-your-drone

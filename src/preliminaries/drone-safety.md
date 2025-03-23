@@ -3,7 +3,7 @@
 :keywords: Duckiedrone safety, soldering safety, LiPo battery handling, drone flying tips, Duckietown, drone assembly guide, drone safety measures, RC devices, dd24, dd-24, Duckiedrone, autonomous quadcopter, drone, autonomous drone
 ```
 
-(drone-safety)=
+(prelim-drone-safety)=
 # Safety
 ```{admonition} Read carefully
 :class: danger

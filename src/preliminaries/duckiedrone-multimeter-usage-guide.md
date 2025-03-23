@@ -46,6 +46,7 @@ Performing a continuity check is a safe method for identifying shorts without re
    |:-----------------------------:|:---------------------:|
    | ![](../_images/multimeters/multimeter_dial_continuity_inked.jpg) | ![](../_images/multimeters/multimeter_continuity_mode_inked.jpg) |
 
+
    - Test the mode by touching the multimeter leads together. A continuous beep confirms the mode is active.
 
        ```{figure} ../_images/multimeters/multimeter_leads_together_inked.jpg
