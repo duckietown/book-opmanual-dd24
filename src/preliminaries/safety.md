@@ -1,5 +1,6 @@
 (preliminaries-safety)=
 # Safety
+
 ```{admonition} Read carefully
 :class: danger
 

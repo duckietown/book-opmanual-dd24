@@ -35,7 +35,7 @@ In this section you will install the Duckiedrone software on the microSD card.
 
 1. Connect the micro SD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
   
-    ```{figure} ../_images/components-official/microSD_reader.png
+    ```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
     :width: 400px
 
     Micro SD Card adapter

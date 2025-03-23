@@ -26,6 +26,10 @@ Additionally, you will need to install the following software on your base stati
 Essential:
 
 ```{figure} ../_images/tools/Soldering_iron_and_accessories.jpg
+:name: soldering-iron
+:width: 300px
+:align: center
+:alt: Example of soldering iron, sponge and solder
 
 Soldering iron with base, sponge and solder
 ```
@@ -35,12 +39,15 @@ Soldering iron with base, sponge and solder
 - brass wool or sponge to clean soldering iron
 
 ```{figure} ../_images/tools/Ideal_Reflex_wire_stripper.jpg
+:name: wire-stripper
+:width: 300px
+:align: center
+:alt: Example of wire stripper
 
-Soldering iron with base, sponge and solder
+Example of wire stripper
 ```
 
 - wire strippers
-
 - safety goggles
 - fume extractor
 - multimeter
@@ -53,6 +60,8 @@ Nice to have:
 - tweezers or pliers
 - flush cutters
 
-## Misc. Tools
+
+## Miscellanea Tools
 
 - Double-sided tape
+- Joypad

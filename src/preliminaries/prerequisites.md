@@ -8,9 +8,9 @@ Whether you're new to soldering or not, we recommend reading through this page t
 
 ## Strip Wires
 
-Stripping is the process of removing a portion of an insulator from a wire in order to expose its strands. It is done by using a wire stripper. The exposed wire is then able to be tinned and soldered.
+Stripping is the process of removing a portion of an insulator from a wire in order to expose its strands. It is done by using a wire stripper. The exposed wire can then be tinned and soldered.
 
-## Tin
+## Tinning
 
 Tinning is the process of applying solder to exposed wire or metal pad. It is done by using a soldering iron to heat up the metal, and then solder melts into the wire or onto the pad. The purpose of Tinning is to make the soldering process easier.
 
