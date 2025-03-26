@@ -2,12 +2,12 @@
 
 ## Base Station (Laptop)
 
-This section contains what you will need to build and fly your drone that is not included in the kit.
+This section contains what you will need to build and fly your drone, which is not included in the kit.
 In order to fly the drone, you must have a laptop or personal computer that is capable of connecting to the internet.
 
 ### OS Requirements
 
-At this time, it is not possible to flash your SD card on a Chromebook. You will need a Linux, Windows, or macOS device to configure the SD card during the build, but you can use any OS after this the configuration.
+At this time, it is not possible to flash your SD card on a Chromebook. You will need a Linux, Windows, or macOS device to configure the SD card during the build, but you can use any OS after this configuration.
 
 ### Software Requirements
 
@@ -64,4 +64,4 @@ Nice to have:
 ## Miscellanea Tools
 
 - Double-sided tape
-- Joypad
+- (optional) Joypad
