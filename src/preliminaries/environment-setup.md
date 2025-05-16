@@ -18,23 +18,6 @@ To make it possible for you to develop your own code on the drone, you need to s
 
     ```
     docker stop dtps ros1-tof driver-tof && docker rm dtps ros1-tof driver-tof
-    docker pull duckietown/dtps-switchboard:release
-    docker pull duckietown/dt-duckiebot-interface:ente-arm64v8
-    docker pull duckietown/dt-ros-interface:ente-arm64v8
-    dt-autoboot
-    ```
-    ```
-    docker run \
-    --name kvstore \
-    --restart unless-stopped \
-    --network host \
-    --privileged \
-    --detach \
-    -e DT_SUPERUSER=1 \
-    -v /data:/data \
-    -v /data/ramdisk/dtps:/dtps \
-    -v /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket \
-    docker.io/duckietown/dt-kvstore:v0.2.2-arm64v8
     ```
 
 1. Clone the repository to your Duckiedrone's SD card and switch to the branch `ente`:
@@ -59,6 +42,7 @@ To make it possible for you to develop your own code on the drone, you need to s
     ```shell
     cd ~/catkin_ws/src/
     git clone https://github.com/duckietown/raspicam_node -b kinetic-dd24
+    git clone https://github.com/okalachev/vl53l1x_ros.git
     ```
 
 1.  You can start the container and go inside it by running, from the `pidrone_pkg` directory:
