@@ -63,10 +63,24 @@ Perform the following 2 steps with the Flight Controller **disconnected**.
     ```
 
 *   Configure the options in the tab as below:
-    ```{figure} ../_images/software-initialization/flasher_parameters.png
+    
+    :::::{tab-set}
+
+    ::::{tab-item} SpeedyBee F405V3
+    ```{figure} ../_images/software-initialization/flasher_parameters_speedybee.png
 
     `Firmware Flasher` parameters to set
     ```
+    ::::
+
+    ::::{tab-item} Mamba F405MK2
+    ```{figure} ../_images/software-initialization/flasher_parameters_mamba.png
+
+    `Firmware Flasher` parameters to set
+    ```
+    ::::
+
+    :::::
 
 ## Flashing the Flight Controller
 
@@ -88,10 +102,23 @@ To flash the firmware, we need the Flight Controller to be in `bootloader mode`.
 
 1. Identify the `boot` button on the Flight Controller to the laptop and press the `Connect` button:
 
+    :::::{tab-set}
+
+    ::::{tab-item} SpeedyBee F405V3
     ```{figure} ../_images/software-initialization/speedybee_boot_button.png
 
     `BOOT` button location on the SpeedyBeeF405V3 Flight Controller.
     ```
+    ::::
+
+    ::::{tab-item} Mamba F405MK2
+    ```{figure} ../_images/software-initialization/mamba_boot_button.png
+
+    `BOOT` button location on the Mamba F405MK2 Flight Controller.
+    ```
+    ::::
+
+    :::::
  
 1. Connect the Flight Controller to the laptop while pressing the `boot` button.
 
