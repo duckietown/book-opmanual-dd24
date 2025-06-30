@@ -268,7 +268,16 @@ Duckiedrone Duckiehut breadboard
 This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](9component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
-## Flight Controller & ESC stack - SpeedyBee F405 V3 BLS 50A
+## Flight Controller & ESC stack
+
+```{note}
+There are two supported flight‑controller + ESC stacks for the Duckiedrone family.
+
+* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the original **DD24** kits.  
+* **Mamba F405 MK2 V2 (50 A)** – shipped with the **DD24‑B** revision.
+
+Both boards share similar functionalities and are fully compatible with the assembly and configuration instructions in this manual.
+```
 
 ```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
 :name: flight-controller-and-esc-stack-speedybee-box
@@ -288,7 +297,9 @@ The Electronic Speed Controller board, that stacks with the FC and is convenient
 
 This FC+ESC stack include the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
 
-### FCs on the DD24
+### FCs on the DD24 and DD24‑B
+
+The standard DD24 is supplied with the SpeedyBee stack, whereas the DD24‑B revision uses the Mamba stack.
 
 ```{note}
 The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025, due to supply chain constraints.
@@ -305,8 +316,35 @@ The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405
 The FC+ESC F405 V3 stack box components and specifications
 ```
 
+
 * [Download the F405v3 50A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
 * [Download the F405v4 55A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
+
+(identifying-flight-controller)=
+### Identifying your flight controller
+
+```{figure} ../_images/components-official-dd24/speedybee-f405-v3-fc.png
+:name: fig-fc-speedybee-v3-top
+:width: 350px
+:align: center
+:alt: SpeedyBee F405 V3/V4 – top view
+
+SpeedyBee F405 V3/V4 (top view)
+```
+
+```{figure} ../_images/components-official-dd24/dd24-fc-esc-stack-mamba-f405-mk2-v2.png
+:name: fig-fc-mamba-top
+:width: 350px
+:align: center
+:alt: Mamba F405 MK2 V2 – top view
+
+Mamba F405 MK2 V2 (top view)
+```
+
+Use the connector layout and the soldering pads type to recognize your board:
+
+* **SpeedyBee** – only surface soldering pads. 
+* **Mamba** – through-hole soldering pads.
 
 
 (component-buzzer-model-2312-3v-24v)=

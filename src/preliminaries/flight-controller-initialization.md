@@ -98,6 +98,12 @@ If this is the case during this section, unplug from base station and try to rea
 ```
 
 
+```{warning}
+In June 2025 a new revision of the `DD24` hardware was released, the `DD24-B`.
+The hardware revision is printed on the outside of the box.
+This revision ships with a different (but equivalent) flight controller, the Mamba f405 mk2 v2. **Before continuing with the instructions**, [identify your flight controller here](identifying-flight-controller).
+```
+
 To flash the firmware, we need the Flight Controller to be in `bootloader mode`.
 
 1. Identify the `boot` button on the Flight Controller to the laptop and press the `Connect` button:
