@@ -219,7 +219,10 @@ We have created a file with the required setup for you, so you will only need to
 
 To do this:
 
-1.  Download [this](https://raw.githubusercontent.com/duckietown/pidrone_pkg/dd24/SPEEDYBEEF405.conf) configuration file.
+1.  Download the configuration file corresponding to your flight controller model:
+
+    - [SpeedyBee f405 v3/v4](https://raw.githubusercontent.com/duckietown/pidrone_pkg/dd24/SPEEDYBEEF405.conf)
+    - [Mamba f405 mk2 v2](https://raw.githubusercontent.com/duckietown/pidrone_pkg/refs/heads/dd24/MAMBAF405MK2V2.conf)
 
 1.  Open it in the notepad app of your base station
 
