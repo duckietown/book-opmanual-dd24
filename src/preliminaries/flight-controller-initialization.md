@@ -63,10 +63,24 @@ Perform the following 2 steps with the Flight Controller **disconnected**.
     ```
 
 *   Configure the options in the tab as below:
-    ```{figure} ../_images/software-initialization/flasher_parameters.png
+    
+    :::::{tab-set}
+
+    ::::{tab-item} SpeedyBee F405V3
+    ```{figure} ../_images/software-initialization/flasher_parameters_speedybee.png
 
     `Firmware Flasher` parameters to set
     ```
+    ::::
+
+    ::::{tab-item} Mamba F405MK2
+    ```{figure} ../_images/software-initialization/flasher_parameters_mamba.png
+
+    `Firmware Flasher` parameters to set
+    ```
+    ::::
+
+    :::::
 
 ## Flashing the Flight Controller
 
@@ -84,14 +98,33 @@ If this is the case during this section, unplug from base station and try to rea
 ```
 
 
+```{warning}
+In June 2025 a new revision of the `DD24` hardware was released, the `DD24-B`.
+The hardware revision is printed on the outside of the box.
+This revision ships with a different (but equivalent) flight controller, the Mamba f405 mk2 v2. **Before continuing with the instructions**, [identify your flight controller here](identifying-flight-controller).
+```
+
 To flash the firmware, we need the Flight Controller to be in `bootloader mode`.
 
 1. Identify the `boot` button on the Flight Controller to the laptop and press the `Connect` button:
 
+    :::::{tab-set}
+
+    ::::{tab-item} SpeedyBee F405V3
     ```{figure} ../_images/software-initialization/speedybee_boot_button.png
 
     `BOOT` button location on the SpeedyBeeF405V3 Flight Controller.
     ```
+    ::::
+
+    ::::{tab-item} Mamba F405MK2
+    ```{figure} ../_images/software-initialization/mamba_boot_button.png
+
+    `BOOT` button location on the Mamba F405MK2 Flight Controller.
+    ```
+    ::::
+
+    :::::
  
 1. Connect the Flight Controller to the laptop while pressing the `boot` button.
 
@@ -186,7 +219,10 @@ We have created a file with the required setup for you, so you will only need to
 
 To do this:
 
-1.  Download [this](https://raw.githubusercontent.com/duckietown/pidrone_pkg/dd24/SPEEDYBEEF405.conf) configuration file.
+1.  Download the configuration file corresponding to your flight controller model:
+
+    - [SpeedyBee f405 v3/v4](https://raw.githubusercontent.com/duckietown/pidrone_pkg/dd24/SPEEDYBEEF405.conf)
+    - [Mamba f405 mk2 v2](https://raw.githubusercontent.com/duckietown/pidrone_pkg/refs/heads/dd24/MAMBAF405MK2V2.conf)
 
 1.  Open it in the notepad app of your base station
 
