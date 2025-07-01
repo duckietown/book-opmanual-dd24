@@ -5,7 +5,7 @@ The 3D Assembly Tool is a powerful software application designed to assist users
 There is a mistake in Step 34, the bottom time of flight sensor must be plugged in the connector labeled `CHL0` rather than `CHL3`. Make sure to do so while we work on updating the 3D tool.
 ```
 
-````{attention} Differences in the 3D Assembly Tool
+````{attention}
 
 The flight controller and PDB board included with the `DD24-B` differ slightly from those depicted in the 3D assembly tool.
 
