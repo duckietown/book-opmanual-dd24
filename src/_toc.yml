@@ -32,7 +32,6 @@ parts:
           - file: drone-handling/first-boot
           - file: drone-handling/first-connection
           - file: drone-handling/troubleshooting
-          - file: datasheets/index
 
     - caption: Using the drone
       maxdepth: 2
