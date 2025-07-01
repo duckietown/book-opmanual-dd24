@@ -22,7 +22,8 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: hw_assembly/index
+          - file: hw_assembly/dd24
+          - file: hw_assembly/dd24-B
 
     - caption: Drone handling
       maxdepth: 2
