@@ -319,6 +319,7 @@ The FC+ESC F405 V3 stack box components and specifications
 
 * [Download the F405v3 50A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
 * [Download the F405v4 55A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
+* [Download the Mamba F405mk2 v2 FC&ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
 
 (identifying-flight-controller)=
 ### Identifying your flight controller
