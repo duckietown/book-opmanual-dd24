@@ -22,7 +22,8 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: hw_assembly/index
+          - file: hw_assembly/dd24
+          - file: hw_assembly/dd24-B
 
     - caption: Drone handling
       maxdepth: 2
@@ -31,7 +32,6 @@ parts:
           - file: drone-handling/first-boot
           - file: drone-handling/first-connection
           - file: drone-handling/troubleshooting
-          - file: datasheets/index
 
     - caption: Using the drone
       maxdepth: 2
@@ -47,7 +47,7 @@ parts:
       maxdepth: 2
       numbered: False      
       chapters:
-          - file : learning-experiences/index
+          - file: learning-experiences/index
           - file: learning-experiences/supported-lxs
           
     - caption: Software Architecture
