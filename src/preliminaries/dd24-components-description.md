@@ -22,7 +22,7 @@ We provide below a brief description of each component in the box.
 Raspberry Pi 4 Model B, 4GB RAM
 ```
 
-The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as high-level brain of the Duckiedrone, hosting most of the computation power. 
+The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
 
 The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
@@ -113,7 +113,7 @@ The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. This racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205, featuring a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and a weight of roughly 28g each. 
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
@@ -121,13 +121,13 @@ Note that there are two pairs of motors, distinguishable by the color of the top
 **Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
 ```
 
-If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent that the nuts come off (along with the propellers) during flight.
+If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent the nuts coming off (along with the propellers) during flight.
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
 
 ```{figure} ../_images/components-official-dd24/dd24-motors-red-ccw.jpg
-:name: dd24-motors-cw
+:name: dd24-motors-ccw
 :width: 300px
 :align: center
 :alt: Brushless DC Motors (Clockwise - CCW)
@@ -135,7 +135,7 @@ If you try to unscrew the top nuts, you will notice how they have opposite threa
 Brushless DC Motors (Counter-clockwise - CCW) 
 ```
 
-These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in counter-clockwise direction.
+These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in a counter-clockwise direction.
 
 ```{note}
 **Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
@@ -185,7 +185,7 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 - Weight: 178g
 - Dimensions: 16x35x33mm
 
-Here is good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
+Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
 ```{attention}
 Before doing anything with the Duckietown battery, ready the [Duckietown Safety Guidelines](preliminaries-safety).
@@ -273,10 +273,12 @@ This is a prototyping breadboard with two-sided tape on the back. Attach it in t
 ```{note}
 There are two supported flight‑controller + ESC stacks for the Duckiedrone family.
 
-* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the original **DD24** kits.  
-* **Mamba F405 MK2 V2 (50 A)** – shipped with the **DD24‑B** revision.
+* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**DD24**) revision kits.  
+* **Mamba F405 MK2 V2 (50 A)** – shipped with the second (**DD24‑B**) revision kits.
 
 Both boards share similar functionalities and are fully compatible with the assembly and configuration instructions in this manual.
+
+Before starting the assembly of your Duckiedrone, make sure to [identify which flight controller is in your box](identifying-flight-controller), as the assembly instructions are slightly different. 
 ```
 
 ```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
@@ -295,17 +297,17 @@ Overall, the FC is an essential component of every drone, even when another comp
 
 The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
-This FC+ESC stack include the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
+This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
 
 ### FCs on the DD24 and DD24‑B
 
-The standard DD24 is supplied with the SpeedyBee stack, whereas the DD24‑B revision uses the Mamba stack.
+The standard `DD24` is supplied with the SpeedyBee stack, whereas the `DD24‑B` revision uses the Mamba stack.
 
 ```{note}
-The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025, due to supply chain constraints.
+The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025.
 ```
 
-The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), whith details provided in [](fig-dd24-fc-esc-405v3-specs). 
+The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs). 
 
 ```{figure} ../_images/components-official-dd24/f405-V3-specification-8.jpg
 :name: fig-dd24-fc-esc-405v3-specs
@@ -315,7 +317,6 @@ The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405
 
 The FC+ESC F405 V3 stack box components and specifications
 ```
-
 
 * [Download the F405v3 50A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
 * [Download the F405v4 55A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
@@ -347,6 +348,10 @@ Use the connector layout and the soldering pads type to recognize your board:
 * **SpeedyBee** – only surface soldering pads. 
 * **Mamba** – through-hole soldering pads.
 
+```{attention}
+* If your Duckiedrone box has a SpeedyBee flight controller, follow these [Duckiedrone DD24 assembly instructions](duckiedrone-dd24-assembly-instructions)
+* If your Duckiedrone box has a Mamba flight controller, follow these [Duckiedrone DD24-B assembly instructions](duckiedrone-dd24-b-assembly-instructions)
+```
 
 (component-buzzer-model-2312-3v-24v)=
 ## Buzzer
