@@ -127,6 +127,8 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     
     ```{seealso}
     A detailed guide on how to change `wpa_supplicant.conf` can be found in [](sw-initialization).
+    
+    For advanced network configurations, including enterprise networks like eduroam, see [Network Configuration](dd24-network-configuration).
     ```
 
     ```{tip}    
