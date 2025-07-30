@@ -184,6 +184,10 @@ If you are in an environment where multiple drones are operating at the same tim
     }
     ```
 
+```{note}
+For advanced network configurations, including enterprise networks like eduroam and detailed troubleshooting, see [Network Configuration](dd24-network-configuration).
+```
+
 ````{admonition} Eject your SD card safely.
 :class: warning
 

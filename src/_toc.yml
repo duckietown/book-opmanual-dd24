@@ -31,6 +31,7 @@ parts:
       chapters:
           - file: drone-handling/first-boot
           - file: drone-handling/first-connection
+          - file: drone-handling/network-configuration
           - file: drone-handling/troubleshooting
 
     - caption: Using the drone

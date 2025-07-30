@@ -12,6 +12,10 @@ or replacing a part, try to systematically verify what parts are
 working and what parts are not working.  Your drone will not fly until
 everything works!
 
+```{seealso}
+For network-related issues, including Wi-Fi connectivity problems and enterprise network setup, see [Network Configuration](dd24-network-configuration).
+```
+
 ## Power issues
 
 ```{trouble}
