@@ -20,14 +20,14 @@ This page describes how to configure Wi-Fi networks on your Duckiedrone, includi
 Your Duckiedrone uses the `wpa_supplicant` service to manage Wi-Fi connections. Network configurations are stored in the `wpa_supplicant.conf` file, which can be edited to add new networks or modify existing ones.
 
 ```{attention}
-Changes to network configuration require either editing the SD card directly or accessing the Duckiedrone via SSH. Make sure to backup your configuration before making changes.
+Changes to network configuration require either editing the SD card directly or accessing the Duckiedrone via SSH. Make sure to back up your configuration before making changes.
 ```
 
 ## Adding Wi-Fi Networks
 
 ### Method 1: Edit SD Card Before First Boot
 
-If you haven't booted your Duckiedrone yet, you can configure networks during the [software initialization](sw-initialization) process:
+If you have not booted your Duckiedrone yet, you can configure networks during the [software initialization](sw-initialization) process:
 
 1. After flashing the SD card, navigate to the `config` partition
 2. Open the `wpa_supplicant.conf` file with a text editor
@@ -35,7 +35,7 @@ If you haven't booted your Duckiedrone yet, you can configure networks during th
 
 ### Method 2: Edit Configuration on Running Duckiedrone
 
-For an already running Duckiedrone, you can modify network settings by:
+For an already initialized Duckiedrone, you can modify network settings by:
 
 1. SSH into your Duckiedrone:
    ```bash
@@ -55,6 +55,7 @@ For an already running Duckiedrone, you can modify network settings by:
    sudo systemctl restart networking
    ```
 
+(dd24-network-configuration)-examples)=
 ## Network Configuration Examples
 
 ### Basic Home/Office Network (WPA-PSK)
@@ -86,7 +87,7 @@ network={
 
 ### Hidden Network
 
-For networks that don't broadcast their SSID:
+For networks that do not broadcast their SSID:
 
 ```bash
 network={
@@ -284,11 +285,11 @@ eduroam connection fails
 1. Verify your credentials with your IT department
 2. Check if your institution requires specific certificate settings
 3. Try alternative EAP methods (TTLS instead of PEAP)
-4. Some institutions require domain prefix: `domain\username`
+4. Some institutions require a domain prefix: `domain\username`
 ```
 
 ```{trouble}
-Network connects but no internet access
+Network connects, but no internet access
 ---
 1. Check DNS settings: `cat /etc/resolv.conf`
 2. Test with different DNS: `nslookup google.com 8.8.8.8`
