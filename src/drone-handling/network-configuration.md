@@ -49,10 +49,9 @@ For an already running Duckiedrone, you can modify network settings by:
 
 3. Add your network configurations and save the file
 
-4. Restart the networking service:
+4. Restart the robot:
    ```bash
-   sudo systemctl restart wpa_supplicant
-   sudo systemctl restart networking
+   sudo reboot
    ```
 
 ## Network Configuration Examples
