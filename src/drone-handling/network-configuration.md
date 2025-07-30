@@ -44,7 +44,7 @@ For an already running Duckiedrone, you can modify network settings by:
 
 2. Edit the configuration file:
    ```bash
-   sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+   sudo nano /config/wpa_supplicant.conf
    ```
 
 3. Add your network configurations and save the file
