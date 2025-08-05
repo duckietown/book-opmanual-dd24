@@ -188,3 +188,41 @@ The drone does not get off the ground when commanded to takeoff.
 
 - Make sure that when you spin up motor 1, the correct motor spins (the bottom right). Do this for all of the motors.
 ```
+
+```{trouble}
+Unable to select "Motor direction" option in Betaflight Configurator after setting DSHOT600
+
+---
+
+After configuring the ESC/Motor protocol to DSHOT600, you need to save and reboot the flight controller before the motor direction options become available.
+
+- In Betaflight Configurator, after setting the ESC/Motor protocol to DSHOT600, click the yellow "Save and Reboot" button in the bottom right corner
+
+- Wait for the flight controller to reboot completely
+
+- Navigate back to the Motors tab - the motor direction options should now be selectable
+
+- You can now configure individual motor directions as needed
+```
+
+```{trouble}
+Cannot connect to the drone's web interface - connection fails or times out
+
+---
+
+This is typically caused by firewall settings blocking the required ports for the web interface communication.
+
+On your computer, allow the following ports through the firewall:
+
+- `sudo ufw allow 9090` (for Rosbridge websocket server)
+- `sudo ufw allow 8080` (for the web interface)  
+- `sudo ufw allow 11311` (for ROS master)
+
+If you're still having issues after allowing the ports:
+
+- Try temporarily disabling the firewall: `sudo ufw disable`
+- Test the connection, then re-enable the firewall: `sudo ufw enable`
+- Make sure you can ping the drone and establish SSH connection
+- Verify the drone's IP address using `ifconfig` on the drone
+- Try using both the IP address and `drone.local` in the web interface
+```
