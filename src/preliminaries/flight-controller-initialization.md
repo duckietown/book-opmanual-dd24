@@ -222,7 +222,7 @@ To do this:
 1.  Download the configuration file corresponding to your flight controller model:
 
     - [SpeedyBee f405 v3/v4](https://raw.githubusercontent.com/duckietown/pidrone_pkg/dd24/SPEEDYBEEF405.conf)
-    - [Mamba f405 mk2 v2](https://raw.githubusercontent.com/duckietown/pidrone_pkg/refs/heads/dd24/MAMBAF405MK2V2.conf)
+    - [Mamba f405 mk2 v2](https://raw.githubusercontent.com/duckietown/pidrone_pkg/b859bf21a5b2e0457daecfe08896a9cd2a6de88f/MAMBAF405MK2V2.conf)
 
 1.  Open it in the notepad app of your base station
 
