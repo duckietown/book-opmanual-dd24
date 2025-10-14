@@ -212,10 +212,11 @@ drone if anything goes wrong.
 not moving the drone will try to maintain zero planar velocity but may
 drift.
 
-<video controls width="500">
-  <source src="../_images/flying/duckiedrone_takeoff.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+```{figure} ../_images/flying/duckiedrone_takeoff.gif
+:width: 500px
+
+Duckiedrone takeoff
+```
 
 **Congrats** on flying!
 
