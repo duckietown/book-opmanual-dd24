@@ -212,6 +212,12 @@ drone if anything goes wrong.
 not moving the drone will try to maintain zero planar velocity but may
 drift.
 
+```{figure} ../_images/flying/duckiedrone_takeoff.gif
+:width: 500px
+
+Duckiedrone takeoff
+```
+
 **Congrats** on flying!
 
 ```{trouble}
