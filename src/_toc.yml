@@ -41,7 +41,8 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-      #    - file: flying/environment-setup
+          - file: flying/environment-setup
+          - file: flying/flying-your-drone
           - file: flying/duckiedrone-flight-controller-pid-tuning
           - file: flying/diagnostic
 

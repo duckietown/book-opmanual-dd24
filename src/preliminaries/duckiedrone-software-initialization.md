@@ -1,227 +1,159 @@
 ```{seo}
-:description: Step-by-step guide to initializing the Duckiedrone software, including flashing the SD card and customizing settings.
-:keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, configuration
+:description: Flash the Duckiedrone (DD24) ente image onto a Raspberry Pi 4 or Raspberry Pi 5 using dts init_sd_card.
+:keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5
 ```
 
+(sw-initialization)=
 (dd24-sw-init)=
 # Software Initialization
 
 ```{needget}
 
-* A computer (a.k.a. “base station”) with an internet connection
-* Balena Etcher or similar program
-* A micro SD card (32GB, U3, Class 10), e.g., that from your Duckiebox 
-* A micro SD card reader, e.g., that from your Duckiebox
+* A computer (the “base station”) with an internet connection and the Duckietown Shell (`dts`) installed
+* A micro SD card (64 GB, U3, Class 10 recommended), e.g., the one from your Duckiebox
+* A micro SD card reader, e.g., the one from your Duckiebox
 ---
 
-* A DD24 initialized and customized micro SD card
+* A DD24 initialized and customized micro SD card, ready for first boot
 ```
 
-## Flashing the SD card
+```{attention}
+These instructions apply to **both** the Raspberry Pi 4 Model B and the Raspberry Pi 5. The same `ente` image is written through `dts init_sd_card`; only the underlying Raspberry Pi OS base layer differs and is chosen automatically at flashing time.
 
-In this section you will install the Duckiedrone software on the microSD card.
+The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip` flashed through Balena Etcher) is no longer supported on the `ente` distribution. If you followed it before, re-flash with the procedure below.
+```
 
-1. If you have not already, on a base station, download the image flashing tool [Etcher](https://www.balena.io/etcher/).
+## 1. Install the Duckietown Shell
 
-1. If you have not already, on a base station, download the latest drone image:
+On your base station, make sure the Duckietown Shell is installed and running on the `ente` profile. Follow the [laptop setup instructions](book-opmanual-duckiebot:laptop-setup) from the Duckiebot manual if you have not done this before.
 
-    ```{button-link} https://duckietown-public-storage.s3.amazonaws.com/brown/disk_image/dt-amelia-DD24-brown2022-sd-card-v16.zip
-    :color: primary
-    :shadow:
-    
-    DD24 system image
-    ```
+Then confirm the profile and update:
 
-1. Connect the micro SD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
-  
+```bash
+dts profile list          # 'ente' must be the active profile
+pipx upgrade duckietown-shell
+dts update
+```
+
+## 2. Flash the SD card
+
+1.  Insert the micro SD card into your base station. Use the USB adapter from the Duckiebox if your base station does not have a micro SD slot.
+
     ```{figure} ../_images/components-official/microSD_reader.png
     :width: 400px
 
     Micro SD Card adapter
     ```
 
-1. Open Etcher and select the downloaded drone image. Then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
-
-Watch this video to see how the process looks like.
-
-```{vimeo} 795166491
-:alt: sd card flashing procedure
-```
-
-<div style="padding:61.68% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/795166491?h=ad68dd5e48&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast from 01-02-2023 170837"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
-```{warning} **Double check** that the "drive" is your micro SD card.
-
-You may be prompted to enter the base station password to proceed. This is normal: flashing an SD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
-```
-
-```{note} Flashing will take 10 - 15 min.
-```
-
-## Customizing the Duckiedrone `hostname` and client network settings
-
-```{warning}
-This step is particularly important.
-
-Skipping it means having to re-flash the SD card.
-```
-
-Changing the Duckiedrone `hostname` (also known as the “robot name") is needed to prevent conflicts when multiple Duckiedrones are operating in the same environment. If you intend to operate the drone in isolation from other Duckiedrones (e.g., at home), you can maintain the default settings.
-
-```{warning}
-The `hostname` can only be changed at this stage in the process. **It cannot** be changed later.
-```
-
-```{attention}
-The `hostname` **must** start with a lower case letter and can contain **only** lower case letters (of the latin alphabet) and numbers:
-
-Using special characters will break things and require re-flashing
-
-Examples:
-
-* ✅ `argo`
-* ✅ `mydrone01`
-* ❌ `mydrone_01`
-* ❌ `My Drone`
-* ❌ `Argo`
-```
-
-```{attention}
-If you are in an environment where multiple drones are operating at the same time, make sure your `hostname` is unique!
-```
-
-1. To change your robot’s `hostname` navigate to the newly flashed SD card.
-
-    * You will have to unplug it from your base station first and plug it back in as Balena Etcher dismounts the drive after finishing the flashing process.
-
-    * If the flashing is successful, you will see that it has one partition named `boot`, with many files inside and `overlays` folder. **Do not** manually alter these files.
-
-      ```{figure} ../_images/rpi-sw-initialization/boot_partition.png
-      :width: 200px
-
-      `boot` partition, **do not** alter!
-      ```
-
-1. There will be a second partition called `config`. Open this partition. You will find two files inside:
-
-    * `hostname`
-
-    * `wpa_supplicant.conf`
-
-    ```{figure} ../_images/rpi-sw-initialization/config_partition.png
-
-    `config` partition content
-    ```
-
-1. Open the `hostname` file with any text editor program (e.g., Notepad on Windows) and replace the default robot name, `amelia`, with one of your choosing.  
-
-    ```{warning}
-    Make sure to follow the naming guidelines in the `attention` box above. 
-    ```
-
-    A wrong `hostname` will mean having to reflash the SD card and start from step 1.
-
-    ```{attention}
-    **Save** the file before closing it.
-    ```
-
-1. Open the `wpa_supplicant.conf` with a text editor of your choice and either edit the default connection settings or duplicate them to add a new network. These parameters will be used only when booting the Duckiedrone in client-network mode, i.e. connecting to an existing Wi-Fi access point.
+1.  Run `dts init_sd_card` with the `duckiedrone` type and the `DD24` configuration:
 
     ```bash
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-    update_config=1
-    country=US
-
-    # NOTE: the following block is a template, use it to define connection to custom wifi networks
-    network={
-      id_str="network_1"
-      ssid="duckietown"
-      psk="quackquack"
-      key_mgmt=WPA-PSK
-    }
+    dts init_sd_card \
+        --hostname MY_ROBOT_NAME \
+        --type duckiedrone \
+        --configuration DD24 \
+        --country US \
+        --wifi miwifi:mypassword
     ```
 
-    * `country`: change it if you are not in the US (e.g., `CH` for Switzerland, `CA` for Canada; [full list](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm) of country codes)
+    Flag reference:
 
-    * `id_str`: an identifier for the network; change it if adding a new one;
-
-    * `SSID`: name of the Wi-Fi you want the Duckiedrone to connect to;
-
-    * `psk`: password for the above Wi-Fi;
-
-    You can add as many Wi-Fi settings as you want, e.g., for home, school, office, etc., by copying and pasting the first block.
-
-    ```{note}
-    This file can be edited after the first boot as well if you want to add other networks.
-    ```
-
-    ```sh
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-    update_config=1
-    country=US
-
-    # NOTE: the following block is a template, use it to define connection to custom wifi networks
-    network={
-      id_str="network_1"
-      ssid="duckietown"
-      psk="quackquack"
-      key_mgmt=WPA-PSK
-    }
-
-    network={
-      id_str="network_2"
-      ssid="example-second-network"
-      psk="quackquack2"
-      key_mgmt=WPA-PSK
-    }
-
-    network={
-      id_str="network_3"
-      ssid="example-third-network"
-      psk="quackquack3"
-      key_mgmt=WPA-PSK
-    }
-    ```
-
-````{admonition} Eject your SD card safely.
-:class: warning
-
-Do not just unplug the SD crad from the base station
-
-```{image} ../_images/rpi-sw-initialization/eject_sd.png
-:width: 300px
-```
-````
-
-You are now ready for the first boot.
-
-(raspberrypi5-sdcard-setup)
-## Raspberry Pi 5 Software Initialization
-
-```{warning}
-The Raspberry Pi 5 support is experimental, expect some functionalities to be broken. If you are not an advanced user (you should be comfortable with using the shell and ssh) it is suggested to use a Raspberry Pi 4.
-```
-
-The Raspberry Pi 5 uses a different base image than the Raspberry Pi 4, based on the most recent Raspberry Pi OS Bookworm. You can flash the image through the dts, which you can set up following the instructions provided in the Duckiebot manual. The steps are the following:
-
-1. Install the duckietown shell on your laptop according to [these instructions](book-opmanual-duckiebot:laptop-setup).
-2. After installing the duckietown shell, you can flash the sd card following [the same procedure used for duckiebots](book-opmanual-duckiebot:burn-sd-card-instructions). Make sure to change the `--type` and `--configuration` flags to `--type duckiedrone --configuration DD24`. An example command to flash the sd card for a Duckiedrone could be:
-
-      ```bash
-      duckietown shell init_sd_card --hostname [!MY_ROBOT_NAME] --type duckiedrone --configuration DD24 --country US --wifi [!miwifi]:[!mypassword]
-      ```
+    *   `--hostname` — the robot name. Follow the naming rules in the box below.
+    *   `--type duckiedrone --configuration DD24` — picks the DD24 base image (Pi 4 and Pi 5 are both supported; the shell detects your target automatically).
+    *   `--country` — two-letter country code where the drone will fly (required; Wi-Fi is disabled by default to comply with local regulations).
+    *   `--wifi` — one or more networks in the form `ssid:psk`. Separate multiple networks with commas. This is the list the drone will try in client (CL) mode.
 
     ```{attention}
-    Make sure to specify the country you are using your drone in through the `--country` flag, otherwise the WiFi will be disabled by default to comply with regulations.
+    The `hostname` **must** start with a lower-case letter and may contain **only** lower-case latin letters and digits. Using special characters will break things and require re-flashing.
+
+    *   ✅ `argo`
+    *   ✅ `mydrone01`
+    *   ❌ `mydrone_01`
+    *   ❌ `My Drone`
+    *   ❌ `Argo`
+
+    The `hostname` **cannot** be changed after the first boot.
     ```
+
+    ```{attention}
+    If other Duckiedrones operate in the same environment, make sure your `hostname` is unique.
+    ```
+
+1.  When `dts init_sd_card` finishes, eject the SD card safely from the base station.
+
+    ````{admonition} Eject your SD card safely.
+    :class: warning
+
+    Do not just unplug the SD card from the base station.
+
+    ```{image} ../_images/rpi-sw-initialization/eject_sd.png
+    :width: 300px
+    ```
+    ````
+
+## 3. (Optional) Add extra Wi-Fi networks
+
+`dts init_sd_card` writes a `wpa_supplicant.conf` file into the `config` partition of the SD card. To add networks later you can re-insert the SD card into your base station, open the `config` partition and append additional `network={...}` blocks.
+
+```bash
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+  id_str="network_1"
+  ssid="duckietown"
+  psk="quackquack"
+  key_mgmt=WPA-PSK
+}
+
+network={
+  id_str="network_2"
+  ssid="example-second-network"
+  psk="quackquack2"
+  key_mgmt=WPA-PSK
+}
+```
+
+*   `country` — change if you are not in the US (e.g., `CH` for Switzerland, `CA` for Canada; [full list](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm) of country codes).
+*   `id_str` — unique identifier for each network entry.
+*   `ssid` / `psk` — the network name and password.
+
+```{note}
+This file can also be edited after the first boot if you want to add other networks.
+```
+
+You are now ready for the [first boot](sec:first-boot).
 
 ## Troubleshooting
 
 ````{trouble}
-I’m using a Mac and the Flashing step fails for lack of permissions.
+I am using a Mac and the flashing step fails for lack of permissions.
 ---
 
-Go to your computer’s `System Preferences > Security & Privacy > Files and Folders` and enable access to `Removable Volumes`
-![](../_images/rpi-sw-initialization/mac_troubleshooting.png)
+Go to your computer's `System Preferences > Security & Privacy > Files and Folders` and enable access to `Removable Volumes`.
 
+![](../_images/rpi-sw-initialization/mac_troubleshooting.png)
 ````
+
+```{trouble}
+`dts init_sd_card` fails with "unknown robot type duckiedrone".
+---
+
+Your Duckietown Shell is out of date or the wrong profile is active. Run:
+
+    dts profile list          # 'ente' must be the active profile
+    pipx upgrade duckietown-shell
+    dts update
+
+then rerun the `dts init_sd_card` command.
+```
+
+```{trouble}
+The drone does not join my Wi-Fi after the first boot.
+---
+
+*   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
+*   Re-insert the SD card into your base station and inspect `config/wpa_supplicant.conf`. Confirm that your `ssid` and `psk` are correct and that the file has Unix line endings.
+*   If you are still stuck, flash again with the correct flags (see [](first_connection)).
+```

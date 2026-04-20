@@ -26,7 +26,7 @@ The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This lit
 
 The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
-The Duckiedrone is compatible with the Raspberry Pi 5 too, but initialization instructions are different from the 4 version.
+The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](sw-initialization).
 
 (component-64gb-microsd-card-class-10-u3)=
 ## 64GB MicroSD card - Class 10 U3
