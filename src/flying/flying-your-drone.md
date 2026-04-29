@@ -72,7 +72,7 @@ The widget reflects live state — it polls `/mavros/state` and refreshes its AR
 
 ### Flight modes
 
-The drone runs PX4 (or an equivalent ArduPilot build) through MAVROS. The dashboard exposes three of PX4's flight modes:
+The drone runs PX4 through MAVROS. The dashboard exposes three of PX4's flight modes:
 
 | Mode | PX4 name | When to use |
 |---|---|---|

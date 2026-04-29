@@ -46,7 +46,7 @@ Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the 
 Wait for the command to terminate before continuing. When it finishes the drone is running:
 
 *   `dashboard` — the web UI you will use to fly
-*   `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4/ArduPilot flight controller
+*   `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
 *   `mavlink-proxy`, `driver-tof`, `state-estimator`, `pid-controller`, `visual-odometry` — the flight stack
 
 ## 3. Open the Duckietown Dashboard
