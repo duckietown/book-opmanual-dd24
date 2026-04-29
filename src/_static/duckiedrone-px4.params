@@ -1,0 +1,43 @@
+# Onboard parameters for Duckiedrone DD24 (PX4 mamba-f405-mk2)
+#
+# These parameters override the PX4 v1.16 defaults to configure the drone for:
+#   - Rangefinder-only altitude estimation (no GPS/MAG/BARO fusion)
+#   - Quadrotor airframe and control allocation
+#   - DD24-appropriate logging, IMU, and safety behavior
+#
+# Calibration data (CAL_*) is intentionally omitted - calibrate sensors on the
+# target flight controller via QGroundControl after loading these parameters.
+#
+# Source: derived from a working Gazebo simulation (PX4 v1.16, airframe 4016 -
+# x500_lidar_down). See Jira DTSW-7245 / DTSW-7484.
+#
+# Vehicle-Id Component-Id Name Value Type
+1	1	EKF2_BARO_CTRL	0	6
+1	1	EKF2_GPS_CHECK	2047	6
+1	1	EKF2_GPS_CTRL	0	6
+1	1	EKF2_HGT_REF	2	6
+1	1	EKF2_MAG_TYPE	0	6
+1	1	EKF2_MIN_RNG	0.009999999776482582	9
+1	1	EKF2_REQ_GPS_H	0.500000000000000000	9
+1	1	EKF2_RNG_CTRL	1	6
+1	1	EKF2_RNG_FOG	1.000000000000000000	9
+1	1	MAV_PROTO_VER	2	6
+1	1	MAV_TYPE	2	6
+1	1	CA_AIRFRAME	0	6
+1	1	CA_METHOD	2	6
+1	1	CA_ROTOR_COUNT	4	6
+1	1	CA_ROTOR2_KM	-0.050000000745058060	9
+1	1	CA_ROTOR3_KM	-0.050000000745058060	9
+1	1	IMU_DGYRO_CUTOFF	20.000000000000000000	9
+1	1	IMU_GYRO_FFT_EN	1	6
+1	1	IMU_GYRO_RATEMAX	800	6
+1	1	IMU_INTEG_RATE	250	6
+1	1	MC_AT_EN	1	6
+1	1	NAV_DLL_ACT	2	6
+1	1	COM_LOW_BAT_ACT	3	6
+1	1	COM_MODE_ARM_CHK	1	6
+1	1	SDLOG_DIRS_MAX	7	6
+1	1	SDLOG_MODE	1	6
+1	1	SDLOG_PROFILE	131	6
+# BAT1_N_CELLS: 4S default for DD24; verify it matches the actual battery installed.
+1	1	BAT1_N_CELLS	4	6
