@@ -122,11 +122,7 @@ ls /dev/serial/by-id/    # should list a *PX4_BL* entry
 Download the PX4 firmware binary for the `mamba-f405-mk2` target:
 
 ```bash
-curl -L -O https://github.com/duckietown/duckiedrone-px4-driver/releases/latest/download/diatone_mamba-f405-mk2_default.bin
-```
-
-```{todo}
-The URL above is a placeholder. Until the firmware is published as a release asset of `duckietown/duckiedrone-px4-driver`, the binary is available as `diatone_mamba-f405-mk2_default.bin` on Jira issue [DTSW-7484](https://ethidsc.atlassian.net/browse/DTSW-7484). Update the URL once the release is cut.
+curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-1/diatone_mamba-f405-mk2_default.bin
 ```
 
 Put the FC back into DFU mode (disconnect, hold BOOT, reconnect), confirm it shows up again in `dfu-util -l`, then flash the firmware to the application offset `0x08008000`:
@@ -147,11 +143,12 @@ After the flash completes the board reboots and runs PX4. The boot sequence is: 
 Once the bootloader is flashed (step 3), you can also flash the firmware over USB-CDC with the PX4 uploader script. This is the canonical PX4 path — it verifies that the firmware's board ID matches the bootloader's reported board ID before erasing flash:
 
 ```bash
+curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-1/diatone_mamba-f405-mk2_default.px4
 git clone --depth 1 https://github.com/PX4/PX4-Autopilot.git
 python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
 ```
 
-Use this approach if you have the `.px4` file (a JSON-wrapped, board-ID-tagged firmware envelope) instead of the raw `.bin`. The `dfu-util` flow above is preferred for fully programmatic deployments.
+The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploader.py` verifies that its embedded board ID matches the bootloader's reported board (`42`) before erasing flash. The `dfu-util` flow above is preferred for fully programmatic deployments.
 ````
 
 ## 5. Starting the drone software stack
@@ -188,11 +185,7 @@ Unplug the battery from your drone!
 (qgroundcontrol-connection)=
 ### Installing QGroundControl and Restoring the correct parameters
 
-By following these steps you will be able to install QGroundControl, connect to your flight controller via TCP, and restore your vehicle's parameters from a `.params` file. The `.params` file contains the PX4 parameters that differ from the upstream defaults (rangefinder-only altitude estimation, quadrotor airframe configuration, controller tuning, etc.). You can download it from [this link](https://github.com/duckietown/duckiedrone-px4-driver/releases/latest/download/duckiedrone-px4.params).
-
-```{todo}
-The URL above is a placeholder, mirroring the firmware release path. Until the `.params` is published, use the curated file shipped with this book at [`_static/duckiedrone-px4.params`](../_static/duckiedrone-px4.params).
-```
+By following these steps you will be able to install QGroundControl, connect to your flight controller via TCP, and restore your vehicle's parameters from a `.params` file. The `.params` file contains the PX4 parameters that differ from the upstream defaults (rangefinder-only altitude estimation, quadrotor airframe configuration, controller tuning, etc.) and is shipped alongside this book at [`_static/duckiedrone-px4.params`](../_static/duckiedrone-px4.params).
 
 1. Install QGroundControl:
    - Go to the [QGroundControl website](http://qgroundcontrol.com/) and download the installer for your operating system (Windows, macOS, or Linux).
