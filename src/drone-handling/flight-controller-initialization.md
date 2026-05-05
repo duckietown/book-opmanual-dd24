@@ -122,7 +122,11 @@ ls /dev/serial/by-id/    # should list a *PX4_BL* entry
 Download the PX4 firmware binary for the `mamba-f405-mk2` target:
 
 ```bash
-curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-1/diatone_mamba-f405-mk2_default.bin
+curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-2/diatone_mamba-f405-mk2_default.bin
+```
+
+```{note}
+Starting with `dd24-mamba-f405-mk2-v1.16.1-2` the firmware is built specifically for the **v2 hardware variant** of the Mamba F405 MK2, which ships **without** an on-board barometer or magnetometer. Their drivers are no longer compiled in, and `SYS_HAS_BARO` / `SYS_HAS_MAG` are set to `0` by default so preflight does not flag the missing sensors.
 ```
 
 Put the FC back into DFU mode (disconnect, hold BOOT, reconnect), confirm it shows up again in `dfu-util -l`, then flash the firmware to the application offset `0x08008000`:
@@ -143,7 +147,7 @@ After the flash completes the board reboots and runs PX4. The boot sequence is: 
 Once the bootloader is flashed (step 3), you can also flash the firmware over USB-CDC with the PX4 uploader script. This is the canonical PX4 path — it verifies that the firmware's board ID matches the bootloader's reported board ID before erasing flash:
 
 ```bash
-curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-1/diatone_mamba-f405-mk2_default.px4
+curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-2/diatone_mamba-f405-mk2_default.px4
 git clone --depth 1 https://github.com/PX4/PX4-Autopilot.git
 python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
 ```
@@ -186,6 +190,10 @@ Unplug the battery from your drone!
 ### Installing QGroundControl and Restoring the correct parameters
 
 By following these steps you will be able to install QGroundControl, connect to your flight controller via TCP, and restore your vehicle's parameters from a `.params` file. The `.params` file contains the PX4 parameters that differ from the upstream defaults (rangefinder-only altitude estimation, quadrotor airframe configuration, controller tuning, etc.) and is shipped alongside this book at [`_static/duckiedrone-px4.params`](../_static/duckiedrone-px4.params).
+
+```{note}
+The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
+```
 
 1. Install QGroundControl:
    - Go to the [QGroundControl website](http://qgroundcontrol.com/) and download the installer for your operating system (Windows, macOS, or Linux).

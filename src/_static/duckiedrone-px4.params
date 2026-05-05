@@ -1,7 +1,13 @@
-# Onboard parameters for Duckiedrone DD24 (PX4 mamba-f405-mk2)
+# Onboard parameters for Duckiedrone DD24 (PX4 mamba-f405-mk2 v2)
 #
 # These parameters override the PX4 v1.16 defaults to configure the drone for:
-#   - Rangefinder-only altitude estimation (no GPS/MAG/BARO fusion)
+#   - Rangefinder-only altitude estimation (no GPS / MAG / BARO fusion)
+#   - External-vision plumbing in place but disabled by default
+#     (set EKF2_EV_CTRL=7 for pos+vel or 15 to also fuse vision yaw, once a
+#      VIO publishes VISION_POSITION_ESTIMATE / ODOMETRY)
+#   - Magnetometer fusion explicitly disabled (the Mamba F405 MK2 v2 has no
+#     mag fitted, and the firmware shipped from
+#     dd24-mamba-f405-mk2-v1.16.1-2 onwards no longer compiles in mag drivers)
 #   - Quadrotor airframe and control allocation
 #   - DD24-appropriate logging, IMU, and safety behavior
 #
@@ -9,15 +15,17 @@
 # target flight controller via QGroundControl after loading these parameters.
 #
 # Source: derived from a working Gazebo simulation (PX4 v1.16, airframe 4016 -
-# x500_lidar_down). See Jira DTSW-7245 / DTSW-7484.
+# x500_lidar_down). See Jira DTSW-7245 / DTSW-7484 / DTSW-7823.
 #
 # Vehicle-Id Component-Id Name Value Type
 1	1	EKF2_BARO_CTRL	0	6
+1	1	EKF2_EV_CTRL	0	6
 1	1	EKF2_GPS_CHECK	2047	6
 1	1	EKF2_GPS_CTRL	0	6
 1	1	EKF2_HGT_REF	2	6
-1	1	EKF2_MAG_TYPE	0	6
+1	1	EKF2_MAG_TYPE	5	6
 1	1	EKF2_MIN_RNG	0.009999999776482582	9
+1	1	EKF2_OF_CTRL	0	6
 1	1	EKF2_REQ_GPS_H	0.500000000000000000	9
 1	1	EKF2_RNG_CTRL	1	6
 1	1	EKF2_RNG_FOG	1.000000000000000000	9
