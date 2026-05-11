@@ -122,11 +122,13 @@ ls /dev/serial/by-id/    # should list a *PX4_BL* entry
 Download the PX4 firmware binary for the `mamba-f405-mk2` target:
 
 ```bash
-curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-2/diatone_mamba-f405-mk2_default.bin
+curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.15.4-1/diatone_mamba-f405-mk2_default.bin
 ```
 
 ```{note}
-Starting with `dd24-mamba-f405-mk2-v1.16.1-2` the firmware is built specifically for the **v2 hardware variant** of the Mamba F405 MK2, which ships **without** an on-board barometer or magnetometer. Their drivers are no longer compiled in, and `SYS_HAS_BARO` / `SYS_HAS_MAG` are set to `0` by default so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+
+A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ```
 
 Put the FC back into DFU mode (disconnect, hold BOOT, reconnect), confirm it shows up again in `dfu-util -l`, then flash the firmware to the application offset `0x08008000`:
@@ -147,7 +149,7 @@ After the flash completes the board reboots and runs PX4. The boot sequence is: 
 Once the bootloader is flashed (step 3), you can also flash the firmware over USB-CDC with the PX4 uploader script. This is the canonical PX4 path — it verifies that the firmware's board ID matches the bootloader's reported board ID before erasing flash:
 
 ```bash
-curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.16.1-2/diatone_mamba-f405-mk2_default.px4
+curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.15.4-1/diatone_mamba-f405-mk2_default.px4
 git clone --depth 1 https://github.com/PX4/PX4-Autopilot.git
 python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
 ```
