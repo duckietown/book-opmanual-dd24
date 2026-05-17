@@ -7,7 +7,7 @@
 # Initializing the Flight Controller
 
 ```{needget}
-* A base station computer (Linux recommended; macOS works with `brew install dfu-util`)
+* A base station computer running Linux (Ubuntu) or macOS
 * Flight Controller
 * USB to USB-C cable
 ---
@@ -29,15 +29,15 @@ Both stages are performed via `dfu-util` while the FC is in STM32 DFU mode.
 
 ## 1. Install `dfu-util`
 
-Connect the flight controller to a laptop running Ubuntu and update the package list:
+Install `dfu-util` on your base station. Pick the tab matching your operating system.
+
+:::::{tab-set}
+
+::::{tab-item} Linux (Ubuntu)
 
 ```bash
 sudo apt update
 sudo apt install dfu-util
-```
-
-```{tip}
-Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets.
 ```
 
 (Optional but recommended) install a udev rule so `dfu-util` does not need `sudo`:
@@ -48,6 +48,26 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="df11", MODE="0664", 
 SUBSYSTEM=="usb", ATTR{idVendor}=="26ac", MODE="0664", GROUP="plugdev"
 EOF
 sudo udevadm control --reload && sudo udevadm trigger
+```
+
+::::
+
+::::{tab-item} macOS
+
+```bash
+brew install dfu-util
+```
+
+```{note}
+macOS does not need udev rules — `dfu-util` accesses USB devices directly via IOKit, without requiring `sudo`. Run the `dfu-util` commands in this guide **without** `sudo`.
+```
+
+::::
+
+:::::
+
+```{tip}
+Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on.
 ```
 
 ## 2. Enter DFU Mode
@@ -81,7 +101,11 @@ Output of `dfu-util -l` with the FC in DFU mode.
 
 ## 3. Flash the PX4 Bootloader
 
-Download the prebuilt `omnibusf4sd_bl` bootloader hex shipped with the PX4 user guide and convert it to a raw binary that `dfu-util` can flash:
+Download the prebuilt `omnibusf4sd_bl` bootloader hex shipped with the PX4 user guide and convert it to a raw binary that `dfu-util` can flash. The conversion needs `arm-none-eabi-objcopy` from the ARM bare-metal toolchain:
+
+:::::{tab-set}
+
+::::{tab-item} Linux (Ubuntu)
 
 ```bash
 sudo apt install binutils-arm-none-eabi   # provides arm-none-eabi-objcopy
@@ -89,6 +113,25 @@ curl -L -o omnibusf4sd_bl.hex \
   https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex
 arm-none-eabi-objcopy -I ihex -O binary omnibusf4sd_bl.hex omnibusf4sd_bl.bin
 ```
+
+::::
+
+::::{tab-item} macOS
+
+```bash
+brew install --cask gcc-arm-embedded   # provides arm-none-eabi-objcopy
+curl -L -o omnibusf4sd_bl.hex \
+  https://github.com/PX4/PX4-user_guide/raw/main/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex
+arm-none-eabi-objcopy -I ihex -O binary omnibusf4sd_bl.hex omnibusf4sd_bl.bin
+```
+
+```{tip}
+If you already have the PX4 dev toolchain installed via `brew tap PX4/px4 && brew install px4-dev`, you can skip the cask install — `arm-none-eabi-objcopy` is already on your `PATH`.
+```
+
+::::
+
+:::::
 
 ```{tip}
 The bootloader hash suffix `d52b70cb39` is tracked in the PX4 user guide; if the URL above 404s, re-resolve it from
@@ -111,11 +154,35 @@ Explanation of the `dfu-util` command:
 * `-D omnibusf4sd_bl.bin`: the file to flash.
 ```
 
-After the flash completes (this takes a few seconds), the board will reboot. It will now enumerate as a **PX4 bootloader** device — you can verify with `lsusb` (the device will show up under the `26AC` USB vendor ID, e.g., `26AC:0011`) or by listing serial devices:
+After the flash completes (this takes a few seconds), the board will reboot. It will now enumerate as a **PX4 bootloader** device under the `26AC` USB vendor ID (e.g., `26AC:0011`). Verify it has come back up:
+
+:::::{tab-set}
+
+::::{tab-item} Linux (Ubuntu)
 
 ```bash
-ls /dev/serial/by-id/    # should list a *PX4_BL* entry
+lsusb                         # look for a 26AC:xxxx entry
+ls /dev/serial/by-id/         # should list a *PX4_BL* entry
 ```
+
+::::
+
+::::{tab-item} macOS
+
+`lsusb` is not shipped with macOS. Either install it with `brew install lsusb`, or use the built-in tools to enumerate USB and serial devices:
+
+```bash
+system_profiler SPUSBDataType | grep -A 3 -E "PX4|26AC"
+ls /dev/tty.usbmodem*         # PX4 bootloader appears as e.g. /dev/tty.usbmodem01
+```
+
+```{note}
+macOS does **not** populate `/dev/serial/by-id/`. The board is exposed only as `/dev/tty.usbmodem*` (and a matching `/dev/cu.usbmodem*`). It can take 1–2 seconds for the node to appear after the board reboots out of DFU.
+```
+
+::::
+
+:::::
 
 ## 4. Flash the PX4 Firmware
 
@@ -236,7 +303,13 @@ Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo ca
 ```{trouble}
 `dfu-util` shows no devices.
 ---
-The FC has not entered DFU mode. Disconnect USB, hold the BOOT button while reconnecting, then run `dfu-util -l` again. On Linux, also confirm there is no kernel driver claiming the device (e.g., `ModemManager`) by checking `dmesg` after plug-in.
+The FC has not entered DFU mode. Disconnect USB, hold the BOOT button while reconnecting, then run `dfu-util -l` again. On Linux, also confirm there is no kernel driver claiming the device (e.g., `ModemManager`) by checking `dmesg` after plug-in. On macOS, run `system_profiler SPUSBDataType | grep -i stm` and confirm the board enumerates as `STM32 BOOTLOADER` — if it does not, the BOOT button was released too early.
+```
+
+```{trouble}
+On macOS, `dfu-util -l` lists the board but the write step hangs or errors with `Cannot open DFU device`.
+---
+Another process is holding the USB interface. The usual culprit is a previous `dfu-util` run that did not exit cleanly, or QGroundControl scanning for serial devices. Quit QGroundControl, then run `pkill -9 dfu-util` before retrying. Unlike Linux, macOS does **not** need any permissions or group changes for DFU access.
 ```
 
 ```{trouble}
