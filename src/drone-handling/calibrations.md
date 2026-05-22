@@ -70,6 +70,73 @@ The same result as above can be obtained by connecting to the Dashboard instead 
 Calibration of the IMU through the Duckiedrone dashboard
 ```
 
+### PX4 gyro and accelerometer calibration
+
+On DD24 drones running the Ente ROS 2 stack, the dashboard also provides a `PX4 IMU Calibration` block in Mission Control. This block talks to PX4 through MAVROS2 and does not require QGroundControl.
+
+```{attention}
+Remove the propellers before running any flight-controller calibration or arming checks.
+```
+
+1. Connect to the Dashboard ([](first_connection)).
+2. Start the Duckiedrone stacks if they are not already running:
+   ```bash
+   dts stack up -H ROBOT_NAME.local duckietown/duckiedrone -d
+   dts stack up -H ROBOT_NAME.local ros2/duckiedrone -d
+   ```
+3. Navigate to {bdg-warning}`Robot` > {bdg-dark-line}`Mission Control`.
+4. Find the `PX4 IMU Calibration` block.
+5. Place the drone still on a level surface and click {bdg-secondary-line}`GYRO`.
+6. When gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
+7. Follow the live `[cal]` prompts shown in the block. PX4 will ask for six stable orientations: level/top-up, on-back/top-down, nose-down, nose-up, left-side-down, and right-side-down. Hold each orientation still until PX4 accepts it.
+
+The calibration is complete when the block reports `PX4 accel calibration complete`.
+
+## Method 3: ROS 2 service fallback
+
+If the dashboard is unavailable but the ROS 2 stack is running, call the calibration services from a shell connected to the drone:
+
+```bash
+ssh duckie@ROBOT_NAME.local
+docker exec -it ros2-px4-calibration bash
+source /environment.sh
+export ROS_DOMAIN_ID=42
+
+ros2 service call /px4_calibration/calibrate_gyro std_srvs/srv/Trigger
+ros2 service call /px4_calibration/calibrate_accel std_srvs/srv/Trigger
+```
+
+Watch the live orientation prompts in another shell:
+
+```bash
+docker exec -it ros2-px4-calibration bash
+source /environment.sh
+export ROS_DOMAIN_ID=42
+ros2 topic echo /px4_calibration/status std_msgs/msg/String
+```
+
+The accelerometer service blocks while you rotate the drone through the six orientations.
+
+## Method 4: manual Python fallback on the Raspberry Pi
+
+Use this only when MAVROS2 or rosbridge is not running. From the base station, stop the stacks that may hold the MAVLink port:
+
+```bash
+dts stack down -H ROBOT_NAME.local ros2/duckiedrone
+dts stack down -H ROBOT_NAME.local duckietown/duckiedrone
+```
+
+Then connect to the Raspberry Pi and run the direct MAVLink script:
+
+```bash
+ssh duckie@ROBOT_NAME.local
+docker run --rm -it --net host --privileged -v /dev:/dev \
+  duckietown/dt-ros2-interface:ente-arm64v8 \
+  bash -lc 'source /environment.sh && px4_manual_calibration both --port /dev/ttyACM0'
+```
+
+If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs so PX4 emits the `[cal]` status prompts over MAVLink.
+
 ## Resetting Yaw offset
 The IMU calibration "resets" roll and pitch values to zero, but not the yaw.
 
