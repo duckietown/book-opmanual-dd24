@@ -80,6 +80,7 @@ docker run --rm -it --net host --privileged -v /dev:/dev \
 ```
 
 If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs so PX4 emits the `[cal]` status prompts over MAVLink.
+
 (camera-calib)=
 ## Camera calibration
 
