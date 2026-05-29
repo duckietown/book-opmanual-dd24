@@ -61,3 +61,4 @@
 1	1	SDLOG_PROFILE	131	6
 # BAT1_N_CELLS: 4S default for DD24; verify it matches the actual battery installed.
 1	1	BAT1_N_CELLS	4	6
+1	1	COM_RCL_EXCEPT	4	6
