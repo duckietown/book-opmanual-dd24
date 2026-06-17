@@ -191,7 +191,7 @@ For advanced network configurations, including enterprise networks like eduroam 
 ````{admonition} Eject your SD card safely.
 :class: warning
 
-Do not just unplug the SD crad from the base station
+Do not just unplug the SD card from the base station
 
 ```{image} ../_images/rpi-sw-initialization/eject_sd.png
 :width: 300px
