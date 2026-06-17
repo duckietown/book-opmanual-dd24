@@ -1,4 +1,5 @@
-# Flying Your Drone
+(flying-the-drone)=
+# Flying the Drone
 
 ```{needget}
 * Fully assembled drone
@@ -14,12 +15,11 @@
 ## Environment Checks
 
 ````{warning}
-Flying your Duckiedrone is safe **only** when done in an appropriate environment.
-Make sure:
+Flying your Duckiedrone is safe **only** when done in an appropriate environment. Make sure:
 
 - You are in an open space that is free of obstructions
 
-- You've alerted those around you that you are going to fly and have told them to clear the area
+- You have alerted those around you that you are going to fly and have told them to clear the area
 
 - You are wearing safety goggles
 
@@ -27,6 +27,8 @@ Make sure:
 
     ```{figure} ../_images/flying/highly_textured_surface.png
     :align: center
+    :width: 90%
+    :alt: example of highly textured surface over which to fly the duckiedrone
 
     Example of a highly textured planar surface
     ```
@@ -38,7 +40,7 @@ If not already, disconnect the battery before performing the following safety ch
 
 ### Wire Management
 
-Spin the props with your finger and make sure there are no wires in the way. If wires do get close, use a zip tie to hold the wires to the frame, away from the props.
+Spin the propellers with your finger and make sure there are no wires in the way. If wires do get close, use a zip tie to hold the wires to the frame, away from the props.
 
 ### USB Connection
 
@@ -62,13 +64,14 @@ rake start
 screen -c pi.screenrc
 ```
 
-Screen is a program that allows you to run multiple terminals in one ssh session.  The screen
-will persist even if the ssh session is disconnected and you log in
-again.  However, it will disappear if you reboot the drone.
+Screen is a program that allows you to run multiple terminals in one ssh session.  The screen will persist even if the ssh session is disconnected and you log in again.  However, it will disappear if you reboot the drone.
 
 ```{figure} ../_images/flying/screen_interface.png
+:align: center
+:width: 90%
+:alt: daffy drone screen terminal interface
 
-Screen terminal interface
+Screen terminal interface.
 ```
 
 Make sure to only have one screen session running at a time.
@@ -111,6 +114,7 @@ To navigate the screen tabs, use the following commands:
 
     ```{note}
     Anytime you need to start the Flight Controller node you should run the command `python flight_controller_node.py` in the Flight Controller screen.
+    ```
 
 ### Web Interface
 The Web Interface allows you to control the drone from your base station. To open it up follow these steps:
@@ -184,7 +188,7 @@ Other useful keys are `i` `j` `k` and `l` which allow you to fly the drone aroun
 
 ### Orient the drone
 
-Rotate the drone so that the camera end is facing away you and the PDB is facing away from you.  In this way the keyboard controls (`i`,`j`,`k`,`l`) will match the drone's orientation.
+Rotate the drone so that the camera end is facing away from you.  In this way the keyboard controls (`i`,`j`,`k`,`l`) will match the drone's orientation.
 
 They have the following map:
  * `i` - forward (Camera side)
@@ -218,10 +222,16 @@ drift.
 Duckiedrone takeoff
 ```
 
-**Congrats** on flying!
+**Congratulations** on your first flight!
 
 ```{trouble}
 After arming the drone the propellers do not spin at all.
 ---
 Check the Flight Controller node screen. This is where any error message will be printed out.
+```
+
+```{trouble}
+My drone climbs uncontrollably on takeoff and triggers a `Safety Failure: too high` disarm
+---
+The throttle midpoint needs calibration.
 ```

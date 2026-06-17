@@ -183,7 +183,7 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 - Capacity: 1500mAh
 - Discharge Rating: 35C
 - Weight: 178g
-- Dimensions: 16x35x33mm
+- Dimensions: 76x35x33mm
 
 Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
@@ -265,7 +265,7 @@ It supports the placing of a breadboard to provide a "playground" for additional
 Duckiedrone Duckiehut breadboard
 ```
 
-This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](9component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
+This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack

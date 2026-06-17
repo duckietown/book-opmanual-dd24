@@ -20,7 +20,7 @@ To make it possible for you to develop your own code on the drone, you need to s
     docker stop dtps ros1-tof driver-tof && docker rm dtps ros1-tof driver-tof
     ```
 
-1. Clone the repository to your Duckiedrone's SD card and switch to the branch `ente`:
+1. Clone the repository to your Duckiedrone's SD card and switch to the branch `dd24`:
 
     ```shell
     mkdir -p catkin_ws/src && cd catkin_ws/src

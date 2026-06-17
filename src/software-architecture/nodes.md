@@ -125,7 +125,7 @@ This node uses OpenCV to calculate the change in position of the drone using the
     * `/pidrone/range`
 
 ## \`7: TOF
-The TOF node communicates with the VL53L0X Time Of Flight distance sensor using I2C and publishes the sensor's range readings.
+The TOF node communicates with the VL53L1X Time Of Flight distance sensor using I2C and publishes the sensor's range readings.
 
 * Python script: 
     * `tof_node.py`

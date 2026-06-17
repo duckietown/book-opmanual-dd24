@@ -1,23 +1,19 @@
+(flight-controller-initialization)=
 # Initializing the Flight Controller
 
-```{admonition} What you will need
-:class: note
-
+```{needget}
 * A base station computer
 * Flight Controller
 * USB to USB-C cable
-```
-
-
-```{admonition} What you will get
-
+---
 * An up-to-date, initialized Flight Controller
 ```
+
 
 The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the Flight Controller is critical for flying safely.  
 
 ```{attention}
-Make sure, you are not using a "charging only" USB cable
+Make sure, you are not using a ["charging only" USB cable](https://support.konnected.io/how-to-tell-a-usb-charge-only-cable-from-a-usb-data-cable).
 ```
 
 ## Installing Betaflight Configurator (BFC)
@@ -54,7 +50,7 @@ Our current target firmware is **BTFL v4.3.2**.
 Regardless of the firmware version, if it is the first time setting up the Flight Controller, we recommend performing the below flashing procedure once anyways in order to start from a clean state.
 ```
 
-Perform the following 2 steps with the Flight Controller **disconnected**.
+Perform the following steps with the Flight Controller **disconnected**.
 
 *   In the default Welcome page of Betaflight Configurator, in the left sidebar, please click on the `Firmware Flasher` tab 
     ```{figure} ../_images/software-initialization/betaflight_flasher.png

@@ -54,7 +54,7 @@ For an already initialized Duckiedrone, you can modify network settings by:
    sudo reboot
    ```
 
-(dd24-network-configuration)-examples)=
+(dd24-network-configuration-examples)=
 ## Network Configuration Examples
 
 ### Basic Home/Office Network (WPA-PSK)
@@ -170,7 +170,7 @@ network={
 
 ## Complete Configuration File Example
 
-Here's a complete `wpa_supplicant.conf` file with multiple network configurations:
+Here is a complete `wpa_supplicant.conf` file with multiple network configurations:
 
 ```bash
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -340,8 +340,8 @@ See the [full list of country codes](https://www.arubanetworks.com/techdocs/Inst
 
 ## Next Steps
 
-Once your network configuration is complete:
+Once the network configuration is complete:
 
 1. Proceed to [First Connection](first_connection) to access your Duckiedrone
-2. Check the [Troubleshooting](dd24-build_troubleshooting) guide if you encounter issues
-3. Learn about [Flight Controller Initialization](dd24-fc-init) for advanced setup
+2. Check the [Troubleshooting](build_troubleshooting) guide if you encounter issues
+3. Learn about [Flight Controller Initialization](flight-controller-initialization) for advanced setup
