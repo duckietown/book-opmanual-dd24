@@ -30,26 +30,36 @@ In this section you will install the Duckiedrone software on the microSD card.
     :color: primary
     :shadow:
     
-    DD24 system image
+    Download DD24(-B) image from AWS 
+    ```
+
+    ```{button-link} https://drive.google.com/file/d/1jov2P3AVuei9nICHWQBmKThC0EXXUW3B/view?usp=sharing 
+    :color: info
+    :shadow:
+    
+    Download DD24(-B) system from Google Drive
     ```
 
 1. Connect the micro SD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
   
     ```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
-    :width: 400px
+    :width: 40%
+    :alt: Duckietown micro SD card adapter
 
     Micro SD Card adapter
     ```
 
 1. Open Etcher and select the downloaded drone image. Then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
 
-Watch this video to see how the process looks like.
 
-```{vimeo} 795166491
+```{vimeo} 1202216734
 :alt: sd card flashing procedure
 ```
 
-<div style="padding:61.68% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/795166491?h=ad68dd5e48&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast from 01-02-2023 170837"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<!--
+<div style="padding:61.68% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1202216734" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast from 01-02-2023 170837"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+-->
+
 
 ```{warning} **Double check** that the "drive" is your micro SD card.
 
@@ -88,7 +98,7 @@ Examples:
 ```
 
 ```{attention}
-If you are in an environment where multiple drones are operating at the same time, make sure your `hostname` is unique!
+If you are in an environment where multiple drones are operating at the same time, **make sure your `hostname` is unique**.
 ```
 
 1. To change your robot’s `hostname` navigate to the newly flashed SD card.
