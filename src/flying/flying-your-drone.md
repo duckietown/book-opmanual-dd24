@@ -111,6 +111,7 @@ To navigate the screen tabs, use the following commands:
 
     ```{note}
     Anytime you need to start the Flight Controller node you should run the command `python flight_controller_node.py` in the Flight Controller screen.
+    ```
 
 ### Web Interface
 The Web Interface allows you to control the drone from your base station. To open it up follow these steps:
@@ -184,7 +185,7 @@ Other useful keys are `i` `j` `k` and `l` which allow you to fly the drone aroun
 
 ### Orient the drone
 
-Rotate the drone so that the camera end is facing away you and the PDB is facing away from you.  In this way the keyboard controls (`i`,`j`,`k`,`l`) will match the drone's orientation.
+Rotate the drone so that the camera end is facing away from you.  In this way the keyboard controls (`i`,`j`,`k`,`l`) will match the drone's orientation.
 
 They have the following map:
  * `i` - forward (Camera side)
