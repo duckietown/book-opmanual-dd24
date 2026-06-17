@@ -170,7 +170,7 @@ network={
 
 ## Complete Configuration File Example
 
-Here's a complete `wpa_supplicant.conf` file with multiple network configurations:
+Here is a complete `wpa_supplicant.conf` file with multiple network configurations:
 
 ```bash
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -340,8 +340,8 @@ See the [full list of country codes](https://www.arubanetworks.com/techdocs/Inst
 
 ## Next Steps
 
-Once your network configuration is complete:
+Once the network configuration is complete:
 
 1. Proceed to [First Connection](first_connection) to access your Duckiedrone
 2. Check the [Troubleshooting](build_troubleshooting) guide if you encounter issues
-3. Learn about [Flight Controller Initialization](../preliminaries/flight-controller-initialization.md) for advanced setup
+3. Learn about [Flight Controller Initialization](flight-controller-initialization) for advanced setup

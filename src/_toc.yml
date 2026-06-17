@@ -42,6 +42,7 @@ parts:
           - file: flying/betaflight-pid-settings
           - file: flying/diagnostic
           - file: flying/flying-your-drone
+          - file: flying/throttle-calibration
 
 
     - caption: Learning Experiences
