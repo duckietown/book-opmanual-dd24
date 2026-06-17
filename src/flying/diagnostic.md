@@ -28,7 +28,7 @@ The flight code does not start
 
 ---
 
-Make sure you are running the start script in the correct directory: `~/ws/src/pidrone_pkg`, **inside** the container.
+Make sure you are running the start script in the correct directory: `~/catkin_ws/src/pidrone_pkg`, **inside** the container.
 ```
 
 ```{trouble}
