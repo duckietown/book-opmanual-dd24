@@ -199,7 +199,7 @@ If for any reason your battery looks punctured or otherwise damaged, do not use 
 You can learn how to safely dispose of a LiPo battery, e.g., here: [Oscar Liang's Guide on Disposing LiPo batteries](https://oscarliang.com/dispose-lipo-battery-safely/). 
 ```
 
-The Duckietown battery connects to the drone through a 10cm long XT60 connector, and should be charged using the provided battery charger.
+The Duckietown battery connects to the drone through a 10cm long XT60 connector and should be charged using the provided battery charger.
 
 (component-battery-charger-2-4s-liion-lipoly-25w)=
 ## Battery charger
@@ -210,13 +210,13 @@ The Duckietown battery connects to the drone through a 10cm long XT60 connector,
 :align: center
 :alt: Battery charger 
 
-Lithium Ion battery charger
+Lithium-Ion battery charger
 ```
 
-This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to teh battery, and the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
+This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and, on the other, to a stable power source (e.g., a wall outlet) via the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
 - Operating Voltage Range: 9V-16V DC
-- Cells Type Supported: 2-4 cells Li- Ion/Li-Poly 
+- Cell Types Supported: 2-4 cells Li- Ion/Li-Poly 
 - Max Charge Power: 25W
 - Charge Current: 1500mA
 - Charge Accuracy: ±10mV
@@ -235,7 +235,7 @@ This battery charger provides a safe charging interface for the [LiPo battery](c
 Duckiedrone battery charger adapter (12V, 2A) 
 ```
 
-This 12V 2A power adapter, provided with a US wall plug, connects to the battery charger to deliver charge to the battery when needed.
+This 12V 2A power adapter, provided with a US wall plug, connects to the battery charger to deliver a charge to the battery when needed.
 
 (component-duckietown-drone-hut-v1-2)=
 ## Duckietown drone HUT - v1.2
@@ -246,10 +246,10 @@ This 12V 2A power adapter, provided with a US wall plug, connects to the battery
 :align: center
 :alt: Duckiedrone Hut DDHUT v1.2 
 
-The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
+The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi and provides a playground for circuit testing.  
 ```
 
-The Duckiedrone HUT (yes, HUT, not HAT..) is a board that acts as hub for connections between the various peripherals of the drone, such as sensors and flight controller, and the onboard Raspberry Pi. 
+The Duckiedrone HUT (yes, HUT, not HAT..) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and the flight controller, and the onboard Raspberry Pi. 
 
 It supports the placing of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
 
