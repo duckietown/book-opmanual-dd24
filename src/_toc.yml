@@ -8,15 +8,17 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-        - file: preliminaries/drone-safety
-        - file: preliminaries/duckiedrone-prerequisites-guide
-        - file: preliminaries/duckiedrone-multimeter-usage-guide
-        - file: preliminaries/duckiedrone-whats-in-the-box
+        - file: duckiedrone-preliminaries/safety
+        - file: duckiedrone-preliminaries/prerequisites
           sections:
-            - file: preliminaries/dd24-components-description
-        - file: preliminaries/duckiedrone-additional-materials
-        - file: preliminaries/duckiedrone-software-initialization
-      #  - file: preliminaries/flying-your-drone
+            - file: duckiedrone-preliminaries/soldering-basics
+            - file: duckiedrone-preliminaries/multimeter-usage-guide
+        - file: duckiedrone-preliminaries/whats-in-the-box
+          sections:
+            - file: duckiedrone-preliminaries/components-description
+        - file: duckiedrone-preliminaries/additional-materials
+        - file: duckiedrone-preliminaries/software-initialization
+      #  - file: duckiedrone-preliminaries/flying-your-drone
 
     - caption: Hardware build DD24
       maxdepth: 2

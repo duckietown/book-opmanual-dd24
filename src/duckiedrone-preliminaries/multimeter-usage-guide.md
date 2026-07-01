@@ -3,6 +3,8 @@
 :description: Learn how to use a multimeter for continuity and DC voltage checks in your Duckiedrone builds, ensuring accurate and safe electrical connections.
 :keywords: Duckiedrone, multimeter usage, continuity check, DC voltage check, electronics testing, multimeter guide, Duckietown, circuit troubleshooting
 ```
+
+
 (multimeter-tips)=
 # How to Use Multimeters
 

@@ -1,30 +1,39 @@
 
 ```{seo}
-:description: Discover additional materials required for building and flying the DD24 Duckiedrone, including base station requirements and essential tools.
+:description: Learn about additional materials required for building and flying the DD24 Duckiedrone, including base station requirements and essential tools.
 :keywords: Duckiedrone, required materials, soldering tools, base station, Duckietown drone build, autonomous quadcopter tools
 ```
+
+<!--
+```{needget}
+- A computer (laptop, or desktop)
+---
+- Knowledge of best approach to installing Duckietown on your computer
+```
+-->
 
 (dd24-prerequisites-other)=
 # Additional Materials for Building the Duckiedrone
 
-## Base Station (Laptop)
-
 This section details the materials needed to build and fly your drone that are not included in the kit.
 To operate the drone, you must have a laptop or personal computer capable of connecting to the internet.
 
-### OS Requirements
+## Base Station Computer
 
-(prelim-dd24-other-materials-required)=
-# Other Required Materials
+To fly the drone, you must have a laptop or personal computer that is capable of connecting to the internet. 
 
-## Base Station (Laptop)
-
-This section contains what you will need to build and fly your drone that is not included in the kit.
-In order to fly the drone, you must have a laptop or personal computer that is capable of connecting to the internet.
+```{todo}
+TODO: point to list of minimum hardware requirements after merging this in main manual
+```
 
 ### OS Requirements
 
-At this time, it is not possible to flash your SD card on a Chromebook. You will need a Linux, Windows, or macOS device to configure the SD card during the build, but you can use any OS after this the configuration.
+Use a native Ubuntu 24.xx installation. 
+
+```{todo}
+TODO: verify it works on macOS and Windows through workspaces
+```
+
 
 ### Software Requirements
 
@@ -32,9 +41,9 @@ Additionally, you will need to install the following software on your base stati
 
 1. *Betaflight Configurator*. This is an application that will allow you to set up your Flight Controller.
 
-    ```{note}
-    You will install this later in the manual.
-    ```
+```{todo}
+TODO: verify this is still the case
+```
 
 1. [Balena Etcher](https://etcher.balena.io/#download-etcher)
 

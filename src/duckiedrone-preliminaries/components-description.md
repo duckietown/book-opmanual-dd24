@@ -4,9 +4,9 @@
 ```
 
 (prelim-dd24-box-component-description)=
-# Description of Components (`DD24`)
+# Description of Components (`DD24-B`)
 
-Most components in the Duckiedrone box are functional, i.e., the serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful. 
+Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful, for example the duckies.
 
 We provide below a brief description of each component in the box.
 
@@ -24,7 +24,7 @@ Raspberry Pi 4 Model B, 4GB RAM
 
 The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as high-level brain of the Duckiedrone, hosting most of the computation power. 
 
-The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
+The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
 The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](sw-initialization).
 
@@ -113,7 +113,7 @@ The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. This racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+The Duckiedrone mounts four brushless DC motors, model DX2205. This racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
@@ -153,7 +153,7 @@ These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv)
 Propellers (CW and CCW) 
 ```
 
-The Duckiedrone (`DD24`) mounts four Diatone Polycarbonate 4040, 4x4 (in) three-bladed propellers ("props"), each weighing 3.5g. 
+The Duckiedrone mounts four Diatone Polycarbonate 4040, 4x4 (in) three-bladed propellers ("props"), each weighing 3.5g. 
 
 The box contains a full spare set, i.e., 4x CW and 4x CCW props. 
 
@@ -268,7 +268,35 @@ Duckiedrone Duckiehut breadboard
 This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
-## Flight Controller & ESC stack - SpeedyBee F405 V3 BLS 50A
+## Flight Controller & ESC stack
+
+```{note}
+There are two supported flight‑controller + ESC stacks for the Duckiedrone family.
+
+* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**DD24**) revision kits.  
+* **Mamba F405 MK2 V2 (60 A)** – shipped with the second (**DD24‑B**) revision kits.
+
+Both boards share similar functionalities. In this manual we assume that you are flying one of the latest `DD24-B` revisions. 
+
+Before starting the assembly of your Duckiedrone, make sure to [identify which flight controller is in your box](identifying-flight-controller), as the assembly instructions are slightly different. 
+```
+
+:::::{tab-set}
+
+::::{tab-item} Mamba FC (DD24-B)
+
+```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
+:name: flight-controller-and-esc-stack-mamba-bheli
+:width: 300px
+:align: center
+:alt: The Duckiedrone DD24 flight controller (FC) and electronic speed controllers (ESC) stack 
+
+The flight controller (FC) and electronic speed controllers (ESC) stack 
+```
+
+::::
+
+::::{tab-item} SpeedyBee FC (DD24)
 
 ```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
 :name: flight-controller-and-esc-stack-speedybee-box
@@ -278,6 +306,13 @@ This is a prototyping breadboard with two-sided tape on the back. Attach it in t
 
 The flight controller (FC) and electronic speed controllers (ESC) stack 
 ```
+
+::::
+
+:::::
+
+
+
 ### The flight controller (FC) and Electronic Speed Controller (ESC) - foreword
 
 The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measure linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
@@ -286,15 +321,17 @@ Overall, the FC is an essential component of every drone, even when another comp
 
 The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
-This FC+ESC stack include the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
+This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
 
-### FCs on the DD24
+### FCs on the DD24 and DD24‑B
+
+The standard `DD24` is supplied with the SpeedyBee stack, whereas the `DD24‑B` revision uses the Mamba stack.
 
 ```{note}
-The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025, due to supply chain constraints.
+The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025.
 ```
 
-The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), whith details provided in [](fig-dd24-fc-esc-405v3-specs). 
+The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs). 
 
 ```{figure} ../_images/components-official-dd24/f405-V3-specification-8.jpg
 :name: fig-dd24-fc-esc-405v3-specs
@@ -307,7 +344,38 @@ The FC+ESC F405 V3 stack box components and specifications
 
 * [Download the F405v3 50A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
 * [Download the F405v4 55A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
+* [Download the Mamba F405mk2 v2 & FC BLHELI-S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
 
+(identifying-flight-controller)=
+### Identifying your flight controller
+
+```{figure} ../_images/components-official-dd24/speedybee-f405-v3-fc.png
+:name: fig-fc-speedybee-v3-top
+:width: 350px
+:align: center
+:alt: SpeedyBee F405 V3/V4 – top view
+
+SpeedyBee F405 V3/V4 (top view)
+```
+
+```{figure} ../_images/components-official-dd24/dd24-fc-esc-stack-mamba-f405-mk2-v2.png
+:name: fig-fc-mamba-top
+:width: 350px
+:align: center
+:alt: Mamba F405 MK2 V2 – top view
+
+Mamba F405 MK2 V2 (top view)
+```
+
+Use the connector layout and the soldering pads type to recognize your board:
+
+* **SpeedyBee** – only surface soldering pads. 
+* **Mamba** – through-hole soldering pads.
+
+```{attention}
+* If your Duckiedrone box has a SpeedyBee flight controller, follow these [Duckiedrone DD24 assembly instructions](duckiedrone-dd24-assembly-instructions)
+* If your Duckiedrone box has a Mamba flight controller, follow these [Duckiedrone DD24-B assembly instructions](duckiedrone-dd24-b-assembly-instructions)
+```
 
 (component-buzzer-model-2312-3v-24v)=
 ## Buzzer

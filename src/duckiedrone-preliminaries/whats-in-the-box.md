@@ -3,6 +3,12 @@
 :keywords: duckietown, duckiedrone, dd24, box, what is in the box, drone, DIY drone, autonomous drone, fpv drone
 ```
 
+```{needget}
+* A Duckiedrone box
+---
+* Understanding of the components inside the box
+```
+
 (prelim-dd24-box)=
 # What's in the box (`DD24`)
 
@@ -51,7 +57,7 @@ What's inside the box (selected components).
 | 1        |                                                      Battery charger adapter - 12V 2A US plug |
 | 1        |                                                                   Duckietown drone HUT - v1.1 |
 | 1        |                                                                  Breadboard - Yellow, 45x35mm |
-| 1        |                                    Flight Controller & ESC stack - SpeedyBee F405 V3, BLS 50A |
+| 1        |                                    Flight Controller & ESC stack - Mamba F405 MK2 Flight Controller and BLHELI-S 3-6S 60A ESC |
 | 1        |                                                                   Buzzer - Model 2312, 3V-24V |
 | 1        |                                                           USB-A to USB-C cable - 23cm, angled |
 | 1        |                                                       USB-C power cable - 10cm, exposed wires |

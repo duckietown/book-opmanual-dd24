@@ -3,8 +3,9 @@
 :description: Learn essential skills for building your Duckiedrone, including wire stripping, tinning, soldering, and troubleshooting techniques.
 :keywords: Duckiedrone, soldering guide, wire stripping, tinning wires, drone building, troubleshooting soldering, Duckietown, soldering tips
 ```
-(dd24-prerequisites)=
-# Prerequisites
+
+(dd24-prerequisites-soldering)=
+# Soldering basics
 
 This section outlines the most important skills you will need for building your Duckiedrone.
 
