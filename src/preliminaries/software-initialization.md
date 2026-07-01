@@ -53,7 +53,7 @@ In this section you will install the Duckiedrone software on the microSD card.
 
 
 ```{vimeo} 1202216734
-:alt: sd card flashing procedure
+:alt: sd card flashing procedure for a dd24 using balena etcher
 ```
 
 <!--
