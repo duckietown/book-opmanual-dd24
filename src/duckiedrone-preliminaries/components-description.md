@@ -22,7 +22,7 @@ We provide below a brief description of each component in the box.
 Raspberry Pi 4 Model B, 4GB RAM
 ```
 
-The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as high-level brain of the Duckiedrone, hosting most of the computation power. 
+The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
 
 The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
@@ -73,7 +73,7 @@ Do not plug the microSD card adapter in the Raspberry Pi during flight. The micr
 ## RPi Camera (G) with Fisheye lens and cable
 
 ```{figure} ../_images/components-official-dd24/dd24-camera-and-cable.jpg
-:name: rpi-cable-and-cable
+:name: rpi-camera-and-cable
 :width: 300px
 :align: center
 :alt: RPI camera and fisheye lens
@@ -83,10 +83,10 @@ Raspberry Pi camera with Fisheye lens, and cable
 
 The camera is an important sensor for Duckiedrone autonomous operations, allowing it to perceive the environment visually. 
 
-This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
+This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
-## Time of flight sensors sensor
+## Time of flight sensor
 
 ```{figure} ../_images/components-official-dd24/dd24-tof-back-front.png
 :name: tof-sensor-front-back
@@ -113,7 +113,7 @@ The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone mounts four brushless DC motors, model DX2205. This racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+The Duckiedrone mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
@@ -121,7 +121,7 @@ Note that there are two pairs of motors, distinguishable by the color of the top
 **Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
 ```
 
-If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent that the nuts come off (along with the propellers) during flight.
+If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
@@ -155,11 +155,11 @@ Propellers (CW and CCW)
 
 The Duckiedrone mounts four Diatone Polycarbonate 4040, 4x4 (in) three-bladed propellers ("props"), each weighing 3.5g. 
 
-The box contains a full spare set, i.e., 4x CW and 4x CCW props. 
+The box contains a full spare set, i.e., 2x CW and 2x CCW props. 
 
 As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other for counter-clockwise (CCW). 
 
-To distinguish CW from CCW propellers, find the arrows impressed on the backside, as show in [](dd24-propellers).
+To distinguish CW from CCW propellers, find the arrows impressed on the backside, as shown in [](dd24-propellers).
 
 
 (component-lipo-battery-1500mah-4s-148v-xt60)=
@@ -183,12 +183,12 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 - Capacity: 1500mAh
 - Discharge Rating: 35C
 - Weight: 178g
-- Dimensions: 16x35x33mm
+- Dimensions: 76x35x33mm
 
-Here is good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
+Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
 ```{attention}
-Before doing anything with the Duckietown battery, ready the [Duckietown Safety Guidelines](prelim-drone-safety).
+Before doing anything with the Duckietown battery, read the [Duckietown Safety Guidelines](prelim-drone-safety).
 ```
 
 ```{warning}
@@ -213,10 +213,10 @@ The Duckietown battery connects to the drone through a 10cm long XT60 connector,
 Lithium Ion battery charger
 ```
 
-This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to teh battery, and the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
+This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery, and the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
 - Operating Voltage Range: 9V-16V DC
-- Cells Type Supported: 2-4 cells Li- Ion/Li-Poly 
+- Cells Type Supported: 2-4 cells Li-Ion/Li-Poly 
 - Max Charge Power: 25W
 - Charge Current: 1500mA
 - Charge Accuracy: ±10mV
@@ -317,7 +317,7 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 
 The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measure linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
 
-Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of teh Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to exercises route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
+Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to exercise route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
 
 The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
@@ -389,7 +389,7 @@ Use the connector layout and the soldering pads type to recognize your board:
 The buzzer notifies the user when the battery voltage is lower than a certain threshold
 ```
 
-The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measure output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the drone when hearing the buzzer buzz. 
+The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measured output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the drone when hearing the buzzer buzz. 
 
 (dd24-usb-cables)=
 ## Cables
@@ -406,7 +406,7 @@ Duckiedrone cables
 The Duckiedrone (`DD24`) box includes:
 
 - 1x USB-A to USB-C cable (with data) - 23cm + length of connectors, angled: FC to Raspberry Pi connection 
-- 1x USB-C power cable (power only) - 8cm wires + 1cm exposed sire + 2cm connector, exposed wires: FC to Raspberry Pi connection
+- 1x USB-C power cable (power only) - 8cm wires + 1cm exposed wire + 2cm connector, exposed wires: FC to Raspberry Pi connection
 - 4x 4-pin JST 1.5mm connectors (both ends) - 15cm: ToF sensor to HUT connections
 - 1x 4-pin JST 1.5mm connectors (both ends) - 23cm: ToF sensor to HUT connection
 
@@ -474,7 +474,7 @@ This 2.54mm jumper is used to short (i.e., connect) pins on the HUT. This is use
 Velcro strips
 ```
 
-Velcro strips are use for cable management and securing components, such as the battery, to the drone's chassis. The Duckiedrone box contains:
+Velcro strips are used for cable management and securing components, such as the battery, to the drone's chassis. The Duckiedrone box contains:
 
 - 2x 25cm black Velcro strips
 
@@ -494,7 +494,7 @@ The Duckiedrone's chassis is a custom designed 2.5mm thick carbon fiber sandwich
 Duckiedrone chassis: bottom plate  
 ```
 
-The bottom part of the chassis provide the main surface for mounting components, such as the motors, the electronics, the battery and more. 
+The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery and more. 
 
 The chassis has a square design with each side measuring 27.2cm.
 
@@ -541,7 +541,7 @@ Other chassis components include:
 Camera mount with integrated time of flight sensor mounting support 
 ```
 
-This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60 degrees angle. Coupled with the camera's 160 degrees field of view, it allows the drone to see both underneath and in front at the same time. 
+This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160 degrees field of view, it allows the drone to see both underneath and in front at the same time. 
 
 
 (component-landing-gear-3d-printed-v11)=
@@ -584,7 +584,7 @@ These rubber landing pads mount under the landing gears and provide a softer lan
 Screws, nuts and standoffs
 ```
 
-To Duckiedrone box includes the following a host of "bit and pieces", including spares of each:
+The Duckiedrone box includes a host of "bits and pieces", including spares of each:
 
 - **Screws** (number + spares)
   - (22+2)x Nylon (M3x6) - 16x chassis, 2x securing battery, 4x forward battery supports
@@ -627,11 +627,11 @@ This 8mm wrench is provided to tighten up the motor-prop nuts. We really do not 
 :name: fig-dd24-screw-driver
 :width: 300px
 :align: center
-:alt: Philips screwdriver
+:alt: Phillips screwdriver
 
 Cross screwdriver  
 ```
-This simple Philips screwdriver drives all the screws in the box.  
+This simple Phillips screwdriver drives all the screws in the box.  
 
 (component-camera-calibration-pattern)=
 ## Camera Calibration pattern
@@ -660,7 +660,7 @@ This checkerboard pattern is used to calibrate the Duckiedrone camera.
 Duckietown duckies
 ```
 
-Duckietown duckies are non functional yet essential to the operations of the Duckiedrone. Make sure to always have at least one duckie onboard. 
+Duckietown duckies are non-functional yet essential to the operations of the Duckiedrone. Make sure to always have at least one duckie onboard. 
 
 (component-duckietown-stickers-duckietown-swag)=
 ## Duckietown Stickers
@@ -671,7 +671,7 @@ Duckietown duckies are non functional yet essential to the operations of the Duc
 :align: center
 :alt: Duckietown stickers
 
-Dcukeitown stickers
+Duckietown stickers
 ```
 
 Duckietown stickers look great on your laptop, and notify others of your Duckietown training.    
