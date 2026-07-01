@@ -44,7 +44,7 @@ Soldering involves joining two metal components by melting solder, which acts as
 - Use **long-nose pliers** or helping hands to hold wires and components, as they become hot quickly during soldering.
 - Avoid touching the soldering iron tip or other heated metal parts to prevent burns. If burned, rinse the area immediately with cold water.
 - Do not use the soldering iron on unintended surfaces; the heat can cause melting or damage.
-- Always use a **soldering fan** to avoid inhaling fumes.
+- Always use a **fume extractor** to avoid inhaling fumes.
 ```
 
 ### Resources
@@ -70,13 +70,13 @@ If only a few strands are missing, the wire is likely still usable. If many stra
 ```{trouble}
 I put too much solder on my wire while tinning.
 ---
-Remove excess solder using a solder sucker or copper wick. Alternatively, use a soldering iron to pick up excess solder and clean it off with soldering wool.
+Remove excess solder using a solder sucker or copper wick. Alternatively, use a soldering iron to pick up excess solder and clean it off with brass wool.
 ```
 
 ```{trouble}
 My wire picks up random particles while tinning.
 ---
-Clean the soldering iron tip with soldering wool frequently during use to prevent contamination.
+Clean the soldering iron tip with brass wool frequently during use to prevent contamination.
 ```
 
 ```{trouble}
