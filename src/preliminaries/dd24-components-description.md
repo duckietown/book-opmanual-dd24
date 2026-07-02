@@ -284,7 +284,7 @@ The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked
 
 Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
 
-The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
+The Electronic Speed Controller board, which stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
 This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
 
@@ -354,7 +354,7 @@ The Duckiedrone (`DD24`) box includes:
 Heat sinks mount on the Raspberry Pi and help dissipate heat and lower the temperature of the board
 ```
 
-Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi preventing it from automatically going in protection mode and partially shutting down computational resources.
+Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi preventing it from automatically going into protection mode and partially shutting down computational resources.
 
 (component-40mm-gpio-fan-pwm-speed-control-3pin)=
 ## Fan
