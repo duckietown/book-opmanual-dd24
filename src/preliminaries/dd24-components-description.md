@@ -83,7 +83,7 @@ Raspberry Pi camera with Fisheye lens, and cable
 
 The camera is an important sensor for Duckiedrone autonomous operations, allowing it to perceive the environment visually. 
 
-This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
+This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
 ## Time of Flight Sensor
@@ -121,7 +121,7 @@ Note that there are two pairs of motors, distinguishable by the color of the top
 **Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
 ```
 
-If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent that the nuts come off (along with the propellers) during flight.
+If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
@@ -280,13 +280,13 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 ```
 ### The flight controller (FC) and Electronic Speed Controller (ESC) - foreword
 
-The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measure linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
+The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
 
-Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to exercises route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
+Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
 
 The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
-This FC+ESC stack include the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
+This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
 
 ### FCs on the DD24
 
@@ -426,7 +426,7 @@ The Duckiedrone's chassis is a custom designed 2.5mm thick carbon fiber sandwich
 Duckiedrone chassis: bottom plate  
 ```
 
-The bottom part of the chassis provide the main surface for mounting components, such as the motors, the electronics, the battery and more. 
+The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery and more. 
 
 The chassis has a square design with each side measuring 27.2cm.
 
@@ -442,7 +442,7 @@ The chassis has a square design with each side measuring 27.2cm.
 Duckiedrone chassis: top plate   
 ```
 
-The top chassis plate has the same outer dimension of the bottom plate (27.2cm side), and its main function is to provide structural stability to the drone.
+The top chassis plate has the same outer dimensions as the bottom plate (27.2cm side), and its main function is to provide structural stability to the drone.
 
 (component-tof-support-carbon-fiber-25mm)=
 ### Other chassis components 
@@ -473,7 +473,7 @@ Other chassis components include:
 Camera mount with integrated time of flight sensor mounting support 
 ```
 
-This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60 degrees angle. Coupled with the camera's 160 degrees field of view, it allows the drone to see both underneath and in front at the same time. 
+This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160-degree field of view, it allows the drone to see both underneath and in front at the same time. 
 
 
 (component-landing-gear-3d-printed-v11)=
