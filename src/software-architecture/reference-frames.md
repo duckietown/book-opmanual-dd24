@@ -6,7 +6,7 @@
 (dd24-reference-frames)=
 # Reference frames
 
-Different reference frames are used by ROS and BetaFlight (i.e. by the software running on the Raspberry Pi and the one on the flight controller respectively).
+Different reference frames are used by ROS and Betaflight (i.e., by the software running on the Raspberry Pi and the one on the flight controller, respectively).
 
 ## Betaflight
 
