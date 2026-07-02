@@ -28,7 +28,7 @@ Verify that each power pin is receiving 5 volts compared to each ground pin with
 Make sure you did not use metal screws to mount the camera to the frame, as they can cause a short.
  
 If your Raspberry Pi is receiving 5 volts on its power/ground pins, but no red
-light turns on, then it might have gotten fried. This can happen if
+light turns on, then it might have been fried. This can happen if
 you miswire or short the power/ground pins on it, so try replacing
 the Raspberry Pi.
 ```
@@ -102,7 +102,7 @@ can talk to them. If that doesn't work, check the connection between
 the Flight Controller, ESCs, and motors.
 
 On the Raspberry Pi, make sure you can calibrate the accelerometer, and run
-the Flight Controller node. If those don't work, go back and recheck
+the Flight Controller Node. If those don't work, go back and recheck
 your Betaflight configuration.
 
 ## Flight Issues

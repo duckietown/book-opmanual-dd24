@@ -55,7 +55,7 @@ The FlyCommandsMux Node listens to two topics:
 
 If there is only one topic with valid commands (i.e., commands that are not too old), it uses that.
 
-If both have valid inputs, depending on the `DTParams` specified in the `__init__` function, masking is performed. By default, manual commands have higher priority. The parameters control which autonomous controls are passed through to the Flight Controller node.
+If both have valid inputs, depending on the `DTParams` specified in the `__init__` function, masking is performed. By default, manual commands have higher priority. The parameters control which autonomous controls are passed through to the Flight Controller Node.
 
 ### rosbridge
 This node allows the web dashboard to communicate with ROS nodes on the drone by exposing topics through a WebSocket interface.
@@ -90,7 +90,7 @@ This node uses OpenCV to calculate the change in position of the drone using the
 
 ### Topics naming
 
-#### Flight Controller node:
+#### Flight Controller Node:
 
 Topics:
 
@@ -110,7 +110,7 @@ Services:
 
         ~/flight_controller_node/calibrate_imu
 
-#### IMU node:
+#### IMU Node:
 
 Topics:
 
@@ -118,7 +118,7 @@ Topics:
 
         ~/imu_node/raw
 
-#### ToF node:
+#### ToF Node:
 
 Topics:
 

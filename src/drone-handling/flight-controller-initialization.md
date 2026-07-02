@@ -244,7 +244,7 @@ Make sure that the `dts` on your laptop is:
 To start the flight software stack, execute the command
 
    ```bash
-   dts duckiebot update -t duckiedrone --distro=ente -f [ROBOT_NAME]
+   dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
    ```
 
 Wait for the command to terminate before proceeding to the next step.
