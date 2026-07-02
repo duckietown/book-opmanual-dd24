@@ -22,7 +22,7 @@ ROS uses the reference frames conventions defined in [REP 105](https://www.ros.o
 - `y` left
 - `z` up.
 
-In the image below [^px4-docs] you can see a comparison between the two reference frame conventions.
+In the image below, you can see a comparison between the two reference frame conventions.[^px4-docs]
 
 ![Comparison between the reference frames used in ROS and px4/betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
 

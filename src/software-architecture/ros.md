@@ -29,6 +29,6 @@ Publishers are used to publish specific message types to specific topics. Publis
 ## Subscribers
 Subscribers are used to read the messages being published to a ROS topic. When creating a subscriber, you must identify the topic, message type, and a callback method which takes in the message as an argument, and will be called every time a message is published to the topic. For example, if you wanted to update the height of the drone every time a message was published, then in a ROS node you would first create a subscriber using `rospy.Subscriber("/pidrone/range", Range, range_callback_method)`. Your callback method might look something like:
 ```
-range_callback_method(msg):
-  drone_height = msg.range
+def range_callback_method(msg):
+    drone_height = msg.range
 ```
