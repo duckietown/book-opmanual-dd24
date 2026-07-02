@@ -57,7 +57,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
 
     :::{tab-item} Client (CL) mode      
     
-    Use this mode to have the drone connect to an existing local area network. This is the go-to choice if you have an existing network and admin powers to it in the environment where you are operating.  
+    Use this mode to have the drone connect to an existing local area network. This is the go-to choice if you have an existing network and admin access to it in the environment where you are operating.  
 
     1.  Pros:
         * both your base station and your drone can talk with each other (and other devices on the network), and to the internet.  
