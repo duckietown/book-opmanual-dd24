@@ -278,7 +278,7 @@ This is a prototyping breadboard with two-sided tape on the back. Attach it in t
 
 The flight controller (FC) and electronic speed controllers (ESC) stack 
 ```
-### The flight controller (FC) and Electronic Speed Controller (ESC) - foreword
+### The Flight Controller (FC) and Electronic Speed Controller (ESC) - foreword
 
 The **Flight Controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC also hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
 
