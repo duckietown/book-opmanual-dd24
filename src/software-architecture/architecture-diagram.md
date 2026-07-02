@@ -65,7 +65,7 @@ This node allows the web dashboard to communicate with ROS nodes on the drone by
 These nodes provide the capability to give a velocity or position command to the drone.
 
 ### PID
-The PID controller node controls the flight of the drone by running a PID controller on the error calculated by the desired and current velocity and position of the drone.
+The PID controller node controls the flight of the drone by running a PID controller on the error calculated from the desired and current velocity and position of the drone.
 
 ### State Estimator
 
@@ -81,7 +81,7 @@ The state typically consists of the `x`, `y`, `z` positions and velocities, and 
 
 
 ### Optical Flow
-The Optical Flow node computes the optical flow motion vectors, sends them to the ground projector to be scaled based on the height and publishes the linear velocity calculated from the projected vectors.
+The Optical Flow node computes the optical flow motion vectors, sends them to the ground projector to be scaled based on the height, and publishes the linear velocity calculated from the projected vectors.
 
 
 ### Rigid Transform

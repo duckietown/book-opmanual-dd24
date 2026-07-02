@@ -113,7 +113,7 @@ The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](h
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, and M3 mounting holes, and weigh roughly 28g each. 
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
