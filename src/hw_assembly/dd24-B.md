@@ -1,6 +1,6 @@
 ```{seo}
-description: Interactive step-by-step instructions to assemble a Duckietown Duckiedrone (DD24-B).
-keywords: Duckietown, Duckiedrone, assembly instructions, quadcotper
+:description: Interactive step-by-step instructions to assemble a Duckietown Duckiedrone (DD24-B).
+:keywords: Duckietown, Duckiedrone, assembly instructions, quadcopter
 ```
 
 (duckiedrone-dd24-b-assembly-instructions)=
