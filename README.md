@@ -7,7 +7,7 @@ Welcome to the opmanual DD24 book! This book serves as a comprehensive guide to 
 To get started contributing to this book, follow these steps:
 
 1. Clone the repository to your local machine.
-1. Customize the structure of your book by modifying provided in `src/_toc.yml`.
+1. Customize the structure of your book by modifying `src/_toc.yml`.
 1. Learn how to contribute to the content of the books on [the Book Writer manual](https://staging-docs.duckietown.com/ente/devmanual-docs/intro.html)
 
 ## Building the Book

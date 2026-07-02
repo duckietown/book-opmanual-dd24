@@ -32,8 +32,8 @@ What's inside the box (selected components).
 
 ## List of components
 
-| Component |                                                                                        Number |
-|:----------|----------------------------------------------------------------------------------------------:|
+| Qty |                                                                                    Component |
+|:----|---------------------------------------------------------------------------------------------:|
 | 1         |                                                      Raspberry Pi 4 - 4GB (or Raspberry Pi 5) |
 | 1         |                                                               64GB MicroSD card - Class 10 U3 |
 | 1         |                                                                        MicroSD to USB adapter |

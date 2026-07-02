@@ -88,7 +88,7 @@ PX4 only **accepts** an `OFFBOARD` request when it is already receiving setpoint
 
 ### The Remote Control (virtual joystick) widget
 
-Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send`. In `ALTITUDE` mode, moving the joystick tilts the drone; in `OFFBOARD` mode the joystick is ignored (your setpoint publisher takes over).
+Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send`. In `ALTITUDE` mode, moving the joystick tilts the drone; in `OFFBOARD` mode, the joystick is ignored (your setpoint publisher takes over).
 
 ## First flight
 

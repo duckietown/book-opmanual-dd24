@@ -148,7 +148,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     
     :::{tab-item} Access point (AP) mode
     
-    Scan available networks through the base station: once the booting procedure is complete you will find a network called `duckietown-<hostname>-ap`, where `<hostname>` is the name of the robot, as determined during the initialization procedure. The default name is `amelia`.
+    Scan available networks through the base station: once the booting procedure is complete, you will find a network called `duckietown-<hostname>-ap`, where `<hostname>` is the name of the robot, as determined during the initialization procedure. The default name is `amelia`.
 
     ```{image} ../_images/first-boot/drone_wifi_ap.png
     :width: 300px
