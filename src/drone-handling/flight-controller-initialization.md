@@ -277,7 +277,7 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    - Go to the **Application Settings → Comm Links** section by clicking on the **Q** application icon in the top left corner.
    - Select **Add** to create a new communication link.
    - Choose **TCP** from the dropdown.
-   - Set the **Host Address** to `<robot_name>.local` and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
+   - Set the **Host Address** to `ROBOT_NAME.local` and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
    - Click **Connect** to establish the connection with your flight controller.
 
 1. Access the Vehicle Setup:

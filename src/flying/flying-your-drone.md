@@ -153,7 +153,7 @@ The ARM toggle snaps back to **DISARM** a second after I click it.
 ---
 PX4 rejected the arming request because a preflight check failed. Typical causes on a DD24:
 
-*   The EKF is still converging — wait 10–15 seconds after plugging the battery.
+*   The EKF is still converging — wait 10–15 seconds after plugging in the battery.
 *   The accelerometer bias is out of range — recalibrate the IMU from QGroundControl.
 *   The drone is not level — place it on a flat surface and retry.
 *   The ToF sensor is returning invalid distances — see [](dd24-troubleshooting-faq).
