@@ -28,8 +28,8 @@ Verify that each power pin is receiving 5 volts compared to each ground pin with
 Make sure you did not use metal screws to mount the camera to the frame, as they can cause a short.
  
 If your Raspberry Pi is receiving 5 volts on its power/ground pins, but no red
-light turns on, then it might have gotten fried.  This can happen if
-you wire or short the power/ground pins on it, so try replacing
+light turns on, then it might have gotten fried. This can happen if
+you miswire or short the power/ground pins on it, so try replacing
 the Raspberry Pi.
 ```
 

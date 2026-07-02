@@ -16,7 +16,7 @@ The reference frame used by the Betaflight firmware is as follows[^px4-docs]:
 
 ## Robot Operating System (ROS)
 
-ROS uses the reference frame conventions defined in [REP 105](https://www.ros.org/reps/rep-0105.html). Specifically for mobile robots (and thus the Duckiedrone), the _preferred_ axis orientation is defined in [REP 103](https://www.ros.org/reps/rep-0103.html) as having the _body axis_ as:
+ROS uses the reference frame conventions defined in [REP 105](https://www.ros.org/reps/rep-0105.html). Specifically for mobile robots (and thus the Duckiedrone), the _preferred_ axis orientation is defined in [REP 103](https://www.ros.org/reps/rep-0103.html) as having the _body axes_ as:
 
 - `x` forward
 - `y` left

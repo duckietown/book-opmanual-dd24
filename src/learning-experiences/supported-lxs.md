@@ -9,7 +9,7 @@
 ```{needget}
 * An internet connection
 * A computer with the Duckietown Shell (`dts`) [installed and correctly set up](laptop-setup)
-* Duckietown token correctly set up;
+* Duckietown token correctly set up
 ---
 * Knowledge
 * Skills
