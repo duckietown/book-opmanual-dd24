@@ -23,7 +23,7 @@ Raspberry Pi indicates it has power with a *red* power LED.
 If your Raspberry Pi is not powering on, verify with a multimeter that the Raspberry Pi
 pins are receiving the right voltage on input.  You can find a mapping
 of the GPIO pins [here](https://www.raspberrypi.org/documentation/usage/gpio/).
-Verify that each power pin is receiving 5 Volts compared to each ground pin with the multimeter.
+Verify that each power pin is receiving 5 volts compared to each ground pin with the multimeter.
 
 Make sure you did not use metal screws to mount the camera to the frame, as they can cause a short.
  
@@ -37,7 +37,7 @@ the Raspberry Pi.
 The motors do not turn on.
 ---
 The motors indicate they are receiving power by beeping once. You can also check each
-part with the multimeter.  Verify that there is a 12 Volt connection
+part with the multimeter.  Verify that there is a 12-volt connection
 between power and ground on the power distribution board. Also verify
 that the Raspberry Pi is receiving 5 volts from the UBEC.  
 ```

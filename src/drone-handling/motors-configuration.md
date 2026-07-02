@@ -60,7 +60,7 @@ Remove propellers for safety before proceeding with motor testing.
     Notice that there is a different naming scheme between the motor numbering and the motor test tab:
 
         - The motor test tab uses **letters** (A, B, C, D)
-        - The motor configuration parameters use numbers (1,2,3,4)
+        - The motor configuration parameters use numbers (1, 2, 3, 4)
     ```
 
 ## 3. Reverse Motor Direction (if required)

@@ -12,7 +12,7 @@ The Robot Operating System (ROS) is a widely used robot middleware that makes co
 ## General Components:
 
 ### ROS Master
-In order for ROS nodes to communicate with each other, there must be a master node running, to which all other nodes register. A better and more detailed description can be found on the ROS wiki site [here](http://wiki.ros.org/Master). A ROS master node is created by running the command `roscore` in the terminal of a computer that has ROS installed. On the Duckiedrone, `roscore` is called in window `0` of the screen.
+In order for ROS nodes to communicate with each other, there must be a master node running, with which all other nodes register. A better and more detailed description can be found on the ROS wiki site [here](http://wiki.ros.org/Master). A ROS master node is created by running the command `roscore` in the terminal of a computer that has ROS installed. On the Duckiedrone, `roscore` is called in window `0` of the screen.
 
 ### ROS Nodes
 ROS nodes are programs that communicate with other programs via publishing and/or subscribing to ROS topics. A better and more detailed description of nodes is found on the ROS wiki site [here](http://wiki.ros.org/Nodes); [this link](http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes) also includes a shorter description along with brief descriptions of other key ROS components. On the Duckiedrone, each window of the screen is a ROS node.
