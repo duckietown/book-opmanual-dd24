@@ -25,7 +25,7 @@ The camera driver interfaces with the camera present on the drone, publishing co
 ### Flight Controller Driver
 The flight controller node controls what mode the drone should be in based on the user input and on safety checks. For example, if any of the heartbeats stop publishing, the mode controller disarms the drone. If the mode is "ARMED" or "DISARMED", the flight controller node sends static command values, but if the mode is "FLYING", then the node sends the fly_commands topic to the flight controller board.
 
-Flight Controller interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands which are used to control the attitude of the drone. 
+The Flight Controller interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands which are used to control the attitude of the drone. 
 
 ### ToF driver
 Interfaces with the ToF sensors, publishing their range measurements.

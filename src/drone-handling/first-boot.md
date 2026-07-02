@@ -85,7 +85,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
         
     1.  Pros:
             
-        *   You can connect to your drone without the need for a pre-existing existing network infrastructure  
+        *   You can connect to your drone without the need for a pre-existing network infrastructure  
                 
     2.  Cons:
             
