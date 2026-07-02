@@ -76,7 +76,7 @@ The default Duckiedrone mission, before arming.
 
 Before the first flight, confirm:
 
-*   **Heartbeats Monitor** (top left) — the `JOYSTICK`, `ALTITUDE`, `STATE` and `PID` indicators are all green. A red indicator means the matching node is not publishing.
+*   **Heartbeats Monitor** (top left) — the `JOYSTICK`, `ALTITUDE`, `STATE`, and `PID` indicators are all green. A red indicator means the matching node is not publishing.
 *   **Motors PWM** — four bars are visible, all close to the minimum (~1000). If no bars appear, the Flight Controller node is not streaming motor commands.
 *   **Altitude** — the blue trace updates as you gently move the drone up and down.
 *   **Time-of-Flight** — the distance reading (in metres) reacts to your hand passing under the drone.
