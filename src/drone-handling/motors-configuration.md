@@ -37,7 +37,7 @@ Now you have to set up the motor spinning direction on the flight controller in 
 Remove propellers for safety before proceeding with motor testing.
 ```
 
-- Go to the `Motors` tab in QGroundControl. This section will allow you to test motor outputs individually.
+- Go to the `Motors` tab in QGroundControl. This tab will allow you to test motor outputs individually.
 
     ```{figure} ../_images/fc-setup/motor_setup_tab.png
     Motor testing tab
