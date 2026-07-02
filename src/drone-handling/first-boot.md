@@ -79,7 +79,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
         ```
     :::
 
-    :::{tab-item} Access point (AP) mode
+    :::{tab-item} Access Point (AP) mode
     
     If you want to have the drone emit its own Wi-Fi network that your base station can connect to. This is the go-to choice if you do not have a network (WLAN) or admin access to the existing network where you are operating.  
         
@@ -146,7 +146,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
 
     :::
     
-    :::{tab-item} Access point (AP) mode
+    :::{tab-item} Access Point (AP) mode
     
     Scan available networks through the base station: once the booting procedure is complete you will find a network called `duckietown-<hostname>-ap`, where `<hostname>` is the name of the robot, as determined during the initialization procedure. The default name is `amelia`.
 

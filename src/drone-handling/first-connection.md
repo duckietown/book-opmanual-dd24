@@ -48,11 +48,11 @@ If you forgot to change it, the default hostname is `amelia`.
 
 Default robot name: `amelia`
 
-Default ssh user name: `duckie`
+Default SSH user name: `duckie`
 
-Default ssh user password: `quackquack`
+Default SSH user password: `quackquack`
 
-Ssh always possible: `ssh duckie@amelia.local`
+SSH always possible: `ssh duckie@amelia.local`
 
 **Default** access point (**AP**) network configuration:
 
@@ -73,5 +73,5 @@ Ssh always possible: `ssh duckie@amelia.local`
 ```{trouble}
 I cannot connect to my Duckiedrone in AP mode.
 ---
-Try using client mode and shut down the docker container `dt-access-point` through the Portainer interface (accessible through your browser from your base station at `<hostname>.local:9000`)
+Try using client mode and shut down the Docker container `dt-access-point` through the Portainer interface (accessible through your browser from your base station at `<hostname>.local:9000`)
 ```
