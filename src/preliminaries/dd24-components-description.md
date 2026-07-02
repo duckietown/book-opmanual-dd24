@@ -188,7 +188,7 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 Here is good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
 ```{attention}
-Before doing anything with the Duckietown battery, ready the [Duckietown Safety Guidelines](prelim-drone-safety).
+Before doing anything with the Duckietown battery, read the [Duckietown Safety Guidelines](prelim-drone-safety).
 ```
 
 ```{warning}

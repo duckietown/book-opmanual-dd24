@@ -6,7 +6,7 @@
 (dd24-build_troubleshooting)=
 # Troubleshooting
 
-It is not uncommon for something to go wrong during the build process, that is why we need to learn how to debug problems. Having a systematic approach is essential to any robotics project.
+It is not uncommon for something to go wrong during the build process, which is why we need to learn how to debug problems. Having a systematic approach is essential to any robotics project.
 
 When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not.  Your drone will not fly until _everything_ works!
 

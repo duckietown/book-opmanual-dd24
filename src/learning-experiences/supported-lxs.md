@@ -8,7 +8,7 @@
 
 ```{needget}
 * An internet connection
-* A computer with the Duckietown Shell command [installed and correctly setup](laptop-setup)
+* A computer with the Duckietown Shell command [installed and correctly set up](laptop-setup)
 * Duckietown token correctly set up;
 ---
 * Knowledge
