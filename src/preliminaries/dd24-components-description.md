@@ -22,7 +22,7 @@ We provide below a brief description of each component in the box.
 Raspberry Pi 4 Model B, 4GB RAM
 ```
 
-The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
+The Raspberry Pi 4 - Model B is a well-known credit card-sized computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
 
 The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
@@ -63,10 +63,10 @@ SD card USB adapter
 ```
 This USB-A microSD adapter is included in the box to support the first initialization of the microSD card. 
 
-[One of the very first steps](sw-initialization) in the assembly process is to insert the microSD card in the adapter, and plug the adapter in your base station (laptop or desktop, not provided in the box) to install the correct software on Duckiedrone. 
+[One of the very first steps](sw-initialization) in the assembly process is to insert the microSD card into the adapter, and plug the adapter into your base station (laptop or desktop, not provided in the box) to install the correct software on the Duckiedrone. 
 
 ```{warning}
-Do not plug the microSD card adapter in the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
+Do not plug the microSD card adapter into the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
 ```
 
 (component-rpi-camera-g-fisheye-lens)=
@@ -121,7 +121,7 @@ Note that there are two pairs of motors, distinguishable by the color of the top
 **Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
 ```
 
-If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
+If you try to unscrew the top nuts, you will notice that they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
@@ -592,7 +592,7 @@ This checkerboard pattern is used to calibrate the Duckiedrone camera.
 Duckietown duckies
 ```
 
-Duckietown duckies are non functional yet essential to the operations of the Duckiedrone. Make sure to always have at least one duckie onboard. 
+Duckietown duckies are non-functional yet essential to the operations of the Duckiedrone. Make sure to always have at least one duckie onboard. 
 
 (component-duckietown-stickers-duckietown-swag)=
 ## Duckietown Stickers
