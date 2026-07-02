@@ -74,7 +74,7 @@ starting.
 Use `raspistill` to verify that it is plugged in.
 
 You can try `raspi-config` and make sure it is enabled.
-Also it is very common for the camera cable to be plugged in backwards, or
+Also, it is very common for the camera cable to be plugged in backwards, or
 plugged into the wrong slot on the Raspberry Pi.  (There are two possible slots
 that fit the cable.)  Make sure it is plugged into the slot marked
 `"camera"`, and that the cable is facing the right way. (The metal pins
@@ -84,7 +84,7 @@ is seated all the way.
 If none of these things make `raspistill` work, try plugging into your Raspberry Pi 
 someone else's camera, and someone else's Raspberry Pi into your camera,
 and try all of the above debugging steps.  You can also check if
-the cable is bad.  For example if you bend the cable too much, it will
+the cable is bad.  For example, if you bend the cable too much, it will
 fatigue and then break the wires; or if a prop strikes the cable, it
 might cause the cable to break.
 
@@ -94,7 +94,7 @@ else's Raspberry Pi but not yours, try replacing the Raspberry Pi.
 ```
 ## Flight Controller
 
-Finally check the Flight Controller.  When the Flight Controller
+Finally, check the Flight Controller.  When the Flight Controller
 connects to the motors, it will make a "low beep, high beep" sound.
 So verify you hear the "do do do" from the motors, indicating they
 have power, and then the "low, high" indicating the Flight Controller
