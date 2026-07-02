@@ -183,7 +183,7 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 - Capacity: 1500mAh
 - Discharge Rating: 35C
 - Weight: 178g
-- Dimensions: 16x35x33mm
+- Dimensions: 76x35x33mm
 
 Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
