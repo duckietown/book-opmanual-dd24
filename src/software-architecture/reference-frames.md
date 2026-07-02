@@ -24,6 +24,6 @@ ROS uses the reference frame conventions defined in [REP 105](https://www.ros.or
 
 In the image below, you can see a comparison between the two reference frame conventions.[^px4-docs]
 
-![Comparison between the reference frames used in ROS and px4/betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
+![Comparison between the reference frames used in ROS and PX4/Betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
 
 [^px4-docs]: [Source px4-docs](https://docs.px4.io)

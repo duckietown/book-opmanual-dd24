@@ -99,7 +99,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 1.  Place the drone on your textured surface, camera forward.
 1.  Verify on the Mission Control page that:
     *   The `FLIGHT MODE` indicator shows `LOITER`.
-    *   The altitude trace is centred around `0 m`.
+    *   The altitude trace is centered around `0 m`.
     *   The IMU orientation indicator is level.
 1.  Click the **ARM** toggle. The motors will start spinning at idle RPM.
     *   If the motors spin fast, or you hear strange noises, **immediately** click the **KILL** switch.
@@ -115,7 +115,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
     1.  In the **Remote Control** widget, centre the sticks and set `Throttle` slightly above the mid-point.
     1.  In the arming widget, click **ALTITUDE**.
         *   The `FLIGHT MODE` label should update to `ALTITUDE`. If it stays on `LOITER`, PX4 rejected the request — check that the Remote Control widget is actively publishing.
-    1.  Gradually increase throttle. The drone will ascend and PX4 will hold altitude once the sticks are centred.
+    1.  Gradually increase throttle. The drone will ascend and PX4 will hold altitude once the sticks are centered.
     1.  Use roll/pitch on the virtual joystick to move horizontally. Yaw on the secondary joystick rotates the drone.
     1.  To land, decrease the throttle gradually. When the drone is close to the ground, click **DISARM**.
     :::

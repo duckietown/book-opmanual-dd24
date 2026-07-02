@@ -58,7 +58,7 @@ If there is only one topic with valid commands (i.e., commands that are not too 
 If both have valid inputs, depending on the `DTParams` specified in the `__init__` function, masking is performed. By default, manual commands have higher priority. The parameters control which autonomous controls are passed through to the Flight Controller node.
 
 ### rosbridge
-This node allows the web dashboard to communicate with ROS nodes on the drone by exposing topics through a websocket interface.
+This node allows the web dashboard to communicate with ROS nodes on the drone by exposing topics through a WebSocket interface.
 
 ## Autonomous flight functionality
 
