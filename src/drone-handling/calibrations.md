@@ -16,7 +16,7 @@ Calibrating the gyroscope and accelerometer gives PX4 the sensor offsets it need
 
 ## Method 1: calibration through the Dashboard
 
-On DD24 drones running the Ente ROS 2 stack, the Dashboard talks to PX4 through MAVROS2 and does not require QGroundControl.
+On DD24 drones running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS2 and does not require QGroundControl.
 
 ```{attention}
 Remove the propellers before running any flight-controller calibration or arming checks.
