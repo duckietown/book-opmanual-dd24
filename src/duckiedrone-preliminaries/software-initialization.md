@@ -10,11 +10,11 @@
 ```{needget}
 
 * A computer (the “base station”) with an internet connection and the Duckietown Shell (`dts`) installed
-* A micro SD card (64 GB, U3, Class 10 recommended), e.g., the one from your Duckiebox
-* A micro SD card reader, e.g., the one from your Duckiebox
+* A microSD card (64 GB, U3, Class 10 recommended), e.g., the one from your Duckiedrone box
+* A microSD card reader, e.g., the one from your Duckiedrone box
 ---
 
-* A DD24 initialized and customized micro SD card, ready for first boot
+* A DD24 initialized and customized microSD card, ready for first boot
 ```
 
 ```{attention}
@@ -37,12 +37,12 @@ dts update
 
 ## 2. Flash the SD card
 
-1.  Insert the micro SD card into your base station. Use the USB adapter from the Duckiebox if your base station does not have a micro SD slot.
+1.  Insert the microSD card into your base station. Use the USB adapter from the Duckiedrone box if your base station does not have a microSD slot.
 
     ```{figure} ../_images/components-official/microSD_reader.png
     :width: 400px
 
-    Micro SD Card adapter
+    microSD card adapter
     ```
 
 1.  Run `dts init_sd_card` with the `duckiedrone` type and the `DD24` configuration:
@@ -64,7 +64,7 @@ dts update
     *   `--wifi` — one or more networks in the form `ssid:psk`. Separate multiple networks with commas. This is the list the drone will try in client (CL) mode.
 
     ```{attention}
-    The `hostname` **must** start with a lower-case letter and may contain **only** lower-case latin letters and digits. Using special characters will break things and require re-flashing.
+    The `hostname` **must** start with a lower-case letter and may contain **only** lower-case Latin letters and digits. Using special characters will break things and require re-flashing.
 
     *   ✅ `argo`
     *   ✅ `mydrone01`
