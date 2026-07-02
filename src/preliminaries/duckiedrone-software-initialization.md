@@ -93,7 +93,7 @@ dts update
 
 ## 3. (Optional) Add extra Wi-Fi networks
 
-`dts init_sd_card` writes a `wpa_supplicant.conf` file into the `config` partition of the SD card. To add networks later you can re-insert the SD card into your base station, open the `config` partition and append additional `network={...}` blocks.
+`dts init_sd_card` writes a `wpa_supplicant.conf` file into the `config` partition of the SD card. To add networks later, you can re-insert the SD card into your base station, open the `config` partition and append additional `network={...}` blocks.
 
 ```bash
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev

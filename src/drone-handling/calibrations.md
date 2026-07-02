@@ -79,7 +79,7 @@ docker run --rm -it --net host --privileged -v /dev:/dev \
   bash -lc 'source /environment.sh && px4_manual_calibration both --port /dev/ttyACM0'
 ```
 
-If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs so PX4 emits the `[cal]` status prompts over MAVLink.
+If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs, so PX4 emits the `[cal]` status prompts over MAVLink.
 
 (camera-calib)=
 ## Camera calibration
@@ -90,4 +90,4 @@ Follow the camera calibration procedure described [in the Duckiebot opmanual](bo
 
 If the Dashboard, ROS 2 service, and manual Python methods all fail, calibrate the accelerometer from QGroundControl using the PX4 procedure: [PX4 Accelerometer Calibration](https://docs.px4.io/v1.16/en/config/accelerometer).
 
-Use this only as a recovery path. Close QGroundControl before returning to the Duckiedrone stacks so it does not keep the MAVLink connection open.
+Use this only as a recovery path. Close QGroundControl before returning to the Duckiedrone stacks, so it does not keep the MAVLink connection open.

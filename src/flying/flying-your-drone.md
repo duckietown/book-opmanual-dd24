@@ -68,7 +68,7 @@ The **Arm / Disarm** widget is the primary flight control. It has three elements
 *   A three-button **FLIGHT MODE** selector: `LOITER`, `ALTITUDE`, `OFFBOARD`.
 *   A red **KILL** switch that cuts motor power immediately when clicked.
 
-The widget reflects live state — it polls `/mavros/state` and refreshes its ARM and FLIGHT MODE indicators whenever the flight controller changes. If the toggle flips on its own, that reflects a real transition on the flight controller (for example an auto-disarm).
+The widget reflects live state — it polls `/mavros/state` and refreshes its ARM and FLIGHT MODE indicators whenever the flight controller state changes. If the toggle flips on its own, that reflects a real transition on the flight controller (for example an auto-disarm).
 
 ### Flight modes
 

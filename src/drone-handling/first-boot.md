@@ -43,7 +43,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     
 2.  Make sure you have a wall adapter or fully charged battery available.  
     
-3.  Networks are typically one of the biggest headaches in robotics. We offer different network configurations to minimize these headaches. If you are not sure which choice to make, the right answer typically is: if you are in a university go for AP mode. If you are at home go for CL mode. In both cases, you need to place the jumper accordingly on your `P7` & `P11` pins before getting started.  
+3.  Networks are typically one of the biggest headaches in robotics. We offer different network configurations to minimize these headaches. If you are not sure which choice to make, the right answer typically is: if you are in a university, go for AP mode. If you are at home, go for CL mode. In both cases, you need to place the jumper accordingly on your `P7` & `P11` pins before getting started.  
     
     ```{todo}
     Ditch this warning and update the images for DD24. (It should be already present on branch `daffy`)
@@ -127,7 +127,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
 
     :::{tab-item} Client (CL) mode      
     
-    Once the booting procedure is complete the Duckiedrone will automatically connect to the default client network, or any available network previously set up in the `wpa_supplicant.conf` file.
+    Once the booting procedure is complete, the Duckiedrone will automatically connect to the default client network, or any available network previously set up in the `wpa_supplicant.conf` file.
     
     ```{seealso}
     A detailed guide on how to change `wpa_supplicant.conf` can be found in [](sw-initialization).

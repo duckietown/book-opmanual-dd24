@@ -68,7 +68,7 @@ If any motor is spinning in the wrong direction, you'll need to reverse its dire
    
 - Go to the `Parameters` tab.
 - In the search bar, type `SERVO_BLH_RVMASK`.
-- Click on it and select the motor (here the configurator refers to `Channels` so motor `i` will correspond to `Channeli`) to reverse based on the [required direction](betaflightx-spinning-dir).
+- Click on it and select the motor (here the configurator refers to `Channels`, so motor `i` will correspond to `Channeli`) to reverse based on the [required direction](betaflightx-spinning-dir).
 
     ```{figure} ../_images/fc-setup/esc_reverse_direction.png
     :name: motor-reverse-configurator
@@ -76,7 +76,7 @@ If any motor is spinning in the wrong direction, you'll need to reverse its dire
     Configuration tab of the `SERVO_BLH_RVMASK` to reverse individual motors.
     ```
 
-- Click on `Save` and when prompted reboot the flight controller.
+- Click on `Save` and, when prompted, reboot the flight controller.
 
 ## 4. Verify Motor Spin Direction
 - After making any changes, retest each motor through the `Motors` tab in QGroundControl to ensure all motors are spinning in the correct direction.

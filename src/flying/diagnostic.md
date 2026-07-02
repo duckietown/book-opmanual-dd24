@@ -89,7 +89,7 @@ The Altitude widget is flat (no reading, or stuck at 0).
 
 ---
 
-The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing verify the I²C connection to the ToF board.
+The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
 ```
 
 ```{trouble}
