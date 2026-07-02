@@ -17,7 +17,7 @@ Before you can fly your Duckiedrone, you need an up-to-date software stack runni
 ```
 
 ```{attention}
-This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You no longer need to `ssh` into the drone or start any scripts by hand.
+This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You no longer need to `ssh` into the drone or start any scripts by hand.
 ```
 
 ## 1. Update the Duckietown Shell

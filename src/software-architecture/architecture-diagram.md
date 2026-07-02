@@ -32,7 +32,7 @@ Interfaces with the ToF sensors, publishing their range measurements.
 
 ## Core flight functionality
 
-This group of nodes handles controlling the attitude of the drone, providing a pipeline to command thrust, roll, yaw and pitch.
+This group of nodes handles controlling the attitude of the drone, providing a pipeline to command thrust, roll, yaw, and pitch.
 
 ### IMU Node
 

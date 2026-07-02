@@ -77,7 +77,7 @@ The drone runs PX4 through MAVROS. The dashboard exposes three of PX4's flight m
 | Mode | PX4 name | When to use |
 |---|---|---|
 | `LOITER` | `AUTO.LOITER` | Ground-safe default. The drone is idle and armable but will not accept manual stick input. |
-| `ALTITUDE` | `ALTCTL` | PX4 holds altitude automatically; you command roll, pitch and yaw from the virtual joystick (or from a physical RC). Use this when you want PX4's internal attitude control loops to do the stabilization. |
+| `ALTITUDE` | `ALTCTL` | PX4 holds altitude automatically; you command roll, pitch, and yaw from the virtual joystick (or from a physical RC). Use this when you want PX4's internal attitude control loops to do the stabilization. |
 | `OFFBOARD` | `OFFBOARD` | PX4 tracks setpoints published by an external node on `/mavros/setpoint_*`. Use this when you are writing your own controller and want PX4 to only handle low-level attitude control. |
 
 ```{important}
