@@ -274,9 +274,9 @@ This is a prototyping breadboard with two-sided tape on the back. Attach it in t
 :name: flight-controller-and-esc-stack-speedybee-box
 :width: 300px
 :align: center
-:alt: The Duckiedrone DD24 flight controller (FC) and electronic speed controllers (ESC) stack 
+:alt: The Duckiedrone DD24 Flight Controller (FC) and Electronic Speed Controller (ESC) stack 
 
-The flight controller (FC) and electronic speed controllers (ESC) stack 
+The Flight Controller (FC) and Electronic Speed Controller (ESC) stack 
 ```
 ### The Flight Controller (FC) and Electronic Speed Controller (ESC) - foreword
 
