@@ -20,7 +20,7 @@
 ```{attention}
 These instructions apply to **both** the Raspberry Pi 4 Model B and the Raspberry Pi 5. The same `ente` image is written through `dts init_sd_card`; only the underlying Raspberry Pi OS base layer differs and is chosen automatically at flashing time.
 
-The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip` flashed through Balena Etcher) is no longer supported on the `ente` distribution. If you followed it before, re-flash with the procedure below.
+The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip` flashed through Balena Etcher) is no longer supported on the `ente` distribution. If you used it before, re-flash with the procedure below.
 ```
 
 ## 1. Install the Duckietown Shell

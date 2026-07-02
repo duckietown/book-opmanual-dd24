@@ -31,7 +31,7 @@ Remove the propellers before running any flight-controller calibration or arming
 3. Navigate to {bdg-warning}`Robot` > {bdg-dark-line}`Mission Control`.
 4. Find the `IMU - Orientation` block.
 5. Place the drone on a level surface, hold it still, and click {bdg-secondary-line}`GYRO`.
-6. When gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
+6. When the gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
 7. Follow the live `[cal]` prompts shown in the block. PX4 will ask for six stable orientations: level/top-up, on-back/top-down, nose-down, nose-up, left-side-down, and right-side-down. Hold each orientation still until PX4 accepts it.
 
 The calibration is complete when the block reports `PX4 accel calibration complete` or an equivalent PX4 completion message.
