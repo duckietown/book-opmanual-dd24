@@ -213,7 +213,7 @@ The Duckietown battery connects to the drone through a 10cm long XT60 connector,
 Lithium-Ion battery charger
 ```
 
-This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and on the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
+This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and on the other to a stable power source (e.g., a wall outlet) through the [battery charger adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
 - Operating Voltage Range: 9V-16V DC
 - Cells Type Supported: 2-4 cells Li-Ion/Li-Poly 
@@ -340,7 +340,7 @@ The Duckiedrone (`DD24`) box includes:
 - 1x USB-A to USB-C cable (with data) - 23cm + length of connectors, angled: FC to Raspberry Pi connection 
 - 1x USB-C power cable (power only) - 8cm wires + 1cm exposed wire + 2cm connector, exposed wires: FC to Raspberry Pi connection
 - 4x 4-pin JST 1.5mm connectors (both ends) - 15cm: ToF sensor to HUT connections
-- 1x 4-pin JST 1.5mm connectors (both ends) - 23cm: ToF sensor to HUT connection
+- 1x 4-pin JST 1.5mm connector (both ends) - 23cm: ToF sensor to HUT connection
 
 (component-heat-sink-kit-multiple-sizes)=
 ## Heat sink kit
