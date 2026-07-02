@@ -18,7 +18,7 @@ In this section, you will learn about the parameters on the flight controller th
 
 ## Expected Behavior with Proper PID Settings
 
-The Flight Controller (FC) runs high-frequency control loops to stabilize the drone. It utilizes sensors (e.g., IMU and Gyroscope) to estimate the drone's state. In **Angle Mode**, the following behavior is expected:
+The Flight Controller (FC) runs high-frequency control loops to stabilize the drone. It utilizes sensors (e.g., IMU and gyroscope) to estimate the drone's state. In **Angle Mode**, the following behavior is expected:
 
 - **Roll/Pitch Axis:**
   - When commands are issued, the FC attempts to achieve the commanded roll/pitch as quickly as possible while minimizing fluctuations.

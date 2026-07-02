@@ -52,7 +52,7 @@ Default ssh user name: `duckie`
 
 Default ssh user password: `quackquack`
 
-Ssh always possible: `ssh duckie@amelia.local`
+SSH always possible: `ssh duckie@amelia.local`
 
 **Default** access point (**AP**) network configuration:
 

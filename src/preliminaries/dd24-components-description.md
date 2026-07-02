@@ -185,7 +185,7 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 - Weight: 178g
 - Dimensions: 16x35x33mm
 
-Here is good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
+Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
 ```{attention}
 Before doing anything with the Duckietown battery, read the [Duckietown Safety Guidelines](prelim-drone-safety).

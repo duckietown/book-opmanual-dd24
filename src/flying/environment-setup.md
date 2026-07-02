@@ -43,7 +43,7 @@ dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image, the hostname is `amelia`.
 ```
 
-Wait for the command to terminate before continuing. When it finishes the drone is running:
+Wait for the command to terminate before continuing. When it finishes, the drone is running:
 
 *   `dashboard` — the web UI you will use to fly
 *   `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
