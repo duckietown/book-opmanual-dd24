@@ -265,7 +265,7 @@ It supports the placing of a breadboard to provide a "playground" for additional
 Duckiedrone Duckiehut breadboard
 ```
 
-This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
+This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack - SpeedyBee F405 V3 BLS 50A
