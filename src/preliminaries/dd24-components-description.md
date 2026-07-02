@@ -99,7 +99,7 @@ Time of Flight Sensor (back, front)
 
 Time of flight (ToF) sensors are distance measurement sensors. The Duckiedrone mounts five, one on each side and one looking down to measure altitude. The principle of operation is the measurement of the return time of light bouncing off obstacles, so we can think of them as 1D lidars.
 
-The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm, and 23cm 4-pin JST 1.5mm cables. 
+The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm and 23cm 4-pin JST 1.5mm cables. 
 
 (component-motors-cw-lhi-dx2205-2300kv)=
 ## Motors (CW)
@@ -159,7 +159,7 @@ The box contains a full spare set, i.e., 4x CW and 4x CCW props.
 
 As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other for counter-clockwise (CCW). 
 
-To distinguish CW from CCW propellers, find the arrows impressed on the backside, as shown in [](dd24-propellers).
+To distinguish CW from CCW propellers, find the arrows embossed on the backside, as shown in [](dd24-propellers).
 
 
 (component-lipo-battery-1500mah-4s-148v-xt60)=
@@ -413,7 +413,7 @@ Velcro strips are used for cable management and securing components, such as the
 (dd24-chassis)=
 ## Chassis
 
-The Duckiedrone's chassis is a custom designed 2.5mm thick carbon fiber sandwich-design chassis, with the following components.  
+The Duckiedrone's chassis is a custom-designed 2.5mm thick carbon fiber sandwich-design chassis, with the following components.  
 
 (component-bottom-plate-carbon-fiber-25mm)=
 ### Bottom Plate

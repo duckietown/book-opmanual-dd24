@@ -96,7 +96,7 @@ Topics:
 
         ~/flight_controller_node/battery
 
-        ~flight_controller_node/commands
+        ~/flight_controller_node/commands
 
         ~/flight_controller_node/commands/executed
 
