@@ -40,7 +40,7 @@ The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are
 64GB Class 10 mini SD card
 ```
 
-The microSD card is the core memory of the Drone. 
+The microSD card is the core memory of the drone. 
 
 While it does look like a regular SD card with 64GB of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the drone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop. 
 
