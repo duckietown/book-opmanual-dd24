@@ -37,7 +37,7 @@ The `ente` stack runs the flight code inside Duckietown containers. From the bas
 
     dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 
-You can inspect what is running on the drone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller` and `visual-odometry` are all healthy.
+You can inspect what is running on the drone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller`, and `visual-odometry` are all healthy.
 ```
 
 ```{trouble}
