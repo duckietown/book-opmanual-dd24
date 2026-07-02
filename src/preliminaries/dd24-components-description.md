@@ -249,7 +249,7 @@ This 12V 2A power adapter, provided with a US wall plug, connects to the battery
 The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
 ```
 
-The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as hub for connections between the various peripherals of the drone, such as sensors and flight controller, and the onboard Raspberry Pi. 
+The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and flight controller, and the onboard Raspberry Pi. 
 
 It supports the placing of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
 
@@ -354,7 +354,7 @@ The Duckiedrone (`DD24`) box includes:
 Heat sinks mount on the Raspberry Pi and help dissipate heat and lower the temperature of the board
 ```
 
-Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi preventing it from automatically going into protection mode and partially shutting down computational resources.
+Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi, preventing it from automatically going into protection mode and partially shutting down computational resources.
 
 (component-40mm-gpio-fan-pwm-speed-control-3pin)=
 ## Fan

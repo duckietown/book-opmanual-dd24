@@ -6,7 +6,7 @@
 (environment_setup)=
 # Preparing the software stack
 
-Before you can fly your Duckiedrone you need an up-to-date software stack running on the drone and a browser on your base station that can reach the Duckietown Dashboard.
+Before you can fly your Duckiedrone, you need an up-to-date software stack running on the drone and a browser on your base station that can reach the Duckietown Dashboard.
 
 ```{needget}
 *   A fully assembled `DD24` with a [configured Flight Controller](dd24-fc-init)
@@ -40,7 +40,7 @@ dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 ```
 
 ```{note}
-Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image the hostname is `amelia`.
+Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image, the hostname is `amelia`.
 ```
 
 Wait for the command to terminate before continuing. When it finishes the drone is running:
