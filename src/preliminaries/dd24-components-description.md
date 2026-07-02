@@ -22,7 +22,7 @@ We provide below a brief description of each component in the box.
 Raspberry Pi 4 Model B, 4GB RAM
 ```
 
-The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as high-level brain of the Duckiedrone, hosting most of the computation power. 
+The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
 
 The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
@@ -83,7 +83,7 @@ Raspberry Pi camera with Fisheye lens, and cable
 
 The camera is an important sensor for Duckiedrone autonomous operations, allowing it to perceive the environment visually. 
 
-This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
+This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with a 160-degree field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
 ## Time of Flight Sensor
@@ -620,4 +620,4 @@ Duckietown stickers look great on your laptop, and notify others of your Duckiet
 Duckiedrone DD24 instruction card 
 ```
 
-This instructions card provides links to the [Duckietown website](https://duckietown.com) and the [Duckietown get started page](https://duckietown.com/get-started/).
+This instruction card provides links to the [Duckietown website](https://duckietown.com) and the [Duckietown get started page](https://duckietown.com/get-started/).

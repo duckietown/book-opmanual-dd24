@@ -8,7 +8,7 @@
 ```{admonition} Read carefully
 :class: danger
 
-Building your Duckiedrone can be lots of fun; however, you'll be handling some tools that can be dangerous if used improperly. **Read carefully** this page to understand how to handle them correctly to minimize risks!
+Building your Duckiedrone can be lots of fun; however, you'll be handling some tools that can be dangerous if used improperly. **Carefully read** this page to understand how to handle them correctly to minimize risks!
 ```
 
 ## Soldering
