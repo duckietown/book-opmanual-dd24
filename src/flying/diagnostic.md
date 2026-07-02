@@ -129,7 +129,7 @@ The drone does not get off the ground when commanded to take off.
 
 ---
 
-- make sure that the arrows inscribed on the propellers are visible from the top of the drone,
+- make sure that the arrows embossed on the propellers are visible from the top of the drone,
 
 - make sure that the arrows on the props are pointing in the correct direction,
 
