@@ -216,7 +216,7 @@ Lithium-Ion battery charger
 This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and on the other to a stable power source (e.g., a wall outlet) through the [battery charger adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
 - Operating Voltage Range: 9V-16V DC
-- Cells Type Supported: 2-4 cells Li-Ion/Li-Poly 
+- Cell Type Supported: 2-4 cells Li-Ion/Li-Poly 
 - Max Charge Power: 25W
 - Charge Current: 1500mA
 - Charge Accuracy: ±10mV
@@ -559,11 +559,11 @@ This 8mm wrench is provided to tighten up the motor-prop nuts. We really do not 
 :name: fig-dd24-screw-driver
 :width: 300px
 :align: center
-:alt: Philips screwdriver
+:alt: Phillips screwdriver
 
 Cross screwdriver  
 ```
-This simple Philips screwdriver drives all the screws in the box.  
+This simple Phillips screwdriver drives all the screws in the box.  
 
 (component-camera-calibration-pattern)=
 ## Camera Calibration pattern

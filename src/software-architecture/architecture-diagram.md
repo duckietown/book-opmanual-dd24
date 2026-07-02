@@ -23,7 +23,7 @@ These nodes interface with the hardware and expose its functionality through DTP
 The camera driver interfaces with the camera present on the drone, publishing compressed JPEG images and the camera calibration information.
 
 ### Flight Controller driver
-The flight controller node controls what mode the drone should be in based on the user input and safety checks. For example, if any of the heartbeats stop publishing, the flight controller node disarms the drone. If the mode is "ARMED" or "DISARMED", the flight controller node sends static command values, but if the mode is "FLYING", then the node sends `fly_commands` to the flight controller board.
+The Flight Controller driver controls what mode the drone should be in based on the user input and safety checks. For example, if any of the heartbeats stop publishing, the Flight Controller driver disarms the drone. If the mode is "ARMED" or "DISARMED", the Flight Controller driver sends static command values, but if the mode is "FLYING", then the driver sends `fly_commands` to the flight controller board.
 
 The Flight Controller interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the drone. 
 
