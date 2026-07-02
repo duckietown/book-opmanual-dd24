@@ -72,6 +72,7 @@ Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on 
 
 ## 2. Enter DFU Mode
 
+- Remove power from your drone if it is powered on.
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi.
 - Reconnect it to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
 
@@ -158,7 +159,10 @@ After the flash completes (this takes a few seconds), the board will reboot. It 
 
 ```bash
 lsusb                         # look for a 26AC:xxxx entry
-ls /dev/serial/by-id/         # should list a *PX4_BL* entry
+ls /dev/serial/by-id/
+```
+
+```{figure} ../_images/fc-setup/lsusb-output.png
 ```
 
 ::::
@@ -194,7 +198,7 @@ Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on wh
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ```
 
-Put the FC back into DFU mode (disconnect, hold BOOT, reconnect), confirm it shows up again in `dfu-util -l`, then flash the firmware to the application offset `0x08008000`:
+**Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, confirm it shows up again in `dfu-util -l`, then flash the firmware to the application offset `0x08008000`:
 
 ```bash
 dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
@@ -237,6 +241,8 @@ Make sure that the `dts` on your laptop is:
    ```
 ````
 
+Reconnect the USB cable from the flight controller back to the Raspberry Pi, then power on the drone.
+
 To start the flight software stack execute the command
 
    ```bash
@@ -268,29 +274,36 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
      - **Linux**: Follow the package manager or AppImage instructions provided on the QGroundControl download page.
    - Once installed, launch QGroundControl.
 
-1. Connect to Your Vehicle via TCP:
+2. Connect to Your Vehicle via TCP:
    - Open QGroundControl on your computer.
    - Go to the **Application Settings → Comm Links** section by clicking on the **Q** application icon in the top left corner.
    - Select **Add** to create a new communication link.
    - Choose **TCP** from the dropdown.
-   - Set the **Host Address** to `<robot_name>.local` and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
+   - Set the **Host Address** to the IP address of your Duckiedrone, and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
+     - To find the IP address, run `ping <robot_name>.local` from your base station and read the resolved address.
    - Click **Connect** to establish the connection with your flight controller.
 
-1. Access the Vehicle Setup:
+   ```{figure} ../_images/fc-setup/qgc-tcp-link-settings.png
+   ```
+
+3. Access the Vehicle Setup:
    - Once connected, open the menu by clicking on the **Q** application icon in the top left corner and open the **Vehicle Setup** page from the popup menu that appears.
 
-1. Navigate to Parameters:
+   ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
+   ```
+
+4. Navigate to Parameters:
    - In the Vehicle Setup menu, select the **Parameters** tab to view the configurable parameters for your vehicle.
 
-1. Load the `.params` File:
+5. Load the `.params` File:
    - In the Parameters screen, click on the **Tools** menu in the top right corner.
    - Select **Load from file…** from the dropdown menu.
    - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
 
-1. Apply the Parameters:
+6. Apply the Parameters:
    - QGroundControl will load and apply the parameters from the file to your vehicle. Progress indicators or messages will confirm that the parameters are being applied.
 
-1. Reboot the Vehicle:
+7. Reboot the Vehicle:
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.
 
