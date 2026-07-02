@@ -25,7 +25,7 @@ The camera driver interfaces with the camera present on the drone, publishing co
 ### Flight Controller driver
 The Flight Controller driver controls what mode the drone should be in based on the user input and safety checks. For example, if any of the heartbeats stop publishing, the Flight Controller driver disarms the drone. If the mode is "ARMED" or "DISARMED", the Flight Controller driver sends static command values, but if the mode is "FLYING", then the driver sends `fly_commands` to the flight controller board.
 
-The Flight Controller interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the drone. 
+The Flight Controller driver interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the drone. 
 
 ### ToF driver
 The ToF driver interfaces with the ToF sensors, publishing their range measurements.
@@ -36,15 +36,15 @@ This group of nodes handles controlling the attitude of the drone, providing a p
 
 ### IMU Node
 
-Exposes IMU data to ROS, according to [REP 145](https://www.ros.org/reps/rep-0145.html).
+The IMU Node exposes IMU data to ROS, according to [REP 145](https://www.ros.org/reps/rep-0145.html).
 
 ### Flight Controller Node
 
-Exposes Flight Controller functionality to ROS.
+The Flight Controller Node exposes Flight Controller functionality to ROS.
 
 ### ToF Node
 
-Exposes Range measurements as ROS topics.
+The ToF Node exposes range measurements as ROS topics.
 
 ### FlyCommandsMux Node
 

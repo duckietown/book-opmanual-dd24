@@ -339,8 +339,8 @@ The Duckiedrone (`DD24`) box includes:
 
 - 1x USB-A to USB-C cable (with data) - 23cm + length of connectors, angled: FC to Raspberry Pi connection 
 - 1x USB-C power cable (power only) - 8cm wires + 1cm exposed wire + 2cm connector, exposed wires: FC to Raspberry Pi connection
-- 4x 4-pin JST 1.5mm connectors (both ends) - 15cm: ToF sensor to HUT connections
-- 1x 4-pin JST 1.5mm connector (both ends) - 23cm: ToF sensor to HUT connection
+- 4x 4-pin JST 1.5mm cables (both ends) - 15cm: ToF sensor to HUT connections
+- 1x 4-pin JST 1.5mm cable (both ends) - 23cm: ToF sensor to HUT connection
 
 (component-heat-sink-kit-multiple-sizes)=
 ## Heat sink kit
