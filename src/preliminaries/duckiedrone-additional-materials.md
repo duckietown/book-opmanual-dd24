@@ -5,17 +5,8 @@
 ```
 
 (dd24-prerequisites-other)=
-# Additional Materials for Building the Duckiedrone
-
-## Base Station (Laptop)
-
-This section details the materials needed to build and fly your drone that are not included in the kit.
-To operate the drone, you must have a laptop or personal computer capable of connecting to the internet.
-
-### OS Requirements
-
 (prelim-dd24-other-materials-required)=
-# Other Required Materials
+# Additional Materials for Building the Duckiedrone
 
 ## Base Station (Laptop)
 
@@ -78,7 +69,7 @@ Nice to have:
 - flush cutters
 
 
-## Miscellanea Tools
+## Miscellaneous Tools
 
 - Double-sided tape
 - Joypad
