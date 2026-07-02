@@ -22,7 +22,7 @@ There is only one first time you can connect to your Duckiedrone. Savor the expe
 The first time a newly flashed SD card is inserted in the Duckiedrone, a special "first boot" procedure is executed.
 
 ```{note}
-The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. It is crunching as fast as it can, do not worry.
+The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. It is crunching as fast as it can. Do not worry.
 ```
 
 During this process the Duckiedrone will require a stable power source.

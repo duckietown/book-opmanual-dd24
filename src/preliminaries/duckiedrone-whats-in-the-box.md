@@ -94,4 +94,4 @@ What's inside the box (selected components).
 | 1        |                                                                          Shipping Package box |
 
 
-In the following section [](prelim-dd24-box-component-description) we provide a brief description of each component. 
+In the following section [](prelim-dd24-box-component-description), we provide a brief description of each component.

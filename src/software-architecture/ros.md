@@ -27,7 +27,7 @@ Topics are what ROS messages are published and subscribed to. From the [ROS wiki
 Publishers are used to publish specific message types to specific topics. Publishers are useful for sharing data across nodes. For example, the tof_node, which interfaces with the time of flight distance sensor, publishes its data to `/pidrone/range`, and this data can be used by other nodes by subscribing to that topic. On the Duckiedrone, the state_estimator (you'll be writing this later) will subscribe to this data as a measurement for the height of the drone.
 
 ## Subscribers
-Subscribers are used to read the messages being published to a ROS topic. When creating a subscriber, you must identify the topic, message type, and a callback method which takes in the message as an argument, and will be called every time a message is published to the topic. For example, if you wanted to update the height of the drone every time a message was published, then in a ROS node you would first create a subscriber using `rospy.Subscriber("/pidrone/range", Range, range_callback_method)`. Your callback method might look something like:
+Subscribers are used to read the messages being published to a ROS topic. When creating a subscriber, you must identify the topic, message type, and a callback method that takes in the message as an argument, and will be called every time a message is published to the topic. For example, if you wanted to update the height of the drone every time a message was published, then in a ROS node you would first create a subscriber using `rospy.Subscriber("/pidrone/range", Range, range_callback_method)`. Your callback method might look something like:
 ```
 def range_callback_method(msg):
     drone_height = msg.range
