@@ -28,7 +28,7 @@ The first boot procedure will take roughly 10-15 minutes, during which your Rasp
 During this process the Duckiedrone will require a stable power source.
 
 ```{attention}
-Make sure you have a wall outlet power adapter, e.g., a phone charger (5V, 2-3A) or a fully charged Duckiebattery before starting the process.
+Make sure you have a wall outlet power adapter, e.g., a phone charger (5V, 2-3A) or a fully charged Duckiedrone battery before starting the process.
 ```
 
 Do not power the Raspberry Pi just yet.
@@ -85,7 +85,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
         
     1.  Pros:
             
-        *   You can connect to your drone without the need for a pre-existing existing network infrastructure  
+        *   You can connect to your drone without the need for a pre-existing network infrastructure  
                 
     2.  Cons:
             
@@ -104,7 +104,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     :::
     ::::
 
-4.  If you haven't already, insert the initialized micro SD card inside the micro SD card slot of the Raspberry Pi, as shown [here](attach_pi_hat).
+4.  If you haven't already, insert the initialized microSD card inside the microSD card slot of the Raspberry Pi, as shown [here](attach_pi_hat).
     
     ```{attention}
     **Do not** connect the SD card inside the adapter to a USB-A port of the Raspberry Pi. 
@@ -166,5 +166,5 @@ Congratulations, you are now ready to connect to your Duckiedrone for the first 
 :::{trouble}
 I disconnected my `P7` & `P11` pins but cannot see my robot on the network.
 ---
-Sometimes things go awry during the first boot. It is possible that the Wi-Fi detection container times out. Search for a `duckietown-hostname-ap` network instead. Reboot the Duckiedrone (with disconnected pins) to have it join the configured existing network.
+Sometimes things go awry during the first boot. It is possible that the Wi-Fi detection container times out. Search for a `duckietown-<hostname>-ap` network instead. Reboot the Duckiedrone (with disconnected pins) to have it join the configured existing network.
 :::
