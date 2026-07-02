@@ -112,7 +112,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 
     :::{tab-item} Fly with PX4's attitude stabilization (recommended first flight)
 
-    1.  In the **Remote Control** widget, centre the sticks and set `Throttle` slightly above the mid-point.
+    1.  In the **Remote Control** widget, center the sticks and set `Throttle` slightly above the mid-point.
     1.  In the arming widget, click **ALTITUDE**.
         *   The `FLIGHT MODE` label should update to `ALTITUDE`. If it stays on `LOITER`, PX4 rejected the request — check that the Remote Control widget is actively publishing.
     1.  Gradually increase throttle. The drone will ascend and PX4 will hold altitude once the sticks are centered.

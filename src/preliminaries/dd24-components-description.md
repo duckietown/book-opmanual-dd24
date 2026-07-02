@@ -6,7 +6,7 @@
 (prelim-dd24-box-component-description)=
 # Description of Components (`DD24`)
 
-Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful. 
+Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning how to fly or directly flying the drone. Other components are not functional, but still useful. 
 
 We provide below a brief description of each component in the box.
 

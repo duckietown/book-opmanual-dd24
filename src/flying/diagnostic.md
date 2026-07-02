@@ -7,7 +7,7 @@
 # Common issues
 
 ```{trouble}
-The red light on the Raspberry Pi :
+The red light on the Raspberry Pi:
 
 *   is blinking
 *   does not turn on
