@@ -10,7 +10,7 @@ Different reference frames are used by ROS and BetaFlight (i.e. by the software 
 
 ## Betaflight
 
-The reference frame used by the BetaFlight firmware is as following[^px4-docs]:
+The reference frame used by the BetaFlight firmware is as follows[^px4-docs]:
 
 ![Betaflight Reference Frame](../_images/software-architecture/px4-betaflight-ref-frame.png)
 

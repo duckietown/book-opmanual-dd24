@@ -7,7 +7,7 @@
 # ROS (Robot Operating System)
 
 ## Overview
-The Robot Operating System (ROS) is widely used robot middleware that makes communication between processes, known as *nodes*, extremely easy through the use of ROS *topics* which can be *published* and *subscribed* to. Each topic has a certain *message* type that tells the publisher or subscriber what kind of data can be sent and received from over a topic. The components of ROS are described in more detail below
+The Robot Operating System (ROS) is a widely used robot middleware that makes communication between processes, known as *nodes*, extremely easy through the use of ROS *topics* which can be *published* and *subscribed* to. Each topic has a certain *message* type that tells the publisher or subscriber what kind of data can be sent and received over a topic. The components of ROS are described in more detail below
 
 ## General Components:
 

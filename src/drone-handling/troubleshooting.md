@@ -126,7 +126,7 @@ down as much as possible.
 
 If the drone is not stable during flight, you should make sure that
 the props are all tightened down.  Make sure the ESCs have been
-calibrated following as in [](esc_calibration).
+calibrated as described in [](esc_calibration).
 
 A well-tuned drone can hover with velocity zero with some drifting,
 but not too much.  It should be able to hover with position

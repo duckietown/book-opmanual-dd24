@@ -1,5 +1,5 @@
 ```{seo}
-:description: This manual provides instructions on how to assemble, calibrate, operate, program a DD24 Duckiedrone. 
+:description: This manual provides instructions on how to assemble, calibrate, operate, and program a DD24 Duckiedrone. 
 :keywords: quadcopter, autonomous drone, autonomous quadcopter, drone, Raspberry Pi drone, drone kit 
 ```
 
