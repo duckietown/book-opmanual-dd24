@@ -75,14 +75,10 @@ Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on 
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi.
 - Reconnect it to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
 
-```{figure} ../_images/fc-setup/speedybee-boot-button.png
+```{figure} ../_images/fc-setup/mamba-boot-button.png
 
 Flight controller BOOT button location.
 
-```
-
-```{todo}
-Replace `speedybee-boot-button.png` with a photo of the BOOT button location on the current DD24 flight controller.
 ```
 
 - After a couple of seconds, release the BOOT button.
