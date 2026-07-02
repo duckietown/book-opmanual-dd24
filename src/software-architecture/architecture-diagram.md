@@ -90,7 +90,7 @@ This node uses OpenCV to calculate the change in position of the drone using the
 
 ### Topics naming
 
-#### Flight controller node:
+#### Flight Controller node:
 
 Topics:
 
