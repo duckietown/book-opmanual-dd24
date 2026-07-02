@@ -76,9 +76,9 @@ Use `raspistill` to verify that it is plugged in.
 You can try `raspi-config` and make sure it is enabled.
 Also, it is very common for the camera cable to be plugged in backwards, or
 plugged into the wrong slot on the Raspberry Pi. (There are two possible slots
-that fit the cable.)  Make sure it is plugged into the slot marked
+that fit the cable.) Make sure it is plugged into the slot marked
 `"camera"`, and that the cable is facing the right way. (The metal pins
-of the cable should be facing the pins in the slot.)  Make sure it
+of the cable should be facing the pins in the slot.) Make sure it
 is seated all the way.
 
 If none of these things make `raspistill` work, try plugging someone else's camera
@@ -112,7 +112,7 @@ Before each flight, physically inspect the drone.
 Make sure that:
 
 * your camera is mounted firmly, pointed downwards.
-* the range sensor is pointed downwards and hasn't gotten rotated.
+* the range sensor is pointed downwards and has not been rotated.
 * the Flight Controller board is level and firmly attached; otherwise, the IMU and gyroscope will return incorrect readings.
 * each propeller is tightened down all the way.
 

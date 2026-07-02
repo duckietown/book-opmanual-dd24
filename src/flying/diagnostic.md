@@ -18,13 +18,13 @@ The Raspberry Pi is not receiving enough power.
 
 - Check that the voltage coming out of the UBEC is a constant 5V
 
-- Make sure that the Raspberry Pi Hat is attached to the Raspberry Pi all the way (there is no gap between the GPIO pins and the Raspberry Pi Hat pin header).
+- Make sure that the HUT is attached to the Raspberry Pi all the way (there is no gap between the GPIO pins and the HUT pin header).
 
-- Make sure that the `OUTPUT` side of the UBEC is attached to the Raspberry Pi Hat, and the `INPUT` side is soldered to the PDB
+- Make sure that the `OUTPUT` side of the UBEC is attached to the HUT, and the `INPUT` side is soldered to the PDB
 
-- Make sure that there is not a short between the power and ground rails on the Raspberry Pi Hat.
+- Make sure that there is not a short between the power and ground rails on the HUT.
 
-- Make sure there are no stray wire hairs that are shorting out the `5V` and the `GND` rails on the Raspberry Pi Hat
+- Make sure there are no stray wire hairs that are shorting out the `5V` and the `GND` rails on the HUT
 
 ```
 
