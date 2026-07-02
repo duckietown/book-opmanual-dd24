@@ -50,7 +50,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     ```
 
     ```{attention}
-    At present AP mode is unstable, we suggest you to use CL mode.
+    At present AP mode is unstable, we suggest you use CL mode.
     ```
 
     ::::{tab-set}

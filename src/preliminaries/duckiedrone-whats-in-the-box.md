@@ -8,7 +8,7 @@
 
 What should you expect to find inside a Duckiedrone (`DD24`) box, and what is each component? 
 
-First things first: here is how a Duckiedrone box looks like:
+First things first: here is how a Duckiedrone box looks:
 
 ```{figure} ../_images/the-box.jpg
 :name: the-dd24-box
@@ -19,7 +19,7 @@ First things first: here is how a Duckiedrone box looks like:
 The *yellow* Duckiedrone box.
 ```
 
-And is here an incomplete representation of the components in the box. Continue scrolling for the complete list.
+Here is an incomplete representation of the components in the box. Continue scrolling for the complete list.
 
 ```{figure} ../_images/components-official-dd24/whats-in-the-box-duckiedrone-dd24.jpg
 :name: in-the-box

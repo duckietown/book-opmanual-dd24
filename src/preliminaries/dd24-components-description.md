@@ -6,7 +6,7 @@
 (prelim-dd24-box-component-description)=
 # Description of Components (`DD24`)
 
-Most components in the Duckiedrone box are functional, i.e., the serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful. 
+Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful. 
 
 We provide below a brief description of each component in the box.
 
@@ -86,7 +86,7 @@ The camera is an important sensor for Duckiedrone autonomous operations, allowin
 This is a OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
-## Time of flight sensors sensor
+## Time of Flight Sensor
 
 ```{figure} ../_images/components-official-dd24/dd24-tof-back-front.png
 :name: tof-sensor-front-back
@@ -113,7 +113,7 @@ The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. This racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, a M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
@@ -130,7 +130,7 @@ If you try to unscrew the top nuts, you will notice how they have opposite threa
 :name: dd24-motors-ccw
 :width: 300px
 :align: center
-:alt: Brushless DC Motors (Clockwise - CCW)
+:alt: Brushless DC Motors (Counter-clockwise - CCW)
 
 Brushless DC Motors (Counter-clockwise - CCW) 
 ```
@@ -159,7 +159,7 @@ The box contains a full spare set, i.e., 4x CW and 4x CCW props.
 
 As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other for counter-clockwise (CCW). 
 
-To distinguish CW from CCW propellers, find the arrows impressed on the backside, as show in [](dd24-propellers).
+To distinguish CW from CCW propellers, find the arrows impressed on the backside, as shown in [](dd24-propellers).
 
 
 (component-lipo-battery-1500mah-4s-148v-xt60)=
@@ -213,7 +213,7 @@ The Duckietown battery connects to the drone through a 10cm long XT60 connector,
 Lithium Ion battery charger
 ```
 
-This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to teh battery, and the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
+This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery, and the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
 - Operating Voltage Range: 9V-16V DC
 - Cells Type Supported: 2-4 cells Li- Ion/Li-Poly 
@@ -282,7 +282,7 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 
 The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measure linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
 
-Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of teh Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to exercises route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
+Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to exercises route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
 
 The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
@@ -294,7 +294,7 @@ This FC+ESC stack include the power distribution circuitry as well, receiving po
 The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025, due to supply chain constraints.
 ```
 
-The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), whith details provided in [](fig-dd24-fc-esc-405v3-specs). 
+The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
 
 ```{figure} ../_images/components-official-dd24/f405-V3-specification-8.jpg
 :name: fig-dd24-fc-esc-405v3-specs
@@ -321,7 +321,7 @@ The FC+ESC F405 V3 stack box components and specifications
 The buzzer notifies the user when the battery voltage is lower than a certain threshold
 ```
 
-The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measure output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the drone when hearing the buzzer buzz. 
+The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measured output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the drone when hearing the buzzer buzz. 
 
 (dd24-usb-cables)=
 ## Cables
@@ -338,7 +338,7 @@ Duckiedrone cables
 The Duckiedrone (`DD24`) box includes:
 
 - 1x USB-A to USB-C cable (with data) - 23cm + length of connectors, angled: FC to Raspberry Pi connection 
-- 1x USB-C power cable (power only) - 8cm wires + 1cm exposed sire + 2cm connector, exposed wires: FC to Raspberry Pi connection
+- 1x USB-C power cable (power only) - 8cm wires + 1cm exposed wire + 2cm connector, exposed wires: FC to Raspberry Pi connection
 - 4x 4-pin JST 1.5mm connectors (both ends) - 15cm: ToF sensor to HUT connections
 - 1x 4-pin JST 1.5mm connectors (both ends) - 23cm: ToF sensor to HUT connection
 
@@ -406,7 +406,7 @@ This 2.54mm jumper is used to short (i.e., connect) pins on the HUT. This is use
 Velcro strips
 ```
 
-Velcro strips are use for cable management and securing components, such as the battery, to the drone's chassis. The Duckiedrone box contains:
+Velcro strips are used for cable management and securing components, such as the battery, to the drone's chassis. The Duckiedrone box contains:
 
 - 2x 25cm black Velcro strips
 
@@ -516,7 +516,7 @@ These rubber landing pads mount under the landing gears and provide a softer lan
 Screws, nuts and standoffs
 ```
 
-To Duckiedrone box includes the following a host of "bit and pieces", including spares of each:
+The Duckiedrone box includes a host of "bits and pieces", including spares of each:
 
 - **Screws** (number + spares)
   - (22+2)x Nylon (M3x6) - 16x chassis, 2x securing battery, 4x forward battery supports
@@ -603,7 +603,7 @@ Duckietown duckies are non functional yet essential to the operations of the Duc
 :align: center
 :alt: Duckietown stickers
 
-Dcukeitown stickers
+Duckietown stickers
 ```
 
 Duckietown stickers look great on your laptop, and notify others of your Duckietown training.    
