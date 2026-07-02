@@ -22,7 +22,7 @@ We provide below a brief description of each component in the box.
 Raspberry Pi 4 Model B, 4GB RAM
 ```
 
-The Raspberry Pi 4 - Model B is a well-known credit card-sized computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
+The Raspberry Pi 4 - Model B is a well-known credit card-sized computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computing power. 
 
 The Duckiedrone `DD24` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
@@ -210,7 +210,7 @@ The Duckietown battery connects to the drone through a 10cm long XT60 connector,
 :align: center
 :alt: Battery charger 
 
-Lithium Ion battery charger
+Lithium-Ion battery charger
 ```
 
 This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and on the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
@@ -251,7 +251,7 @@ The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry P
 
 The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and flight controller, and the onboard Raspberry Pi. 
 
-It supports the placing of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
+It supports the placement of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
 
 (component-breadboard-yellow-45x35mm)=
 ## Breadboard - Yellow, 45x35mm
