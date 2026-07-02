@@ -228,12 +228,12 @@ The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploa
 
 Now you will need to start the drone software stack, allowing you to connect to the flight controller from your laptop.
 
-To do so, you need to use the Duckietown shell `dts`.
+To do so, you need to use the Duckietown Shell (`dts`).
 
 ````{attention}
 Make sure that the `dts` on your laptop is:
 
-- Running the `ente` distribution. You can check  by running `dts profile list`
+- Running the `ente` distribution. You can check by running `dts profile list`
 - Updated to the latest version by running:
 
    ```bash

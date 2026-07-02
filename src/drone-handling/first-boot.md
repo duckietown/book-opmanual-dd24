@@ -139,7 +139,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     To edit this file, you will need to:
 
     1. Power off the drone
-    1. Remove the SD card from the SD card slot of the raspberry pi
+    1. Remove the SD card from the SD card slot of the Raspberry Pi
     1. Use the USB-A adapter to connect it back to the base station
     1. Open the `config` disk partition.
     ```
