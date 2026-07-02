@@ -14,7 +14,7 @@
 * A micro SD card reader, e.g., the one from your Duckiebox
 ---
 
-* A DD24 initialized and customized micro SD card, ready for first boot
+* An initialized and customized DD24 micro SD card, ready for first boot
 ```
 
 ```{attention}

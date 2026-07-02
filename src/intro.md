@@ -9,7 +9,7 @@ Welcome to the Duckiedrone (`DD24`) operation manual. The Duckiedrone is a do-it
 
 The `DD24` is the third Duckietown drone hardware iteration. For more information about its predecessors, check out the Duckiedrone (`DD18`) and (`DD21`) manuals. 
 
-This manual provides instructions on how to assemble, how to calibrate, how to operate, and what to teach (and learn) with a Duckiedrone. 
+This manual provides instructions on how to assemble, calibrate, and operate a Duckiedrone, and what to teach and learn with it. 
 
 
 

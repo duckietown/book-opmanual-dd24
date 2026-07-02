@@ -135,7 +135,7 @@ If you try to unscrew the top nuts, you will notice that they have opposite thre
 Brushless DC Motors (Counter-clockwise - CCW) 
 ```
 
-These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in counter-clockwise direction.
+These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in the counter-clockwise direction.
 
 ```{note}
 **Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
