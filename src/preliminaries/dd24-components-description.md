@@ -437,7 +437,7 @@ The chassis has a square design with each side measuring 27.2cm.
 :name: fig-dd24-chassis-top
 :width: 300px
 :align: center
-:alt: Duckiedrone chassis bottom plate
+:alt: Duckiedrone chassis top plate
 
 Duckiedrone chassis: top plate   
 ```

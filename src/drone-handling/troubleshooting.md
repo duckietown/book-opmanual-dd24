@@ -44,7 +44,7 @@ that the Raspberry Pi is receiving 5 volts from the UBEC.
 
 ## Raspberry Pi Issues
 
-Most of the next debugging steps require getting into your Raspberry Pi using `ssh`. Check the [](./first-connection.md) chapter if you are not connected.
+Most of the next debugging steps require getting into your Raspberry Pi using `ssh`. Check the [](first_connection) chapter if you are not connected.
 
 ```{trouble}
 My Raspberry Pi is receiving power and turning the red light on, but it doesn't boot.
