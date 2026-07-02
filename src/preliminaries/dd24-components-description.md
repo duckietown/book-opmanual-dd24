@@ -413,7 +413,7 @@ Velcro strips are used for cable management and securing components, such as the
 (dd24-chassis)=
 ## Chassis
 
-The Duckiedrone's chassis is a custom-designed 2.5mm thick carbon fiber sandwich-design chassis, with the following components.  
+The Duckiedrone's chassis is a custom-designed 2.5mm thick carbon fiber sandwich design, with the following components.  
 
 (component-bottom-plate-carbon-fiber-25mm)=
 ### Bottom Plate
