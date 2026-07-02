@@ -89,7 +89,7 @@ fatigue and then break the wires; or if a prop strikes the cable, it
 might cause the cable to break.
 
 If your Raspberry Pi and cable work with someone else's camera but not yours,
-try replacing the camera.  If your camera and cable work with someone
+try replacing the camera. If your camera and cable work with someone
 else's Raspberry Pi but not yours, try replacing the Raspberry Pi.
 ```
 ## Flight Controller

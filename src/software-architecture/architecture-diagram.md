@@ -48,7 +48,7 @@ The ToF Node exposes range measurements as ROS topics.
 
 ### FlyCommandsMux Node
 
-Listens to two topics: 
+The FlyCommandsMux Node listens to two topics:
 
 - `~manual`
 - `~autonomous`
