@@ -68,7 +68,7 @@ If any motor is spinning in the wrong direction, you'll need to reverse its dire
    
 - Go to the `Parameters` tab.
 - In the search bar, type `SERVO_BLH_RVMASK`.
-- Click on it and select the motor (here the configurator refers to `Channels`, so motor `i` will correspond to `Channeli`) to reverse based on the [required direction](betaflightx-spinning-dir).
+- Click on it and select the motor (here the configurator refers to `Channels`, so motor `i` will correspond to `Channel i`) to reverse based on the [required direction](betaflightx-spinning-dir).
 
     ```{figure} ../_images/fc-setup/esc_reverse_direction.png
     :name: motor-reverse-configurator

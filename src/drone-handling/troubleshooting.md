@@ -37,9 +37,9 @@ the Raspberry Pi.
 The motors do not turn on.
 ---
 The motors indicate they are receiving power by beeping once. You can also check each
-part with the multimeter.  Verify that there is a 12-volt connection
+part with the multimeter. Verify that there is a 12-volt connection
 between power and ground on the power distribution board. Also verify
-that the Raspberry Pi is receiving 5 volts from the UBEC.  
+that the Raspberry Pi is receiving 5 volts from the UBEC.
 ```
 
 ## Raspberry Pi Issues
