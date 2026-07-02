@@ -48,7 +48,7 @@ Exposes Range measurements as ROS topics.
 
 ### FlyCommandsMux Node
 
-Listens on two topics: 
+Listens to two topics: 
 
 - `~manual`
 - `~autonomous`
