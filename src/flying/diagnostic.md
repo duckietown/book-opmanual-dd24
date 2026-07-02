@@ -133,7 +133,7 @@ The drone does not get off the ground when commanded to take off.
 
 - make sure that the arrows on the props are pointing in the correct direction,
 
-- remove the propellers, plug the battery back in, and from QGroundControl's motor test tab spin each motor individually to verify direction,
+- remove the propellers, plug the battery back in, and from QGroundControl's motor test tab, spin each motor individually to verify direction,
 
 - make sure that when you spin up motor 1, the bottom-right motor spins. Do this check for all four motors.
 ```

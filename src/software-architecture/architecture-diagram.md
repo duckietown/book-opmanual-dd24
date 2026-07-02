@@ -28,7 +28,7 @@ The flight controller node controls what mode the drone should be in based on th
 The Flight Controller interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the drone. 
 
 ### ToF driver
-Interfaces with the ToF sensors, publishing their range measurements.
+The ToF driver interfaces with the ToF sensors, publishing their range measurements.
 
 ## Core flight functionality
 
