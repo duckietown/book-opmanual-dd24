@@ -143,7 +143,7 @@ Do **not** put your hands near the propellers while the drone is armed. Always d
 Keep the Mission Control page visible while the drone is in the air. Useful widgets:
 
 *   **Altitude** — a sudden dip here while in `ALTITUDE` mode is usually a ToF dropout; the PID controller may oscillate.
-*   **Motors PWM** — if all four bars saturate at 2000, the drone is calling for maximum thrust, typically a sign the altitude estimate is wrong.
+*   **Motors PWM** — if all four bars saturate at 2000, the drone is calling for maximum thrust, typically a sign that the altitude estimate is wrong.
 *   **Heartbeats Monitor** — if any heartbeat goes red during flight, the corresponding node stopped publishing.
 
 ## Troubleshooting
