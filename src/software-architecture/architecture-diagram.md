@@ -53,7 +53,7 @@ Listens on two topics:
 - `~manual`
 - `~autonomous`
 
-If there is only one topic with valid commands (i.e. commands that are not too old), it uses that.
+If there is only one topic with valid commands (i.e., commands that are not too old), it uses that.
 
 If both have valid inputs, depending on the `DTParams` specified in the `__init__` function, masking is performed. By default, manual commands have higher priority. The parameters control which autonomous controls are passed through to the Flight Controller node.
 

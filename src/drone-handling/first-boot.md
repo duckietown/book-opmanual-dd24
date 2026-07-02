@@ -19,7 +19,7 @@ There is only one first time you can connect to your Duckiedrone. Savor the expe
 
 ## Before getting started
 
-The first time a newly flashed SD card is inserted in the Duckiedrone a special “first boot” procedure is executed.
+The first time a newly flashed SD card is inserted in the Duckiedrone, a special "first boot" procedure is executed.
 
 ```{note}
 The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. It is crunching as fast as it can, do not worry.
@@ -50,7 +50,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     ```
 
     ```{attention}
-    At present AP mode is unstable, we suggest you use CL mode.
+    At present, AP mode is unstable. We suggest you use CL mode.
     ```
 
     ::::{tab-set}
