@@ -35,7 +35,7 @@ Lithium Polymer (LiPo) batteries are commonly used in RC devices, including Duck
 - **Never** leave a LiPo battery charging unattended.
 - If the battery or charger starts smoking during charging, unplug it immediately and replace both.
 - Avoid overcharging the battery.
-- Always have a fire extinguisher nearby. If unavailable, water can be used to douse the battery and surrounding area.
+- Always have a fire extinguisher nearby. If no fire extinguisher is available, water can be used to douse the battery and surrounding area.
 - Inspect the battery regularly for damage, such as punctures or puffiness. Dispose of damaged batteries properly by following [this guide](https://modelaviation.com/lipo4).
 - Install the battery in the drone before securing the second level of the frame.
 ```
