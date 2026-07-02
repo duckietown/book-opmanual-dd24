@@ -244,7 +244,7 @@ This 12V 2A power adapter, provided with a US wall plug, connects to the battery
 :name: dd24-hut-v-1-2
 :width: 300px
 :align: center
-:alt: Duckiedrone Hut DDHUT v1.2 
+:alt: Duckietown drone HUT v1.2
 
 The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
 ```
