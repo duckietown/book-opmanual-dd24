@@ -57,7 +57,7 @@ Something might be wrong with your SD card.
 *   Check that the SD card is inserted in the Raspberry Pi so that it can boot.
 
 If all this does not work, find a keyboard and
-monitor to plug the Raspberry Pi into during boot, to see what is going on
+monitor to plug into the Raspberry Pi during boot, to see what is going on
 during the boot process.
 
 There may be an error message being printed on the screen that will give more information.
@@ -96,8 +96,8 @@ else's Raspberry Pi but not yours, try replacing the Raspberry Pi.
 
 Finally, check the Flight Controller.  When the Flight Controller
 connects to the motors, it will make a "low beep, high beep" sound.
-So verify you hear the "do do do" from the motors, indicating they
-have power, and then the "low, high" indicating the Flight Controller
+So, verify you hear the "do do do" from the motors, indicating they
+have power, and then the "low, high", indicating the Flight Controller
 can talk to them. If that doesn't work, check the connection between
 the Flight Controller, ESCs, and motors.
 
@@ -113,7 +113,7 @@ Make sure that:
 
 * your camera is mounted firmly, pointed downwards.
 * the range sensor is pointed downwards and hasn't gotten rotated.
-* the Flight Controller board is level and firmly attached, else the IMU and gyroscope will return incorrect readings.
+* the Flight Controller board is level and firmly attached; otherwise, the IMU and gyroscope will return incorrect readings.
 * each propeller is tightened down all the way.
 
 Any of these issues could cause poor flight behavior.

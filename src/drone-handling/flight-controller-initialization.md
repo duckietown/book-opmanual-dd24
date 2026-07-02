@@ -281,7 +281,7 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    - Click **Connect** to establish the connection with your flight controller.
 
 1. Access the Vehicle Setup:
-   - Once connected, open the menu by clicking on the **Q** application icon in the top left corner and open the **Vehicle Setup** page from the popup menu that appears.
+   - Once connected, click the **Q** application icon in the top left corner to open the **Vehicle Setup** page from the popup menu that appears.
 
 1. Navigate to Parameters:
    - In the Vehicle Setup menu, select the **Parameters** tab to view the configurable parameters for your vehicle.
