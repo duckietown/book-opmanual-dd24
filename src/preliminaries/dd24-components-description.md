@@ -157,7 +157,7 @@ The Duckiedrone (`DD24`) mounts four Diatone Polycarbonate 4040, 4x4 (in) three-
 
 The box contains a full spare set, i.e., 4x CW and 4x CCW props. 
 
-As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other for counter-clockwise (CCW). 
+As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other is designed for counter-clockwise (CCW). 
 
 To distinguish CW from CCW propellers, find the arrows embossed on the backside, as shown in [](dd24-propellers).
 
@@ -280,7 +280,7 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 ```
 ### The flight controller (FC) and Electronic Speed Controller (ESC) - foreword
 
-The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
+The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC also hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
 
 Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, such as visual perception.
 
@@ -426,7 +426,7 @@ The Duckiedrone's chassis is a custom-designed 2.5mm thick carbon fiber sandwich
 Duckiedrone chassis: bottom plate  
 ```
 
-The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery and more. 
+The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery, and more. 
 
 The chassis has a square design with each side measuring 27.2cm.
 
