@@ -81,8 +81,8 @@ that fit the cable.)  Make sure it is plugged into the slot marked
 of the cable should be facing the pins in the slot.)  Make sure it
 is seated all the way.
 
-If none of these things make `raspistill` work, try plugging into your Raspberry Pi 
-someone else's camera, and someone else's Raspberry Pi into your camera,
+If none of these things make `raspistill` work, try plugging someone else's camera
+into your Raspberry Pi, and your camera into someone else's Raspberry Pi,
 and try all of the above debugging steps.  You can also check if
 the cable is bad.  For example, if you bend the cable too much, it will
 fatigue and then break the wires; or if a prop strikes the cable, it
