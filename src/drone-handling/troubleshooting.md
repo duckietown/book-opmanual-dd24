@@ -101,7 +101,7 @@ have power, and then the "low, high" indicating the Flight Controller
 can talk to them. If that doesn't work, check the connection between
 the Flight Controller, ESCs, and motors.
 
-Inside the Raspberry Pi, make sure you can calibrate the accelerometer, and run
+On the Raspberry Pi, make sure you can calibrate the accelerometer, and run
 the Flight Controller node.  If those don't work, go back and recheck
 your Betaflight configuration.
 
