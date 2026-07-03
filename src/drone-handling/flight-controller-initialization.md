@@ -6,7 +6,7 @@
 ```{needget}
 * A base station computer running Linux (Ubuntu) or macOS
 * Flight Controller
-* USB to USB-C cable
+* Long USB to USB-C cable
 ---
 * An up-to-date, initialized Flight Controller running PX4
 ```
@@ -281,7 +281,7 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
 4. Reboot the Vehicle:
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.
-   - After rebooting, reconnect to the vehicle. You will then see ta summary page similar to the one below:
+   - After rebooting, reconnect to the vehicle. You will then see a summary page similar to the one below:
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
    ```
@@ -296,18 +296,22 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
    ```
 
+```{note}
+The **Radio** page will stay red — this is expected. The Duckiedrone has no RC transmitter; the flight controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
+```
+
 ```{todo}
 Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
 ```
 
-```{todo}
-Add a Page to Flash BluJay to ESC and Explain how to setup Motor Numbering and Spin Direction
+```{note}
+The ESCs must already be running Bluejay before the motor spin direction can be set from PX4. If you have not done so, first complete [Initializing the ESCs](dd24-esc-init).
 ```
 
 ### Additional Tips
 
 - **Check for Errors:** The `duckiedrone-px4-v2.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
-- **On-board calibration is mandatory:** the shipped `.params` file deliberately omits all `CAL_*` (accelerometer/gyro/magnetometer/barometer calibration) entries because those are tied to a specific board's sensor IDs. Run the **Sensors** calibration in QGroundControl on the actual flight controller after loading the parameters.
+- **On-board calibration is mandatory:** the shipped `.params` file deliberately omits all `CAL_*` (accelerometer/gyro calibration) entries because those are tied to a specific board's sensor IDs. Run the **Sensors** calibration in QGroundControl on the actual flight controller after loading the parameters.
 
 ## Troubleshooting
 

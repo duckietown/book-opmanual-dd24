@@ -34,6 +34,7 @@ parts:
       chapters:
           - file: drone-handling/first-boot
           - file: drone-handling/first-connection
+          - file: drone-handling/esc-initialization
           - file: drone-handling/flight-controller-initialization
           - file: drone-handling/motors-configuration
           - file: drone-handling/troubleshooting
