@@ -15,7 +15,7 @@ The "Acro” version has a mini USB port on the board.
 ## Camera
 - [Arducam 5mp 1080p OV5647](https://www.arducam.com/product/arducam-ov5647-standard-raspberry-pi-camera-b0033/)
 ## Time-of-Flight (ToF)
-- [VL53L0X] (https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)
+- [VL53L0X](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)
 ```{figure} ../_images/datasheets/tof.png
 
 ToF Sensor

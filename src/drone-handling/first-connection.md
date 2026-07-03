@@ -1,6 +1,6 @@
 ```{seo}
 :description: Learn how to connect to your Duckiedrone (DD24) using the Duckietown Dashboard in client or access point mode.
-:keywords: Duckiedrone first connection, DD24 network setup, Duckietown Dashboard, AP mode, CL mode, robotics WiFi configuration
+:keywords: Duckiedrone first connection, DD24 network setup, Duckietown Dashboard, AP mode, CL mode, robotics Wi-Fi configuration
 ```
 
 (first_connection)=
@@ -52,7 +52,7 @@ Default ssh user name: `duckie`
 
 Default ssh user password: `quackquack`
 
-Ssh always possible: `ssh duckie@amelia.local`
+SSH always possible: `ssh duckie@amelia.local`
 
 **Default** access point (**AP**) network configuration:
 
@@ -73,5 +73,5 @@ Ssh always possible: `ssh duckie@amelia.local`
 ```{trouble}
 I cannot connect to my Duckiedrone in AP mode.
 ---
-Try using client mode and shut down the docker container `dt-access-point` through the Portainer interface (accessible through your browser from your base station at `<hostname>.local:9000`)
+Try using client mode and shut down the Docker container `dt-access-point` through the Portainer interface (accessible through your browser from your base station at `<hostname>.local:9000`).
 ```

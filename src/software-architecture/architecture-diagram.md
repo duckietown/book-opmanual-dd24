@@ -22,50 +22,50 @@ These nodes interface with the hardware and expose its functionality through DTP
 ### Camera driver
 The camera driver interfaces with the camera present on the drone, publishing compressed JPEG images and the camera calibration information.
 
-### Flight Controller Driver
-The flight controller node controls what mode the drone should be in based on the user input and on safety checks. For example, if any of the heartbeats stop publishing, the mode controller disarms the drone. If the mode is "ARMED" or "DISARMED", the flight controller node sends static command values, but if the mode is "FLYING", then the node sends the fly_commands topic to the flight controller board.
+### Flight Controller driver
+The Flight Controller driver controls what mode the drone should be in based on the user input and safety checks. For example, if any of the heartbeats stop publishing, the Flight Controller driver disarms the drone. If the mode is "ARMED" or "DISARMED", the Flight Controller driver sends static command values, but if the mode is "FLYING", then the driver sends `fly_commands` to the flight controller board.
 
-Flight Controller interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands which are used to control the attitude of the drone. 
+The Flight Controller driver interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the drone. 
 
 ### ToF driver
-Interfaces with the ToF sensors, publishing their range measurements.
+The ToF driver interfaces with the ToF sensors, publishing their range measurements.
 
 ## Core flight functionality
 
-This group of nodes handles controlling the attitude of the drone, providing a pipeline to command thrust, roll, yaw and pitch.
+This group of nodes handles controlling the attitude of the drone, providing a pipeline to command thrust, roll, yaw, and pitch.
 
 ### IMU Node
 
-Exposes IMU data to ROS, according to [REP145](https://www.ros.org/reps/rep-0145.html).
+The IMU Node exposes IMU data to ROS, according to [REP 145](https://www.ros.org/reps/rep-0145.html).
 
 ### Flight Controller Node
 
-Exposes Flight Controller functionality to ROS.
+The Flight Controller Node exposes Flight Controller functionality to ROS.
 
 ### ToF Node
 
-Exposes Range measurements as ROS topics.
+The ToF Node exposes range measurements as ROS topics.
 
-### FlyCommandsMux node
+### FlyCommandsMux Node
 
-Listens on two topics: 
+The FlyCommandsMux Node listens to two topics:
 
 - `~manual`
 - `~autonomous`
 
-If there is only one topic with valid commands (i.e. commands that are not too old), it uses that.
+If there is only one topic with valid commands (i.e., commands that are not too old), it uses that.
 
-If both have valid inputs, depending on the `DTParams` specified in the `__init__` function, masking is performed. By default, manual commands have higher priority. The parameters control which autonomous controls are passed through to the Flight Controller node.
+If both have valid inputs, depending on the `DTParams` specified in the `__init__` function, masking is performed. By default, manual commands have higher priority. The parameters control which autonomous controls are passed through to the Flight Controller Node.
 
 ### rosbridge
-This node allows the web dashboard to communicate with ROS nodes on the drone by exposing topics through a websocket interface.
+This node allows the web dashboard to communicate with ROS nodes on the drone by exposing topics through a WebSocket interface.
 
 ## Autonomous flight functionality
 
 These nodes provide the capability to give a velocity or position command to the drone.
 
 ### PID
-The PID controller node controls the flight of the drone by running a PID controller on the error calculated by the desired and current velocity and position of the drone.
+The PID controller node controls the flight of the drone by running a PID controller on the error calculated from the desired and current velocity and position of the drone.
 
 ### State Estimator
 
@@ -81,7 +81,7 @@ The state typically consists of the `x`, `y`, `z` positions and velocities, and 
 
 
 ### Optical Flow
-The Optical Flow node computes the optical flow motion vectors, sends them to the ground projector to be scaled based on the height and publishes the linear velocity calculated from the projected vectors.
+The Optical Flow node computes the optical flow motion vectors, sends them to the ground projector to be scaled based on the height, and publishes the linear velocity calculated from the projected vectors.
 
 
 ### Rigid Transform
@@ -90,13 +90,13 @@ This node uses OpenCV to calculate the change in position of the drone using the
 
 ### Topics naming
 
-#### Flight controller node:
+#### Flight Controller Node:
 
 Topics:
 
         ~/flight_controller_node/battery
 
-        ~flight_controller_node/commands
+        ~/flight_controller_node/commands
 
         ~/flight_controller_node/commands/executed
 
@@ -110,7 +110,7 @@ Services:
 
         ~/flight_controller_node/calibrate_imu
 
-#### IMU node:
+#### IMU Node:
 
 Topics:
 
@@ -118,7 +118,7 @@ Topics:
 
         ~/imu_node/raw
 
-##### ToF node:
+#### ToF Node:
 
 Topics:
 

@@ -12,11 +12,11 @@ This section outlines the most important skills you will need for building your 
 Whether you are new to soldering or not, we recommend reading through this page to review the basic techniques used in the build.
 ```
 
-## Strip Wires
+## Stripping Wires
 
 Stripping involves removing a portion of insulation from a wire to expose its strands. This is done using a wire stripper. Once exposed, the wire can be tinned and soldered.
 
-## Tin
+## Tinning
 
 Tinning is the process of applying solder to exposed wire or a metal pad. Using a soldering iron, heat the metal and melt the solder onto the surface. Tinning simplifies the soldering process by pre-coating the wire or pad.
 

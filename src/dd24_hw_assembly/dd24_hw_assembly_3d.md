@@ -1,6 +1,6 @@
 ```{seo}
 :description: Instructions to build the Duckiedrone model DD24 using a 3D visualizer.
-:keywords: Duckiedrone DD24, hardware assemby guide, build dd24, build duckiedrone, build instructions dd24
+:keywords: Duckiedrone DD24, hardware assembly guide, build dd24, build duckiedrone, build instructions dd24
 ```
 
 (dd24-hw-assembly)=

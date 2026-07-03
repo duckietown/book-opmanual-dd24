@@ -16,7 +16,7 @@ Calibrating the gyroscope and accelerometer gives PX4 the sensor offsets it need
 
 ## Method 1: calibration through the Dashboard
 
-On DD24 drones running the Ente ROS 2 stack, the Dashboard talks to PX4 through MAVROS2 and does not require QGroundControl.
+On DD24 drones running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS2 and does not require QGroundControl.
 
 ```{attention}
 Remove the propellers before running any flight-controller calibration or arming checks.
@@ -30,8 +30,8 @@ Remove the propellers before running any flight-controller calibration or arming
    ```
 3. Navigate to {bdg-warning}`Robot` > {bdg-dark-line}`Mission Control`.
 4. Find the `IMU - Orientation` block.
-5. Place the drone still on a level surface and click {bdg-secondary-line}`GYRO`.
-6. When gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
+5. Place the drone on a level surface, hold it still, and click {bdg-secondary-line}`GYRO`.
+6. When the gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
 7. Follow the live `[cal]` prompts shown in the block. PX4 will ask for six stable orientations: level/top-up, on-back/top-down, nose-down, nose-up, left-side-down, and right-side-down. Hold each orientation still until PX4 accepts it.
 
 The calibration is complete when the block reports `PX4 accel calibration complete` or an equivalent PX4 completion message.
@@ -79,7 +79,7 @@ docker run --rm -it --net host --privileged -v /dev:/dev \
   bash -lc 'source /environment.sh && px4_manual_calibration both --port /dev/ttyACM0'
 ```
 
-If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs so PX4 emits the `[cal]` status prompts over MAVLink.
+If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs, so PX4 emits the `[cal]` status prompts over MAVLink.
 
 (camera-calib)=
 ## Camera calibration
@@ -90,4 +90,4 @@ Follow the camera calibration procedure described [in the Duckiebot opmanual](bo
 
 If the Dashboard, ROS 2 service, and manual Python methods all fail, calibrate the accelerometer from QGroundControl using the PX4 procedure: [PX4 Accelerometer Calibration](https://docs.px4.io/v1.16/en/config/accelerometer).
 
-Use this only as a recovery path. Close QGroundControl before returning to the Duckiedrone stacks so it does not keep the MAVLink connection open.
+Use this only as a recovery path. Close QGroundControl before returning to the Duckiedrone stacks, so it does not keep the MAVLink connection open.

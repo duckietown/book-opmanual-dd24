@@ -8,7 +8,7 @@
 
 What should you expect to find inside a Duckiedrone (`DD24`) box, and what is each component? 
 
-First things first: here is how a Duckiedrone box looks like:
+First things first: here is how a Duckiedrone box looks:
 
 ```{figure} ../_images/the-box.jpg
 :name: the-dd24-box
@@ -19,7 +19,7 @@ First things first: here is how a Duckiedrone box looks like:
 The *yellow* Duckiedrone box.
 ```
 
-And is here an incomplete representation of the components in the box. Continue scrolling for the complete list.
+Here is an incomplete representation of the components in the box. Continue scrolling for the complete list.
 
 ```{figure} ../_images/components-official-dd24/whats-in-the-box-duckiedrone-dd24.jpg
 :name: in-the-box
@@ -32,8 +32,8 @@ What's inside the box (selected components).
 
 ## List of components
 
-| Component |                                                                                        Number |
-|:----------|----------------------------------------------------------------------------------------------:|
+| Qty |                                                                                    Component |
+|:----|---------------------------------------------------------------------------------------------:|
 | 1         |                                                      Raspberry Pi 4 - 4GB (or Raspberry Pi 5) |
 | 1         |                                                               64GB MicroSD card - Class 10 U3 |
 | 1         |                                                                        MicroSD to USB adapter |
@@ -49,7 +49,7 @@ What's inside the box (selected components).
 | 1        | LiPo Battery - 1500mAh, 4S, 14.8V, 76x35x33mm, XT60 connector, 10cm cable, 35C peak discharge |
 | 1        |                                                    Battery charger - 2-4S Li-Ion/Li-Poly, 25W |
 | 1        |                                                      Battery charger adapter - 12V 2A US plug |
-| 1        |                                                                   Duckietown drone HUT - v1.1 |
+| 1        |                                                                   Duckietown drone HUT - v1.2 |
 | 1        |                                                                  Breadboard - Yellow, 45x35mm |
 | 1        |                                    Flight Controller & ESC stack - SpeedyBee F405 V3, BLS 50A |
 | 1        |                                                                   Buzzer - Model 2312, 3V-24V |
@@ -94,4 +94,4 @@ What's inside the box (selected components).
 | 1        |                                                                          Shipping Package box |
 
 
-In the following section [](prelim-dd24-box-component-description) we provide a brief description of each component. 
+In the following section [](prelim-dd24-box-component-description), we provide a brief description of each component.

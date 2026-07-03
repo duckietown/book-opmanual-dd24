@@ -14,13 +14,13 @@
 * A micro SD card reader, e.g., the one from your Duckiebox
 ---
 
-* A DD24 initialized and customized micro SD card, ready for first boot
+* An initialized and customized DD24 micro SD card, ready for first boot
 ```
 
 ```{attention}
 These instructions apply to **both** the Raspberry Pi 4 Model B and the Raspberry Pi 5. The same `ente` image is written through `dts init_sd_card`; only the underlying Raspberry Pi OS base layer differs and is chosen automatically at flashing time.
 
-The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip` flashed through Balena Etcher) is no longer supported on the `ente` distribution. If you followed it before, re-flash with the procedure below.
+The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip` flashed through Balena Etcher) is no longer supported on the `ente` distribution. If you used it before, re-flash with the procedure below.
 ```
 
 ## 1. Install the Duckietown Shell
@@ -93,7 +93,7 @@ dts update
 
 ## 3. (Optional) Add extra Wi-Fi networks
 
-`dts init_sd_card` writes a `wpa_supplicant.conf` file into the `config` partition of the SD card. To add networks later you can re-insert the SD card into your base station, open the `config` partition and append additional `network={...}` blocks.
+`dts init_sd_card` writes a `wpa_supplicant.conf` file into the `config` partition of the SD card. To add networks later, you can re-insert the SD card into your base station, open the `config` partition, and append additional `network={...}` blocks.
 
 ```bash
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev

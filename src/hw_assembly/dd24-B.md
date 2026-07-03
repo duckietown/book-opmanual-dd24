@@ -1,6 +1,6 @@
 ```{seo}
-description: Interactive step-by-step instructions to assemble a Duckietown Duckiedrone (DD24-B).
-keywords: Duckietown, Duckiedrone, assembly instructions, quadcotper
+:description: Interactive step-by-step instructions to assemble a Duckietown Duckiedrone (DD24-B).
+:keywords: Duckietown, Duckiedrone, assembly instructions, quadcopter
 ```
 
 (duckiedrone-dd24-b-assembly-instructions)=
@@ -20,10 +20,10 @@ Please make these adjustments manually while we work on updating the 3D assembly
 
 ````{attention}
 
-The flight controller and PDB board included with the `DD24-B` differ slightly from those depicted in the 3D assembly tool.
+The flight controller and PDB included with the `DD24-B` differ slightly from those depicted in the 3D assembly tool.
 
 **Step 2:**
-Ensure the PDB board is oriented with the white 6-pin connector facing downward, and the silkscreen labels `M1`, `M2`, `M3`, and `M4` facing upward.
+Ensure the PDB is oriented with the white 6-pin connector facing downward, and the silkscreen labels `M1`, `M2`, `M3`, and `M4` facing upward.
 
 ```{figure} ../_images/assembly-dd24-B/esc-board-orientation.jpg
 :width: 30%
