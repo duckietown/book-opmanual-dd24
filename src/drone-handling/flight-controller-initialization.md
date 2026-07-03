@@ -3,9 +3,6 @@
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 
-(dd24-fc-init)=
-# Initializing the Flight Controller
-
 ```{needget}
 * A base station computer running Linux (Ubuntu) or macOS
 * Flight Controller
@@ -13,6 +10,9 @@
 ---
 * An up-to-date, initialized Flight Controller running PX4
 ```
+
+(dd24-fc-init)=
+# Initializing the Flight Controller
 
 The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the Flight Controller is critical for flying safely.
 
@@ -241,13 +241,7 @@ Make sure that the `dts` on your laptop is:
    ```
 ````
 
-<<<<<<< HEAD
-Reconnect the USB cable from the flight controller back to the Raspberry Pi, then power on the drone.
-
-To start the flight software stack execute the command
-=======
 To start the flight software stack, execute the command
->>>>>>> origin/ente
 
    ```bash
    dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
@@ -287,23 +281,11 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    - Go to the **Application Settings → Comm Links** section by clicking on the **Q** application icon in the top left corner.
    - Select **Add** to create a new communication link.
    - Choose **TCP** from the dropdown.
-<<<<<<< HEAD
-   - Set the **Host Address** to the IP address of your Duckiedrone, and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
-     - To find the IP address, run `ping <robot_name>.local` from your base station and read the resolved address.
-   - Click **Connect** to establish the connection with your flight controller.
-
-   ```{figure} ../_images/fc-setup/qgc-tcp-link-settings.png
-   ```
-
-3. Access the Vehicle Setup:
-   - Once connected, open the menu by clicking on the **Q** application icon in the top left corner and open the **Vehicle Setup** page from the popup menu that appears.
-=======
    - Set the **Host Address** to `ROBOT_NAME.local` and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
    - Click **Connect** to establish the connection with your flight controller.
 
 1. Access the Vehicle Setup:
    - Once connected, click the **Q** application icon in the top left corner to open the **Vehicle Setup** page from the popup menu that appears.
->>>>>>> origin/ente
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
    ```

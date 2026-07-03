@@ -104,11 +104,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     :::
     ::::
 
-<<<<<<< HEAD
-4.  If you haven't already, insert the initialized microSD card inside the microSD card slot of the Raspberry Pi, as shown [here](attach_pi_hat).
-=======
 4.  If you haven't already, insert the initialized micro SD card into the micro SD card slot of the Raspberry Pi, as shown [here](attach_pi_hat).
->>>>>>> origin/ente
     
     ```{attention}
     **Do not** connect the SD card inside the adapter to a USB-A port of the Raspberry Pi. 

@@ -73,9 +73,5 @@ SSH always possible: `ssh duckie@amelia.local`
 ```{trouble}
 I cannot connect to my Duckiedrone in AP mode.
 ---
-<<<<<<< HEAD
-Try using client mode and shut down the Docker container `dt-access-point` through the Portainer interface (accessible through your browser from your base station at `<hostname>.local:9000`)
-=======
 Try using client mode and shut down the Docker container `dt-access-point` through the Portainer interface (accessible through your browser from your base station at `<hostname>.local:9000`).
->>>>>>> origin/ente
 ```
