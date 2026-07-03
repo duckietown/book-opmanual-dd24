@@ -1,6 +1,6 @@
 ```{seo}
 :description: Configure and verify the motor spinning direction of your Duckiedrone (DD24) using QGroundControl to ensure correct flight behavior.
-:keywords: Duckiedrone motor configuration, DD24 motor direction, QGroundControl motor setup, SpeedyBee F405 v3, BetaflightX frame, ESC motor reversal
+:keywords: Duckiedrone motor configuration, DD24 motor direction, QGroundControl motor setup, SpeedyBee F405 V3, BetaflightX frame, ESC motor reversal
 ```
 
 (dd24-motor-configuration)=
@@ -25,7 +25,7 @@ Now you have to set up the motor spinning direction on the flight controller in 
 
 ## 1. Connect Flight Controller to QGroundControl
 
-- Connect your SpeedyBee F405 v3 flight controller to your computer using a USB cable.
+- Connect your SpeedyBee F405 V3 flight controller to your computer using a USB cable.
 
 - Open QGroundControl.
 
@@ -37,7 +37,7 @@ Now you have to set up the motor spinning direction on the flight controller in 
 Remove propellers for safety before proceeding with motor testing.
 ```
 
-- Go to the `Motors` tab in QGroundControl. This section will allow you to test motor outputs individually.
+- Go to the `Motors` tab in QGroundControl. This tab will allow you to test motor outputs individually.
 
     ```{figure} ../_images/fc-setup/motor_setup_tab.png
     Motor testing tab
@@ -60,7 +60,7 @@ Remove propellers for safety before proceeding with motor testing.
     Notice that there is a different naming scheme between the motor numbering and the motor test tab:
 
         - The motor test tab uses **letters** (A, B, C, D)
-        - The motor configuration parameters use numbers (1,2,3,4)
+        - The motor configuration parameters use numbers (1, 2, 3, 4)
     ```
 
 ## 3. Reverse Motor Direction (if required)
@@ -68,7 +68,7 @@ If any motor is spinning in the wrong direction, you'll need to reverse its dire
    
 - Go to the `Parameters` tab.
 - In the search bar, type `SERVO_BLH_RVMASK`.
-- Click on it and select the motor (here the configurator refers to `Channels` so motor `i` will correspond to `Channeli`) to reverse based on the [required direction](betaflightx-spinning-dir).
+- Click on it and select the motor (here the configurator refers to `Channels`, so motor `i` will correspond to `Channel i`) to reverse based on the [required direction](betaflightx-spinning-dir).
 
     ```{figure} ../_images/fc-setup/esc_reverse_direction.png
     :name: motor-reverse-configurator
@@ -76,7 +76,7 @@ If any motor is spinning in the wrong direction, you'll need to reverse its dire
     Configuration tab of the `SERVO_BLH_RVMASK` to reverse individual motors.
     ```
 
-- Click on `Save` and when prompted reboot the flight controller.
+- Click on `Save` and, when prompted, reboot the flight controller.
 
 ## 4. Verify Motor Spin Direction
 - After making any changes, retest each motor through the `Motors` tab in QGroundControl to ensure all motors are spinning in the correct direction.

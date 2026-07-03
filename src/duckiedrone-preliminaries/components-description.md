@@ -8,6 +8,7 @@
 
 Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful, for example the duckies.
 
+
 We provide below a brief description of each component in the box.
 
 (component-raspberry-pi-4-4gb)=
@@ -23,6 +24,7 @@ Raspberry Pi 4 Model B, 4GB RAM
 ```
 
 The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power. 
+
 
 The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
@@ -40,7 +42,7 @@ The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are
 64GB Class 10 mini SD card
 ```
 
-The microSD card is the core memory of the Drone. 
+The microSD card is the core memory of the drone. 
 
 While it does look like a regular SD card with 64GB of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the drone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop. 
 
@@ -63,10 +65,10 @@ SD card USB adapter
 ```
 This USB-A microSD adapter is included in the box to support the first initialization of the microSD card. 
 
-[One of the very first steps](sw-initialization) in the assembly process is to insert the microSD card in the adapter, and plug the adapter in your base station (laptop or desktop, not provided in the box) to install the correct software on Duckiedrone. 
+[One of the very first steps](sw-initialization) in the assembly process is to insert the microSD card into the adapter, and plug the adapter into your base station (laptop or desktop, not provided in the box) to install the correct software on the Duckiedrone. 
 
 ```{warning}
-Do not plug the microSD card adapter in the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
+Do not plug the microSD card adapter into the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
 ```
 
 (component-rpi-camera-g-fisheye-lens)=
@@ -83,10 +85,10 @@ Raspberry Pi camera with Fisheye lens, and cable
 
 The camera is an important sensor for Duckiedrone autonomous operations, allowing it to perceive the environment visually. 
 
-This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with 160 degrees field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
+This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with a 160-degree field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
-## Time of flight sensor
+## Time of Flight Sensor
 
 ```{figure} ../_images/components-official-dd24/dd24-tof-back-front.png
 :name: tof-sensor-front-back
@@ -99,7 +101,7 @@ Time of Flight Sensor (back, front)
 
 Time of flight (ToF) sensors are distance measurement sensors. The Duckiedrone mounts five, one on each side and one looking down to measure altitude. The principle of operation is the measurement of the return time of light bouncing off obstacles, so we can think of them as 1D lidars.
 
-The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm, and 23cm 4-pin JST 1.5mm cables. 
+The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm and 23cm 4-pin JST 1.5mm cables. 
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
@@ -135,10 +137,32 @@ If you try to unscrew the top nuts, you will notice how they have opposite threa
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-These motors are the same model as the [](component-motors-ccw-lhi-dx2205-2300kv), but are designed for spinning in clockwise direction.
+The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, and M3 mounting holes, and weigh roughly 28g each. 
+
+Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
 ```{note}
-**Red** nuts are for motors that spin in the **clockwise (CW)** direction. 
+**Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
+```
+
+If you try to unscrew the top nuts, you will notice that they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
+
+(component-motors-ccw-lhi-dx2205-2300kv)=
+## Motors (CCW)
+
+```{figure} ../_images/components-official-dd24/dd24-motors-red-ccw.jpg
+:name: dd24-motors-ccw
+:width: 300px
+:align: center
+:alt: Brushless DC Motors (Counter-clockwise - CCW)
+
+Brushless DC Motors (Counter-clockwise - CCW) 
+```
+
+These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in the counter-clockwise direction.
+
+```{note}
+**Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
 ```
 
 (component-propellers-cw-diatone-polycarbonate-4040)=
@@ -157,9 +181,9 @@ The Duckiedrone mounts four Diatone Polycarbonate 4040, 4x4 (in) three-bladed pr
 
 The box contains a full spare set, i.e., 2x CW and 2x CCW props. 
 
-As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other for counter-clockwise (CCW). 
+As for the motors, it is important to note that one set of these propellers is designed for clockwise (CW) motor operations, while the other is designed for counter-clockwise (CCW). 
 
-To distinguish CW from CCW propellers, find the arrows impressed on the backside, as shown in [](dd24-propellers).
+To distinguish CW from CCW propellers, find the arrows embossed on the backside, as shown in [](dd24-propellers).
 
 
 (component-lipo-battery-1500mah-4s-148v-xt60)=
@@ -210,13 +234,13 @@ The Duckietown battery connects to the drone through a 10cm long XT60 connector,
 :align: center
 :alt: Battery charger 
 
-Lithium Ion battery charger
+Lithium-Ion battery charger
 ```
 
-This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery, and the other to a stable power source (e.g., a wall outlet) through the [battery charge adapter](component-battery-charger-adapter-12v-2a-us-plug).
+This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and on the other to a stable power source (e.g., a wall outlet) through the [battery charger adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
 - Operating Voltage Range: 9V-16V DC
-- Cells Type Supported: 2-4 cells Li-Ion/Li-Poly 
+- Cell Type Supported: 2-4 cells Li-Ion/Li-Poly 
 - Max Charge Power: 25W
 - Charge Current: 1500mA
 - Charge Accuracy: ±10mV
@@ -244,14 +268,14 @@ This 12V 2A power adapter, provided with a US wall plug, connects to the battery
 :name: dd24-hut-v-1-2
 :width: 300px
 :align: center
-:alt: Duckiedrone Hut DDHUT v1.2 
+:alt: Duckietown drone HUT v1.2
 
 The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
 ```
 
-The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as hub for connections between the various peripherals of the drone, such as sensors and flight controller, and the onboard Raspberry Pi. 
+The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and the flight controller, and the onboard Raspberry Pi. 
 
-It supports the placing of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
+It supports the placement of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
 
 (component-breadboard-yellow-45x35mm)=
 ## Breadboard - Yellow, 45x35mm
@@ -265,7 +289,7 @@ It supports the placing of a breadboard to provide a "playground" for additional
 Duckiedrone Duckiehut breadboard
 ```
 
-This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
+This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack
@@ -302,9 +326,9 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 :name: flight-controller-and-esc-stack-speedybee-box
 :width: 300px
 :align: center
-:alt: The Duckiedrone DD24 flight controller (FC) and electronic speed controllers (ESC) stack 
+:alt: The Duckiedrone DD24 Flight Controller (FC) and Electronic Speed Controller (ESC) stack 
 
-The flight controller (FC) and electronic speed controllers (ESC) stack 
+The Flight Controller (FC) and Electronic Speed Controller (ESC) stack 
 ```
 
 ::::
@@ -313,13 +337,13 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 
 
 
-### The flight controller (FC) and Electronic Speed Controller (ESC) - foreword
+### The Flight Controller (FC) and Electronic Speed Controller (ESC) - foreword
 
-The **Flight controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC moreover hosts sensors such as the Inertial Measurement Unit (IMU), which measure linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
+The **Flight Controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC also hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
 
-Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to exercise route corrections, especially when the Raspberry Pi is tasked with many other processes as well, as, e.g., visual perception.
+Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, such as visual perception.
 
-The Electronic Speed Controller board, that stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
+The Electronic Speed Controller board, which stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
 
 This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
 
@@ -331,7 +355,7 @@ The standard `DD24` is supplied with the SpeedyBee stack, whereas the `DD24‑B`
 The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025.
 ```
 
-The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs). 
+The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
 
 ```{figure} ../_images/components-official-dd24/f405-V3-specification-8.jpg
 :name: fig-dd24-fc-esc-405v3-specs
@@ -422,7 +446,7 @@ The Duckiedrone (`DD24`) box includes:
 Heat sinks mount on the Raspberry Pi and help dissipate heat and lower the temperature of the board
 ```
 
-Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi preventing it from automatically going in protection mode and partially shutting down computational resources.
+Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi, preventing it from automatically going into protection mode and partially shutting down computational resources.
 
 (component-40mm-gpio-fan-pwm-speed-control-3pin)=
 ## Fan
@@ -481,7 +505,7 @@ Velcro strips are used for cable management and securing components, such as the
 (dd24-chassis)=
 ## Chassis
 
-The Duckiedrone's chassis is a custom designed 2.5mm thick carbon fiber sandwich-design chassis, with the following components.  
+The Duckiedrone's chassis is a custom-designed 2.5mm thick carbon fiber sandwich design, with the following components.  
 
 (component-bottom-plate-carbon-fiber-25mm)=
 ### Bottom Plate
@@ -494,7 +518,7 @@ The Duckiedrone's chassis is a custom designed 2.5mm thick carbon fiber sandwich
 Duckiedrone chassis: bottom plate  
 ```
 
-The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery and more. 
+The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery, and more. 
 
 The chassis has a square design with each side measuring 27.2cm.
 
@@ -505,12 +529,12 @@ The chassis has a square design with each side measuring 27.2cm.
 :name: fig-dd24-chassis-top
 :width: 300px
 :align: center
-:alt: Duckiedrone chassis bottom plate
+:alt: Duckiedrone chassis top plate
 
 Duckiedrone chassis: top plate   
 ```
 
-The top chassis plate has the same outer dimension of the bottom plate (27.2cm side), and its main function is to provide structural stability to the drone.
+The top chassis plate has the same outer dimensions as the bottom plate (27.2cm side), and its main function is to provide structural stability to the drone.
 
 (component-tof-support-carbon-fiber-25mm)=
 ### Other chassis components 
@@ -541,7 +565,7 @@ Other chassis components include:
 Camera mount with integrated time of flight sensor mounting support 
 ```
 
-This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160 degrees field of view, it allows the drone to see both underneath and in front at the same time. 
+This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160-degree field of view, it allows the drone to see both underneath and in front at the same time. 
 
 
 (component-landing-gear-3d-printed-v11)=
@@ -627,11 +651,11 @@ This 8mm wrench is provided to tighten up the motor-prop nuts. We really do not 
 :name: fig-dd24-screw-driver
 :width: 300px
 :align: center
-:alt: Phillips screwdriver
+:alt: Cross screwdriver
 
 Cross screwdriver  
 ```
-This simple Phillips screwdriver drives all the screws in the box.  
+This simple cross screwdriver drives all the screws in the box.  
 
 (component-camera-calibration-pattern)=
 ## Camera Calibration pattern
@@ -688,4 +712,4 @@ Duckietown stickers look great on your laptop, and notify others of your Duckiet
 Duckiedrone DD24 instruction card 
 ```
 
-This instructions card provides links to the [Duckietown website](https://duckietown.com) and the [Duckietown get started page](https://duckietown.com/get-started/).
+This instruction card provides links to the [Duckietown website](https://duckietown.com) and the [Duckietown get started page](https://duckietown.com/get-started/).

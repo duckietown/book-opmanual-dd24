@@ -7,7 +7,7 @@
 # Common issues
 
 ```{trouble}
-The red light on the Raspberry Pi :
+The red light on the Raspberry Pi:
 
 *   is blinking
 *   does not turn on
@@ -18,13 +18,13 @@ The Raspberry Pi is not receiving enough power.
 
 - Check that the voltage coming out of the UBEC is a constant 5V
 
-- Make sure that the Raspberry Pi Hat is attached to the Raspberry Pi all the way (there is no gap between the GPIO pins and the Raspberry Pi Hat pin header).
+- Make sure that the HUT is attached to the Raspberry Pi all the way (there is no gap between the GPIO pins and the HUT pin header).
 
-- Make sure that the `OUTPUT` side of the UBEC is attached to the Raspberry Pi Hat, and the `INPUT` side is soldered to the PDB
+- Make sure that the `OUTPUT` side of the UBEC is attached to the HUT, and the `INPUT` side is soldered to the PDB
 
-- Make sure that there is not a short between the power and ground rails on the Raspberry Pi Hat.
+- Make sure that there is not a short between the power and ground rails on the HUT.
 
-- Make sure there are no stray wire hairs that are shorting out the `5V` and the `GND` rails on the Raspberry Pi Hat
+- Make sure there are no stray wire hairs that are shorting out the `5V` and the `GND` rails on the HUT
 
 ```
 
@@ -37,7 +37,7 @@ The `ente` stack runs the flight code inside Duckietown containers. From the bas
 
     dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 
-You can inspect what is running on the drone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller` and `visual-odometry` are all healthy.
+You can inspect what is running on the drone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller`, and `visual-odometry` are all healthy.
 ```
 
 ```{trouble}
@@ -89,7 +89,7 @@ The Altitude widget is flat (no reading, or stuck at 0).
 
 ---
 
-The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing verify the I²C connection to the ToF board.
+The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
 ```
 
 ```{trouble}
@@ -129,11 +129,11 @@ The drone does not get off the ground when commanded to take off.
 
 ---
 
-- make sure that the arrows inscribed on the propellers are visible from the top of the drone,
+- make sure that the arrows embossed on the propellers are visible from the top of the drone,
 
 - make sure that the arrows on the props are pointing in the correct direction,
 
-- remove the propellers, plug the battery back in, and from QGroundControl's motor test tab spin each motor individually to verify direction,
+- remove the propellers, plug the battery back in, and from QGroundControl's motor test tab, spin each motor individually to verify the direction,
 
 - make sure that when you spin up motor 1, the bottom-right motor spins. Do this check for all four motors.
 ```

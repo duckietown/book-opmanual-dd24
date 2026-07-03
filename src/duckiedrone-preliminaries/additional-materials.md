@@ -13,6 +13,7 @@
 -->
 
 (dd24-prerequisites-other)=
+(prelim-dd24-other-materials-required)=
 # Additional Materials for Building the Duckiedrone
 
 This section details the materials needed to build and fly your drone that are not included in the kit.
@@ -87,7 +88,7 @@ Nice to have:
 - flush cutters
 
 
-## Miscellanea Tools
+## Miscellaneous Tools
 
 - Double-sided tape
 - Joypad

@@ -6,7 +6,7 @@
 (environment_setup)=
 # Preparing the software stack
 
-Before you can fly your Duckiedrone you need an up-to-date software stack running on the drone and a browser on your base station that can reach the Duckietown Dashboard.
+Before you can fly your Duckiedrone, you need an up-to-date software stack running on the drone and a browser on your base station that can reach the Duckietown Dashboard.
 
 ```{needget}
 *   A fully assembled `DD24` with a [configured Flight Controller](dd24-fc-init)
@@ -17,7 +17,7 @@ Before you can fly your Duckiedrone you need an up-to-date software stack runnin
 ```
 
 ```{attention}
-This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You no longer need to `ssh` into the drone or start any scripts by hand.
+This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You no longer need to `ssh` into the drone or start any scripts by hand.
 ```
 
 ## 1. Update the Duckietown Shell
@@ -40,10 +40,10 @@ dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 ```
 
 ```{note}
-Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image the hostname is `amelia`.
+Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image, the hostname is `amelia`.
 ```
 
-Wait for the command to terminate before continuing. When it finishes the drone is running:
+Wait for the command to terminate before continuing. When it finishes, the drone is running:
 
 *   `dashboard` — the web UI you will use to fly
 *   `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
@@ -76,7 +76,7 @@ The default Duckiedrone mission, before arming.
 
 Before the first flight, confirm:
 
-*   **Heartbeats Monitor** (top left) — the `JOYSTICK`, `ALTITUDE`, `STATE` and `PID` indicators are all green. A red indicator means the matching node is not publishing.
+*   **Heartbeats Monitor** (top left) — the `JOYSTICK`, `ALTITUDE`, `STATE`, and `PID` indicators are all green. A red indicator means the matching node is not publishing.
 *   **Motors PWM** — four bars are visible, all close to the minimum (~1000). If no bars appear, the Flight Controller node is not streaming motor commands.
 *   **Altitude** — the blue trace updates as you gently move the drone up and down.
 *   **Time-of-Flight** — the distance reading (in metres) reacts to your hand passing under the drone.

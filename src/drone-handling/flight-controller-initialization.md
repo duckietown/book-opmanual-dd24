@@ -208,7 +208,7 @@ dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f40
 The PX4 firmware is loaded **at offset `0x08008000`**, not at `0x08000000`. The first 32 KiB of flash is reserved for the bootloader you wrote in step 3. Writing the firmware to `0x08000000` would overwrite the bootloader.
 ```
 
-After the flash completes the board reboots and runs PX4. The boot sequence is: STM32 reset → PX4 bootloader at `0x08000000` → PX4 firmware at `0x08008000`.
+After the flash completes, the board reboots and runs PX4. The boot sequence is: STM32 reset → PX4 bootloader at `0x08000000` → PX4 firmware at `0x08008000`.
 
 ````{tip}
 **Alternative — use the PX4 serial uploader.**
@@ -228,12 +228,12 @@ The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploa
 
 Now you will need to start the drone software stack, allowing you to connect to the flight controller from your laptop.
 
-To do so you need to use the Duckietown shell `dts`.
+To do so, you need to use the Duckietown Shell (`dts`).
 
 ````{attention}
 Make sure that the `dts` on your laptop is:
 
-- Running the `ente` distribution. You can check  by running `dts profile list`
+- Running the `ente` distribution. You can check by running `dts profile list`
 - Updated to the latest version by running:
 
    ```bash
@@ -241,12 +241,16 @@ Make sure that the `dts` on your laptop is:
    ```
 ````
 
+<<<<<<< HEAD
 Reconnect the USB cable from the flight controller back to the Raspberry Pi, then power on the drone.
 
 To start the flight software stack execute the command
+=======
+To start the flight software stack, execute the command
+>>>>>>> origin/ente
 
    ```bash
-   dts duckiebot update -t duckiedrone --distro=ente -f [ROBOT_NAME]
+   dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
    ```
 
 Wait for the command to terminate before proceeding to the next step.
@@ -264,7 +268,7 @@ Remove the above attention block as Drone needs to be powered on with a battery 
 (qgroundcontrol-connection)=
 ### Installing QGroundControl and Restoring the correct parameters
 
-By following these steps you will be able to install QGroundControl, connect to your flight controller via TCP, and restore your vehicle's parameters from a `.params` file. The `.params` file contains the PX4 parameters that differ from the upstream defaults (rangefinder-only altitude estimation, quadrotor airframe configuration, controller tuning, etc.) and is shipped alongside this book at [`_static/duckiedrone-px4.params`](../_static/duckiedrone-px4.params).
+By following these steps, you will be able to install QGroundControl, connect to your flight controller via TCP, and restore your vehicle's parameters from a `.params` file. The `.params` file contains the PX4 parameters that differ from the upstream defaults (rangefinder-only altitude estimation, quadrotor airframe configuration, controller tuning, etc.) and is shipped alongside this book at [`_static/duckiedrone-px4.params`](../_static/duckiedrone-px4.params).
 
 ```{note}
 The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
@@ -283,6 +287,7 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    - Go to the **Application Settings → Comm Links** section by clicking on the **Q** application icon in the top left corner.
    - Select **Add** to create a new communication link.
    - Choose **TCP** from the dropdown.
+<<<<<<< HEAD
    - Set the **Host Address** to the IP address of your Duckiedrone, and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
      - To find the IP address, run `ping <robot_name>.local` from your base station and read the resolved address.
    - Click **Connect** to establish the connection with your flight controller.
@@ -292,6 +297,13 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
 
 3. Access the Vehicle Setup:
    - Once connected, open the menu by clicking on the **Q** application icon in the top left corner and open the **Vehicle Setup** page from the popup menu that appears.
+=======
+   - Set the **Host Address** to `ROBOT_NAME.local` and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
+   - Click **Connect** to establish the connection with your flight controller.
+
+1. Access the Vehicle Setup:
+   - Once connected, click the **Q** application icon in the top left corner to open the **Vehicle Setup** page from the popup menu that appears.
+>>>>>>> origin/ente
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
    ```
@@ -379,7 +391,7 @@ The wrong bootloader was flashed in step 3. Re-flash `omnibusf4sd_bl.bin` (board
 ```{trouble}
 I am having issues following the instructions!
 ---
-We're happy to support and to hear your feedback! Please post a question on our StackOverflow, you can find the instructions on how to join it [here](https://duckietown.slack.com/archives/CHHQJ0E0H/p1670874390660429).
+We're happy to help and hear your feedback! Please post a question on our Stack Overflow. You can find the instructions on how to join it [here](https://duckietown.slack.com/archives/CHHQJ0E0H/p1670874390660429).
 
-You can also contact us via Slack at the following channel: [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667)
+You can also contact us via Slack in the following channel: [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667)
 ```

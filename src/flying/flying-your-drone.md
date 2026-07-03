@@ -68,7 +68,7 @@ The **Arm / Disarm** widget is the primary flight control. It has three elements
 *   A three-button **FLIGHT MODE** selector: `LOITER`, `ALTITUDE`, `OFFBOARD`.
 *   A red **KILL** switch that cuts motor power immediately when clicked.
 
-The widget reflects live state — it polls `/mavros/state` and refreshes its ARM and FLIGHT MODE indicators whenever the flight controller changes. If the toggle flips on its own, that reflects a real transition on the flight controller (for example an auto-disarm).
+The widget reflects the live state — it polls `/mavros/state` and refreshes its ARM and FLIGHT MODE indicators whenever the flight controller state changes. If the toggle flips on its own, that reflects a real transition on the flight controller (for example, an auto-disarm).
 
 ### Flight modes
 
@@ -77,7 +77,7 @@ The drone runs PX4 through MAVROS. The dashboard exposes three of PX4's flight m
 | Mode | PX4 name | When to use |
 |---|---|---|
 | `LOITER` | `AUTO.LOITER` | Ground-safe default. The drone is idle and armable but will not accept manual stick input. |
-| `ALTITUDE` | `ALTCTL` | PX4 holds altitude automatically; you command roll, pitch and yaw from the virtual joystick (or from a physical RC). Use this when you want PX4's internal attitude control loops to do the stabilization. |
+| `ALTITUDE` | `ALTCTL` | PX4 holds altitude automatically; you command roll, pitch, and yaw from the virtual joystick (or from a physical RC). Use this when you want PX4's internal attitude control loops to do the stabilization. |
 | `OFFBOARD` | `OFFBOARD` | PX4 tracks setpoints published by an external node on `/mavros/setpoint_*`. Use this when you are writing your own controller and want PX4 to only handle low-level attitude control. |
 
 ```{important}
@@ -88,7 +88,7 @@ PX4 only **accepts** an `OFFBOARD` request when it is already receiving setpoint
 
 ### The Remote Control (virtual joystick) widget
 
-Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send`. In `ALTITUDE` mode, moving the joystick tilts the drone; in `OFFBOARD` mode the joystick is ignored (your setpoint publisher takes over).
+Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send`. In `ALTITUDE` mode, moving the joystick tilts the drone; in `OFFBOARD` mode, the joystick is ignored (your setpoint publisher takes over).
 
 ## First flight
 
@@ -99,7 +99,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 1.  Place the drone on your textured surface, camera forward.
 1.  Verify on the Mission Control page that:
     *   The `FLIGHT MODE` indicator shows `LOITER`.
-    *   The altitude trace is centred around `0 m`.
+    *   The altitude trace is centered around `0 m`.
     *   The IMU orientation indicator is level.
 1.  Click the **ARM** toggle. The motors will start spinning at idle RPM.
     *   If the motors spin fast, or you hear strange noises, **immediately** click the **KILL** switch.
@@ -112,11 +112,11 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 
     :::{tab-item} Fly with PX4's attitude stabilization (recommended first flight)
 
-    1.  In the **Remote Control** widget, centre the sticks and set `Throttle` slightly above the mid-point.
+    1.  In the **Remote Control** widget, center the sticks and set `Throttle` slightly above the mid-point.
     1.  In the arming widget, click **ALTITUDE**.
         *   The `FLIGHT MODE` label should update to `ALTITUDE`. If it stays on `LOITER`, PX4 rejected the request — check that the Remote Control widget is actively publishing.
-    1.  Gradually increase throttle. The drone will ascend and PX4 will hold altitude once the sticks are centred.
-    1.  Use roll/pitch on the virtual joystick to move horizontally. Yaw on the secondary joystick rotates the drone.
+    1.  Gradually increase the throttle. The drone will ascend and PX4 will hold altitude once the sticks are centered.
+    1.  Use roll/pitch on the virtual joystick to move horizontally. The yaw on the secondary joystick rotates the drone.
     1.  To land, decrease the throttle gradually. When the drone is close to the ground, click **DISARM**.
     :::
 
@@ -143,7 +143,7 @@ Do **not** put your hands near the propellers while the drone is armed. Always d
 Keep the Mission Control page visible while the drone is in the air. Useful widgets:
 
 *   **Altitude** — a sudden dip here while in `ALTITUDE` mode is usually a ToF dropout; the PID controller may oscillate.
-*   **Motors PWM** — if all four bars saturate at 2000, the drone is calling for maximum thrust, typically a sign the altitude estimate is wrong.
+*   **Motors PWM** — if all four bars saturate at 2000, the drone is calling for maximum thrust, typically a sign that the altitude estimate is wrong.
 *   **Heartbeats Monitor** — if any heartbeat goes red during flight, the corresponding node stopped publishing.
 
 ## Troubleshooting
@@ -153,7 +153,7 @@ The ARM toggle snaps back to **DISARM** a second after I click it.
 ---
 PX4 rejected the arming request because a preflight check failed. Typical causes on a DD24:
 
-*   The EKF is still converging — wait 10–15 seconds after plugging the battery.
+*   The EKF is still converging — wait 10–15 seconds after plugging in the battery.
 *   The accelerometer bias is out of range — recalibrate the IMU from QGroundControl.
 *   The drone is not level — place it on a flat surface and retry.
 *   The ToF sensor is returning invalid distances — see [](dd24-troubleshooting-faq).

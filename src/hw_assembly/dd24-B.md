@@ -35,10 +35,10 @@ Future CAD Assembly Improvements
 
 ````{attention}
 
-The flight controller and PDB board included with the `DD24-B` differ slightly from those depicted in the 3D assembly tool.
+The flight controller and PDB included with the `DD24-B` differ slightly from those depicted in the 3D assembly tool.
 
 **Step 2:**
-Ensure the PDB board is oriented with the white 6-pin connector facing downward, and the silkscreen labels `M1`, `M2`, `M3`, and `M4` facing upward.
+Ensure the PDB is oriented with the white 6-pin connector facing downward, and the silkscreen labels `M1`, `M2`, `M3`, and `M4` facing upward.
 
 ```{figure} ../_images/assembly-dd24-B/esc-board-orientation.jpg
 :width: 30%
