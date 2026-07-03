@@ -79,7 +79,7 @@ Before the first flight, confirm:
 *   **Heartbeats Monitor** (top left) — the `JOYSTICK`, `ALTITUDE`, `STATE`, and `PID` indicators are all green. A red indicator means the matching node is not publishing.
 *   **Motors PWM** — four bars are visible, all close to the minimum (~1000). If no bars appear, the Flight Controller node is not streaming motor commands.
 *   **Altitude** — the blue trace updates as you gently move the drone up and down.
-*   **Time-of-Flight** — the distance reading (in metres) reacts to your hand passing under the drone.
+*   **Time-of-Flight** — the distance reading (in meters) reacts to your hand passing under the drone.
 *   **IMU – Orientation** — the attitude indicator tilts when you tilt the drone.
 *   **Camera** — the image stream shows what the Duckiedrone sees.
 

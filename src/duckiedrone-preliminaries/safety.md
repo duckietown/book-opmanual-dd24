@@ -57,12 +57,12 @@ For proper propeller installation:
 ```
 
 ```{figure} ../_images/motors.jpg
-:name: figure-example-2
+:name: fig-propeller-nut-colors
 :width: 200
 :align: center
 
-RED: **Clockwise** propellers\
-BLACK: **Counterclockwise** propellers/motors
+RED: **Clockwise** motors   
+BLACK: **Counterclockwise** motors
 ```
 
 

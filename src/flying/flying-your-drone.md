@@ -158,9 +158,9 @@ PX4 rejected the arming request because a preflight check failed. Typical causes
 *   The drone is not level — place it on a flat surface and retry.
 *   The ToF sensor is returning invalid distances — see [](dd24-troubleshooting-faq).
 
-You can read the rejection reason from the drone logs:
+You can read the rejection reason from the drone shell:
 
-    dts devel run -H ROBOT_NAME -L default -- --rm docker logs dt-px4 | tail -20
+    docker logs dt-px4 | tail -20
 ```
 
 ```{trouble}

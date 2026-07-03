@@ -56,7 +56,7 @@ Move the sliders only a little and keep the propellers off. You need just enough
 
 ## 3. Motor Spin Direction
 
-Once every motor is on the correct number, check which way each one turns. On the DD24 the props in layout expects:
+Once every motor is on the correct number, check which way each one turns. On the DD24 the props-in layout expects:
 
 1. Motor 1 at the front right turns counter clockwise.
 2. Motor 2 at the rear left turns counter clockwise.

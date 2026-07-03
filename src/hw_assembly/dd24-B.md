@@ -12,12 +12,12 @@ Before proceeding with these instructions, make sure to [identify the flight con
 
 ```{warning}
 There is an error in steps 31–37 of the assembly process.  
-Please connect your ToF sensors using this order
-- The **bottom** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL0`. 
-- The **left** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL1`
-- The **right** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL2` 
-- The **top** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL3`
-- The **front** Time-of-Flight (ToF) sensor should be connected to `CHL4`.  
+Please connect your ToF sensors in this order:
+- The **bottom** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL0`.
+- The **left** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL1`.
+- The **right** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL2`.
+- The **top** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL3`.
+- The **front** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL4`.
 
 Please make these adjustments manually while we work on updating the 3D assembly tool.
 ```

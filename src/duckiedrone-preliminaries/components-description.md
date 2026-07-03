@@ -6,7 +6,7 @@
 (prelim-dd24-box-component-description)=
 # Description of Components (`DD24-B`)
 
-Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning how to or directly flying the drone. Other components are not functional, but still useful, for example the duckies.
+Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning to fly, or in flying, the drone. Other components are not functional, but still useful, for example the duckies.
 
 
 We provide below a brief description of each component in the box.
@@ -324,7 +324,7 @@ Before starting the assembly of your Duckiedrone, make sure to [identify which f
 
 ::::{tab-item} Mamba FC (DD24-B)
 
-The `DD24-B` uses a [Mamba F405 V2 and BHELI-S 3-6S ESC](), with details provided in [](fig-dd24-b-fc-esc-405v3-specs).
+The `DD24-B` uses a Mamba F405 MK2 V2 flight controller with a BLHeli_S 3-6S ESC, with details provided in [](flight-controller-and-esc-stack-mamba-bheli-specs).
 
 ```{figure} ../_images/components-official-dd24/mamba-fc-1-wb.jpg
 :name: flight-controller-and-esc-stack-mamba-bheli
@@ -332,7 +332,7 @@ The `DD24-B` uses a [Mamba F405 V2 and BHELI-S 3-6S ESC](), with details provide
 :align: center
 :alt: The Duckiedrone DD24-B flight controller (FC) and electronic speed controllers (ESC) stack 
 
-The Mamba FC and BHELI-S ESC stack
+The Mamba FC and BLHeli_S ESC stack
 ```
 
 ```{figure} ../_images/components-official-dd24/MambaFC+BHELI-S_ESC-dd24-b-datasheet.jpg
@@ -341,10 +341,10 @@ The Mamba FC and BHELI-S ESC stack
 :align: center
 :alt: The Duckiedrone DD24-B flight controller (FC) and electronic speed controllers (ESC) datasheet 
 
-The Mamba FC and BHELI-S ESC datasheet
+The Mamba FC and BLHeli_S ESC datasheet
 ```
 
-* [Download the Mamba F405mk2 v2 & FC BLHELI-S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
+* [Download the Mamba F405mk2 v2 & FC BLHeli_S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
 
 
 ```{attention}

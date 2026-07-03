@@ -276,7 +276,7 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    - In the Parameters screen, click on the **Tools** menu in the top right corner.
    - Select **Load from file for review…** from the dropdown menu.
    - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
-   - QGroundControl will load and apply the parameters from the file to your vehicle, there should be no errors during this step.
+   - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
 
 4. Reboot the Vehicle:
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
@@ -291,7 +291,7 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
    - **Gyroscope:** start the gyroscope calibration and leave the drone still on a level surface until it completes.
    - **Accelerometer:** start the accelerometer calibration and hold the drone in the 6 different orientations requested by the on-screen prompts.
    - **Level Horizon:** leave the drone still on a level surface until this completes.
-   - Post successful calibration of your sensor, you should see the **Sensors** tab turn green.
+   - After the sensors are calibrated successfully, the **Sensors** tab should turn green.
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
    ```
