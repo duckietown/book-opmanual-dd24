@@ -52,8 +52,8 @@ The main hazards during flight include the spinning propellers, which can cause 
 
 ```{tip}
 For proper propeller installation:
-- **Black nuts** should be used with clockwise motors/propellers.
-- **Red nuts** should be used with counterclockwise motors/propellers to prevent them from unscrewing during operation.
+- **Black nuts** should be used with counterclockwise motors/propellers.
+- **Red nuts** should be used with clockwise motors/propellers to prevent them from unscrewing during operation.
 ```
 
 ```{figure} ../_images/motors.jpg
@@ -61,8 +61,8 @@ For proper propeller installation:
 :width: 200
 :align: center
 
-RED: **Counterclockwise** propellers\
-BLACK: **Clockwise** propellers/motors
+RED: **Clockwise** propellers\
+BLACK: **Counterclockwise** propellers/motors
 ```
 
 

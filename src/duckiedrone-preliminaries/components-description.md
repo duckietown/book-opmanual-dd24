@@ -101,10 +101,32 @@ Time of flight (ToF) sensors are distance measurement sensors. The Duckiedrone m
 
 The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm, and 23cm 4-pin JST 1.5mm cables. 
 
+(component-motors-ccw-lhi-dx2205-2300kv)=
+## Motors (CCW)
+
+```{figure} ../_images/components-official-dd24/dd24-motors-black-ccw.jpg
+:name: dd24-motors-ccw
+:width: 300px
+:align: center
+:alt: Brushless DC Motors (Counter-clockwise - CCW)
+
+Brushless DC Motors (Counter-clockwise - CCW) 
+```
+
+The Duckiedrone mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
+
+Note that there are two pairs of motors, distinguishable by the color of the top nut. 
+
+```{note}
+**Black** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
+```
+
+If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
+
 (component-motors-cw-lhi-dx2205-2300kv)=
 ## Motors (CW)
 
-```{figure} ../_images/components-official-dd24/dd24-motors-black-cw.jpg
+```{figure} ../_images/components-official-dd24/dd24-motors-red-cw.jpg
 :name: dd24-motors-cw
 :width: 300px
 :align: center
@@ -113,32 +135,10 @@ The Duckiedrone ToFs mount the VL53L1X module ([VL53L1X specifications](https://
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, M3 mounting holes and weigh roughly 28g each. 
-
-Note that there are two pairs of motors, distinguishable by the color of the top nut. 
+These motors are the same model as the [](component-motors-ccw-lhi-dx2205-2300kv), but are designed for spinning in clockwise direction.
 
 ```{note}
-**Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
-```
-
-If you try to unscrew the top nuts, you will notice how they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
-
-(component-motors-ccw-lhi-dx2205-2300kv)=
-## Motors (CCW)
-
-```{figure} ../_images/components-official-dd24/dd24-motors-red-ccw.jpg
-:name: dd24-motors-ccw
-:width: 300px
-:align: center
-:alt: Brushless DC Motors (Clockwise - CCW)
-
-Brushless DC Motors (Counter-clockwise - CCW) 
-```
-
-These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv), but are designed for spinning in counter-clockwise direction.
-
-```{note}
-**Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
+**Red** nuts are for motors that spin in the **clockwise (CW)** direction. 
 ```
 
 (component-propellers-cw-diatone-polycarbonate-4040)=
