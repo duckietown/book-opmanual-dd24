@@ -257,6 +257,10 @@ Wait for the command to terminate before proceeding to the next step.
 Unplug the battery from your drone!
 ```
 
+```{todo}
+Remove the above attention block as Drone needs to be powered on with a battery for next steps
+```
+
 (qgroundcontrol-connection)=
 ### Installing QGroundControl and Restoring the correct parameters
 
@@ -303,9 +307,38 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
 6. Apply the Parameters:
    - QGroundControl will load and apply the parameters from the file to your vehicle. Progress indicators or messages will confirm that the parameters are being applied.
 
+   ```{note}
+   While applying the parameters, some of them may fail to load. This is expected at this stage — click **OK** and continue.
+   ```
+
 7. Reboot the Vehicle:
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.
+   - After rebooting, reconnect to the vehicle. You will then see the Vehicle Setup summary page, similar to the one below.
+
+   ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
+   ```
+
+8. Manually complete the remaining setup. Work through the red items on the summary page in the following order.
+
+   **Airframe:**
+   - Open the **Airframe** page.
+   - Select **Quadrotor X**, then choose **Generic Quadcopter** from its dropdown.
+   - Click **Apply and Restart** in the top-right corner.
+
+   ```{figure} ../_images/fc-setup/qgc-airframe-config.png
+   ```
+
+   - The drone will restart. Wait for it to reboot, then reconnect to the vehicle.
+
+   **Sensors:** open the **Sensors** page.
+   - **Compass:** leave it as is — the Mamba F405 MK2 has no magnetometer, so this sensor is not present.
+   - **Gyroscope:** start the gyroscope calibration and leave the drone still on a level surface until it completes.
+   - **Accelerometer:** start the accelerometer calibration and hold the drone in the 6 different orientations requested by the on-screen prompts.
+
+   **Radio:** leave the **Radio** page as is — the Duckiedrone has no RC transmitter (it is commanded over MAVLink from the Raspberry Pi).
+
+   **Power:** open the **Power** page and set **Number of Cells (in Series)** to **4**.
 
 ```{todo}
 Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
