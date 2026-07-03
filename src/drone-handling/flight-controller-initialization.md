@@ -304,10 +304,6 @@ The **Radio** page will stay red — this is expected. The Duckiedrone has no RC
 Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
 ```
 
-```{note}
-The ESCs must already be running Bluejay before the motor spin direction can be set from PX4. If you have not done so, first complete [Initializing the ESCs](dd24-esc-init).
-```
-
 ### Additional Tips
 
 - **Check for Errors:** The `duckiedrone-px4-v2.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
