@@ -193,7 +193,7 @@ curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-ma
 ```
 
 ```{note}
-Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v2.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ```
@@ -224,45 +224,20 @@ python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
 The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploader.py` verifies that its embedded board ID matches the bootloader's reported board (`42`) before erasing flash. The `dfu-util` flow above is preferred for fully programmatic deployments.
 ````
 
-## 5. Starting the drone software stack
-
-Now you will need to start the drone software stack, allowing you to connect to the flight controller from your laptop.
-
-To do so, you need to use the Duckietown Shell (`dts`).
-
-````{attention}
-Make sure that the `dts` on your laptop is:
-
-- Running the `ente` distribution. You can check by running `dts profile list`
-- Updated to the latest version by running:
-
-   ```bash
-   dts update
-   ```
-````
-
-To start the flight software stack, execute the command
-
-   ```bash
-   dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
-   ```
-
-Wait for the command to terminate before proceeding to the next step.
-
-## 6. Connecting to the Flight Controller
+## 5. Connecting to the Flight Controller
 
 ```{attention}
-Unplug the battery from your drone!
+Before you begin, **remove the propellers** and **disconnect the battery from the drone**.
 ```
 
 ```{todo}
-Remove the above attention block as Drone needs to be powered on with a battery for next steps
+We don't provide a Long USB cable in box, and the small USB cable wont allow for calibrating sensors
 ```
 
 (qgroundcontrol-connection)=
 ### Installing QGroundControl and Restoring the correct parameters
 
-By following these steps, you will be able to install QGroundControl, connect to your flight controller via TCP, and restore your vehicle's parameters from a `.params` file. The `.params` file contains the PX4 parameters that differ from the upstream defaults (rangefinder-only altitude estimation, quadrotor airframe configuration, controller tuning, etc.) and is shipped alongside this book at [`_static/duckiedrone-px4.params`](../_static/duckiedrone-px4.params).
+By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a `.params` file.
 
 ```{note}
 The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
@@ -276,72 +251,62 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
      - **Linux**: Follow the package manager or AppImage instructions provided on the QGroundControl download page.
    - Once installed, launch QGroundControl.
 
-2. Connect to Your Vehicle via TCP:
+2. Connect to Your Vehicle over USB:
+   - Connect a USB-C cable from your computer to the flight controller.
    - Open QGroundControl on your computer.
-   - Go to the **Application Settings → Comm Links** section by clicking on the **Q** application icon in the top left corner.
-   - Select **Add** to create a new communication link.
-   - Choose **TCP** from the dropdown.
-   - Set the **Host Address** to `ROBOT_NAME.local` and the **Port** to the port exposed by the `mavlink-proxy` service on your Duckiedrone (default: `5760`).
-   - Click **Connect** to establish the connection with your flight controller.
-
-1. Access the Vehicle Setup:
-   - Once connected, click the **Q** application icon in the top left corner to open the **Vehicle Setup** page from the popup menu that appears.
+   - QGroundControl **auto-detects the flight controller over USB and connects automatically**.
+   - Wait for a few moments; the top toolbar should show the vehicle as connected, then arrive at this summary page.
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
    ```
 
-4. Navigate to Parameters:
-   - In the Vehicle Setup menu, select the **Parameters** tab to view the configurable parameters for your vehicle.
+   - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
 
-5. Load the `.params` File:
-   - In the Parameters screen, click on the **Tools** menu in the top right corner.
-   - Select **Load from file…** from the dropdown menu.
-   - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
+3. Open Parameters and load the `.params` file:
 
-6. Apply the Parameters:
-   - QGroundControl will load and apply the parameters from the file to your vehicle. Progress indicators or messages will confirm that the parameters are being applied.
-
-   ```{note}
-   While applying the parameters, some of them may fail to load. This is expected at this stage — click **OK** and continue.
+   ```{important}
+   Import **exactly this file**: [`_static/duckiedrone-px4-v2.params`](../_static/duckiedrone-px4-v2.params)
    ```
 
-7. Reboot the Vehicle:
+   ```{todo}
+   Remove the v1 / original file post v2 is found to be stable to foolproof
+   ```
+
+   - Click the **Parameters** tab from the left panel to view the configurable parameters for your vehicle.
+   - In the Parameters screen, click on the **Tools** menu in the top right corner.
+   - Select **Load from file for review…** from the dropdown menu.
+   - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
+   - QGroundControl will load and apply the parameters from the file to your vehicle, there should be no errors during this step.
+
+4. Reboot the Vehicle:
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.
-   - After rebooting, reconnect to the vehicle. You will then see the Vehicle Setup summary page, similar to the one below.
+   - After rebooting, reconnect to the vehicle. You will then see ta summary page similar to the one below:
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
    ```
 
-8. Manually complete the remaining setup. Work through the red items on the summary page in the following order.
-
-   **Airframe:**
-   - Open the **Airframe** page.
-   - Select **Quadrotor X**, then choose **Generic Quadcopter** from its dropdown.
-   - Click **Apply and Restart** in the top-right corner.
-
-   ```{figure} ../_images/fc-setup/qgc-airframe-config.png
-   ```
-
-   - The drone will restart. Wait for it to reboot, then reconnect to the vehicle.
-
-   **Sensors:** open the **Sensors** page.
-   - **Compass:** leave it as is — the Mamba F405 MK2 has no magnetometer, so this sensor is not present.
+5. Sensor Calibration:
+   - Open the **Sensors** page from the Left Tab.
    - **Gyroscope:** start the gyroscope calibration and leave the drone still on a level surface until it completes.
    - **Accelerometer:** start the accelerometer calibration and hold the drone in the 6 different orientations requested by the on-screen prompts.
+   - **Level Horizon:** leave the drone still on a level surface until this completes.
+   - Post successful calibration of your sensor, you should see the **Sensors** tab turn green.
 
-   **Radio:** leave the **Radio** page as is — the Duckiedrone has no RC transmitter (it is commanded over MAVLink from the Raspberry Pi).
-
-   **Power:** open the **Power** page and set **Number of Cells (in Series)** to **4**.
+   ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
+   ```
 
 ```{todo}
 Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
 ```
 
+```{todo}
+Add a Page to Flash BluJay to ESC and Explain how to setup Motor Numbering and Spin Direction
+```
+
 ### Additional Tips
 
-- **Multiple Loads:** Some parameters may require multiple loads until they are all applied correctly.
-- **Check for Errors:** Ensure QGroundControl does not report any errors during the parameter loading process.
+- **Check for Errors:** The `duckiedrone-px4-v2.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
 - **On-board calibration is mandatory:** the shipped `.params` file deliberately omits all `CAL_*` (accelerometer/gyro/magnetometer/barometer calibration) entries because those are tied to a specific board's sensor IDs. Run the **Sensors** calibration in QGroundControl on the actual flight controller after loading the parameters.
 
 ## Troubleshooting
