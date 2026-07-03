@@ -142,11 +142,16 @@ The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. These ra
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
 ```{note}
-**Black** nuts are for motors that spin in the **clockwise (CW)** direction. 
+**Red** nuts are for motors that spin in the **clockwise (CW)** direction. 
 ```
 
 If you try to unscrew the top nuts, you will notice that they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
 
+```{todo}
+TODO [DTSW-8019]: just to be sure, double-check which ccw vs cw motors, which are the black which the red.
+```
+
+<!-- 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
 
@@ -164,7 +169,7 @@ These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv)
 ```{note}
 **Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction. 
 ```
-
+-->
 (component-propellers-cw-diatone-polycarbonate-4040)=
 ## Propellers (CW and CCW) 
 
@@ -294,11 +299,21 @@ This is a prototyping breadboard with two-sided tape on the back. Attach it in t
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack
 
-```{note}
-There are two supported flight‑controller + ESC stacks for the Duckiedrone family.
+### The Flight Controller (FC) and Electronic Speed Controller (ESC) - foreword
 
-* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**DD24**) revision kits.  
-* **Mamba F405 MK2 V2 (60 A)** – shipped with the second (**DD24‑B**) revision kits.
+The **Flight Controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC also hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
+
+Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, such as visual perception.
+
+The Electronic Speed Controller board, which stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
+
+This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals.
+
+```{note}
+There are two supported flight‑controller + ESC stacks for the Duckiedrone `DD24` family.
+
+* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**`DD24`**) revision kits.  
+* **Mamba F405 MK2 V2 (60 A)** – shipped with the second (**`DD24‑B`**) revision kits.
 
 Both boards share similar functionalities. In this manual we assume that you are flying one of the latest `DD24-B` revisions. 
 
@@ -309,18 +324,38 @@ Before starting the assembly of your Duckiedrone, make sure to [identify which f
 
 ::::{tab-item} Mamba FC (DD24-B)
 
-```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
+The `DD24-B` uses a [Mamba F405 V2 and BHELI-S 3-6S ESC](), with details provided in [](fig-dd24-b-fc-esc-405v3-specs).
+
+```{figure} ../_images/components-official-dd24/mamba-fc-1-wb.jpg
 :name: flight-controller-and-esc-stack-mamba-bheli
 :width: 300px
 :align: center
-:alt: The Duckiedrone DD24 flight controller (FC) and electronic speed controllers (ESC) stack 
+:alt: The Duckiedrone DD24-B flight controller (FC) and electronic speed controllers (ESC) stack 
 
-The flight controller (FC) and electronic speed controllers (ESC) stack 
+The Mamba FC and BHELI-S ESC stack
+```
+
+```{figure} ../_images/components-official-dd24/MambaFC+BHELI-S_ESC-dd24-b-datasheet.jpg
+:name: flight-controller-and-esc-stack-mamba-bheli-specs
+:width: 500px
+:align: center
+:alt: The Duckiedrone DD24-B flight controller (FC) and electronic speed controllers (ESC) datasheet 
+
+The Mamba FC and BHELI-S ESC datasheet
+```
+
+* [Download the Mamba F405mk2 v2 & FC BLHELI-S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
+
+
+```{attention}
+The motor naming convention shown in the datasheet will change once `PX4` software is installed. Refer to [](dd24-motor-configuration) for details. 
 ```
 
 ::::
 
 ::::{tab-item} SpeedyBee FC (DD24)
+
+The `DD24` uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
 
 ```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
 :name: flight-controller-and-esc-stack-speedybee-box
@@ -330,32 +365,6 @@ The flight controller (FC) and electronic speed controllers (ESC) stack
 
 The Flight Controller (FC) and Electronic Speed Controller (ESC) stack 
 ```
-
-::::
-
-:::::
-
-
-
-### The Flight Controller (FC) and Electronic Speed Controller (ESC) - foreword
-
-The **Flight Controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC also hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure. 
-
-Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, such as visual perception.
-
-The Electronic Speed Controller board, which stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin. 
-
-This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals. 
-
-### FCs on the DD24 and DD24‑B
-
-The standard `DD24` is supplied with the SpeedyBee stack, whereas the `DD24‑B` revision uses the Mamba stack.
-
-```{note}
-The model of the FC+ESC stack provided in the box has been upgraded from version F405 V3 50A to F405 V4 55A in April 2025.
-```
-
-The DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
 
 ```{figure} ../_images/components-official-dd24/f405-V3-specification-8.jpg
 :name: fig-dd24-fc-esc-405v3-specs
@@ -368,7 +377,13 @@ The FC+ESC F405 V3 stack box components and specifications
 
 * [Download the F405v3 50A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
 * [Download the F405v4 55A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
-* [Download the Mamba F405mk2 v2 & FC BLHELI-S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
+
+
+::::
+
+:::::
+ 
+
 
 (identifying-flight-controller)=
 ### Identifying your flight controller
