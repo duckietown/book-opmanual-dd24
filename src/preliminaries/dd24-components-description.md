@@ -249,7 +249,7 @@ This 12V 2A power adapter, provided with a US wall plug, connects to the battery
 The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
 ```
 
-The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and flight controller, and the onboard Raspberry Pi. 
+The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and the flight controller, and the onboard Raspberry Pi. 
 
 It supports the placement of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
 
@@ -559,11 +559,11 @@ This 8mm wrench is provided to tighten up the motor-prop nuts. We really do not 
 :name: fig-dd24-screw-driver
 :width: 300px
 :align: center
-:alt: Phillips screwdriver
+:alt: Cross screwdriver
 
 Cross screwdriver  
 ```
-This simple Phillips screwdriver drives all the screws in the box.  
+This simple cross screwdriver drives all the screws in the box.  
 
 (component-camera-calibration-pattern)=
 ## Camera Calibration pattern
