@@ -8,3 +8,11 @@
 ---
 - Knowledge of the prerequisites to build, configure, program and fly a Duckiedrone
 ```
+
+(duckiedrone-prerequisites-intro)=
+# Prerequisites
+
+This page gathers the core skills and setup steps needed before building, configuring, and flying a Duckiedrone.
+
+```{tableofcontents}
+```
