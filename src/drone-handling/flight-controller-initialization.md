@@ -5,18 +5,20 @@
 
 ```{needget}
 * A base station computer running Linux (Ubuntu) or macOS
-* Flight Controller
-* Long USB to USB-C cable
+* "Mamba" (`DD24-B`) Flight Controller
+* USB to USB-C cable with data
 ---
-* An up-to-date, initialized Flight Controller running PX4
+* An up-to-date, initialized "Mamba" FC running PX4
 ```
 
 (dd24-fc-init)=
 # Initializing the Flight Controller
 
-The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the Flight Controller is critical for flying safely.
+The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the FC is critical for achieving (safe) flight.
 
-The DD24 runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target. Flashing is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/) so that the procedure is fully scriptable and does not require a graphical flasher.
+The `DD24-B` runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target. PX4 is a popular, open-source flight control software ultimately directed by the[Linux Foundation](https://www.linuxfoundation.org/). 
+
+To make the flashing process as deterministic as possible, it is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/). In this way sthe procedure is fully scriptable and does not depend on internal mechanics of a graphical flasher.
 
 ```{note}
 The flashing is a two-stage process:
@@ -40,6 +42,11 @@ sudo apt update
 sudo apt install dfu-util
 ```
 
+```{todo [DTSW-8044]}
+"Failed to send reload request: No such file or directory" - uncomment after error solved
+```
+
+<!--
 (Optional but recommended) install a udev rule so `dfu-util` does not need `sudo`:
 
 ```bash
@@ -49,7 +56,7 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="26ac", MODE="0664", GROUP="plugdev"
 EOF
 sudo udevadm control --reload && sudo udevadm trigger
 ```
-
+-->
 ::::
 
 ::::{tab-item} macOS
@@ -63,23 +70,38 @@ macOS does not need udev rules — `dfu-util` accesses USB devices directly via 
 ```
 
 ::::
-
 :::::
 
-```{tip}
-Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on.
+
+### Checkpoint ✅
+
+```{testexpect}
+Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with: 
+
+```shell
+dfu-util --version
+---
+```shell
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 ```
 
-## 2. Enter DFU Mode
+## 2. Boot the FC in DFU Mode
 
 - Remove power from your drone if it is powered on.
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi.
 - Reconnect it to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
+:alt: mamba flight controller boot button location
+:width: 50%
+:name: mamba-boot-button
 
-Flight controller BOOT button location.
-
+Mamba DD24-B flight controller BOOT button location.
 ```
 
 - After a couple of seconds, release the BOOT button.
@@ -150,6 +172,43 @@ Explanation of the `dfu-util` command:
 * `-d 0483:df11`: matches the STM32 ROM DFU device.
 * `-D omnibusf4sd_bl.bin`: the file to flash.
 ```
+
+The command should yield the following output:
+
+```{shell}
+jacopotani@Jacopos-MacBook-Pro-2 ~ % dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Warning: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release
+Opening DFU capable USB device...
+Device ID 0483:df11
+Device DFU version 011a
+Claiming USB DFU Interface...
+Setting Alternate Interface #0 ...
+Determining device status...
+DFU state(10) = dfuERROR, status(10) = Device's firmware is corrupt. It cannot return to run-time (non-DFU) operations
+Clearing status
+Determining device status...
+DFU state(2) = dfuIDLE, status(0) = No error condition is present
+DFU mode device DFU version 011a
+Device returned transfer size 2048
+DfuSe interface name: "Internal Flash  "
+Downloading element to address = 0x08000000, size = 9612
+Erase   	[=========================] 100%         9612 bytes
+Erase    done.
+Download	[=========================] 100%         9612 bytes
+Download done.
+File downloaded successfully
+Submitting leave request...
+Transitioning to dfuMANIFEST state
+```
+
 
 After the flash completes (this takes a few seconds), the board will reboot. It will now enumerate as a **PX4 bootloader** device under the `26AC` USB vendor ID (e.g., `26AC:0011`). Verify it has come back up:
 
