@@ -8,6 +8,18 @@
 
 Sensors produce data. To help make sense of this data and transform it into information, it is useful to calibrate sensors.
 
+
+5. Sensor Calibration:
+   - Open the **Sensors** page from the Left Tab.
+   - **Gyroscope:** start the gyroscope calibration and leave the drone still on a level surface until it completes.
+   - **Accelerometer:** start the accelerometer calibration and hold the drone in the 6 different orientations requested by the on-screen prompts.
+   - **Level Horizon:** leave the drone still on a level surface until this completes.
+   - After the sensors are calibrated successfully, the **Sensors** tab should turn green.
+
+   ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
+   ```
+
+<!--
 ## PX4 IMU calibration
 
 The IMU is embedded in the flight controller and includes a gyroscope and an accelerometer, which respectively produce angular rate (in degrees/second) and linear acceleration measurements (normalized to gravitational acceleration at sea level $g = 9.81 \frac{m}{s^2}$).
@@ -91,3 +103,5 @@ Follow the camera calibration procedure described [in the Duckiebot opmanual](bo
 If the Dashboard, ROS 2 service, and manual Python methods all fail, calibrate the accelerometer from QGroundControl using the PX4 procedure: [PX4 Accelerometer Calibration](https://docs.px4.io/v1.16/en/config/accelerometer).
 
 Use this only as a recovery path. Close QGroundControl before returning to the Duckiedrone stacks, so it does not keep the MAVLink connection open.
+
+-->

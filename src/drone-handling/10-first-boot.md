@@ -3,26 +3,28 @@
 :keywords: Duckiedrone first boot, DD24 setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
 ```
 
+```{needget}
+
+*   An assembled `DD24-B`: [](duckiedrone-dd24-b-assembly-instructions)
+*   A `DD24` initialized SD card: [](sw-initialization)
+---
+
+*   A live `DD24`
+```
+
 (sec:first-boot)=
 # First boot
 
 There is only one first time you can connect to your Duckiedrone. Savor the experience.
 
-```{needget}
 
-*   An assembled `DD24`
-*   A `DD24` initialized SD card, see [](sw-initialization)
----
-
-*   A live `DD24`
-```
 
 ## Before getting started
 
 The first time a newly flashed SD card is inserted into the Duckiedrone, a special "first boot" procedure is executed.
 
 ```{note}
-The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. It is crunching as fast as it can. Do not worry.
+The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. It is crunching as fast as it can. Do not worry, let it crunch.
 ```
 
 During this process, the Duckiedrone will require a stable power source.

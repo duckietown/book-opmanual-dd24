@@ -14,10 +14,6 @@
 (dd24-fc-init)=
 # Initializing the Flight Controller
 
-The Flight Controller (FC) implements several low-level behaviors, e.g., stabilizing the Duckiedrone around roll, pitch, and yaw through three different PID controllers. Correctly configuring the FC is critical for achieving (safe) flight.
-
-The `DD24-B` runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target. PX4 is a popular, open-source flight control software ultimately directed by the[Linux Foundation](https://www.linuxfoundation.org/). 
-
 To make the flashing process as deterministic as possible, it is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/). In this way sthe procedure is fully scriptable and does not depend on internal mechanics of a graphical flasher.
 
 ```{note}
@@ -173,10 +169,12 @@ Explanation of the `dfu-util` command:
 * `-D omnibusf4sd_bl.bin`: the file to flash.
 ```
 
-The command should yield the following output:
 
-```{shell}
-jacopotani@Jacopos-MacBook-Pro-2 ~ % dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
+````{admonition} Successful bootloader flashing output (MacOS)
+:class: dropdown
+
+```
+user@MacBook-Pro-2 ~ % dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
 dfu-util 0.11
 
 Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
@@ -208,7 +206,7 @@ File downloaded successfully
 Submitting leave request...
 Transitioning to dfuMANIFEST state
 ```
-
+````
 
 After the flash completes (this takes a few seconds), the board will reboot. It will now enumerate as a **PX4 bootloader** device under the `26AC` USB vendor ID (e.g., `26AC:0011`). Verify it has come back up:
 
@@ -222,13 +220,18 @@ ls /dev/serial/by-id/
 ```
 
 ```{figure} ../_images/fc-setup/lsusb-output.png
+:alt: lsusb output on Ubuntu after successfull bootloader flashing
+:width: 90%
+:name: ubuntu-lsusb-output
+
+Example successful `lsusb` output on Ubuntu
 ```
 
 ::::
 
 ::::{tab-item} macOS
 
-`lsusb` is not shipped with macOS. Either install it with `brew install lsusb`, or use the built-in tools to enumerate USB and serial devices:
+`lsusb` is not shipped with macOS. You can use the built-in tools to enumerate USB and serial devices:
 
 ```bash
 system_profiler SPUSBDataType | grep -A 3 -E "PX4|26AC"
@@ -237,6 +240,10 @@ ls /dev/tty.usbmodem*         # PX4 bootloader appears as e.g. /dev/tty.usbmodem
 
 ```{note}
 macOS does **not** populate `/dev/serial/by-id/`. The board is exposed only as `/dev/tty.usbmodem*` (and a matching `/dev/cu.usbmodem*`). It can take 1–2 seconds for the node to appear after the board reboots out of DFU.
+```
+
+```{todo [DTSW-8047]}
+PX4 bootlader installer - `lsusb` approach does not work on MacOS 
 ```
 
 ::::
@@ -257,17 +264,63 @@ Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on wh
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ```
 
-**Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, confirm it shows up again in `dfu-util -l`, then flash the firmware to the application offset `0x08008000`:
+* **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, 
+* confirm it shows up again in `dfu-util -l`, then 
+* flash the firmware to the application offset `0x08008000`:
 
-```bash
-dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
+   ```bash
+   dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
+   ```
+
+````{admonition} Successful PX4 firmware flashing output (MacOS)
+:class: dropdown
+
 ```
+user@MacBook-Pro-2 ~ % dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Warning: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release
+Opening DFU capable USB device...
+Device ID 0483:df11
+Device DFU version 011a
+Claiming USB DFU Interface...
+Setting Alternate Interface #0 ...
+Determining device status...
+DFU state(10) = dfuERROR, status(10) = Device's firmware is corrupt. It cannot return to run-time (non-DFU) operations
+Clearing status
+Determining device status...
+DFU state(2) = dfuIDLE, status(0) = No error condition is present
+DFU mode device DFU version 011a
+Device returned transfer size 2048
+DfuSe interface name: "Internal Flash  "
+Downloading element to address = 0x08008000, size = 968296
+Erase   	[=========================] 100%       968296 bytes
+Erase    done.
+Download	[=========================] 100%       968296 bytes
+Download done.
+File downloaded successfully
+Submitting leave request...
+Transitioning to dfuMANIFEST state
+```
+````
+
 
 ```{important}
 The PX4 firmware is loaded **at offset `0x08008000`**, not at `0x08000000`. The first 32 KiB of flash is reserved for the bootloader you wrote in step 3. Writing the firmware to `0x08000000` would overwrite the bootloader.
 ```
 
 After the flash completes, the board reboots and runs PX4. The boot sequence is: STM32 reset → PX4 bootloader at `0x08000000` → PX4 firmware at `0x08008000`.
+
+
+```{todo}
+Test this alternative part or remove
+```
 
 ````{tip}
 **Alternative — use the PX4 serial uploader.**
@@ -283,90 +336,7 @@ python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
 The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploader.py` verifies that its embedded board ID matches the bootloader's reported board (`42`) before erasing flash. The `dfu-util` flow above is preferred for fully programmatic deployments.
 ````
 
-## 5. Connecting to the Flight Controller
 
-```{attention}
-Before you begin, **remove the propellers** and **disconnect the battery from the drone**.
-```
-
-```{todo}
-We don't provide a Long USB cable in box, and the small USB cable wont allow for calibrating sensors
-```
-
-(qgroundcontrol-connection)=
-### Installing QGroundControl and Restoring the correct parameters
-
-By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a `.params` file.
-
-```{note}
-The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
-```
-
-1. Install QGroundControl:
-   - Go to the [QGroundControl website](http://qgroundcontrol.com/) and download the installer for your operating system (Windows, macOS, or Linux).
-   - Follow the installation instructions for your OS:
-     - **Windows**: Run the installer and follow the prompts.
-     - **macOS**: Download the `.dmg` file, open it, and drag the QGroundControl icon into your Applications folder.
-     - **Linux**: Follow the package manager or AppImage instructions provided on the QGroundControl download page.
-   - Once installed, launch QGroundControl.
-
-2. Connect to Your Vehicle over USB:
-   - Connect a USB-C cable from your computer to the flight controller.
-   - Open QGroundControl on your computer.
-   - QGroundControl **auto-detects the flight controller over USB and connects automatically**.
-   - Wait for a few moments; the top toolbar should show the vehicle as connected, then arrive at this summary page.
-
-   ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
-   ```
-
-   - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
-
-3. Open Parameters and load the `.params` file:
-
-   ```{important}
-   Import **exactly this file**: [`_static/duckiedrone-px4-v2.params`](../_static/duckiedrone-px4-v2.params)
-   ```
-
-   ```{todo}
-   Remove the v1 / original file post v2 is found to be stable to foolproof
-   ```
-
-   - Click the **Parameters** tab from the left panel to view the configurable parameters for your vehicle.
-   - In the Parameters screen, click on the **Tools** menu in the top right corner.
-   - Select **Load from file for review…** from the dropdown menu.
-   - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
-   - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
-
-4. Reboot the Vehicle:
-   - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
-   - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.
-   - After rebooting, reconnect to the vehicle. You will then see a summary page similar to the one below:
-
-   ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
-   ```
-
-5. Sensor Calibration:
-   - Open the **Sensors** page from the Left Tab.
-   - **Gyroscope:** start the gyroscope calibration and leave the drone still on a level surface until it completes.
-   - **Accelerometer:** start the accelerometer calibration and hold the drone in the 6 different orientations requested by the on-screen prompts.
-   - **Level Horizon:** leave the drone still on a level surface until this completes.
-   - After the sensors are calibrated successfully, the **Sensors** tab should turn green.
-
-   ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
-   ```
-
-```{note}
-The **Radio** page will stay red — this is expected. The Duckiedrone has no RC transmitter; the flight controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
-```
-
-```{todo}
-Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
-```
-
-### Additional Tips
-
-- **Check for Errors:** The `duckiedrone-px4-v2.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
-- **On-board calibration is mandatory:** the shipped `.params` file deliberately omits all `CAL_*` (accelerometer/gyro calibration) entries because those are tied to a specific board's sensor IDs. Run the **Sensors** calibration in QGroundControl on the actual flight controller after loading the parameters.
 
 ## Troubleshooting
 

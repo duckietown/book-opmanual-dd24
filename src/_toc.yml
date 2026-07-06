@@ -20,23 +20,25 @@ parts:
         - file: duckiedrone-preliminaries/software-initialization
       #  - file: duckiedrone-preliminaries/flying-your-drone
 
-    - caption: Hardware build DD24
+    - caption: Hardware build DD24-B
       maxdepth: 2
       numbered: False
       chapters:
-        - file: dd24_hw_assembly/dd24_hw_assembly_3d
-        - file: hw_assembly/dd24
-        - file: hw_assembly/dd24-B
+        - file: hardware-assembly/instructions-duckiedrone-dd24-b
 
     - caption: Drone handling
       maxdepth: 2
       numbered: False
       chapters:
-          - file: drone-handling/first-boot
-          - file: drone-handling/first-connection
-          - file: drone-handling/esc-initialization
-          - file: drone-handling/flight-controller-initialization
-          - file: drone-handling/motors-configuration
+          - file: drone-handling/10-first-boot
+          - file: drone-handling/20-first-connection
+          - file: drone-handling/30-esc-initialization
+          - file: drone-handling/40-setting-up-the-flight-controller
+            sections:
+            - file: drone-handling/41-flight-controller-initialization
+            - file: drone-handling/42-flight-controller-configuration
+          - file: drone-handling/50-sensor-calibrations
+          - file: drone-handling/60-motors-configuration
           - file: drone-handling/troubleshooting
       #    - file: datasheets/index #still has old dd21 files and pics are awfully rendered
 

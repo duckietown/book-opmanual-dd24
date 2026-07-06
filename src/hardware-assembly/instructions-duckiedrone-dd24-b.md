@@ -3,14 +3,29 @@
 :keywords: Duckietown, Duckiedrone, assembly instructions, quadcopter
 ```
 
-(duckiedrone-dd24-b-assembly-instructions)=
-# Duckiedrone `DD24-B` assembly instructions
-
-```{note}
-Before proceeding with these instructions, make sure to [identify the flight controller type in your Duckiedrone box](identifying-flight-controller). 
+```{needget}
+*   An Duckiedrone `DD24-B` box: [get a Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24)
+*   A `DD24` initialized SD card: [](sw-initialization)
+---
+*   An assembled Duckiedrone model `DD24-B`
 ```
 
 ```{warning}
+🚧 This manual describes the _ente_ software version of the latest Duckiedrone build, and is currently work in progress. 🚧 
+
+Pages marked with this warning are actively being worked on.
+
+The stable release to date is the [_daffy_ Duckiedrone operation manual](https://docs.duckietown.com/daffy/opmanual-dd24/intro.html).  
+```
+
+```{todo}
+Remove this warning when ready to go.  
+```
+
+(duckiedrone-dd24-b-assembly-instructions)=
+# Duckiedrone `DD24-B` assembly instructions
+
+```{attention}
 There is an error in steps 31–37 of the assembly process.  
 Please connect your ToF sensors in this order:
 - The **bottom** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL0`.
@@ -20,10 +35,6 @@ Please connect your ToF sensors in this order:
 - The **front** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL4`.
 
 Please make these adjustments manually while we work on updating the 3D assembly tool.
-```
-
-```{todo}
-Make sure the above reflects in the Software now as well as CAD in the future.
 ```
 
 ```{todo}

@@ -5,19 +5,25 @@
 
 # The Duckiedrone Operation Manual
 
-Welcome to the Duckiedrone (`DD24`) operation manual. The Duckiedrone is a do-it-yourself (DIY) Raspberry Pi-based autonomous quadcopter. 
+```{warning}
+🚧 This manual describes the _ente_ software version of the latest Duckiedrone build, and is currently work in progress. 🚧 
 
-The `DD24` is the third Duckietown drone hardware iteration. For more information about its predecessors, check out the `DD18` and `DD21` Duckiedrone manuals. 
-
-This manual provides instructions on how to assemble, calibrate, and operate a Duckiedrone, and what to teach and learn with it. 
-
-
-
-```{note}
-Don't have one yet? [Get a Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).
+The stable release to date is the [_daffy_ Duckiedrone operation manual](https://docs.duckietown.com/daffy/opmanual-dd24/intro.html).  
 ```
 
-In this manual, you will learn how to build your Duckiedrone, test it, and get an introduction to its inner workings. Are your duckies ready to fly?
+```{todo}
+Remove this warning when ready to go.  
+```
+
+Welcome to the Duckiedrone (`DD24-B`) operation manual. The Duckiedrone is a do-it-yourself (DIY) Raspberry Pi-based autonomous quadcopter. 
+
+The `DD24-B` is the third Duckietown drone hardware iteration. For more information about its predecessors, check out the `DD18` and `DD21` Duckiedrone manuals.  
+
+This manual provides instructions on how to assemble, test, initialize, calibrate, operate, and programme a Duckiedrone, and what to teach and learn with it. 
+
+```{note}
+Do not have one yet? [Get a Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).
+```
 
 ```{tableofcontents}
 ```
