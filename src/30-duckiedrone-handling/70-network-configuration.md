@@ -20,6 +20,17 @@ The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-
 4. Create a network with ssid `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the drone and it will connect to it. Connect your base station to the same network and ssh into the robot. 
 5. Reflash the SD card: should be used only as last resort, but if all else fails, reflash your SD card using [the advanced way](dd24-sw-init-adv), and specify your networ's credentials.  
 
+To ssh into your Duckiebot: 
+
+    ssh duckie@robotname.local
+   
+the default password is `quackquack`. 
+
+
+To check which networks are currently defined:
+
+    sudo wpa_cli list_networks
+
 Once gained access, navigate to
 
     cd /etc/netplan
@@ -79,8 +90,6 @@ network:
 
 Note that:
 
-A few notes worth documenting:
-
 * Indentation matters (2 spaces throughout, no tabs).
 * The Raspberry Pi will automatically connect to any known network that is in range. You do not need to specify a priority in the common case.
 * If two known networks are available simultaneously, `wpa_supplicant` will choose according to its own selection logic (signal quality, security, etc.).
@@ -95,31 +104,34 @@ Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately conn
 ```
 
 (dd24-network-config-info)=
-### Additional network settings parameters
+### Additional optional network settings parameters
 
 If you add Wi-Fi networks manually, follow the example below relative to the network authentication you have:
 
 
  - Unprotected (Open) WiFi network:
 
+```shell
    ...
       access-points:
         "<ssid>": {{}}
-
+```
 
 
  - WPA/WPA2 WiFi network with PSK authentication:
 
+```shell
    ...
       access-points:
         "<ssid>":
           key-management: psk
           password: "<wifi_password>"
-
+```
 
 
  - WPA/WPA2 WiFi network with username/password authentication:
 
+```shell
    ...
       access-points:
         "<ssid>":
@@ -129,3 +141,48 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
             password: "<password>"
             method: peap
             phase2-auth: MSCHAPV2
+```
+
+- WPA3 (SAE) & Enterprise (EAP-TLS) Authentication
+
+```shell
+network:
+  version: 2
+  renderer: NetworkManager
+  wifis:
+    wlan0:
+      dhcp4: yes
+      access-points:
+        "WPA3_Enterprise_Network":
+          auth:
+            key-management: eap
+            method: tls
+            identity: "username@yourdomain.com"
+            ca-certificate: "/etc/ssl/certs/ca-cert.pem"
+            client-certificate: "/etc/ssl/certs/client-cert.pem"
+            client-key: "/etc/ssl/private/client-key.pem"
+            client-key-password: "client-key-passphrase"
+```
+
+- Advanced Client options (Static IP, Frequency settings)
+
+```shell
+network:
+  version: 2
+  renderer: NetworkManager
+  wifis:
+    wlan0:
+      dhcp4: no
+      addresses: [192.168.1.50/24]
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+        addresses:
+      access-points:
+        "Your_SSID_Name":
+          password: "Your_Password"
+          bssid: "AA:BB:CC:DD:EE:FF"  # Forces connection to this exact router
+          band: 5GHz                 # Restricts band to 5GHz (Options: 5GHz or 2.4GHz)
+          channel: 36                # Optional specific channel
+```
