@@ -8,60 +8,60 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-        - file: duckiedrone-preliminaries/safety
-        - file: duckiedrone-preliminaries/prerequisites
+        - file: 10-duckiedrone-preliminaries/safety
+        - file: 10-duckiedrone-preliminaries/prerequisites
           sections:
-            - file: duckiedrone-preliminaries/soldering-basics
-            - file: duckiedrone-preliminaries/multimeter-usage-guide
-        - file: duckiedrone-preliminaries/whats-in-the-box
+            - file: 10-duckiedrone-preliminaries/soldering-basics
+            - file: 10-duckiedrone-preliminaries/multimeter-usage-guide
+        - file: 10-duckiedrone-preliminaries/whats-in-the-box
           sections:
-            - file: duckiedrone-preliminaries/components-description
-        - file: duckiedrone-preliminaries/additional-materials
-        - file: duckiedrone-preliminaries/software-initialization
-      #  - file: duckiedrone-preliminaries/flying-your-drone
+            - file: 10-duckiedrone-preliminaries/components-description
+        - file: 10-duckiedrone-preliminaries/additional-materials
+        - file: 10-duckiedrone-preliminaries/software-initialization
+      #  - file: 10-duckiedrone-preliminaries/flying-your-drone
 
     - caption: Hardware build DD24-B
       maxdepth: 2
       numbered: False
       chapters:
-        - file: hardware-assembly/instructions-duckiedrone-dd24-b
+        - file: 20-hardware-assembly/instructions-duckiedrone-dd24-b
 
     - caption: Drone handling
       maxdepth: 2
       numbered: False
       chapters:
-          - file: drone-handling/10-first-boot
-          - file: drone-handling/20-first-connection
-          - file: drone-handling/30-esc-initialization
-          - file: drone-handling/40-setting-up-the-flight-controller
+          - file: 30-drone-handling/10-first-boot
+          - file: 30-drone-handling/20-first-connection
+          - file: 30-drone-handling/30-esc-initialization
+          - file: 30-drone-handling/40-setting-up-the-flight-controller
             sections:
-            - file: drone-handling/41-flight-controller-initialization
-            - file: drone-handling/42-flight-controller-configuration
-          - file: drone-handling/50-sensor-calibrations
-          - file: drone-handling/60-motors-configuration
-          - file: drone-handling/troubleshooting
+            - file: 30-drone-handling/41-flight-controller-initialization
+            - file: 30-drone-handling/42-flight-controller-configuration
+          - file: 30-drone-handling/50-sensor-calibrations
+          - file: 30-drone-handling/60-motors-configuration
+          - file: 30-drone-handling/troubleshooting
       #    - file: datasheets/index #still has old dd21 files and pics are awfully rendered
 
     - caption: Using the drone
       maxdepth: 2
       numbered: False
       chapters:
-          - file: flying/environment-setup
-          - file: flying/flying-your-drone
-          - file: flying/duckiedrone-flight-controller-pid-tuning
-          - file: flying/diagnostic
+          - file: 40-flying/environment-setup
+          - file: 40-flying/flying-your-drone
+          - file: 40-flying/duckiedrone-flight-controller-pid-tuning
+          - file: 40-flying/diagnostic
 
     - caption: Learning Experiences
       maxdepth: 2
       numbered: False      
       chapters:
-          - file: learning-experiences/index
-          - file: learning-experiences/supported-lxs
+          - file: 50-learning-experiences/index
+          - file: 50-learning-experiences/supported-lxs
           
     - caption: Software Architecture
       maxdepth: 2
       numbered: False
       chapters:
-          - file: software-architecture/ros
-          - file: software-architecture/architecture-diagram
-          - file: software-architecture/reference-frames
+          - file: 60-software-architecture/ros
+          - file: 60-software-architecture/architecture-diagram
+          - file: 60-software-architecture/reference-frames
