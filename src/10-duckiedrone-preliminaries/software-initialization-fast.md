@@ -119,6 +119,10 @@ You may be prompted to enter the base station password to proceed. This is norma
 
 Remove the SD card from your base station and insert it in the SD card adapter of your Raspberry Pi. You are now ready for the [first boot](sec:first-boot). 
 
+```{note}
+Through this approach, the Duckiedrone will boot searching for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an ethernet cable. Once the first boot is complete, you can add or remove networks by following: [](dd24-network-config).  
+```
+
 ## Troubleshooting
 
 ````{trouble}
