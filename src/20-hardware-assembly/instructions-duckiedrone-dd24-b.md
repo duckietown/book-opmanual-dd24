@@ -52,7 +52,9 @@ The flight controller and PDB included with the `DD24-B` differ slightly from th
 Ensure the PDB is oriented with the white 6-pin connector facing downward, and the silkscreen labels `M1`, `M2`, `M3`, and `M4` facing upward.
 
 ```{figure} ../_images/assembly-dd24-B/esc-board-orientation.jpg
-:width: 30%
+:width: 50%
+:alt: Duckiedrone DD24-B ESC orientation
+:name: esc-board-orientation
 
 ESC board orientation — this side must face upward.
 ```
@@ -60,8 +62,10 @@ ESC board orientation — this side must face upward.
 **Step 10 and Step 16:**
 Refer to the following schematic for the correct soldering connections on the flight controller:
 
-```{figure} ../_images/assembly-dd24-B/flight-controller-connections.png
-:width: 30%
+```{figure} ../_images/assembly-dd24-B/flight-controller-connections-dd24-b.jpg
+:width: 50%
+:alt: Duckiedrone DD24-B flight controller soldering connections
+:name: flight-controller-connections-dd24-b
 
 Flight controller soldering connections.
 ```

@@ -13,44 +13,14 @@
 -->
 
 (dd24-prerequisites-other)=
-(prelim-dd24-other-materials-required)=
-# Additional Materials for Building the Duckiedrone
+# Additional Materials
 
 This section details the materials needed to build and fly your drone that are not included in the kit.
-To operate the drone, you must have a laptop or personal computer capable of connecting to the internet.
-
-## Base Station Computer
-
-To fly the drone, you must have a laptop or personal computer that is capable of connecting to the internet. 
-
-```{todo}
-TODO: point to list of minimum hardware requirements after merging this in main manual
-```
-
-### OS Requirements
-
-Use a native Ubuntu 24.xx installation. 
-
-```{todo}
-TODO: verify it works on macOS and Windows through workspaces
-```
 
 
-### Software Requirements
+## Essential tools and accessories
 
-Additionally, you will need to install the following software on your base station.
-
-1. *Betaflight Configurator*. This is an application that will allow you to set up your Flight Controller.
-
-```{todo}
-TODO: verify this is still the case
-```
-
-1. [Balena Etcher](https://etcher.balena.io/#download-etcher)
-
-## Soldering Tools
-
-Essential:
+The Duckiedrone is designed to require soldering, in the spirit of "when you will brake it, you will know how to fix it". Here is a list of soldering-related items.
 
 ```{figure} ../_images/tools/Soldering_iron_and_accessories.jpg
 :name: soldering-iron
@@ -61,9 +31,9 @@ Essential:
 Soldering iron with base, sponge and solder
 ```
 
-- soldering iron
-- solder
-- brass wool or sponge to clean soldering iron
+- Soldering iron: capable of reaching a temperature of at least 450-480 degrees Celsius 
+- Solder: use only lead-free solder
+- Brass wool or sponge to clean soldering iron
 
 ```{figure} ../_images/tools/Ideal_Reflex_wire_stripper.jpg
 :name: fig-wire-stripper
@@ -74,21 +44,20 @@ Soldering iron with base, sponge and solder
 Example of wire stripper
 ```
 
-- wire strippers
-- safety goggles
-- fume extractor
-- multimeter
-- helping hands
+- Safety goggles: it is good practice to wear them while soldering
+- Fume extractor: only solder in a well ventilated environment, or using a dedicated fume extractor
+- Helping hands: will dramatically simplify a few soldering passages
 
-Nice to have:
+## Nice to have tools and accessories
 
-- solder remover (either solder sucker or de-soldering wick) to fix mistakes
-- soldering mat
-- tweezers or pliers
-- flush cutters
-
+- A chisel or bevel soldering iron tip: will simplify the passages of soldering to pads
+- Solder remover: either solder sucker or de-soldering wick, to fix potential mistakes
+- Soldering mat: to keep it clean and safe
+- Tweezers or pliers
+- Wire strippers
 
 ## Miscellaneous Tools
 
-- Double-sided tape
-- Joypad
+- Multimeter: to verify the build (no shorts during soldering, appropriate voltage where needed)
+- Joypad: not necessary, but nice to have to manually control the Duckiedrone
+- A long (~1m) USB-C to base-station cable **with data**, or, a female USB-A to base station extension cable **with data**: to simplify connecting the flight controller to your computer, for initial configuration. 
