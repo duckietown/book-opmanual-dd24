@@ -13,47 +13,10 @@
 -->
 
 (dd24-prerequisites-other)=
-# Additional Materials for Building the Duckiedrone
+# Additional Materials
 
 This section details the materials needed to build and fly your drone that are not included in the kit.
 
-## Base Station Computer
-
-To fly the drone, you must have a laptop or personal computer that is capable of connecting to the internet. 
-
-```{todo}
-TODO: point to list of minimum hardware requirements after merging this in main manual
-```
-
-### OS Requirements
-
-The Duckiedrone ente version requires either:
-
-* Native (or dual boot) Ubuntu 24.xx, or
-* macOS
-
-Most functionalities are expected to work with [Duckietown Workspaces](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) on any operating system. 
-
-
-```{todo}
-TODO: update link above after mergin into the Duckietown manual.
-```
-
-### Software Requirements
-
-A few programs will be introduced throughout these instructions when needed. 
-
-At this stage, complete the [Duckietown general initial setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/setup-introduction.html) which will guide you through:
-
-* Setting up your computer, depending on the OS
-* Creating useful third-party accounts (e.g., GitHub, DockerHub, Duckietown account)
-* Accessing support channels
-* Installing the Duckietown Shell
-* Installing the Duckiematrix simulation environment
-
-```{todo}
-TODO: update link above after mergin into the Duckietown manual.
-```
 
 ## Essential tools and accessories
 

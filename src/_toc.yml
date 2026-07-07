@@ -11,12 +11,13 @@ parts:
         - file: 10-duckiedrone-preliminaries/safety
         - file: 10-duckiedrone-preliminaries/prerequisites
           sections:
+            - file: 10-duckiedrone-preliminaries/initial-setup
+            - file: 10-duckiedrone-preliminaries/additional-materials
             - file: 10-duckiedrone-preliminaries/soldering-basics
             - file: 10-duckiedrone-preliminaries/multimeter-usage-guide
         - file: 10-duckiedrone-preliminaries/whats-in-the-box
           sections:
             - file: 10-duckiedrone-preliminaries/components-description
-        - file: 10-duckiedrone-preliminaries/additional-materials
         - file: 10-duckiedrone-preliminaries/software-initialization
           sections: 
             - file: 10-duckiedrone-preliminaries/software-initialization-fast

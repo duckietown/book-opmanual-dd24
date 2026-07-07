@@ -14,7 +14,7 @@ cd /etc/NetworkManager/system-connections/
 ```
 
 (dd24-sw-init-fast)=
-# The "fast" way
+# The Fast Way
 
 This procedure consists of downloading a preset image, and burning it to the SD card using [Balena Etcher](https://etcher.balena.io/). The advantages of going the "fast" way are that: 
 
@@ -26,8 +26,6 @@ The disadvantages of this procedure are:
 - the Duckiedrone has default parameters, listed in the "cheatsheet" below, and the `robotname` cannot be changed
 - since every robot on the network needs to have a unique `robotname`, this procedure should not be used if planning on using several Duckiedrones on the same network at the same time. 
 
-```{note}
-```
 
 ```{admonition} Cheatsheet
 :class: note
@@ -112,7 +110,8 @@ Open Balena Etcher and select the downloaded drone image, then select the micro 
 You may be prompted to enter the base station password to proceed. This is normal: flashing an SD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
 ```
 
-```{note} Flashing will take 15 - 20 minutes.
+```{note} 
+Flashing will take 15 - 20 minutes.
 ```
 
 ## 4. Proceed to the first boot
