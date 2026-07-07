@@ -1,0 +1,86 @@
+# Onboard parameters for Duckiedrone DD24-B (PX4 mamba-f405-mk2, mamba-imu build)
+#
+# v2 - rebuilt empirically from a factory-reset FC, applying and reading back
+# every parameter on the ACTUAL shipping firmware. Only params that exist and
+# persist on this build are included. See DTSW-7245 / -7484 / -7822 / -7823.
+#
+# KEY DIFFERENCE FROM v1: this build is flash-stripped and DOES NOT run any
+# ROMFS airframe script. SYS_AUTOSTART is therefore inert - selecting an
+# airframe (in QGC or via param) populates NOTHING. The full quad-X frame must
+# be defined EXPLICITLY via the CA_* block below (this is what v1 was missing:
+# it set the KM signs but never the rotor positions, leaving geometry at zero).
+#
+# REMOVED vs v1 (phantom on this build - 'param set' returns "not found"):
+#   IMU_GYRO_FFT_EN, MC_AT_EN, COM_MODE_ARM_CHK,
+#   SDLOG_DIRS_MAX, SDLOG_MODE, SDLOG_PROFILE
+#   -> the gyro-FFT, autotune and logger modules are not compiled in.
+#      NOTE: no logger module => NO flight logging (.ulg) on this firmware.
+# REMOVED vs v1 (invalid / no-op):
+#   EKF2_GPS_CHECK (2047 > max 511, clamps; moot with GPS off)
+#   EKF2_REQ_GPS_H (moot with GPS off)
+#
+# NOT INCLUDED (per-board, calibrate on target via QGC after loading):
+#   CAL_* (accelerometer, gyro, level horizon). Skip compass/mag (none fitted).
+#
+# Frame geometry is explicit and self-contained (normalized +/-1 positions);
+# KM signs define props-in: rotors 0,1 = CCW (+), rotors 2,3 = CW (-).
+# Match each ESC's physical spin to these via Bluejay dshot reverse/save.
+#
+# Vehicle-Id Component-Id Name Value Type
+# --- System / airframe label (inert on this build, kept for QGC display) ---
+1	1	SYS_AUTOSTART	4001	6
+# --- Frame type + explicit quad-X control allocation geometry ---
+1	1	MAV_TYPE	2	6
+1	1	CA_AIRFRAME	0	6
+1	1	CA_ROTOR_COUNT	4	6
+1	1	CA_ROTOR0_PX	1.0	9
+1	1	CA_ROTOR0_PY	1.0	9
+1	1	CA_ROTOR0_KM	0.05	9
+1	1	CA_ROTOR1_PX	-1.0	9
+1	1	CA_ROTOR1_PY	-1.0	9
+1	1	CA_ROTOR1_KM	0.05	9
+1	1	CA_ROTOR2_PX	1.0	9
+1	1	CA_ROTOR2_PY	-1.0	9
+1	1	CA_ROTOR2_KM	-0.05	9
+1	1	CA_ROTOR3_PX	-1.0	9
+1	1	CA_ROTOR3_PY	1.0	9
+1	1	CA_ROTOR3_KM	-0.05	9
+# --- Outputs: MAIN1-4 -> Motor1-4, DShot600 (TIMx = -3) ---
+1	1	PWM_MAIN_FUNC1	101	6
+1	1	PWM_MAIN_FUNC2	102	6
+1	1	PWM_MAIN_FUNC3	103	6
+1	1	PWM_MAIN_FUNC4	104	6
+1	1	PWM_MAIN_TIM0	-3	6
+1	1	PWM_MAIN_TIM1	-3	6
+1	1	PWM_MAIN_MIN1	1100	6
+1	1	PWM_MAIN_MIN2	1100	6
+1	1	PWM_MAIN_MIN3	1100	6
+1	1	PWM_MAIN_MIN4	1100	6
+1	1	PWM_MAIN_MAX1	1900	6
+1	1	PWM_MAIN_MAX2	1900	6
+1	1	PWM_MAIN_MAX3	1900	6
+1	1	PWM_MAIN_MAX4	1900	6
+# --- Sensor presence: no baro / mag / gps on the v2 board ---
+1	1	SYS_HAS_BARO	0	6
+1	1	SYS_HAS_MAG	0	6
+1	1	SYS_HAS_GPS	0	6
+# --- EKF2: rangefinder-only height, no baro/gps/mag/vision/flow fusion ---
+1	1	EKF2_BARO_CTRL	0	6
+1	1	EKF2_GPS_CTRL	0	6
+1	1	EKF2_EV_CTRL	0	6
+1	1	EKF2_OF_CTRL	0	6
+1	1	EKF2_MAG_TYPE	5	6
+1	1	EKF2_HGT_REF	2	6
+1	1	EKF2_RNG_CTRL	1	6
+1	1	EKF2_MIN_RNG	0.01	9
+# --- IMU / filtering ---
+1	1	IMU_DGYRO_CUTOFF	20.0	9
+1	1	IMU_GYRO_RATEMAX	800	6
+1	1	IMU_INTEG_RATE	250	6
+# --- Safety / battery / comms ---
+1	1	CBRK_SUPPLY_CHK	894281	6
+1	1	BAT1_N_CELLS	4	6
+1	1	COM_LOW_BAT_ACT	3	6
+1	1	NAV_DLL_ACT	2	6
+1	1	COM_RCL_EXCEPT	4	6
+1	1	MAV_PROTO_VER	2	6
