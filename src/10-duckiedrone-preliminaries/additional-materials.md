@@ -13,11 +13,9 @@
 -->
 
 (dd24-prerequisites-other)=
-(prelim-dd24-other-materials-required)=
 # Additional Materials for Building the Duckiedrone
 
 This section details the materials needed to build and fly your drone that are not included in the kit.
-To operate the drone, you must have a laptop or personal computer capable of connecting to the internet.
 
 ## Base Station Computer
 
@@ -29,28 +27,37 @@ TODO: point to list of minimum hardware requirements after merging this in main 
 
 ### OS Requirements
 
-Use a native Ubuntu 24.xx installation. 
+The Duckiedrone ente version requires either:
+
+* Native (or dual boot) Ubuntu 24.xx, or
+* macOS
+
+Most functionalities are expected to work with [Duckietown Workspaces](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) on any operating system. 
+
 
 ```{todo}
-TODO: verify it works on macOS and Windows through workspaces
+TODO: update link above after mergin into the Duckietown manual.
 ```
-
 
 ### Software Requirements
 
-Additionally, you will need to install the following software on your base station.
+A few programs will be introduced throughout these instructions when needed. 
 
-1. *Betaflight Configurator*. This is an application that will allow you to set up your Flight Controller.
+At this stage, complete the [Duckietown general initial setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/setup-introduction.html) which will guide you through:
+
+* Setting up your computer, depending on the OS
+* Creating useful third-party accounts (e.g., GitHub, DockerHub, Duckietown account)
+* Accessing support channels
+* Installing the Duckietown Shell
+* Installing the Duckiematrix simulation environment
 
 ```{todo}
-TODO: verify this is still the case
+TODO: update link above after mergin into the Duckietown manual.
 ```
 
-1. [Balena Etcher](https://etcher.balena.io/#download-etcher)
+## Essential tools and accessories
 
-## Soldering Tools
-
-Essential:
+The Duckiedrone is designed to require soldering, in the spirit of "when you will brake it, you will know how to fix it". Here is a list of soldering-related items.
 
 ```{figure} ../_images/tools/Soldering_iron_and_accessories.jpg
 :name: soldering-iron
@@ -61,9 +68,9 @@ Essential:
 Soldering iron with base, sponge and solder
 ```
 
-- soldering iron
-- solder
-- brass wool or sponge to clean soldering iron
+- Soldering iron: capable of reaching a temperature of at least 450-480 degrees Celsius 
+- Solder: use only lead-free solder
+- Brass wool or sponge to clean soldering iron
 
 ```{figure} ../_images/tools/Ideal_Reflex_wire_stripper.jpg
 :name: fig-wire-stripper
@@ -74,21 +81,20 @@ Soldering iron with base, sponge and solder
 Example of wire stripper
 ```
 
-- wire strippers
-- safety goggles
-- fume extractor
-- multimeter
-- helping hands
+- Safety goggles: it is good practice to wear them while soldering
+- Fume extractor: only solder in a well ventilated environment, or using a dedicated fume extractor
+- Helping hands: will dramatically simplify a few soldering passages
 
-Nice to have:
+## Nice to have tools and accessories
 
-- solder remover (either solder sucker or de-soldering wick) to fix mistakes
-- soldering mat
-- tweezers or pliers
-- flush cutters
-
+- A chisel or bevel soldering iron tip: will simplify the passages of soldering to pads
+- Solder remover: either solder sucker or de-soldering wick, to fix potential mistakes
+- Soldering mat: to keep it clean and safe
+- Tweezers or pliers
+- Wire strippers
 
 ## Miscellaneous Tools
 
-- Double-sided tape
-- Joypad
+- Multimeter: to verify the build (no shorts during soldering, appropriate voltage where needed)
+- Joypad: not necessary, but nice to have to manually control the Duckiedrone
+- A long (~1m) USB-C to base-station cable **with data**, or, a female USB-A to base station extension cable **with data**: to simplify connecting the flight controller to your computer, for initial configuration. 
