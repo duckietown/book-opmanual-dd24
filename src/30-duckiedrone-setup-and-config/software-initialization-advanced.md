@@ -65,6 +65,8 @@ Additional options are detailed on the [Duckietown Manual](https://docs.duckieto
 Update link above when merging in the Duckietown manual
 ```
 
+(dd24-hostname-contraints)=
+### Duckiedrone hostname naming contraints
 ```{attention}
 The `hostname` **must** start with a lower-case letter and may contain **only** lower-case Latin letters and digits. Using special characters will break things and require re-flashing.
 

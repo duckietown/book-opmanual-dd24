@@ -69,20 +69,19 @@ By downloading this image you are accepting the [Duckietown Software License](ht
 
 Download the latest drone ente image to your base station:
 
-```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/dd24-b-ente-amelia-v1.img.zip
+```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/duckietown-duckiedrone-dd24-b-ente-amelia-image-v2.zip
 :color: primary
 :shadow:
 
 Download the DD24(-B) image from AWS 
 ```
 
-```{button-link} https://drive.google.com/file/d/1WpuhmfQ9VxKz07QH2FMNfZ0TsFz0eC90/view?usp=sharing
+```{button-link} https://drive.google.com/file/d/1ziNpkxCpMd4B9EWIItZvr8deJgolN5JB/view?usp=sharing
 :color: info
 :shadow:
 
 Download the DD24(-B) system from Google Drive
 ```
-
 
 
 ## 3. Flash the image to the SD card
@@ -113,6 +112,22 @@ You may be prompted to enter the base station password to proceed. This is norma
 ```{note} 
 Flashing will take 15 - 20 minutes.
 ```
+
+## 3.1 (Ubuntu only) Country, Wi-Fi and hostname customization
+
+```{attention}
+This option works only prior to the [first boot](sec:first-boot). 
+```
+
+If (and only if) you are on an Ubuntu machine, after flashign the SD card it will mount two drives:
+
+* `bootfs`: this partition contains important system files. Do not touch. 
+* `rootfs`: same as above, do not touch at this stage. 
+* `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone: 
+    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [contraints on the naming](dd24-hostname-contraints).  
+    - `country.txt`: will contain the country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). default is `US`, change to your country if needed. 
+    - `wifi` folder, containing several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi. Networks can be edited at any time after the first boot too. For additional information, refer to: [](dd24-network-config).
+    - 
 
 ## 4. Proceed to the first boot
 
