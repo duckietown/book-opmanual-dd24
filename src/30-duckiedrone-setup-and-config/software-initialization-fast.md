@@ -2,7 +2,7 @@
 :description: 
 :keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5, quick start
 ```
-cd /etc/NetworkManager/system-connections/
+
 ```{needget}
 
 * A computer (the “base station”) with an internet connection
