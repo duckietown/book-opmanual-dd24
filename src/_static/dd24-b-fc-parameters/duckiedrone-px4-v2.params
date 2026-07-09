@@ -114,10 +114,10 @@
 # What to do when the battery runs low. 3 = land.
 1	1	COM_LOW_BAT_ACT	3	6
 # What the drone does if it loses the data link to the companion computer (the
-# Pi running MAVROS). 2 = try to fly back home ("return"). This drone has no
-# GPS, so a real return home cannot actually happen here.
+# Pi running MAVROS). 0 = disabled (no action). We disable this check since the
+# drone has no GPS, so a real return home cannot happen anyway.
 # Ref: https://docs.px4.io/v1.15/en/advanced_config/parameter_reference.html#NAV_DLL_ACT
-1	1	NAV_DLL_ACT	2	6
+1	1	NAV_DLL_ACT	0	6
 # By default PX4 also treats a lost radio-control link as an emergency.
 # This lets some modes carry on without one. 4 = allow it in OFFBOARD, so the
 # companion computer can drive the drone with no RC transmitter plugged in.
