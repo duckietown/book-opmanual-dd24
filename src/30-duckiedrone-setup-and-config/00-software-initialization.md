@@ -18,13 +18,11 @@
 
 The Duckiedrone's uses a Raspberry Pi as onboard "companion" computer. The Raspberry Pi requires a (Duckietown-specific) operating system to work, and this section details two ways to do so: 
 
-1. [The "fast" way](dd24-sw-init-fast): simpler, but provides no customization options. It is appropriate for a single drone setup. If you are planning to connect multiple Duckiedrones to the same network at any time, use the advanced initialization procedure. 
+1. [The "fast" way](dd24-sw-init-fast): simpler, but provides no customization options (unless using Ubuntu as OS). It is appropriate for a single drone setup. If you are planning to connect multiple Duckiedrones to the same network at any time, use the advanced initialization procedure. 
 2. [The "advanced" way](dd24-sw-init-adv): requires a Duckietown Shell installation on the base station, but offers full customizability. Must use this procedure if planning to use more than one Duckiedrone on the same network at the same time. 
 
 If using Ubuntu, the best of both worlds can be achieved: [](). 
 
 ```{note}
-These instructions apply to **both** the Raspberry Pi 4 Model B and the Raspberry Pi 5. The same `ente` image is written through `dts init_sd_card`; only the underlying Raspberry Pi OS base layer differs and is chosen automatically at flashing time.
-
-The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip` flashed through Balena Etcher) is no longer supported on the `ente` distribution. If you used it before, re-flash with the procedure below.
+The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip`) is no longer supported on the `ente` distribution. If you used it before, re-flash with one of the procedures linked above.
 ```

@@ -1,6 +1,6 @@
 ```{seo}
-:description: Learn how to perform the first boot of your Duckiedrone (DD24), configure network settings, and ensure a smooth startup process.
-:keywords: Duckiedrone first boot, DD24 setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
+:description: Learn how to perform the first boot of your Duckiedrone, establish a connection, and perform the firs software update to ensure a smooth startup process.
+:keywords: Duckiedrone first boot, dts duckiebot update, DD24-B setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
 ```
 
 ```{needget}
@@ -8,15 +8,18 @@
 *   An assembled `DD24-B`: [](duckiedrone-dd24-b-assembly-instructions)
 *   A `DD24` initialized SD card: [](sw-initialization)
 ---
-
 *   A live `DD24`
 ```
 
 (sec:first-boot)=
-# First boot
+# First boot and update
 
-There is only one first time you can connect to your Duckiedrone. Savor the experience.
+There is only one first time you can connect to your Duckiedrone. Savor the experience. An ideal first boot looks like this:
 
+1. Insert SD card in Raspberry Pi SD card slot
+2. Power the Raspberry Pi
+3. Wait until `dts fleet discover` shows the robot is ready
+4. Perform the first software update with `dts duckiebot update robotname`
 
 
 ## Before getting started
