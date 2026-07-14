@@ -76,10 +76,10 @@ The drone runs PX4 through MAVROS. The dashboard exposes four of PX4's flight mo
 
 | Mode | PX4 name | When to use |
 |---|---|---|
-| `STABILIZED` | `STABILIZED` | PX4 keeps the drone level when the sticks are centered, but **you control the throttle directly**, with no altitude or position hold. Use this for your first manual flights: it needs only the IMU attitude estimate, so it arms reliably on a GPS-less drone. |
-| `LOITER` | `AUTO.LOITER` | Ground-safe default. The drone is idle and armable but will not accept manual stick input. |
-| `ALTITUDE` | `ALTCTL` | PX4 holds altitude automatically; you command roll, pitch, and yaw from the virtual joystick (or from a physical RC). Use this when you want PX4's internal attitude control loops to do the stabilization. |
-| `OFFBOARD` | `OFFBOARD` | PX4 tracks setpoints published by an external node on `/mavros/setpoint_*`. Use this when you are writing your own controller and want PX4 to only handle low-level attitude control. |
+| `STABILIZED` | `STABILIZED` | PX4 keeps the drone level when roll and pitch are neutral, but throttle is controlled directly, with no altitude or position hold. Use this for the first manual flight: it needs only the IMU attitude estimate, so it arms reliably on a GPS-less drone. |
+| `LOITER` | `AUTO.LOITER` | Ground-safe default. The drone is idle and armable but will not accept manual control input. |
+| `ALTITUDE` | `ALTCTL` | PX4 holds altitude automatically. Roll and pitch come from the keyboard (`W`/`A`/`S`/`D`); yaw comes from the on-screen gimbal or arrow keys (or from a physical RC). Use this mode to let PX4's internal attitude-control loops handle stabilization. |
+| `OFFBOARD` | `OFFBOARD` | PX4 tracks setpoints published by an external node on `/mavros/setpoint_*`. Use this mode when an external controller is publishing setpoints; PX4 then only handles low-level attitude control. |
 
 ```{important}
 PX4 only **accepts** an `OFFBOARD` request when it is already receiving setpoints on `/mavros/setpoint_raw/local` (or an equivalent topic) at **>2 Hz**. If no setpoints are being published, PX4 will silently ignore the mode switch and the drone will stay in its previous mode. Start your setpoint publisher **before** clicking `OFFBOARD`.
@@ -93,12 +93,46 @@ In `STABILIZED` the throttle is **fully manual**. PX4 does not hold height for y
 
 ### The Remote Control (virtual joystick) widget
 
-Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send` using two on-screen gimbals, laid out like a Mode 2 RC transmitter:
+Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send`:
 
-*   **Left gimbal**: throttle (up/down) and yaw (left/right). Throttle rests at the bottom (`0`) and *holds* wherever you leave it; yaw springs back to center.
-*   **Right gimbal**: roll (left/right) and pitch (forward/back); both spring back to center.
+*   **On-screen gimbal** (right side of the widget, mouse- or touch-draggable): yaw (left/right) and throttle (up/down). Throttle rests at the bottom (`0`) and *holds* wherever released; yaw springs back to center.
+*   **Roll / Pitch indicator** (left side of the widget): shows roll and pitch as arrows, but is keyboard-only. There is no draggable stick for these two axes. Drive them with `W`/`A`/`S`/`D`, see [Keyboard control](#keyboard-control) below.
 
-In `STABILIZED` and `ALTITUDE` modes the gimbals fly the drone; in `OFFBOARD` mode they are ignored (your setpoint publisher takes over).
+In `STABILIZED` and `ALTITUDE` modes these fly the drone; in `OFFBOARD` mode they are ignored (your setpoint publisher takes over).
+
+### Keyboard control
+
+The **Remote Control** widget also accepts keyboard input. Keyboard and mouse drive the same joystick state and publish to the same `/mavros/manual_control/send` topic, so either can be used at any time, even mid-flight.
+
+| Keys | Axis | Behavior |
+|---|---|---|
+| `W` / `S` | Pitch | Moves fully forward or back while held; returns to center on release. |
+| `A` / `D` | Roll | Moves fully left or right while held; returns to center on release. |
+| `←` / `→` | Yaw | Turns left or right while held; returns to center on release. |
+| `↑` / `↓` | Throttle | Rises or falls gradually while held, and stays at that level once released, the same as the on-screen gimbal. |
+| `Space` | None | Disarms immediately, from anywhere on the page. |
+
+The legend printed at the bottom of the widget repeats these bindings, and hovering over any bar shows the matching tooltip.
+
+#### Throttle ramp: hover threshold and thrust cap
+
+Because the throttle keys ramp rather than jump straight to a value, the widget shows a vertical throttle gauge next to the bars with two calibration fields:
+
+* **Hover**: the throttle value at which this specific drone leaves the ground. Below it, `↑` / `↓` step throttle in coarse increments for a quick climb; at or above it, steps become fine for gentle hover trim. Marked as the **blue line** on the gauge.
+* **Thrust Cap**: a hard ceiling on throttle. The published throttle value can never exceed it, whatever the keyboard ramp or the joystick asks for. Marked as the **red line** on the gauge.
+
+Both fields are saved in the browser and persist across page reloads, but not across different browsers or devices. Recalibrate when flying from a new machine.
+
+```{warning}
+`Thrust Cap` defaults to half throttle, a conservative safety limit. Raise it only after the hover threshold is confirmed, and only as much as the airframe actually needs.
+```
+
+To calibrate on a new drone:
+
+1.  Arm in `STABILIZED` (see below) with `Thrust Cap` at its default.
+1.  Hold `↑` in short bursts and watch the throttle gauge and bar. Note the value at which the drone just leaves the ground.
+1.  Enter that value into **Hover**. The gauge's blue line and the coarse/fine ramp switchover now match this airframe.
+1.  Raise **Thrust Cap** only if the drone needs more than half throttle to fly, and disarm and retest after every change.
 
 ## First flight
 
@@ -122,12 +156,12 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 
     :::{tab-item} Fly in STABILIZED (recommended first flight)
 
-    1.  In the **Remote Control** widget, make sure the **left gimbal** (throttle) is at the **bottom** (`THR: 0`) and the **right gimbal** is centered.
+    1.  In the **Remote Control** widget, make sure the **gimbal** (throttle) is at the **bottom** (`THR: 0`) and centered on yaw.
     1.  In the arming widget, click **STABILIZED**. The `FLIGHT MODE` label should update to `STABILIZED`. If it does not, check that the Remote Control widget is actively publishing.
     1.  Click **ARM**. The motors will start spinning at idle RPM.
-    1.  Slowly raise the **throttle** (push the left gimbal up) until the drone lifts off. PX4 keeps it level while you hold the throttle.
-    1.  Steer with the **right gimbal** (roll and pitch) and rotate with **yaw** (left gimbal, left/right).
-    1.  There is **no altitude hold**. You manage height with the throttle throughout the flight.
+    1.  Slowly raise the **throttle** (push the gimbal up, or hold `↑`) until the drone lifts off. PX4 keeps it level while you hold the throttle.
+    1.  Steer roll and pitch with `W`/`A`/`S`/`D` and rotate with **yaw** (gimbal left/right, or `←`/`→`).
+    1.  There is **no altitude hold**. Manage height with the throttle throughout the flight. The keyboard's hover-threshold ramp (see [above](#keyboard-control)) makes fine trim easier once airborne.
     1.  To land, ease the throttle down until the drone touches down, then click **DISARM**.
     :::
 
@@ -137,7 +171,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
     1.  In the arming widget, click **ALTITUDE**.
         *   The `FLIGHT MODE` label should update to `ALTITUDE`. If it stays on `LOITER`, PX4 rejected the request — check that the Remote Control widget is actively publishing.
     1.  Gradually increase the throttle. The drone will ascend and PX4 will hold altitude once the sticks are centered.
-    1.  Use roll/pitch on the **right gimbal** to move horizontally. Yaw (**left gimbal**, left/right) rotates the drone.
+    1.  Use `W`/`A`/`S`/`D` for roll/pitch to move horizontally. Yaw (gimbal left/right, or `←`/`→`) rotates the drone.
     1.  To land, decrease the throttle gradually. When the drone is close to the ground, click **DISARM**.
     :::
 
