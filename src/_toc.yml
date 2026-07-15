@@ -43,7 +43,7 @@ parts:
             - file: 30-duckiedrone-setup-and-config/42-flight-controller-configuration
           - file: 30-duckiedrone-setup-and-config/50-sensor-calibrations
           - file: 30-duckiedrone-setup-and-config/60-motors-configuration
-          - file: 30-duckiedrone-setup-and-config/troubleshooting
+          - file: 30-duckiedrone-setup-and-config/90-setup-troubleshooting
 
       #    - file: datasheets/index #still has old dd21 files and pics are awfully rendered
 
@@ -51,6 +51,7 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
+          - file: 40-duckiedrone-handling/10-software-update
           - file: 40-duckiedrone-handling/environment-setup
           - file: 40-duckiedrone-handling/flying-your-drone
           - file: 40-duckiedrone-handling/duckiedrone-flight-controller-pid-tuning
