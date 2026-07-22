@@ -14,11 +14,12 @@
 ```
 
 (dd24-b-fc-config)=
-# Flight Controller Configuration
+# Configuring the Flight Controller
 
 In the previous step we have prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`). 
 
 By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a Duckietown preset parameters file.
+
 ```{attention}
 Before you begin, **remove the propellers** and **disconnect the battery from the drone**.
 ```
@@ -36,14 +37,14 @@ Before you begin, **remove the propellers** and **disconnect the battery from th
 (dd24-b-fc-config-connect)=
 ## Connecting to the Flight Controller
 
-
-Connect to Your Vehicle over USB:
-   - Connect a USB-C cable from your computer to the flight controller.
+Connect to your Duckiedrone over USB:
+   - Connect a USB-C cable from your computer to the flight controller. If your 
    - Open QGroundControl on your computer.
    - QGroundControl **auto-detects the flight controller over USB and connects automatically**.
    - Wait for a few moments; the top toolbar should show the vehicle as connected, then arrive at this summary page.
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
+   :width: 100%
    ```
 
    - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
@@ -55,7 +56,7 @@ Connect to Your Vehicle over USB:
 3. Open Parameters and load the `.params` file:
 
    ```{important}
-   Import **exactly** this file: [`_static/duckiedrone-px4-v2.params`](https://cutt.ly/duckiedrone-px4-v2-params)
+   Import **exactly** this file: {download}`duckiedrone-px4-v3.params <../_static/dd24-b-fc-parameters/duckiedrone-px4-v3.params>`
    ```
 
    - Click the **Parameters** tab from the left panel to view the configurable parameters for your vehicle.
@@ -64,6 +65,13 @@ Connect to Your Vehicle over USB:
    - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
    - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
 
+   ```{figure} ../_images/fc-setup/dd24-b/fc-params-load-dd24-b.jpg
+   :alt: uploading parameters to the Duckiedrone's flight controller
+   :width: 100%
+   :name: fc-params-load-dd24-b
+
+   Download the latest pre-set parameters file and upload it to the FC following these steps.
+   ```
 
 ## Reboot the vehicle
 
@@ -72,6 +80,11 @@ Connect to Your Vehicle over USB:
    - After rebooting, reconnect to the vehicle. You will then see a summary page similar to the one below:
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
+   :alt: state of the duckiedrone after reboot
+   :width: 100%
+   :name: qgc-summary-post-params
+
+   QGroundControl summary page after uploading FC parameters, before performing calibrations.
    ```
 
 
@@ -93,7 +106,7 @@ Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo ca
 (dd24-b-fc-config-tips)=
 ### Additional Tips
 
-- **Check for Errors:** The `duckiedrone-px4-v2.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
+- **Check for Errors:** The `duckiedrone-px4-v3.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
 - **On-board calibration is mandatory:** the shipped `.params` file deliberately omits all `CAL_*` (accelerometer/gyro calibration) entries because those are tied to a specific board's sensor IDs. Run the **Sensors** calibration in QGroundControl on the actual flight controller after loading the parameters.
 
 (dd24-b-fc-config-faq)=
