@@ -132,3 +132,4 @@ A well-tuned drone can hover at zero velocity with some drifting,
 but not too much. It should be able to hover with position
 hold indefinitely.
 
+## Network issues

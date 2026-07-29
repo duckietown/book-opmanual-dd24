@@ -2,7 +2,7 @@
 :description: 
 :keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5, quick start
 ```
-cd /etc/NetworkManager/system-connections/
+
 ```{needget}
 
 * A computer (the “base station”) with an internet connection
@@ -69,14 +69,14 @@ By downloading this image you are accepting the [Duckietown Software License](ht
 
 Download the latest drone ente image to your base station:
 
-```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/dd24-b-ente-amelia-v1.img.zip
+```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/duckietown-duckiedrone-dd24-b-ente-amelia-image-v2.zip
 :color: primary
 :shadow:
 
 Download the DD24(-B) image from AWS 
 ```
 
-```{button-link} https://drive.google.com/file/d/1WpuhmfQ9VxKz07QH2FMNfZ0TsFz0eC90/view?usp=sharing
+```{button-link} https://drive.google.com/file/d/1ziNpkxCpMd4B9EWIItZvr8deJgolN5JB/view?usp=sharing
 :color: info
 :shadow:
 
@@ -84,18 +84,9 @@ Download the DD24(-B) system from Google Drive
 ```
 
 
-
 ## 3. Flash the image to the SD card
 
 Connect the microSD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
-  
-```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
-:width: 40%
-:alt: Duckietown micro SD card adapter
-:name: duckietown USB to microUSB sd card reader
-
-Micro SD Card adapter
-```
 
 Open Balena Etcher and select the downloaded drone image, then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
 
@@ -114,9 +105,34 @@ You may be prompted to enter the base station password to proceed. This is norma
 Flashing will take 15 - 20 minutes.
 ```
 
+## 3.1 (Ubuntu only) Country, Wi-Fi and hostname customization
+
+```{attention}
+This option works only prior to the [first boot](sec:first-boot). 
+```
+
+If (and only if) you are on an Ubuntu machine, after flashing the SD card it will mount three drives:
+
+* `bootfs`: this partition contains important system files. Do not touch. 
+* `rootfs`: same as above, do not touch at this stage. 
+* `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone: 
+    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [contraints on the naming](dd24-hostname-contraints).  
+    - `country.txt`: will contain the country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). default is `US`, change to your country if needed. 
+    - `wifi` folder, containing several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi. Networks can be edited at any time after the first boot too. For additional information, refer to: [](dd24-network-config).
+
+```{figure} ../_images/rpi-sw-initialization/dd24-b-image-partitions.png
+:width: 80%
+:alt: Configuration partition for the Duckiedrone SD card
+:name: dd24-b-image-partitions
+
+Image configuration partition accessible through Ubuntu. 
+```
+
 ## 4. Proceed to the first boot
 
-Remove the SD card from your base station and insert it in the SD card adapter of your Raspberry Pi. You are now ready for the [first boot](sec:first-boot). 
+Safely eject the `bootfs` partition to safely eject the whole SD card. Remove the SD card from your base station and insert it in the SD card adapter of your Raspberry Pi. 
+
+You are now ready for the [first boot](sec:first-boot). 
 
 ```{note}
 Through this approach, the Duckiedrone will boot searching for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an ethernet cable. Once the first boot is complete, you can add or remove networks by following: [](dd24-network-config).  

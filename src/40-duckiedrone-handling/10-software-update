@@ -1,0 +1,43 @@
+```{seo}
+:description: Learn how to keep your Duckidrone's onboard software up to date. 
+:keywords: Duckiedrone software, software update
+```
+
+```{needget}
+
+* A connected Duckiedrone: [](first_connection)
+* 10-15 minutes
+---
+* An up to date Duckiedrone
+```
+
+(duckietown-software-update)=
+# How to update the software
+
+It is important to keep the software on the Duckiedrone and your computer up to date. 
+
+These procedures synchronize the software stacks on your devices to the most up to date version. 
+
+(dd24-software-update)=
+## How to update a Duckiedrone
+
+To update the software on your Duckiedrone, open a terminal on your base station and run:
+
+    dts duckiebot update [hostname]
+
+where `[hostname]` is the name of your Duckiedrone (e.g., `amelia`). This process should take roughly 10-15 minutes. 
+
+```{attention}
+It is necessary to run this procedure after the [first boot](sec:first-boot).
+```
+
+(duckietown-desktop-update)=
+## How to update your base station
+
+To update the sofware on your base station, open a terminal and run:
+
+    dts desktop update
+
+To just update the Duckietown Shell (`dts`) commands:
+
+    dts update
