@@ -6,7 +6,7 @@
 ```{needget}
 * A base station computer with a Chrome-based browser
 * Flight Controller
-* USB to USB-C cable
+* USB-A to USB-C cable
 * A charged LiPo battery
 ---
 * Four ESCs running the Bluejay firmware
@@ -79,8 +79,29 @@ Now that the board is in bootloader mode, download the firmware and write it:
    The progress bar moves through `"Flashing…"`, then `"Verifying…"`, and finally `"Programming SUCCESSFUL"`.
    ```
 
-Once the flash finishes, the board reboots on its own into the new firmware, so there is no need to unplug it. You can confirm it worked by clicking `"Connect"`: the top-left of the interface should report `BTFL 4.3.2`. When you have checked the version, click `"Disconnect"` so the serial port is free for the ESC tool in the next step.
+Once the flash finishes, the board reboots on its own into the new firmware, so there is no need to unplug it. You can confirm it worked by clicking `"Connect"`: the top-left of the interface should report `BTFL 4.3.2`.
 
+### Loading the Duckiedrone board configuration
+
+A freshly flashed board comes up with the stock Betaflight defaults, which do not match the Duckiedrone's wiring. In particular, the motor outputs and the serial port assignments have to be remapped before the ESC tool can reach the four ESCs. Duckietown provides these settings as a Betaflight CLI configuration file that is applied in one paste.
+
+1. With the Flight Controller connected in Betaflight Configurator (click `"Connect"` if it is not connected already), open the `CLI` tab from the left sidebar.
+
+1. Open [`MAMBAF405MK2V2.conf`](https://raw.githubusercontent.com/duckietown/pidrone_pkg/b859bf21a5b2e0457daecfe08896a9cd2a6de88f/MAMBAF405MK2V2.conf) and copy its entire contents.
+
+1. Paste the contents into the CLI command box and press `Enter`. The commands run as a batch, and the file ends with `save`, so the board writes the settings and reboots on its own.
+
+   ```{attention}
+   Do not disconnect the USB cable while the batch is running.
+   ```
+
+   ```{admonition} Check
+   :class: seealso
+
+   The CLI output ends without reporting any command errors, and Betaflight Configurator drops the connection as the board reboots.
+   ```
+
+When the configuration is in place, click `"Disconnect"` so the serial port is free for the ESC tool in the next step.
 
 ## 2. Connect to the ESCs
 
@@ -89,6 +110,8 @@ Use a Chrome-based browser (Google Chrome, Microsoft Edge, and so on).
 ```
 
 1. Make sure the motors **do not** have propellers attached.
+
+1. Check that the ESC board is wired to the Flight Controller. The ESC tool reaches the ESCs only through this connection, so the ribbon connector between the ESC board and the Flight Controller has to be fully seated at both ends, with all four motor leads attached to the ESC board.
 
 1. Disconnect Betaflight (if on), or any other programs that might be using the serial port the flight controller is connected to.
 
