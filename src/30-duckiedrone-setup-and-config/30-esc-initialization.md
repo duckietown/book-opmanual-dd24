@@ -69,7 +69,7 @@ Do not press the `"Connect"` button in Betaflight Configurator during flashing. 
 
 Now that the board is in bootloader mode, download the firmware and write it:
 
-1. Click `Load Firmware [Cloud]` in the bottom-right corner. Betaflight Configurator fetches the `BTFL 4.3.2` firmware for the target you selected and confirms it is ready to flash.
+1. Click `Load Firmware [Online]` in the bottom-right corner. Betaflight Configurator fetches the `BTFL 4.3.2` firmware for the target you selected and confirms it is ready to flash.
 
 1. Click `Flash Firmware`, also in the bottom-right corner, and watch the progress bar as it works through the write.
 
