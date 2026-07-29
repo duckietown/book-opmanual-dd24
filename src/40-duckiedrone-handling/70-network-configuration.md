@@ -26,7 +26,6 @@ To ssh into your Duckiebot:
    
 the default password is `quackquack`. 
 
-
 To check which networks are currently defined:
 
     sudo wpa_cli list_networks
