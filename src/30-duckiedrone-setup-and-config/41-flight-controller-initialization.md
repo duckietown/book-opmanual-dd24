@@ -89,8 +89,8 @@ Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 ## 2. Boot the FC in DFU Mode
 
 - Remove power from your drone if it is powered on.
-- Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi.
-- Reconnect it to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
+- Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
+- Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed. 
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
 :alt: mamba flight controller boot button location
@@ -259,7 +259,7 @@ curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-ma
 ```
 
 ```{note}
-Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v2.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v3.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ```
