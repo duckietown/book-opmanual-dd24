@@ -412,8 +412,7 @@ Use the connector layout and the soldering pads type to recognize your board:
 * **Mamba** – through-hole soldering pads.
 
 ```{attention}
-* If your Duckiedrone box has a SpeedyBee flight controller, follow these [Duckiedrone DD24 assembly instructions](duckiedrone-dd24-assembly-instructions)
-* If your Duckiedrone box has a Mamba flight controller, follow these [Duckiedrone DD24-B assembly instructions](duckiedrone-dd24-b-assembly-instructions)
+The SpeedyBee flight controller is no longer supported in _ente_ but is still supported in [_daffy_](https://docs.duckietown.com/daffy/opmanual-dd24/).
 ```
 
 (component-buzzer-model-2312-3v-24v)=
