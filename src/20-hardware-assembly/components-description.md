@@ -310,12 +310,14 @@ The Electronic Speed Controller board, which stacks with the FC and is convenien
 This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals.
 
 ```{note}
-There are two supported flight‑controller + ESC stacks for the Duckiedrone `DD24` family.
+There are two flight‑controller + ESC stacks for the Duckiedrone `DD24` family:
 
 * **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**`DD24`**) revision kits.  
 * **Mamba F405 MK2 V2 (60 A)** – shipped with the second (**`DD24‑B`**) revision kits.
 
-Both boards share similar functionalities. In this manual we assume that you are flying one of the latest `DD24-B` revisions. 
+Both boards share similar functionalities. In this manual, which is dedicated to the _ente_ software distribution for the Duckiedrone, we assume that you are flying one of the latest `DD24-B` revisions. 
+
+**The SpeedyBee flight controller is no longer supported in _ente_ but is still supported in [_daffy_](https://docs.duckietown.com/daffy/opmanual-dd24/).**
 
 Before starting the assembly of your Duckiedrone, make sure to [identify which flight controller is in your box](identifying-flight-controller), as the assembly instructions are slightly different. 
 ```
@@ -356,6 +358,10 @@ The motor naming convention shown in the datasheet will change once `PX4` softwa
 ::::{tab-item} SpeedyBee FC (DD24)
 
 The `DD24` uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
+
+```{attention}
+The SpeedyBee flight controller is no longer supported in _ente_ but is still supported in [_daffy_](https://docs.duckietown.com/daffy/opmanual-dd24/).
+```
 
 ```{figure} ../_images/components-official-dd24/FC-ESC-SpeedyBee.jpg
 :name: flight-controller-and-esc-stack-speedybee-box
