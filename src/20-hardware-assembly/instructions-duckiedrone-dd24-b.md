@@ -25,25 +25,6 @@ Remove this warning when ready to go.
 (duckiedrone-dd24-b-assembly-instructions)=
 # Duckiedrone `DD24-B` assembly instructions
 
-```{attention}
-There is an error in steps 31–37 of the assembly process.  
-Please connect your ToF sensors in this order:
-- The **bottom** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL0`.
-- The **left** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL1`.
-- The **right** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL2`.
-- The **top** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL3`.
-- The **front** Time-of-Flight (ToF) sensor must be connected to the port labeled `CHL4`.
-
-Please make these adjustments manually while we work on updating the 3D assembly tool.
-```
-
-```{todo}
-Future CAD Assembly Improvements
-- Show how to insert the Yellow Damping Supports in the FC + ESC Boards
-- Highlight the pairing of CW / CCW props with motors
-- Update CAD of FC + PDB board to avoid confusion
-```
-
 ````{attention}
 
 The flight controller and PDB included with the `DD24-B` differ slightly from those depicted in the 3D assembly tool.
