@@ -25,6 +25,7 @@ The flashing is a two-stage process:
 Both stages are performed via `dfu-util` while the FC is in STM32 DFU mode.
 ```
 
+(fc-init-dfu-util)=
 ## 1. Install `dfu-util`
 
 Install `dfu-util` on your base station. Pick the tab matching your operating system.
@@ -86,6 +87,7 @@ This program is Free Software and has ABSOLUTELY NO WARRANTY
 Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 ```
 
+(fc-init-dfu-mode-boot)=
 ## 2. Boot the FC in DFU Mode
 
 - Remove power from your drone if it is powered on.
@@ -114,6 +116,7 @@ You should see one or more interfaces with the vendor/product ID `0483:df11` ("S
 Output of `dfu-util -l` with the FC in DFU mode.
 ```
 
+(fc-init-flash-px4-bootloader)=
 ## 3. Flash the PX4 Bootloader
 
 Download the prebuilt `omnibusf4sd_bl` bootloader hex shipped with the PX4 user guide and convert it to a raw binary that `dfu-util` can flash. The conversion needs `arm-none-eabi-objcopy` from the ARM bare-metal toolchain:
@@ -250,6 +253,7 @@ PX4 bootlader installer - `lsusb` approach does not work on MacOS
 
 :::::
 
+(fc-init-flash-px4)=
 ## 4. Flash the PX4 Firmware
 
 Download the PX4 firmware binary for the `mamba-f405-mk2` target:
@@ -337,7 +341,7 @@ The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploa
 ````
 
 
-
+(fc-init-faqs)=
 ## Troubleshooting
 
 ```{trouble}

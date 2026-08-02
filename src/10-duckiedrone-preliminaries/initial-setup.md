@@ -44,9 +44,9 @@ Most functionalities are expected to work with [Duckietown Workspaces](https://d
 Follow the instructions on the [Duckietown Manual - Computer Setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/computer-setup.html#computer-setup) to set up your base station.
 
 ```{todo}
-TODO: update link above after mergin into the Duckietown manual.
+TODO: update link above after merging into the Duckietown manual.
 ```
-
+(d24-required-sw-and-accounts)=
 ### Required software and accounts
 
 A few programs will be introduced throughout these instructions, when needed. 
@@ -56,8 +56,8 @@ At this stage, complete the [Duckietown general initial setup](https://docs.duck
 * Setting up your computer, depending on the OS
 * Creating useful third-party accounts (e.g., GitHub, DockerHub, Duckietown account)
 * Accessing support channels
-* Installing the Duckietown Shell
-* Installing the Duckiematrix simulation environment
+* [Installing the Duckietown Shell](https://docs.duckietown.com/ente/duckietown-manual/10-setup/02-software/duckietown-shell-dts-installation.html)
+* [Installing the Duckiematrix simulation environment](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
 
 ```{todo}
 TODO: update link above after mergin into the Duckietown manual.

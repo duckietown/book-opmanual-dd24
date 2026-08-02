@@ -1,6 +1,6 @@
 ```{seo}
-:description: Learn how to connect to your Duckiedrone (DD24) using the Duckietown Dashboard in client or access point mode.
-:keywords: Duckiedrone first connection, DD24 network setup, Duckietown Dashboard, AP mode, CL mode, robotics Wi-Fi configuration
+:description: Learn how to connect to your Duckiedrone (DD24-B).
+:keywords: Duckiedrone first connection, DD24 network setup, Duckiedrone Dashboard, Wi-Fi configuration
 ```
 
 ```{needget}
@@ -157,7 +157,7 @@ A general alternative networking solution that bypasses Wi-Fi, and can be useful
 ```{trouble}
 I cannot ping my Duckiedrone with hostname, but I can with its IP address. 
 ---
-`mdNS` is not activated on your network. Try a simple `duckietown:quackquack` hotspot with your phone and reboot the Duckiedrone to confirm. 
+`mdNS` is not activated on your network. Try a simple `duckietown:quackquack` hotspot with your phone and reboot the Duckiedrone to confirm. To solve the problem, activate mDNS on your network through your router settings.
 ```
 
 ## Other notes on Duckiedrone networking (AP)

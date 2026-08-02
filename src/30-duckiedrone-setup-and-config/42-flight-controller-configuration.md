@@ -4,7 +4,7 @@
 ```
 
 ```{needget}
-* A base station computer with QGroundControl installed
+* A base station computer
 * An initialized Flight Controller running PX4 with the parameters already loaded
 * ESCs already flashed with Bluejay
 * A charged drone battery 
