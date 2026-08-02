@@ -62,10 +62,10 @@ ESC board orientation — this side must face upward.
 **Step 10 and Step 16:**
 Refer to the following schematic for the correct soldering connections on the flight controller:
 
-```{figure} ../_images/assembly-dd24-B/flight-controller-connections-dd24-b.jpg
+```{figure} ../_images/assembly-dd24-B/flight-controller-connections.png
 :width: 50%
 :alt: Duckiedrone DD24-B flight controller soldering connections
-:name: flight-controller-connections-dd24-b
+:name: flight-controller-connections
 
 Flight controller soldering connections.
 ```
