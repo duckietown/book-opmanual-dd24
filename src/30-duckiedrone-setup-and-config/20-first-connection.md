@@ -29,6 +29,18 @@ Connect to the same network that the drone is connected to if the drone is in CL
 
 The default network is `duckietown` (password: `quackquack`)  
 
+Once on the same network, SSH into the Duckiedrone using its robot name. If the robot is named `ROBOT_NAME`, run:
+
+```bash
+ssh duckie@ROBOT_NAME.local
+```
+
+replacing `ROBOT_NAME` with the actual name of the robot, e.g.:
+
+```bash
+ssh duckie@pdrone24.local
+```
+
 :::
 
 :::{tab-item} Access Point (AP) mode
