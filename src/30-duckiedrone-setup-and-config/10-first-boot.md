@@ -5,8 +5,7 @@
 
 ```{needget}
 
-*   An assembled `DD24-B`: [](duckiedrone-dd24-b-assembly-instructions)
-*   A `DD24` initialized SD card: [](sw-initialization)
+*   A `DD24` initialized SD card: [](dd24-sw-init)
 ---
 
 *   A live `DD24`
@@ -132,7 +131,7 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     Once the booting procedure is complete, the Duckiedrone will automatically connect to the default client network, or any available network previously set up in the `wpa_supplicant.conf` file.
     
     ```{seealso}
-    A detailed guide on how to change `wpa_supplicant.conf` can be found in [](sw-initialization).
+    A detailed guide on how to change `wpa_supplicant.conf` can be found in [](dd24-sw-init).
     ```
 
     ```{tip}    

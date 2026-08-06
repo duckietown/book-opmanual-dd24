@@ -19,9 +19,11 @@ parts:
           sections:
             - file: 10-duckiedrone-preliminaries/components-description
         - file: 10-duckiedrone-preliminaries/software-initialization
-          sections: 
+          sections:
             - file: 10-duckiedrone-preliminaries/software-initialization-fast
             - file: 10-duckiedrone-preliminaries/software-initialization-advanced
+        - file: 30-duckiedrone-setup-and-config/10-first-boot
+        - file: 30-duckiedrone-setup-and-config/20-first-connection
       #  - file: 10-duckiedrone-preliminaries/flying-your-drone
 
     - caption: Hardware build DD24-B
@@ -34,8 +36,6 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: 30-duckiedrone-setup-and-config/10-first-boot
-          - file: 30-duckiedrone-setup-and-config/20-first-connection
           - file: 30-duckiedrone-setup-and-config/30-esc-initialization
           - file: 30-duckiedrone-setup-and-config/40-setting-up-the-flight-controller
             sections:

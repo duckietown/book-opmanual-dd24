@@ -5,7 +5,7 @@
 
 ```{needget}
 *   An Duckiedrone `DD24-B` box: [get a Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24)
-*   A `DD24` initialized SD card: [](sw-initialization)
+*   A `DD24` initialized SD card: [](dd24-sw-init)
 ---
 *   An assembled Duckiedrone model `DD24-B`
 ```
