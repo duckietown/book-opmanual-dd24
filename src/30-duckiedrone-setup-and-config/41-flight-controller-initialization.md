@@ -392,27 +392,6 @@ The PX4 firmware is loaded **at offset `0x08008000`**, not at `0x08000000`. The 
 
 After the flash completes, the board reboots and runs PX4. The boot sequence is: STM32 reset → PX4 bootloader at `0x08000000` → PX4 firmware at `0x08008000`.
 
-
-```{todo}
-Test this alternative part or remove
-```
-
-````{tip}
-**Alternative — use the PX4 serial uploader.**
-
-Once the bootloader is flashed (step 3), you can also flash the firmware over USB-CDC with the PX4 uploader script. This is the canonical PX4 path — it verifies that the firmware's board ID matches the bootloader's reported board ID before erasing flash:
-
-```bash
-curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.15.4-1/diatone_mamba-f405-mk2_default.px4
-git clone --depth 1 https://github.com/PX4/PX4-Autopilot.git
-python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
-```
-
-The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploader.py` verifies that its embedded board ID matches the bootloader's reported board (`42`) before erasing flash. The `dfu-util` flow above is preferred for fully programmatic deployments.
-````
-
-
-
 ## Troubleshooting
 
 ```{trouble}
@@ -431,12 +410,6 @@ Another process is holding the USB interface. The usual culprit is a previous `d
 After flashing, the board does not enumerate as a PX4 bootloader.
 ---
 The most common cause is that the firmware was flashed to `0x08000000` instead of `0x08008000`, overwriting the bootloader. Re-enter DFU mode and re-run step 3 to restore the bootloader, then re-run step 4 with the correct address.
-```
-
-```{trouble}
-`px4_uploader.py` reports "expected board ID 42, got X".
----
-The wrong bootloader was flashed in step 3. Re-flash `omnibusf4sd_bl.bin` (board ID `42` matches the `mamba-f405-mk2` PX4 target).
 ```
 
 ```{trouble}
