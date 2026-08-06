@@ -57,9 +57,19 @@ Clarify the connection and initial conditions. Should the RPI be on or off? Can 
 
 With the board still disconnected, press and hold the `BOOT` button while you connect the USB-C cable to your base station, and then release the button. The board is now waiting in bootloader mode.
 
- ```{todo}
-Clarify how to make sure it is in bootloader mode. Add a checkpoint. If it doesn't work, how to proceed?
+ ```{admonition} Check
+:class: seealso
+
+With the Flight Controller connected in bootloader mode, the port/target dropdown in the top toolbar of Betaflight Configurator reads `DFU - STM32 BOOTLOADER`, and the `Connect` button is greyed out, since the board is not reachable over the normal serial link while in DFU mode.
    ```
+
+```{figure} ../_images/esc-init/betaflight_dfu_bootloader_dropdown.png
+:width: 500px
+
+The Flight Controller correctly in bootloader mode, as shown by `DFU - STM32 BOOTLOADER` in Betaflight Configurator.
+```
+
+If the dropdown does not show `DFU - STM32 BOOTLOADER`, see [](esc_init_troubleshooting).
 
 ```{attention}
 Do not press the `"Connect"` button in Betaflight Configurator during flashing. Betaflight talks to the board over the flashing interface, not the normal serial connection.
@@ -223,6 +233,12 @@ The ESCs are not powered. Check that the LiPo battery is connected to the drone,
 On Linux, the ESC Configurator cannot open the serial port (`Failed to open serial port`).
 ---
 This is a serial-port permission issue. Add your user to the `dialout` group by running `sudo usermod -a -G dialout <username>` (replacing `<username>` with your base station username), then reboot for the change to take effect. If that does not help, run `sudo chmod 0777 /dev/ttyACM0` (substituting the port you are using) while the tool is open; this has to be repeated each time the Flight Controller is reconnected.
+```
+
+```{trouble}
+The port/target dropdown in Betaflight Configurator does not show `DFU - STM32 BOOTLOADER`.
+---
+The board booted into its regular firmware instead of the bootloader. Unplug the USB-C cable, press and hold the `BOOT` button again, reconnect the cable while still holding the button, and only release it once the cable is fully seated. If it still does not show up, try a different USB cable or port, since some cables are power-only and cannot carry data.
 ```
 
 ```{trouble}
