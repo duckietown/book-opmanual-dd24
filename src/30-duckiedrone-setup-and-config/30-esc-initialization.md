@@ -206,6 +206,8 @@ By default the ESCs give off a beep after a while without commands, which quickl
 
 1. Click `Write Settings` in the bottom-right corner to save.
 
+Disconnect the LiPo battery from the Duckiedrone.
+
 Your ESCs are now running Bluejay. Next, continue to [Initializing the Flight Controller](dd24-fc-init) to flash the PX4 firmware.
 
 (esc_init_troubleshooting)=
