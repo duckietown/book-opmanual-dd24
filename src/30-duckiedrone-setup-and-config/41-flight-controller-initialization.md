@@ -148,11 +148,13 @@ If you already have the PX4 dev toolchain installed via `brew tap PX4/px4 && bre
 
 :::::
 
-```{tip}
+````{admonition} Bootloader hash URL 404s?
+:class: dropdown
+
 The bootloader hash suffix `d52b70cb39` is tracked in the PX4 user guide; if the URL above 404s, re-resolve it from
 [the PX4 bootloader-from-Betaflight page](https://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight.html).
 You can also build the bootloader from source with `make omnibusf4sd_bl` from a clone of [`PX4/PX4-Bootloader`](https://github.com/PX4/PX4-Bootloader).
-```
+````
 
 With the FC still in DFU mode, flash the bootloader to address `0x08000000`:
 
@@ -160,14 +162,14 @@ With the FC still in DFU mode, flash the bootloader to address `0x08000000`:
 dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
 ```
 
-```{tip}
-Explanation of the `dfu-util` command:
+````{admonition} Explanation of the dfu-util command
+:class: dropdown
 
 * `-a 0`: selects the first DFU alternate setting (the internal flash).
 * `--dfuse-address 0x08000000:leave`: writes to the start of flash and reboots the board into the freshly written image after the write completes.
 * `-d 0483:df11`: matches the STM32 ROM DFU device.
 * `-D omnibusf4sd_bl.bin`: the file to flash.
-```
+````
 
 
 ````{admonition} Successful bootloader flashing output (MacOS)
@@ -296,11 +298,13 @@ Download the PX4 firmware binary for the `mamba-f405-mk2` target:
 curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.15.4-1/diatone_mamba-f405-mk2_default.bin
 ```
 
-```{note}
+````{admonition} Which firmware build to use
+:class: dropdown
+
 Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v3.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
-```
+````
 
 * **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, 
 * confirm it shows up again in `dfu-util -l`, then 
