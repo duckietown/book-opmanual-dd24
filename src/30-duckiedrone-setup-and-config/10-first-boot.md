@@ -1,50 +1,55 @@
 ```{seo}
-:description: Learn how to perform the first boot of your Duckiedrone (DD24), configure network settings, and ensure a smooth startup process.
-:keywords: Duckiedrone first boot, DD24 setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
+:description: Learn how to perform the first boot of your Duckiedrone, establish a connection, and perform the firs software update to ensure a smooth startup process.
+:keywords: Duckiedrone first boot, dts duckiebot update, DD24-B setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
 ```
 
 ```{needget}
 
 *   A `DD24` initialized SD card: [](dd24-sw-init)
 ---
-
 *   A live `DD24`
 ```
 
 (sec:first-boot)=
 # First boot
 
-There is only one first time you can connect to your Duckiedrone. Savor the experience.
-
+There is only one first time you can connect to your Duckiedrone. Savor the experience. 
 
 
 ## Before getting started
 
 The first time a newly flashed SD card is inserted into the Duckiedrone, a special "first boot" procedure is executed.
 
-```{note}
-The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. It is crunching as fast as it can. Do not worry, let it crunch.
+```{attention}
+The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. Do not interrupt the first boot procedure, e.g., by removing power to the Raspberry Pi. It will likely corrupt the SD card. A corrupted SD card will have to be flashed again.
 ```
 
 During this process, the Duckiedrone will require a stable power source.
 
-```{attention}
+```{tip}
 Make sure you have a wall outlet power adapter, e.g., a phone charger (5V, 2-3A) or a fully charged Duckiedrone battery before starting the process.
 ```
 
-Do not power the Raspberry Pi just yet.
+Do not power on the Raspberry Pi just yet.
 
 ## Getting started
 
-```{warning}
-Do not interrupt the first boot procedure, e.g., by removing power to the Raspberry Pi. It will likely corrupt the SD card. A corrupted SD card will have to be flashed again.
+To get started:
+
+1. **Computer**: Make sure the Raspberry Pi is **not powered.**  
+    
+2. **Power**: Prepare a 5V, 2 or 3A wall adapter (preferred), or, if you have already assembled your Duckiedrone, alternatively a fully charged Duckiedrone battery.  
+    
+3. **Network**: prepare the network for connecting to the Duckidrone, e.g., by:
+    - having a Wi-Fi on matches the credentials preconfigured on the SD card during the [initialization procedure](dd24-sw-init), or
+    - have the Duckiedrone plugged in via ethernet cable to the router your computer is connected to.
+
+```{todo}
+Verify AP mode works on DD24-B before uncommenting the instructions below.
 ```
 
-1.  Make sure the Raspberry Pi is **not powered.**  
-    
-2.  Make sure you have a wall adapter or fully charged battery available.  
-    
-3.  Networks are typically one of the biggest headaches in robotics. We offer different network configurations to minimize these headaches. If you are not sure which choice to make, the right answer typically is: if you are in a university, go for AP mode. If you are at home, go for CL mode. In both cases, you need to place the jumper accordingly on your `P7` & `P11` pins before getting started.  
+<!--
+Networks are typically one of the biggest headaches in robotics. We offer different network configurations to minimize these headaches. If you are not sure which choice to make, the right answer typically is: if you are in a university, go for AP mode. If you are at home, go for CL mode. In both cases, you need to place the jumper accordingly on your `P7` & `P11` pins before getting started.  
     
     ```{todo}
     Ditch this warning and update the images for DD24. (It should be already present on branch `daffy`)
@@ -105,7 +110,9 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     :::
     ::::
 
-4.  If you haven't already, insert the initialized micro SD card into the micro SD card slot of the Raspberry Pi, as shown [here](attach_pi_hat).
+-->
+
+4.  If you have not already, insert the initialized micro SD card into the card slot of the Raspberry Pi, as shown (attach_pi_hat).
     
     ```{attention}
     **Do not** connect the SD card inside the adapter to a USB-A port of the Raspberry Pi. 
@@ -114,16 +121,47 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
     ```{image} ../_images/first-boot/sd_card_insertion.png
     ```
 
-5.  Power the Raspberry Pi
-    
-    *  You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage. You should expect it to become solid green for several minutes.  
-        
-        ```{seealso}
-        Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspberry Pi first boot](https://vimeo.com/728539828/6cbc396872)
-        ```  
-            
-6.  Wait until the first boot sequence is complete:
+```{todo}
+update sd card image to DD24
+```
 
+```{todo}
+update first boot video DD24
+```
+
+5.  Power on the Raspberry Pi
+    
+    *  Insert the charger into the USB-C port of the Raspnberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the drone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and should be blinking. You should expect it to blink so fast to appear solid green for several minutes.  
+        
+        ````{seealso}
+        
+        ```{vimeo} 728539642
+        :alt: dd24 first boot
+        ```
+        Duckiedrone (`DD21`) first boot sequence.
+        ````  
+
+<!--
+Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspberry Pi first boot](https://vimeo.com/728539828/6cbc396872)
+-->
+
+6.  Once the booting procedure is complete, the Duckiedrone will automatically connect to the default network, or any available network previously set up. 
+
+    You will be able to monitor the process through the `STATUS` column in `dts fleet discover` command output: 
+
+    ```bash
+           |    Hardware    |    Type     | Model |  Status  |   Hostname  
+    ------ | -------------- | ----------- | ----- | -------- | ------------
+    amelia | rasperry_pi_64 | duckiedrone |  DD24 |  Ready   | amelia.local
+    ```
+
+    The `STATUS` field will read `BOOTING`, and then `READY` when the first boot process is about to finish. 
+    
+    The confirm the first boot has completed successfully, [connect to your Duckiedrone](first_connection).
+
+    After establishing the first connection, make sure to [update your Duckiedrone's software](). 
+    
+<!--
     ::::{tab-set}
 
     :::{tab-item} Client (CL) mode      
@@ -160,12 +198,15 @@ Do not interrupt the first boot procedure, e.g., by removing power to the Raspbe
 
     ::::
 
+--> 
 
-Congratulations, you are now ready to connect to your Duckiedrone for the first time!
 
 
+
+<!--
 :::{trouble}
 I disconnected my `P7` & `P11` pins but cannot see my robot on the network.
 ---
 Sometimes things go awry during the first boot. It is possible that the Wi-Fi detection container times out. Search for a `duckietown-<hostname>-ap` network instead. Reboot the Duckiedrone (with disconnected pins) to have it join the configured existing network.
 :::
+-->

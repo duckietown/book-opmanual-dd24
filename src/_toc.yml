@@ -15,27 +15,27 @@ parts:
             - file: 10-duckiedrone-preliminaries/additional-materials
             - file: 10-duckiedrone-preliminaries/soldering-basics
             - file: 10-duckiedrone-preliminaries/multimeter-usage-guide
-        - file: 10-duckiedrone-preliminaries/whats-in-the-box
-          sections:
-            - file: 10-duckiedrone-preliminaries/components-description
-        - file: 10-duckiedrone-preliminaries/software-initialization
-          sections:
-            - file: 10-duckiedrone-preliminaries/software-initialization-fast
-            - file: 10-duckiedrone-preliminaries/software-initialization-advanced
-        - file: 30-duckiedrone-setup-and-config/10-first-boot
-        - file: 30-duckiedrone-setup-and-config/20-first-connection
       #  - file: 10-duckiedrone-preliminaries/flying-your-drone
 
     - caption: Hardware build DD24-B
       maxdepth: 2
       numbered: False
       chapters:
+        - file: 20-hardware-assembly/whats-in-the-box
+          sections:
+          - file: 20-hardware-assembly/components-description
         - file: 20-hardware-assembly/instructions-duckiedrone-dd24-b
 
     - caption: Drone setup and configuration
       maxdepth: 2
       numbered: False
       chapters:
+          - file: 30-duckiedrone-setup-and-config/00-software-initialization
+            sections:
+            - file: 30-duckiedrone-setup-and-config/01-software-initialization-fast
+            - file: 30-duckiedrone-setup-and-config/02-software-initialization-advanced
+          - file: 30-duckiedrone-setup-and-config/10-first-boot
+          - file: 30-duckiedrone-setup-and-config/20-first-connection
           - file: 30-duckiedrone-setup-and-config/30-esc-initialization
           - file: 30-duckiedrone-setup-and-config/40-setting-up-the-flight-controller
             sections:
@@ -43,7 +43,7 @@ parts:
             - file: 30-duckiedrone-setup-and-config/42-flight-controller-configuration
           - file: 30-duckiedrone-setup-and-config/50-sensor-calibrations
           - file: 30-duckiedrone-setup-and-config/60-motors-configuration
-          - file: 30-duckiedrone-setup-and-config/troubleshooting
+          - file: 30-duckiedrone-setup-and-config/90-setup-troubleshooting
 
       #    - file: datasheets/index #still has old dd21 files and pics are awfully rendered
 
@@ -51,6 +51,7 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
+          - file: 40-duckiedrone-handling/10-software-update
           - file: 40-duckiedrone-handling/environment-setup
           - file: 40-duckiedrone-handling/flying-your-drone
           - file: 40-duckiedrone-handling/duckiedrone-flight-controller-pid-tuning
