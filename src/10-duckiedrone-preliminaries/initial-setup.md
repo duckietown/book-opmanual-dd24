@@ -44,7 +44,7 @@ Most functionalities are expected to work with [Duckietown Workspaces](https://d
 Follow the instructions on the [Duckietown Manual - Computer Setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/computer-setup.html#computer-setup) to set up your base station.
 
 ```{todo}
-TODO: update link above after mergin into the Duckietown manual.
+TODO: update link above after merging into the Duckietown manual.
 ```
 
 ### Required software and accounts

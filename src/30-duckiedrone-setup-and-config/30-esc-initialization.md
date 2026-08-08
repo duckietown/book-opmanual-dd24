@@ -21,13 +21,13 @@ The four Electronic Speed Controllers (ESCs) translate the Flight Controller's c
 **Remove the propellers** and keep them off for the entire procedure.
 ```
 
-## 1. Flash Betaflight onto the Flight Controller
+## 1. (skip if not necessary) Flash Betaflight onto the Flight Controller (FC)
 
- ```{todo}
-This step should not be necessary. DD24-B FCs ship from the factory with Betaflight 4.3.2 BTFL, Target DIAT/FURYF4OSD(STM32F405) installed. Move section 1. to debug part of the book (if for any reason we need to reflash, follow these instructions)
-   ```
+ ```{attention}
+This step should not be necessary as the `DD24-B` ships with Betaflight 4.3.2 BTFL, Target DIAT/FURYF4OSD(STM32F405) already installed on the FC. Follow this step only if this is not the case.
+```
 
-The ESC tool does not talk to the ESCs directly. It reaches them by passing through the Flight Controller, and for that to work the Flight Controller needs to be running **Betaflight** (target firmware `BTFL 4.3.2`). The Duckiedrone's Flight Controller does not come with Betaflight, so the first thing to do is flash it.
+The ESC configuration tool does not talk to the ESCs directly, but reaches them by through the FC. For this to work, **Betaflight** (target firmware `BTFL 4.3.2`) needs to be flashed on the FC. If the Duckiedrone's FC does not alredy have Betaflight installed, go ahead and flash it.
 
 Start by installing [Betaflight Configurator **v10.9.0**](https://github.com/betaflight/betaflight-configurator/releases/tag/10.9.0) on your base station and opening it.
 
