@@ -148,11 +148,13 @@ If you already have the PX4 dev toolchain installed via `brew tap PX4/px4 && bre
 
 :::::
 
-```{tip}
+````{admonition} Bootloader hash URL 404s?
+:class: dropdown
+
 The bootloader hash suffix `d52b70cb39` is tracked in the PX4 user guide; if the URL above 404s, re-resolve it from
 [the PX4 bootloader-from-Betaflight page](https://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight.html).
 You can also build the bootloader from source with `make omnibusf4sd_bl` from a clone of [`PX4/PX4-Bootloader`](https://github.com/PX4/PX4-Bootloader).
-```
+````
 
 With the FC still in DFU mode, flash the bootloader to address `0x08000000`:
 
@@ -160,14 +162,14 @@ With the FC still in DFU mode, flash the bootloader to address `0x08000000`:
 dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
 ```
 
-```{tip}
-Explanation of the `dfu-util` command:
+````{admonition} Explanation of the dfu-util command
+:class: dropdown
 
 * `-a 0`: selects the first DFU alternate setting (the internal flash).
 * `--dfuse-address 0x08000000:leave`: writes to the start of flash and reboots the board into the freshly written image after the write completes.
 * `-d 0483:df11`: matches the STM32 ROM DFU device.
 * `-D omnibusf4sd_bl.bin`: the file to flash.
-```
+````
 
 
 ````{admonition} Successful bootloader flashing output (MacOS)
@@ -175,6 +177,44 @@ Explanation of the `dfu-util` command:
 
 ```
 user@MacBook-Pro-2 ~ % dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Warning: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release
+Opening DFU capable USB device...
+Device ID 0483:df11
+Device DFU version 011a
+Claiming USB DFU Interface...
+Setting Alternate Interface #0 ...
+Determining device status...
+DFU state(10) = dfuERROR, status(10) = Device's firmware is corrupt. It cannot return to run-time (non-DFU) operations
+Clearing status
+Determining device status...
+DFU state(2) = dfuIDLE, status(0) = No error condition is present
+DFU mode device DFU version 011a
+Device returned transfer size 2048
+DfuSe interface name: "Internal Flash  "
+Downloading element to address = 0x08000000, size = 9612
+Erase   	[=========================] 100%         9612 bytes
+Erase    done.
+Download	[=========================] 100%         9612 bytes
+Download done.
+File downloaded successfully
+Submitting leave request...
+Transitioning to dfuMANIFEST state
+```
+````
+
+````{admonition} Successful bootloader flashing output (Ubuntu)
+:class: dropdown
+
+```
+jatinvira@ultron:~$ dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
 dfu-util 0.11
 
 Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
@@ -258,11 +298,13 @@ Download the PX4 firmware binary for the `mamba-f405-mk2` target:
 curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.15.4-1/diatone_mamba-f405-mk2_default.bin
 ```
 
-```{note}
+````{admonition} Which firmware build to use
+:class: dropdown
+
 Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v3.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
-```
+````
 
 * **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, 
 * confirm it shows up again in `dfu-util -l`, then 
@@ -310,33 +352,49 @@ Transitioning to dfuMANIFEST state
 ```
 ````
 
+````{admonition} Successful PX4 firmware flashing output (Ubuntu)
+:class: dropdown
+
+```
+jatinvira@ultron:~$ dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+dfu-util: Warning: Invalid DFU suffix signature
+dfu-util: A valid DFU suffix will be required in a future dfu-util release
+Opening DFU capable USB device...
+Device ID 0483:df11
+Device DFU version 011a
+Claiming USB DFU Interface...
+Setting Alternate Interface #0 ...
+Determining device status...
+DFU state(10) = dfuERROR, status(10) = Device's firmware is corrupt. It cannot return to run-time (non-DFU) operations
+Clearing status
+Determining device status...
+DFU state(2) = dfuIDLE, status(0) = No error condition is present
+DFU mode device DFU version 011a
+Device returned transfer size 2048
+DfuSe interface name: "Internal Flash  "
+Downloading element to address = 0x08008000, size = 968296
+Erase   	[=========================] 100%       968296 bytes
+Erase    done.
+Download	[=========================] 100%       968296 bytes
+Download done.
+File downloaded successfully
+Submitting leave request...
+Transitioning to dfuMANIFEST state
+```
+````
 
 ```{important}
 The PX4 firmware is loaded **at offset `0x08008000`**, not at `0x08000000`. The first 32 KiB of flash is reserved for the bootloader you wrote in step 3. Writing the firmware to `0x08000000` would overwrite the bootloader.
 ```
 
 After the flash completes, the board reboots and runs PX4. The boot sequence is: STM32 reset → PX4 bootloader at `0x08000000` → PX4 firmware at `0x08008000`.
-
-
-```{todo}
-Test this alternative part or remove
-```
-
-````{tip}
-**Alternative — use the PX4 serial uploader.**
-
-Once the bootloader is flashed (step 3), you can also flash the firmware over USB-CDC with the PX4 uploader script. This is the canonical PX4 path — it verifies that the firmware's board ID matches the bootloader's reported board ID before erasing flash:
-
-```bash
-curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-mamba-f405-mk2-v1.15.4-1/diatone_mamba-f405-mk2_default.px4
-git clone --depth 1 https://github.com/PX4/PX4-Autopilot.git
-python3 PX4-Autopilot/Tools/px4_uploader.py diatone_mamba-f405-mk2_default.px4
-```
-
-The `.px4` file is a JSON-wrapped, board-ID-tagged firmware envelope; `px4_uploader.py` verifies that its embedded board ID matches the bootloader's reported board (`42`) before erasing flash. The `dfu-util` flow above is preferred for fully programmatic deployments.
-````
-
-
 
 ## Troubleshooting
 
@@ -356,12 +414,6 @@ Another process is holding the USB interface. The usual culprit is a previous `d
 After flashing, the board does not enumerate as a PX4 bootloader.
 ---
 The most common cause is that the firmware was flashed to `0x08000000` instead of `0x08008000`, overwriting the bootloader. Re-enter DFU mode and re-run step 3 to restore the bootloader, then re-run step 4 with the correct address.
-```
-
-```{trouble}
-`px4_uploader.py` reports "expected board ID 42, got X".
----
-The wrong bootloader was flashed in step 3. Re-flash `omnibusf4sd_bl.bin` (board ID `42` matches the `mamba-f405-mk2` PX4 target).
 ```
 
 ```{trouble}
