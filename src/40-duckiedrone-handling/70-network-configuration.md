@@ -10,9 +10,11 @@
 ```
 
 (dd24-network-config)=
-# Network configuration
+# Network management
 
-The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-Fi networks, you will need to establish a way to connect to your Duckiedrone's SD card. Any of the following methods work:
+The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-Fi networks, you will need to first establish a way to connect to your Duckiedrone's SD card. 
+
+Any of the following methods work:
 
 1. SSH: into your Duckiedrone, if you are already on the same network.
 2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router via ethernet cable, then ssh into it.
@@ -30,6 +32,98 @@ To check which networks are currently defined:
 
     sudo wpa_cli list_networks
 
+Which will yield, for example:
+
+    duckie@amelia:/etc/netplan $ sudo wpa_cli list_networks
+    Selected interface 'wlan0'
+    network id / ssid / bssid / flags
+    0       duckietown      any     [CURRENT]
+    1       duckietown2     any
+    2       duckietown-devel        any
+
+(dd24-network-config-edit)=
+## How to add, remove or edit networks
+
+Depending on if you want your network modifications to survive the Duckiedrone's rebooting process, i.e., to apply persistent changes or not, pick the tab below. 
+
+::::{tab-set}
+
+:::{tab-item} Persistent changes 
+  
+Once gained access, navigate to
+
+    cd /config/wifi
+
+There are three main files there: 
+
+* `00-user.yaml`: edit this file to manage new networks.
+* `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
+* `99-duckietown.yaml`: contains default backup `duckietown` network credentials - best if not touched.
+
+```{note}
+`00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
+```
+
+Navigate to `/config/wifi/00-user.yaml` and add new network credentials following the structure detailed in [](dd24-network-config-info).
+
+    sudo nano /config/wifi/00-user.yaml
+
+You will see:
+
+    network:
+        version: 2
+        wifis:
+            wlan0:
+            dhcp4: true
+            optional: true
+            access-points:
+                # Add your WiFi networks here. This is an example, modify it to match your network configuration
+                "my-ssid":
+                password: "my-password"
+
+Replace `my-ssid` and `my-password` with the credentials of a new network. To add multiple networks, follow this structure: 
+
+```shell
+network:
+  version: 2
+  wifis:
+    wlan0:
+      dhcp4: true
+      optional: true
+      access-points:
+        "Home WiFi":
+          password: "home-password"
+
+        "University":
+          password: "campus-password"
+
+        "Phone Hotspot":
+          password: "hotspot-password"
+
+        "Duckietown":
+          password: "quackquack"
+```
+
+Note that:
+
+* Indentation matters (2 spaces throughout, no tabs).
+* The Raspberry Pi will automatically connect to any known network that is in range. You do not need to specify a priority in the common case.
+* If two known networks are available simultaneously, `wpa_supplicant` will choose according to its own selection logic (signal quality, security, etc.).
+
+Save and exit `nano`, then: 
+
+    sudo netplan apply
+    sudo reboot
+
+```{warning}
+Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately connect to a different known network. If you are connected over SSH, your session will be interrupted. Ensure your computer is connected to the same Wi-Fi network as the Duckiedrone before reconnecting.
+```
+
+
+:::
+    
+:::{tab-item} Non-persistent changes
+
 Once gained access, navigate to
 
     cd /etc/netplan
@@ -44,8 +138,7 @@ There are three main files there:
 `00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
 ```
 
-(dd24-network-config-edit)=
-## How to add, remove or edit networks
+
 
 Navigate to `/etc/netplan/00-user.yaml` and add new network credentials following the structure detailed in [](dd24-network-config-info).
 
@@ -101,6 +194,9 @@ Save and exit `nano`, then:
 ```{warning}
 Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately connect to a different known network. If you are connected over SSH, your session will be interrupted. Ensure your computer is connected to the same Wi-Fi network as the Duckiedrone before reconnecting.
 ```
+
+:::
+::::
 
 (dd24-network-config-info)=
 ### Additional optional network settings parameters
