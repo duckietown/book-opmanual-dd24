@@ -14,7 +14,7 @@
 ```
 
 (dd24-software-update)=
-# Software update
+# Software updater
 
 To keep the software running on your Duckiedrone up to date, on your base station run:
 

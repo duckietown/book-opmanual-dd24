@@ -31,7 +31,7 @@ parts:
       numbered: False
       chapters:
           - file: 30-duckiedrone-setup-and-config/00-software-initialization
-            sections: 
+            sections:
             - file: 30-duckiedrone-setup-and-config/01-software-initialization-fast
             - file: 30-duckiedrone-setup-and-config/02-software-initialization-advanced
           - file: 30-duckiedrone-setup-and-config/10-first-boot

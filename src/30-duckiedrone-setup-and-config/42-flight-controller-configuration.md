@@ -5,12 +5,12 @@
 
 ```{needget}
 * A base station computer
-* An initialized Flight Controller running PX4 with the parameters already loaded
+* An initialized Flight Controller running PX4
 * ESCs already flashed with Bluejay
-* A charged drone battery 
+* A charged drone battery
 * A USB to USB-C cable with data
 ---
-* An initialized Flight Controller running PX4 with the parameters already loaded
+* A Flight Controller with the Duckiedrone parameters loaded
 ```
 
 (dd24-b-fc-config)=
@@ -88,16 +88,20 @@ Connect to your Duckiedrone over USB:
    ```
 
 
-```{note}
+````{admonition} Enabling vision fusion later
+:class: dropdown
+
 The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
-```
+````
 
 
 
 
-```{note}
-The **Radio** page will stay red — this is expected. The Duckiedrone has no RC transmitter; the flight controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
-```
+````{admonition} Why the Radio page stays red
+:class: dropdown
+
+This is expected. The Duckiedrone has no RC transmitter; the flight controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
+````
 
 ```{todo}
 Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
