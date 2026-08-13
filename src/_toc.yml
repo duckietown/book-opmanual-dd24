@@ -72,5 +72,5 @@ parts:
       chapters:
           - file: 60-software-architecture/ros
           - file: 60-software-architecture/architecture-diagram
-          - file: 60-software-architecture/containers
+          - file: 60-software-architecture/containers-running-on-the-duckiedrone
           - file: 60-software-architecture/reference-frames
