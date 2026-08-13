@@ -1,14 +1,16 @@
 ```{seo}
-:description: Reference for every Docker container running on a Duckiedrone, the stack each one belongs to, and how to enable the optional sensors and tools.
+:description: Reference for every Docker container running on a Duckiedrone (DD24-B), the stack each one belongs to, and how to enable the underlying code.
 :keywords: duckiedrone, containers, docker, stacks, tof, sensors, dts
 ```
 
 (duckiedrone-containers)=
 # Duckiedrone Containers
 
-The Duckiedrone software is not one program. It is a set of small programs, each doing one job and handing its result to the next. Each of those programs is delivered as a Docker image, and a running copy of an image is called a container, so the software on a drone is a set of containers rather than an installed application.
+The Duckiedrone software is not one single, monolythic, program. It is a set of smaller programs, each doing one job and handing its result to the next. 
 
-The containers are grouped into Docker Compose files called stacks. Three stacks start automatically and hold everything required to fly. The rest hold optional sensors and tools, and start only when asked.
+Each of those programs is delivered as a Docker **image**, and a running copy of an image is called a **container**, so the software on a Duckiedrone is a set of containers rather than an installed application. This modular software architecture design and reliance on containarization technology improves reproducibilty of outcomes. 
+
+Containers are grouped into Docker Compose files called **stacks**. Three stacks start automatically at boot up and include everything required for the Duckiedrone to fly. The rest hold optional sensors and tools, and start only when asked.
 
 To see what is running, log into the drone and list the containers:
 
