@@ -6,9 +6,9 @@
 (duckiedrone-containers)=
 # Duckiedrone Containers
 
-The Duckiedrone software is not one single, monolythic, program. It is a set of smaller programs, each doing one job and handing its result to the next. 
+The Duckiedrone software is not one single, monolithic, program. It is a set of smaller programs, each doing one job and handing its result to the next. 
 
-Each of those programs is delivered as a Docker **image**, and a running copy of an image is called a **container**, so the software on a Duckiedrone is a set of containers rather than an installed application. This modular software architecture design and reliance on containarization technology improves reproducibilty of outcomes. 
+Each of those programs is delivered as a Docker **image**, and a running copy of an image is called a **container**, so the software on a Duckiedrone is a set of containers rather than an installed application. This modular software architecture design and reliance on containerization technology improves reproducibility of outcomes. 
 
 Containers are grouped into Docker Compose files called **stacks**. Three stacks start automatically at boot up and include everything required for the Duckiedrone to fly. The rest hold optional sensors and tools, and start only when asked.
 
