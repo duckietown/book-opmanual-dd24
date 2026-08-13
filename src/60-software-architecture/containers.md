@@ -26,8 +26,8 @@ Every container from the three automatic stacks should appear in that list.
 | `robot/basics` | Container management and the key-value store | Automatically |
 | `duckietown/duckiedrone` | Message backbone, sensor drivers, flight control, device services | Automatically |
 | `ros2/duckiedrone` | ROS 2 transport and the ROS 2 bridges | Automatically |
-| `duckiedrone/sensors-extras` | The front, left, right and top ToF sensors | On request only |
-| `duckiedrone/tools-extras` | Tools for inspecting the drone | On request only |
+| `duckiedrone/extra_sensors` | The front, left, right and top ToF sensors | On request only |
+| `duckiedrone/extra_tools` | Tools for inspecting the drone | On request only |
 
 The containers each stack starts, grouped by stack:
 
@@ -58,7 +58,7 @@ ros2/duckiedrone
   ros2-px4-calibration
   ros2-rosbridge-websocket
 
-duckiedrone/sensors-extras (on request only)
+duckiedrone/extra_sensors (on request only)
   driver-tof-front
   driver-tof-left
   driver-tof-right
@@ -68,20 +68,20 @@ duckiedrone/sensors-extras (on request only)
   ros2-tof-right
   ros2-tof-top
 
-duckiedrone/tools-extras (on request only)
+duckiedrone/extra_tools (on request only)
   ros2-foxglove-bridge
 ```
 
 Stacks are started and stopped from the computer running the Duckietown Shell, not from the drone itself. To bring one up:
 
 ```bash
-dts stack up -H ROBOT_NAME -d duckiedrone/sensors-extras
+dts stack up -H ROBOT_NAME -d duckiedrone/extra_sensors
 ```
 
 To take the same stack down again:
 
 ```bash
-dts stack down -H ROBOT_NAME duckiedrone/sensors-extras
+dts stack down -H ROBOT_NAME duckiedrone/extra_sensors
 ```
 
 The `-H` flag names the drone and `-d` detaches, so the command returns instead of streaming the logs of every container.
@@ -160,7 +160,7 @@ A Duckiedrone flies on the downward-facing sensor alone, so `driver-tof-bottom` 
 To start them:
 
 ```bash
-dts stack up -H ROBOT_NAME -d duckiedrone/sensors-extras
+dts stack up -H ROBOT_NAME -d duckiedrone/extra_sensors
 ```
 
 Once started, they keep running and come back automatically after a reboot, until stopped.
@@ -168,7 +168,7 @@ Once started, they keep running and come back automatically after a reboot, unti
 To stop them:
 
 ```bash
-dts stack down -H ROBOT_NAME duckiedrone/sensors-extras
+dts stack down -H ROBOT_NAME duckiedrone/extra_sensors
 ```
 
 (duckiedrone-optional-tools)=
@@ -183,11 +183,11 @@ Some containers are useful while developing or debugging, but neither flying the
 To start them:
 
 ```bash
-dts stack up -H ROBOT_NAME -d duckiedrone/tools-extras
+dts stack up -H ROBOT_NAME -d duckiedrone/extra_tools
 ```
 
 To stop them:
 
 ```bash
-dts stack down -H ROBOT_NAME duckiedrone/tools-extras
+dts stack down -H ROBOT_NAME duckiedrone/extra_tools
 ```
