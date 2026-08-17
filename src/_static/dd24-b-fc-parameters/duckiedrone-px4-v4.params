@@ -108,13 +108,23 @@
 # How often (times per second) IMU readings are bundled up for the estimator.
 1	1	IMU_INTEG_RATE	250	6
 # --- Safety, battery and communication ---
-# A "circuit breaker" that switches off the power-supply sanity check. 894281 is
-# the specific unlock number PX4 expects.
+# Skips the 5 V supply check, which this board cannot measure. Without 894281
+# the drone refuses to arm.
 1	1	CBRK_SUPPLY_CHK	894281	6
 # How many cells the flight battery has. Ours is a 4-cell (4S) pack.
 1	1	BAT1_N_CELLS	4	6
-# What to do when the battery runs low. 3 = land.
-1	1	COM_LOW_BAT_ACT	3	6
+# Scales the measured voltage back up to the real pack voltage. Without it the
+# drone reads 0 V and no battery protection works.
+1	1	BAT1_V_DIV	11.0	9
+# The per-cell voltage that counts as empty (0 %), so 14.0 V on our 4S pack.
+1	1	BAT1_V_EMPTY	3.5	9
+# Pack size in mAh. The board cannot measure current, so used-mAh and
+# time-remaining stay blank anyway.
+1	1	BAT1_CAPACITY	1500.0	9
+# What to do at critical battery. 2 = land here.
+1	1	COM_LOW_BAT_ACT	2	6
+# The lowest charge that still allows arming. 0.20 = 20 %.
+1	1	COM_ARM_BAT_MIN	0.20	9
 # What the drone does if it loses the data link to the companion computer (the
 # Pi running MAVROS). 0 = disabled (no action). We disable this check since the
 # drone has no GPS, so a real return home cannot happen anyway.

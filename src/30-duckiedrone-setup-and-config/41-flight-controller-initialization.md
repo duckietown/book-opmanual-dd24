@@ -305,7 +305,7 @@ curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-ma
 ````{admonition} Which firmware build to use
 :class: dropdown
 
-Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v3.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ````
