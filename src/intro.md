@@ -6,7 +6,7 @@
 # The Duckiedrone Operation Manual
 
 ```{warning}
-🚧 This manual describes the _ente_ software version of the latest Duckiedrone DD24-B build, and is currently work in progress. 🚧
+🚧 This manual describes the _ente_ software version of the latest Duckiedrone DD24-B build and is currently a work in progress. 🚧
 
 The stable release to date is the [_daffy_ Duckiedrone operation manual](https://docs.duckietown.com/daffy/opmanual-dd24/intro.html).  
 ```

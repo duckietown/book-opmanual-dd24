@@ -25,7 +25,7 @@ Keep the propellers off the entire time while following instructions on this pag
 Make sure the battery is charged, and connect it to the Duckiedrone, since the motors need power to spin. 
 ```
 
-## 1. Connect to the Flight Controller to the base station
+## 1. Connect the Flight Controller to the base station
 
 Connect the USB-C cable coming from the flight controller to your base station. You may need to use an extension or an adapter depending on your setup. 
 

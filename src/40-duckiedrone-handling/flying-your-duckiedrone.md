@@ -179,7 +179,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 
     1.  Start your setpoint publisher on the Duckiedrone **before** clicking `OFFBOARD`. A minimal publisher should stream `mavros_msgs/PositionTarget` messages on `/mavros/setpoint_raw/local` at ≥20 Hz.
     1.  Click **OFFBOARD**.
-        *   If the flight-mode label flips to `OFFBOARD`, PX4 has accepted external control.
+        *   If the `FLIGHT MODE` label flips to `OFFBOARD`, PX4 has accepted external control.
         *   If it snaps back to `LOITER`, the setpoint stream was not running or the setpoint values were outside the accepted envelope.
     1.  Your controller now owns the Duckiedrone. Monitor altitude and motor PWM from the Dashboard.
     1.  To land, command a descent from your controller and click **DISARM** once the Duckiedrone is grounded.

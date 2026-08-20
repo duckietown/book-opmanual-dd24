@@ -11,7 +11,7 @@
 ```
 
 ```{warning}
-🚧 This manual describes the _ente_ software version of the latest Duckiedrone build, and is currently work in progress. 🚧 
+🚧 This manual describes the _ente_ software version of the latest Duckiedrone build and is currently a work in progress. 🚧
 
 Pages marked with this warning are actively being worked on.
 

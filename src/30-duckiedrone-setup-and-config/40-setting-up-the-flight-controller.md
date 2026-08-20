@@ -23,7 +23,7 @@ PX4 is a popular, open-source flight control software ultimately directed by the
 (dd24-fc-setup-steps)=
 ## Flight controller setup steps
 
-To setup the flight controller, we will first initialize, and then configure it. Both these procedures should be performed only once. 
+To set up the flight controller, we will first initialize and then configure it. Both procedures should be performed only once.
 
 ```{tableofcontents}
 ```
