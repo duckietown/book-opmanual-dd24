@@ -97,10 +97,6 @@ The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse v
 This is expected. The Duckiedrone has no RC transmitter; the flight controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
 ````
 
-```{todo}
-Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
-```
-
 (dd24-b-fc-config-tips)=
 ### Additional Tips
 

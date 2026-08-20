@@ -25,7 +25,3 @@ Learning experiences for the Duckiedrone are hosted on GitHub. Instructions for 
 - [Duckiedrone's Sensors - Time-of-Flight Sensor](https://github.com/duckietown/dd24-sensors-tof-lx-solution)
 - [Duckiedrone's Sensors - Camera](https://github.com/duckietown/dd24-sensors-camera-lx-solution)
 - [Duckiedrone Altitude PID Tuning](https://github.com/duckietown/dd24-pid-tuning-lx-solution)
-
-```{todo}
-Replace the `*-lx-solution` repository links above with the learner-facing exercise repositories (`dd24-<name>`) once they are published.
-```

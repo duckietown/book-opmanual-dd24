@@ -116,9 +116,9 @@ If the toggle stays on `ARMED` but the motors are silent, check in QGroundContro
 
 - the ESC/Motor protocol matches the one in the supplied Duckiedrone parameter file,
 
-- each motor can be spun up individually from the `Motors` test page,
+- each motor can be spun up individually from the **Actuators** page,
 
-- motor 1 is mapped to the bottom-right motor, and the remaining motors are mapped accordingly.
+- motor 1 is mapped to the front-right motor (as viewed from above with the camera facing forward), and the remaining motors are mapped accordingly.
 ```
 
 ```{trouble}
@@ -130,7 +130,7 @@ The Duckiedrone does not get off the ground when commanded to take off.
 
 - make sure that the arrows on the props are pointing in the correct direction,
 
-- remove the propellers, plug the battery back in, and from QGroundControl's motor test tab, spin each motor individually to verify the direction,
+- remove the propellers, plug the battery back in, and from QGroundControl's **Actuators** page, spin each motor individually to verify the direction,
 
-- make sure that when you spin up motor 1, the bottom-right motor spins. Do this check for all four motors.
+- make sure that when you spin up motor 1, the front-right motor spins. Do this check for all four motors.
 ```

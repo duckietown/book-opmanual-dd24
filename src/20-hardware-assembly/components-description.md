@@ -145,10 +145,6 @@ Note that there are two pairs of motors, distinguishable by the color of the top
 
 If you try to unscrew the top nuts, you will notice that they have opposite threads. This is to prevent the nuts from coming off (along with the propellers) during flight.
 
-```{todo}
-TODO [DTSW-8019]: just to be sure, double-check which ccw vs cw motors, which are the black which the red.
-```
-
 <!--
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)

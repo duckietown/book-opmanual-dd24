@@ -27,7 +27,6 @@ On the base station, make sure you are on the `ente` profile and that `dts` itse
 ```bash
 dts profile list          # 'ente' should be the active profile
 pipx upgrade duckietown-shell
-dts update
 dts desktop update
 ```
 

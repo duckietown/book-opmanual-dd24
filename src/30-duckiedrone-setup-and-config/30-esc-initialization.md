@@ -51,11 +51,9 @@ You put the board into bootloader mode with the small `BOOT` button on the Fligh
 `BOOT` button location on the Mamba F405 MK2 Flight Controller.
 ```
 
- ```{todo}
-Clarify the connection and initial conditions. Should the RPI be on or off? Can I use the same cable that connects the RPI to the FC, unplugging it temporarily from the Pi, or do I need another cable?
-   ```
+Remove power from the Duckiedrone if it is powered on. Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side. You will use this USB-A cable to connect the Flight Controller to your base station.
 
-With the board still disconnected, press and hold the `BOOT` button while you connect the USB-C cable to your base station, and then release the button. The board is now waiting in bootloader mode.
+With the board still disconnected, press and hold the `BOOT` button while you connect the USB-A cable to your base station, and then release the button. The board is now waiting in bootloader mode.
 
  ```{admonition} Check
 :class: seealso
