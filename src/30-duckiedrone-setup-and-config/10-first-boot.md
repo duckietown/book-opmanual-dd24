@@ -66,12 +66,12 @@ To get started:
     ```bash
            |    Hardware    |    Type     | Model |  Status  |   Hostname  
     ------ | -------------- | ----------- | ----- | -------- | ------------
-    amelia | rasperry_pi_64 | duckiedrone |  DD24 |  Ready   | amelia.local
+    amelia | raspberry_pi_64 | duckiedrone |  DD24 |  Ready   | amelia.local
     ```
 
     The `STATUS` field will read `BOOTING`, and then `READY` when the first boot process is about to finish. 
     
-    The confirm the first boot has completed successfully, [connect to your Duckiedrone](first_connection).
+    To confirm the first boot has completed successfully, [connect to your Duckiedrone](first_connection).
 
     After establishing the first connection, make sure to [update your Duckiedrone's software](dd24-software-update). 
     

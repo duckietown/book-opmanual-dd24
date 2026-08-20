@@ -116,7 +116,7 @@ To test if your computer and Duckiedrone are able to communicate over the networ
 
     ping [hostname].local
 
-````{admonition} A succesfull ping example
+````{admonition} A successful ping example
 :class: note
 
 ```bash
@@ -160,7 +160,7 @@ You are able to `ssh` into the Duckiedrone with `ssh duckie@[hostname].local`, u
 
 If any of these basic interfacing commands are not working, the most likely causes are:
 
-- either your computer or robot are not on the same network, 
+- your computer and Duckiedrone are not on the same network,
 - the Duckiedrone's [first boot procedure](sec:first-boot) is not complete yet
 - the network you are trying to use does not have `mDNS` active.
 
