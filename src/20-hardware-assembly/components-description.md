@@ -28,7 +28,7 @@ The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This lit
 
 The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
-The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](sw-initialization).
+The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](dd24-sw-init).
 
 (component-64gb-microsd-card-class-10-u3)=
 ## 64GB microSD card - Class 10 U3
@@ -65,7 +65,7 @@ SD card USB adapter
 ```
 This USB-A microSD adapter is included in the box to support the first initialization of the microSD card. 
 
-[One of the very first steps](sw-initialization) in the assembly process is to insert the microSD card into the adapter, and plug the adapter into your base station (laptop or desktop, not provided in the box) to install the correct software on the Duckiedrone. 
+[One of the very first steps](dd24-sw-init) in the assembly process is to insert the microSD card into the adapter, and plug the adapter into your base station (laptop or desktop, not provided in the box) to install the correct software on the Duckiedrone.
 
 ```{warning}
 Do not plug the microSD card adapter into the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
@@ -137,7 +137,7 @@ If you try to unscrew the top nuts, you will notice how they have opposite threa
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone DD24-B mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, and M3 mounting holes, and weigh roughly 28g each.
+The Duckiedrone DD24-B mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, M3 mounting holes, and a weight of roughly 28g each.
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
@@ -376,7 +376,7 @@ The Flight Controller (FC) and Electronic Speed Controller (ESC) stack
 :name: fig-dd24-fc-esc-405v3-specs
 :width: 500px
 :align: center
-:alt: Duckiedrone DD24 flight controller and esc specifications (speedybee F405v3)
+:alt: Duckiedrone DD24 flight controller and ESC specifications (SpeedyBee F405 V3)
 
 The FC+ESC F405 V3 stack box components and specifications
 ```

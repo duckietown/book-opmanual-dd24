@@ -14,7 +14,7 @@
 (dd24-fc-init)=
 # Initializing the Flight Controller
 
-To make the flashing process as deterministic as possible, it is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/). In this way sthe procedure is fully scriptable and does not depend on internal mechanics of a graphical flasher.
+To make the flashing process as deterministic as possible, it is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/). In this way the procedure is fully scriptable and does not depend on internal mechanics of a graphical flasher.
 
 ```{note}
 The flashing is a two-stage process:
@@ -95,7 +95,7 @@ Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 - Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed. 
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
-:alt: mamba flight controller boot button location
+:alt: Mamba flight controller BOOT button location
 :width: 50%
 :name: mamba-boot-button
 

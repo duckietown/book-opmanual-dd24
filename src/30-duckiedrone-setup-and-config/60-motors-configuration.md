@@ -77,15 +77,15 @@ Move the sliders only a little and keep the propellers off. You need just enough
 ```
 
 ```{reminder}
-The motors will spin only if the Duckiebattery is plugged in. 
+The motors will spin only if the Duckiedrone battery is plugged in.
 ```
 
 ## 3. Motor Spin Direction
 
 Once every motor is on the correct number, check which way each one turns. On the Duckiedrone, the "props-in" motor layout expects:
 
-1. Motor 1: front right, black nut, spins counter clockwise.
-2. Motor 2: rear left, black nut, spins counter clockwise.
+1. Motor 1: front right, black nut, spins counter-clockwise.
+2. Motor 2: rear left, black nut, spins counter-clockwise.
 3. Motor 3: front left, red nut, turns clockwise.
 4. Motor 4: rear right, red nut, turns clockwise.
 

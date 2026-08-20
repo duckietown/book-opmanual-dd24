@@ -38,10 +38,10 @@ Before you begin, **remove the propellers** and **disconnect the battery from th
 ## Connecting to the Flight Controller
 
 Connect to your Duckiedrone over USB:
-   - Connect a USB-C cable from your computer to the flight controller. If your 
+   - Connect a USB-C cable from your computer to the flight controller.
    - Open QGroundControl on your computer.
    - QGroundControl **auto-detects the flight controller over USB and connects automatically**.
-   - Wait for a few moments; the top toolbar should show the vehicle as connected, then arrive at this summary page.
+   - Wait a few moments for the top toolbar to show that the vehicle is connected. QGroundControl will then display the summary page.
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
    :width: 100%
@@ -53,7 +53,7 @@ Connect to your Duckiedrone over USB:
 ## Load the preconfigured parameters set
 
 
-3. Open Parameters and load the `.params` file:
+1. Open the **Parameters** tab and load the `.params` file:
 
    ```{important}
    Import **exactly** this file: {download}`duckiedrone-px4-v4.params <../_static/dd24-b-fc-parameters/duckiedrone-px4-v4.params>`
@@ -66,7 +66,7 @@ Connect to your Duckiedrone over USB:
    - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
 
    ```{figure} ../_images/fc-setup/dd24-b/fc-params-load-dd24-b.jpg
-   :alt: uploading parameters to the Duckiedrone's flight controller
+   :alt: Uploading parameters to the Duckiedrone's flight controller
    :width: 100%
    :name: fc-params-load-dd24-b
 
@@ -80,7 +80,7 @@ Connect to your Duckiedrone over USB:
    - After rebooting, reconnect to the vehicle. You will then see a summary page similar to the one below:
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
-   :alt: state of the duckiedrone after reboot
+   :alt: State of the Duckiedrone after reboot
    :width: 100%
    :name: qgc-summary-post-params
 

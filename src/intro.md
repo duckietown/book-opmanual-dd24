@@ -19,7 +19,7 @@ Welcome to the Duckiedrone DD24-B operation manual. The Duckiedrone is a do-it-y
 
 The `DD24-B` is the third hardware iteration of the Duckiedrone. For more information about its predecessors, check out the `DD18` and `DD21` Duckiedrone manuals.
 
-This manual provides instructions on how to assemble, test, initialize, calibrate, operate, and programme a Duckiedrone DD24-B, and what to teach and learn with it.
+This manual provides instructions on how to assemble, test, initialize, calibrate, operate, and program a Duckiedrone DD24-B, and what to teach and learn with it.
 
 ```{note}
 Do not have one yet? [Get a Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).

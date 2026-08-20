@@ -169,7 +169,7 @@ A general alternative networking solution that bypasses Wi-Fi, and can be useful
 ```{trouble}
 I cannot ping my Duckiedrone with hostname, but I can with its IP address. 
 ---
-`mdNS` is not activated on your network. Try a simple `duckietown:quackquack` hotspot with your phone and reboot the Duckiedrone to confirm. To solve the problem, activate mDNS on your network through your router settings.
+`mDNS` is not activated on your network. Try a simple `duckietown:quackquack` hotspot with your phone and reboot the Duckiedrone to confirm. To solve the problem, activate mDNS on your network through your router settings.
 ```
 
 ## Other notes on Duckiedrone networking (AP)

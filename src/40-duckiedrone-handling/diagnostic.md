@@ -7,7 +7,7 @@
 # Common issues
 
 ```{trouble}
-The red light on the Raspberry Pi:
+The red power light on the Raspberry Pi is blinking or does not turn on.
 
 *   is blinking
 *   does not turn on
@@ -62,7 +62,7 @@ On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/m
 
 - make sure the USB cable is plugged between the Raspberry Pi and the flight controller (any of the four USB ports works).
 
-- make sure that the flight controller is lighting up. If it is not, the micro USB port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
+- make sure that the flight controller is lighting up. If it is not, the USB-C port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
 
 - from the Duckiedrone shell, check that the MAVLink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
 ```

@@ -1,5 +1,5 @@
 ```{seo}
-:description: 
+:description: Flash the Duckiedrone DD24-B image to a microSD card with Balena Etcher for a quick, single-device setup.
 :keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5, quick start
 ```
 

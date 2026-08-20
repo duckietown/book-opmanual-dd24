@@ -141,7 +141,7 @@ Use a Chrome-based browser (Google Chrome, Microsoft Edge, and so on).
    ```{figure} ../_images/esc-init/esc-config-unique-id.png
    :width: 80%
    :name: esc-config-unique-id
-   :alt: verifying the unique device ID received message when first connecting to the duckiedrone's ESCs
+   :alt: Verifying the unique device ID received message when first connecting to the Duckiedrone's ESCs
 
    Verify a Unique device ID has been received.
    ```

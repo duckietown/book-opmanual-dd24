@@ -20,7 +20,7 @@ This section details the materials needed to build and fly your Duckiedrone that
 
 ## Essential tools and accessories
 
-The Duckiedrone is designed to require soldering, in the spirit of "when you will brake it, you will know how to fix it". Here is a list of soldering-related items.
+The Duckiedrone is designed to require soldering, in the spirit of "when you break it, you will know how to fix it". Here is a list of soldering-related items.
 
 ```{figure} ../_images/tools/Soldering_iron_and_accessories.jpg
 :name: soldering-iron

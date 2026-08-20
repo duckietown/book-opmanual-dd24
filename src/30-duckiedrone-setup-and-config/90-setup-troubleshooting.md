@@ -56,9 +56,7 @@ Something might be wrong with your SD card.
 
 *   Check that the SD card is inserted in the Raspberry Pi so that it can boot.
 
-If all this does not work, find a keyboard and
-monitor to plug into the Raspberry Pi during boot, to see what is going on
-during the boot process.
+If none of this works, connect a keyboard and monitor to the Raspberry Pi during boot to see what is happening.
 
 There may be an error message being printed on the screen that will give more information.
 ```
@@ -119,7 +117,7 @@ Make sure that:
 Any of these issues could cause poor flight behavior.
 
 If your Duckiedrone flips the first time you try to take off, the motors are
-spinning the wrong way, or the props are on upside-down. If your
+spinning the wrong way, or the props are installed upside down. If your
 Duckiedrone makes funny noises when arming, either the props are not
 tightened all the way, or they are striking a wire. Tape everything
 down as much as possible.
@@ -131,5 +129,3 @@ flashed with Bluejay as described in [](dd24-esc-init).
 A well-tuned Duckiedrone can hover at zero velocity with some drifting,
 but not too much. It should be able to hover with position
 hold indefinitely.
-
-## Network issues

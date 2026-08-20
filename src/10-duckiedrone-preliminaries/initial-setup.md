@@ -16,7 +16,7 @@
 ```
 
 ```{note}
-The requirements listed in this section are common to any Duckietown robot. Given this Duckiedrone manual, once completed, will be merged into the main [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/welcome-to-the-duckietown-manual.html), we refer when appropriate to sections there to avoid duplication of information.
+The requirements listed in this section are common to any Duckietown robot. Given that this Duckiedrone manual will be merged into the main [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/welcome-to-the-duckietown-manual.html) once completed, we refer to its sections when appropriate to avoid duplicating information.
 ```
 
 (dd24-initial-setup)=

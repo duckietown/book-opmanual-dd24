@@ -8,16 +8,16 @@
 
 Sensors produce data. To help make sense of this data and transform it into information, it is useful to calibrate sensors.
 
+## Calibrate the sensors
 
-5. Sensor Calibration:
-   - Open the **Sensors** page from the Left Tab.
-   - **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
-   - **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the 6 different orientations requested by the on-screen prompts.
-   - **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
-   - After the sensors are calibrated successfully, the **Sensors** tab should turn green.
+- Open the **Sensors** page from the left panel.
+- **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
+- **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
+- **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
+- After the sensors are calibrated successfully, the **Sensors** tab should turn green.
 
-   ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
-   ```
+```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
+```
 
 <!--
 ## PX4 IMU calibration

@@ -54,9 +54,9 @@ To get started:
         
     ````{seealso}
     ```{vimeo} 728539642
-    :alt: dd24 first boot
+    :alt: DD24 first boot
     ```
-    Duckiedrone (`DD21`) first boot sequence.
+    Duckiedrone first boot sequence.
     ````  
     
     Once the booting procedure is complete, the Duckiedrone will automatically connect to the default network, or any available network previously set up. 

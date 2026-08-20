@@ -6,9 +6,9 @@
 (duckiedrone-containers)=
 # Duckiedrone Containers
 
-The Duckiedrone software is not one single, monolithic, program. It is a set of smaller programs, each doing one job and handing its result to the next. 
+The Duckiedrone software is not a single monolithic program. It is a set of smaller programs, each doing one job and handing its result to the next.
 
-Each of those programs is delivered as a Docker **image**, and a running copy of an image is called a **container**, so the software on a Duckiedrone is a set of containers rather than an installed application. This modular software architecture design and reliance on containerization technology improves reproducibility of outcomes. 
+Each of those programs is delivered as a Docker **image**, and a running copy of an image is called a **container**, so the software on a Duckiedrone is a set of containers rather than an installed application. This modular architecture and reliance on containerization improve reproducibility.
 
 Containers are grouped into Docker Compose files called **stacks**. Three stacks start automatically at boot up and include everything required for the Duckiedrone to fly. The rest hold optional sensors and tools, and start only when asked.
 
@@ -31,7 +31,7 @@ Every container from the three automatic stacks should appear in that list.
 | `duckiedrone/extra_sensors` | The front, left, right and top ToF sensors | On request only |
 | `duckiedrone/extra_tools` | Tools for inspecting the Duckiedrone | On request only |
 
-The containers each stack starts, grouped by stack:
+The containers started by each stack are grouped below:
 
 ```bash
 robot/basics
@@ -99,7 +99,7 @@ Two containers carry data between all the others, and everything else depends on
 
 ## Sensor drivers
 
-Driver containers read the Duckiedrone's sensors. Each one reads a device and publishes what it read into the switchboard.
+Driver containers read the Duckiedrone's sensors. Each one reads a device and publishes its data to the switchboard.
 
 | Container | Role |
 | :--- | :--- |
@@ -146,7 +146,7 @@ These containers provide the Duckiedrone's web interfaces and back-end services.
 (duckiedrone-optional-sensors)=
 ## Optional sensors
 
-A Duckiedrone flies on the downward-facing sensor alone, so `driver-tof-bottom` and `ros2-tof-bottom` are the only ToF containers that start on their own. The front, left, right and top sensors are not needed to fly, so they stay off by default and only start when asked for.
+A Duckiedrone can fly using the downward-facing sensor alone, so `driver-tof-bottom` and `ros2-tof-bottom` are the only ToF containers that start on their own. The front, left, right and top sensors are not needed to fly, so they stay off by default and only start when asked for.
 
 | Container | Role |
 | :--- | :--- |

@@ -18,7 +18,7 @@ Any of the following methods work:
 
 1. SSH into your Duckiedrone if you are already on the same network.
 2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router with an Ethernet cable, then connect to it with SSH.
-3. Use directly the base station: remove the SD card from the Duckiedrone, and connect it to your base station. You will then be able to access to the SD card's files. After modifying the network configuration files as described below, place the card back in the Duckiedrone.
+3. Use the base station directly: remove the SD card from the Duckiedrone and connect it to your base station. You will then be able to access the SD card's files. After modifying the network configuration files as described below, place the card back in the Duckiedrone.
 4. Create a network with SSID `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect your base station to the same network, then connect to the Duckiedrone with SSH.
 5. Reflash the SD card: use this only as a last resort. If all else fails, reflash your SD card using [the advanced way](dd24-sw-init-adv), and specify your network credentials.
 
@@ -26,13 +26,13 @@ To SSH into your Duckiedrone:
 
     ssh duckie@robotname.local
    
-the default password is `quackquack`. 
+The default password is `quackquack`.
 
 To check which networks are currently defined:
 
     sudo wpa_cli list_networks
 
-Which will yield, for example:
+This yields, for example:
 
     duckie@amelia:/etc/netplan $ sudo wpa_cli list_networks
     Selected interface 'wlan0'
@@ -44,13 +44,13 @@ Which will yield, for example:
 (dd24-network-config-edit)=
 ## How to add, remove or edit networks
 
-Depending on if you want your network modifications to survive the Duckiedrone's rebooting process, i.e., to apply persistent changes or not, pick the tab below. 
+Depending on whether you want your network modifications to survive a Duckiedrone reboot, select the appropriate tab below.
 
 ::::{tab-set}
 
 :::{tab-item} Persistent changes 
   
-Once gained access, navigate to
+Once you have gained access, navigate to
 
     cd /config/wifi
 
@@ -58,7 +58,7 @@ There are three main files there:
 
 * `00-user.yaml`: edit this file to manage new networks.
 * `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
-* `99-duckietown.yaml`: contains default backup `duckietown` network credentials - best if not touched.
+* `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
 
 ```{note}
 `00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
@@ -74,12 +74,12 @@ You will see:
         version: 2
         wifis:
             wlan0:
-            dhcp4: true
-            optional: true
-            access-points:
-                # Add your Wi-Fi networks here. This is an example, modify it to match your network configuration
-                "my-ssid":
-                password: "my-password"
+          dhcp4: true
+          optional: true
+          access-points:
+            # Add your Wi-Fi networks here. This is an example, modify it to match your network configuration
+            "my-ssid":
+              password: "my-password"
 
 Replace `my-ssid` and `my-password` with the credentials of a new network. To add multiple networks, follow this structure: 
 
@@ -124,7 +124,7 @@ Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately conn
     
 :::{tab-item} Non-persistent changes
 
-Once gained access, navigate to
+Once you have gained access, navigate to
 
     cd /etc/netplan
 
@@ -132,7 +132,7 @@ There are three main files there:
 
 * `00-user.yaml`: edit this file to manage new networks.
 * `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
-* `99-duckietown.yaml`: contains default backup `duckietown` network credentials - best if not touched.
+* `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
 
 ```{note}
 `00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
@@ -150,12 +150,12 @@ You will see:
         version: 2
         wifis:
             wlan0:
-            dhcp4: true
-            optional: true
-            access-points:
-                # Add your Wi-Fi networks here. This is an example, modify it to match your network configuration
-                "my-ssid":
-                password: "my-password"
+          dhcp4: true
+          optional: true
+          access-points:
+            # Add your Wi-Fi networks here. This is an example, modify it to match your network configuration
+            "my-ssid":
+              password: "my-password"
 
 Replace `my-ssid` and `my-password` with the credentials of a new network. To add multiple networks, follow this structure: 
 
@@ -199,7 +199,7 @@ Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately conn
 ::::
 
 (dd24-network-config-info)=
-### Additional optional network settings parameters
+### Additional network settings
 
 If you add Wi-Fi networks manually, follow the example below relative to the network authentication you have:
 
@@ -273,7 +273,7 @@ network:
         - to: default
           via: 192.168.1.1
       nameservers:
-        addresses:
+        addresses: [192.168.1.1]  # Replace with your DNS server
       access-points:
         "Your_SSID_Name":
           password: "Your_Password"
