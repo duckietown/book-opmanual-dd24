@@ -10,7 +10,7 @@ It is not uncommon for something to go wrong during the build process, which is 
 
 When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. Your Duckiedrone will not fly until _everything_ works!
 
-## Power issues
+## Power Issues
 
 ```{trouble}
 
@@ -50,46 +50,19 @@ Most of the next debugging steps require getting into your Raspberry Pi using `s
 My Raspberry Pi is receiving power and turning the red light on, but it doesn't boot.
 
 ---
-Something might be wrong with your SD card.
+Something might be wrong with your microSD card.
 
-*   Verify that your SD card has the correct image flashed on it.
+*   Verify that your microSD card has the correct image flashed on it.
 
-*   Check that the SD card is inserted in the Raspberry Pi so that it can boot.
+*   Check that the microSD card is inserted in the Raspberry Pi so that it can boot.
 
 If none of this works, connect a keyboard and monitor to the Raspberry Pi during boot to see what is happening.
 
 There may be an error message being printed on the screen that will give more information.
 ```
 ## Camera
-Now verify that the camera is working. 
+For current camera diagnostics, including camera-cable checks and Dashboard symptoms, see [](dd24-troubleshooting-faq). The DD24-B uses the `driver-camera` and `ros2-camera` containers rather than GNU Screen and `raspistill`.
 
-```{trouble}
-I'm in the Screen session, but the camera node is not
-starting.
-
----
-
-Use `raspistill` to verify that it is plugged in.
-
-You can try `raspi-config` and make sure it is enabled.
-Also, it is very common for the camera cable to be plugged in backwards, or
-plugged into the wrong slot on the Raspberry Pi. (There are two possible slots
-that fit the cable.) Make sure it is plugged into the slot marked
-`"camera"`, and that the cable is facing the right way. (The metal pins
-of the cable should be facing the pins in the slot.) Make sure it
-is seated all the way.
-
-If none of these things make `raspistill` work, try plugging someone else's camera
-into your Raspberry Pi, and your camera into someone else's Raspberry Pi,
-and try all of the above debugging steps. You can also check if
-the cable is bad. For example, if you bend the cable too much, it will
-fatigue and then break the wires; or if a prop strikes the cable, it
-might cause the cable to break.
-
-If your Raspberry Pi and cable work with someone else's camera but not yours,
-try replacing the camera. If your camera and cable work with someone
-else's Raspberry Pi but not yours, try replacing the Raspberry Pi.
-```
 ## Flight Controller
 
 Finally, check the Flight Controller. When the Flight Controller
@@ -99,9 +72,7 @@ have power, and then the "low, high", indicating the Flight Controller
 can talk to them. If that doesn't work, check the connection between
 the Flight Controller, ESCs, and motors.
 
-On the Raspberry Pi, make sure you can calibrate the accelerometer, and run
-the Flight Controller Node. If those don't work, go back and recheck
-your Betaflight configuration.
+Calibrate the accelerometer as described in [](dd24-sensor-calibration). For PX4 and MAVROS flight-controller connection diagnostics, see [](dd24-troubleshooting-faq). The DD24-B uses PX4, so Betaflight configuration does not apply to this workflow.
 
 ## Flight Issues
 

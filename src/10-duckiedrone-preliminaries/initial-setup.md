@@ -20,7 +20,7 @@ The requirements listed in this section are common to any Duckietown robot. Give
 ```
 
 (dd24-initial-setup)=
-# Initial setup
+# Initial Setup
 
 The Duckiedrone is part of the Duckietown ecosystem. The first steps require setting up the working environment.
 
@@ -47,7 +47,7 @@ Follow the instructions on the [Duckietown Manual - Computer Setup](https://docs
 TODO: update link above after merging into the Duckietown manual.
 ```
 (d24-required-sw-and-accounts)=
-### Required software and accounts
+### Required Software and Accounts
 
 A few programs will be introduced throughout these instructions, when needed. 
 
@@ -63,16 +63,16 @@ At this stage, complete the [Duckietown general initial setup](https://docs.duck
 TODO: update link above after merging into the Duckietown manual.
 ```
 
-### Duckiematrix and virtual Duckiedrones
+### Duckiematrix and Virtual Duckiedrones
 
 The Duckiematrix is Duckietown's virtual environment, a powerful simulator supporting virtual Duckietown robots. 
 
 * [Learn about the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/introduction-to-the-duckiematrix-virtual-environment.html)
 * [Install the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
 * [Learn about virtual Duckietown robots](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/virtual-duckietown-robots/introduction-to-virtual-duckiebots.html) (including Duckiedrones)
-* To quickly get started with both the Duckiematrix and virtual Duckiedrones, try the [virtual Duckiedrone ROS2 takeoff demo](https://docs.duckietown.com/ente/duckietown-manual/25-duckiedrone/demos/duckiedrone-takeoff-ros2.html).
+* To quickly get started with both the Duckiematrix and virtual Duckiedrones, try the [virtual Duckiedrone ROS 2 takeoff demo](https://docs.duckietown.com/ente/duckietown-manual/25-duckiedrone/demos/duckiedrone-takeoff-ros2.html).
 
 (dd24-hot-to-get-help)=
-### Getting help
+### Getting Help
 
 Learn [how to get (and provide) help](https://docs.duckietown.com/ente/duckietown-manual/06-troubleshooting/how-to-get-support.html) through the Duckietown Slack community and Duckietown Archives.

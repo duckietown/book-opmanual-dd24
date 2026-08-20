@@ -23,12 +23,12 @@ Change https link to local reference after merging this book in the duckietown m
 # The Complete Way
 
 ```{vimeo} 1207703689
-:alt: sd card flashing procedure for a dd24 using dts init_sd_card
+:alt: microSD card flashing procedure for a DD24 using `dts init_sd_card`
 ```
 
 
 
-## Connect the SD card to the base station  
+## Connect the microSD card to the base station
 
 Insert the microSD card into your base station. Use the USB adapter from the Duckiedrone box if your base station does not have a microSD slot.
 
@@ -90,14 +90,14 @@ After downloading the base image, `dts init_sd_card` will prompt you to select t
 :::::{tab-set}
 ::::{tab-item} Ubuntu, macOS (native dts installation)
 
-On Ubuntu, or native macOS, insert the nominal SD card size (e.g., `64` for 64GB), and a list of available devices will appear. Select your SD card, and confirm your choice. 
+On Ubuntu or macOS with a native DTS installation, enter the nominal microSD card capacity (e.g., `64` for 64GB), and a list of available devices will appear. Select your microSD card and confirm your choice.
 
-Once the flashing is complete, eject the SD card safely from the base station.
+Once the flashing is complete, safely eject the microSD card from the base station.
 
-````{admonition} Eject your SD card safely.
+````{admonition} Eject your microSD card safely.
 :class: warning
 
-Do not just unplug the SD card from the base station.
+Do not just unplug the microSD card from the base station.
 
 ```{image} ../_images/rpi-sw-initialization/eject_sd.png
 :width: 300px
@@ -107,13 +107,13 @@ Do not just unplug the SD card from the base station.
 ::::
 ::::{tab-item} Duckietown Workspace
 
-Inside a Duckietown Workspace the system will not be able to detect your SD card. Therefore, you will flash the image to _file_, and then burn it to an SD card by using Balena Etcher through the host OS, similarly to the [fast way initialization procedure](dd24-sw-init-fast).
+Inside a Duckietown Workspace the system will not be able to detect your microSD card. Therefore, you will flash the image to a file, then burn it to a microSD card with Balena Etcher through the host OS, similarly to the [fast way initialization procedure](dd24-sw-init-fast).
 
-When prompted to insert the SD card size, write any number, e.g., `64`. When prompted to list all possibilities say `y`, and then write the complete path to the image file name, e.g., `/image-file-name.img`. 
+When prompted to enter the microSD card capacity, write any number, e.g., `64`. When prompted to list all possibilities, enter `y`, then write the complete path to the image file, e.g., `/image-file-name.img`.
 
-The `dts init_sd_card` process with proceed to create the image file. 
+The `dts init_sd_card` process will proceed to create the image file.
 
-Once complete, switch to the host machine, open Balena Etcher, and flash the `image-file-name-img` to your SD card. 
+Once complete, switch to the host machine, open Balena Etcher, and flash `image-file-name.img` to your microSD card.
 ::::
 :::::
 
@@ -148,6 +148,6 @@ The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
 
 *   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
-*   Double check your network credentials 
+*   Double-check your network credentials.
 *   If you are still stuck, flash again with the correct flags (see [](first_connection)).
 ```

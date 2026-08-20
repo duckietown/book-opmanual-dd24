@@ -29,7 +29,7 @@ Establishing a connection between the base station and the Duckiedrone is an ess
 
 The Duckiedrone will automatically connect upon boot over Wi-Fi to one of these networks, in order:
 
-1. The network defined during the SD card initialization procedure: [](dd24-sw-init)
+1. The network defined during the microSD card initialization procedure: [](dd24-sw-init)
 2. The default preset network named `duckietown` with password `quackquack` 
 
 After the first boot, additional networks can be configured following: [](dd24-network-config).
@@ -102,7 +102,7 @@ SSH always possible: `ssh duckie@amelia.local`
 
 When a successful connection is established, all the following will work:
 
-#### Duckietown fleet discovery tool
+#### Duckietown Fleet Discovery Tool
 
 Open a terminal on the base station and run:
 
@@ -134,7 +134,7 @@ round-trip min/avg/max/stddev = 7.621/19.238/41.965/12.955 ms
 ```
 ````
 
-where `hostname` is the robot name chosen during the [SD card flashing procedure](dd24-sw-init).
+where `hostname` is the robot name chosen during the [microSD card flashing procedure](dd24-sw-init).
 
 If `ping` does not work, nothing else will. 
 

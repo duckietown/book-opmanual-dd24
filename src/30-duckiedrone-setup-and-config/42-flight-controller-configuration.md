@@ -50,7 +50,7 @@ Connect to your Duckiedrone over USB:
    - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
 
 
-## Load the preconfigured parameters set
+## Load the Preconfigured Parameter Set
 
 
 1. Open the **Parameters** tab and load the `.params` file:
@@ -60,7 +60,7 @@ Connect to your Duckiedrone over USB:
    ```
 
    - Click the **Parameters** tab from the left panel to view the configurable parameters for your vehicle.
-   - In the Parameters screen, click on the **Tools** menu in the top right corner.
+   - In the Parameters screen, click on the **Tools** menu in the top-right corner.
    - Select **Load from file for review…** from the dropdown menu.
    - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
    - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
@@ -73,7 +73,7 @@ Connect to your Duckiedrone over USB:
    Download the latest pre-set parameters file and upload it to the FC following these steps.
    ```
 
-## Reboot the vehicle
+## Reboot the Vehicle
 
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.

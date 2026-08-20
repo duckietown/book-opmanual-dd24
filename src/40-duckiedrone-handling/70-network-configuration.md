@@ -4,23 +4,23 @@
 ```
 
 ```{needget}
-* A flashed SD card: [](dd24-sw-init)
+* A flashed microSD card: [](dd24-sw-init)
 ---
-* Knowledge on how to manage networks on a Duckiedrone
+* Knowledge of how to manage networks on a Duckiedrone
 ```
 
 (dd24-network-config)=
 # Network management
 
-The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-Fi networks, you will need to first establish a way to connect to your Duckiedrone's SD card. 
+The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-Fi networks, you will need to first establish a way to connect to your Duckiedrone's microSD card.
 
 Any of the following methods work:
 
 1. SSH into your Duckiedrone if you are already on the same network.
 2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router with an Ethernet cable, then connect to it with SSH.
-3. Use the base station directly: remove the SD card from the Duckiedrone and connect it to your base station. You will then be able to access the SD card's files. After modifying the network configuration files as described below, place the card back in the Duckiedrone.
+3. Use the base station directly: remove the microSD card from the Duckiedrone and connect it to your base station. You will then be able to access the microSD card's files. After modifying the network configuration files as described below, place the card back in the Duckiedrone.
 4. Create a network with SSID `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect your base station to the same network, then connect to the Duckiedrone with SSH.
-5. Reflash the SD card: use this only as a last resort. If all else fails, reflash your SD card using [the advanced way](dd24-sw-init-adv), and specify your network credentials.
+5. Reflash the microSD card: use this only as a last resort. If all else fails, reflash your microSD card using [the advanced way](dd24-sw-init-adv) and specify your network credentials.
 
 To SSH into your Duckiedrone:
 

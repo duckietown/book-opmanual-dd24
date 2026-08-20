@@ -31,15 +31,15 @@ The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RA
 The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](dd24-sw-init).
 
 (component-64gb-microsd-card-class-10-u3)=
-## 64GB microSD card - Class 10 U3
+## 64GB microSD Card - Class 10 U3
 
 ```{figure} ../_images/components-official-dd24/sd-card-64-class10.jpg
 :name: sd-card-64
 :width: 300px
 :align: center
-:alt: SD card
+:alt: microSD card
 
-64GB Class 10 mini SD card
+64GB Class 10 microSD card
 ```
 
 The microSD card is the core memory of the Duckiedrone. 
@@ -53,15 +53,15 @@ The microSD card is inserted directly in the Raspberry Pi. Do not use the microS
 ```
 
 (component-microsd-to-usb-adapter)=
-## microSD to USB adapter
+## microSD-to-USB Adapter
 
 ```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
 :name: sd-card-reader
 :width: 300px
 :align: center
-:alt: SD card USB adapter
+:alt: microSD-to-USB adapter
 
-SD card USB adapter
+microSD-to-USB adapter
 ```
 This USB-A microSD adapter is included in the box to support the first initialization of the microSD card. 
 

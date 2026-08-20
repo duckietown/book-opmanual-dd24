@@ -16,7 +16,7 @@
 (dd24-sw-init-fast)=
 # The Fast Way
 
-This procedure consists of downloading a preset image, and burning it to the SD card using [Balena Etcher](https://etcher.balena.io/). The advantages of going the "fast" way are that: 
+This procedure consists of downloading a preset image and burning it to the microSD card using [Balena Etcher](https://etcher.balena.io/). The advantages of going the "fast" way are that:
 
 - it works on any operating system
 - all important configuration parameters are pre-set
@@ -64,7 +64,7 @@ Download and install the version appropriate for your operating system from [Bal
 ```{admonition} Legalities
 :class: note
 
-By downloading this image you are accepting the [Duckietown Software License](https://duckietown.com/sw-license/), [Terms and Conditions](https://duckietown.com/terms-and-conditions/) and [Privacy Policy](https://duckietown.com/privacy/), as well as robot configuration-specific licenses due to the presence of third party software in the SD card. 
+By downloading this image you are accepting the [Duckietown Software License](https://duckietown.com/sw-license/), [Terms and Conditions](https://duckietown.com/terms-and-conditions/) and [Privacy Policy](https://duckietown.com/privacy/), as well as robot configuration-specific licenses due to the presence of third-party software on the microSD card.
 ```
 
 Download the latest Duckiedrone ente image to your base station:
@@ -84,7 +84,7 @@ Download the DD24(-B) system from Google Drive
 ```
 
 
-## 3. Flash the image to the SD card
+## 3. Flash the image to the microSD card
 
 Connect the microSD card to the base station. Use the microSD-to-USB card reader if the base station does not have a microSD slot.
 
@@ -92,13 +92,13 @@ Open Balena Etcher and select the downloaded Duckiedrone image, then select the 
 
 
 ```{vimeo} 1202216734
-:alt: sd card flashing procedure for a dd24 using balena etcher
+:alt: microSD card flashing procedure for a DD24 using Balena Etcher
 ```
 
 
-```{warning} **Double check** that the "drive" is your microSD card.
+```{warning} **Double-check** that the "drive" is your microSD card.
 
-You may be prompted to enter the base station password to proceed. This is normal: flashing an SD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
+You may be prompted to enter the base station password to proceed. This is normal: flashing a microSD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
 ```
 
 ```{note} 
@@ -111,7 +111,7 @@ Flashing will take 15 - 20 minutes.
 This option works only prior to the [first boot](sec:first-boot). 
 ```
 
-If (and only if) you are on an Ubuntu machine, after flashing the SD card it will mount three drives:
+If (and only if) you are on an Ubuntu machine, after flashing the microSD card it will mount three drives:
 
 * `bootfs`: this partition contains important system files. Do not touch. 
 * `rootfs`: same as above, do not touch at this stage. 
@@ -122,7 +122,7 @@ If (and only if) you are on an Ubuntu machine, after flashing the SD card it wil
 
 ```{figure} ../_images/rpi-sw-initialization/dd24-b-image-partitions.png
 :width: 80%
-:alt: Configuration partition for the Duckiedrone SD card
+:alt: Configuration partition for the Duckiedrone microSD card
 :name: dd24-b-image-partitions
 
 Image configuration partition accessible through Ubuntu. 
@@ -130,7 +130,7 @@ Image configuration partition accessible through Ubuntu.
 
 ## 4. Proceed to the first boot
 
-Safely eject the `bootfs` partition to safely eject the whole SD card. Remove the SD card from your base station and insert it in the SD card adapter of your Raspberry Pi. 
+Safely eject the `bootfs` partition, then remove the microSD card from your base station and insert it into the Raspberry Pi's microSD card slot.
 
 You are now ready for the [first boot](sec:first-boot). 
 
@@ -169,6 +169,6 @@ The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
 
 *   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
-*   Re-insert the SD card into your base station and inspect `config/wpa_supplicant.conf`. Confirm that your `ssid` and `psk` are correct and that the file has Unix line endings.
+*   Re-insert the microSD card into your base station and inspect `config/wpa_supplicant.conf`. Confirm that your `ssid` and `psk` are correct and that the file has Unix line endings.
 *   If you are still stuck, flash again with the correct flags (see [](first_connection)).
 ```

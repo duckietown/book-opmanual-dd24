@@ -5,7 +5,7 @@
 ```
 
 (dd24-prerequisites-soldering)=
-# Soldering basics
+# Soldering Basics
 
 This section outlines the most important skills you will need for building your Duckiedrone.
 

@@ -5,7 +5,7 @@
 
 ```{needget}
 
-*   A `DD24` initialized SD card: [](dd24-sw-init)
+*   An initialized DD24 microSD card: [](dd24-sw-init)
 ---
 *   A live `DD24`
 ```
@@ -18,10 +18,10 @@ There is only one first time you can connect to your Duckiedrone. Savor the expe
 
 ## Before getting started
 
-The first time a newly flashed SD card is inserted into the Duckiedrone, a special "first boot" procedure is executed.
+The first time a newly flashed microSD card is inserted into the Duckiedrone, a special "first boot" procedure is executed.
 
 ```{attention}
-The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. Do not interrupt the first boot procedure, e.g., by removing power to the Raspberry Pi. It will likely corrupt the SD card. A corrupted SD card will have to be flashed again.
+The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. Do not interrupt the first boot procedure, e.g., by removing power to the Raspberry Pi. It will likely corrupt the microSD card. A corrupted microSD card will have to be flashed again.
 ```
 
 During this process, the Duckiedrone will require a stable power source.
@@ -41,16 +41,16 @@ To get started:
 2. **Power**: Prepare a 5V, 2 or 3A wall adapter (preferred), or, if you have already assembled your Duckiedrone, alternatively a fully charged Duckiedrone battery.  
     
 3. **Network**: Prepare a network connection to the Duckiedrone, for example by:
-    - having a Wi-Fi network that matches the credentials preconfigured on the SD card during the [initialization procedure](dd24-sw-init), or
+    - having a Wi-Fi network that matches the credentials preconfigured on the microSD card during the [initialization procedure](dd24-sw-init), or
     - connecting the Duckiedrone to the router your computer is connected to with an Ethernet cable.
 
-4.  If you have not already, insert the initialized SD card **into the card slot of the Raspberry Pi**.
+4.  If you have not already, insert the initialized microSD card **into the card slot of the Raspberry Pi**.
     
     ```{attention}
-    **Do not** connect the SD card to a USB-A port of the Raspberry Pi through an adapter. 
+    **Do not** connect the microSD card to a USB-A port of the Raspberry Pi through an adapter.
     ```
 
-5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and should be blinking. You should expect it to blink so fast to appear solid green for several minutes.
+5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and will blink so quickly that it appears solid green for several minutes.
         
     ````{seealso}
     ```{vimeo} 728539642
