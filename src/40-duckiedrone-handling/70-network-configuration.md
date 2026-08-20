@@ -16,13 +16,13 @@ The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-
 
 Any of the following methods work:
 
-1. SSH: into your Duckiedrone, if you are already on the same network.
-2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router via ethernet cable, then ssh into it.
+1. SSH into your Duckiedrone if you are already on the same network.
+2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router with an Ethernet cable, then connect to it with SSH.
 3. Use directly the base station: remove the SD card from the Duckiedrone, and connect it to your base station. You will then be able to access to the SD card's files. After modifying the network configuration files as described below, place the card back in the Duckiedrone.
-4. Create a network with ssid `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect your base station to the same network and ssh into the robot. 
-5. Reflash the SD card: should be used only as last resort, but if all else fails, reflash your SD card using [the advanced way](dd24-sw-init-adv), and specify your networ's credentials.  
+4. Create a network with SSID `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect your base station to the same network, then connect to the Duckiedrone with SSH.
+5. Reflash the SD card: use this only as a last resort. If all else fails, reflash your SD card using [the advanced way](dd24-sw-init-adv), and specify your network credentials.
 
-To ssh into your Duckiebot: 
+To SSH into your Duckiedrone:
 
     ssh duckie@robotname.local
    
@@ -77,7 +77,7 @@ You will see:
             dhcp4: true
             optional: true
             access-points:
-                # Add your WiFi networks here. This is an example, modify it to match your network configuration
+                # Add your Wi-Fi networks here. This is an example, modify it to match your network configuration
                 "my-ssid":
                 password: "my-password"
 
@@ -153,7 +153,7 @@ You will see:
             dhcp4: true
             optional: true
             access-points:
-                # Add your WiFi networks here. This is an example, modify it to match your network configuration
+                # Add your Wi-Fi networks here. This is an example, modify it to match your network configuration
                 "my-ssid":
                 password: "my-password"
 
@@ -204,7 +204,7 @@ Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately conn
 If you add Wi-Fi networks manually, follow the example below relative to the network authentication you have:
 
 
- - Unprotected (Open) WiFi network:
+ - Unprotected (Open) Wi-Fi network:
 
 ```shell
    ...
@@ -213,7 +213,7 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
 ```
 
 
- - WPA/WPA2 WiFi network with PSK authentication:
+ - WPA/WPA2 Wi-Fi network with PSK authentication:
 
 ```shell
    ...
@@ -224,7 +224,7 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
 ```
 
 
- - WPA/WPA2 WiFi network with username/password authentication:
+ - WPA/WPA2 Wi-Fi network with username/password authentication:
 
 ```shell
    ...

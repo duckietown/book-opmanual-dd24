@@ -50,7 +50,7 @@ To get started:
     **Do not** connect the SD card to a USB-A port of the Raspberry Pi through an adapter. 
     ```
 
-5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspnberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and should be blinking. You should expect it to blink so fast to appear solid green for several minutes.  
+5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and should be blinking. You should expect it to blink so fast to appear solid green for several minutes.
         
     ````{seealso}
     ```{vimeo} 728539642

@@ -1,6 +1,6 @@
 ```{seo}
-:description: Configure the motor order and spinning direction of your Duckietown Duckiedrone DD24-B in QGroundControl, and reverse motors with PX4 dshot.
-:keywords: Duckiedrone, DD24, motor order, motor direction, spin direction, QGroundControl, PX4, dshot, Bluejay, Mamba F405 MK2
+:description: Configure the motor order and spinning direction of your Duckietown Duckiedrone DD24-B in QGroundControl, and reverse motors with PX4 DShot.
+:keywords: Duckiedrone, DD24, motor order, motor direction, spin direction, QGroundControl, PX4, DShot, Bluejay, Mamba F405 MK2
 ```
 
 ```{needget}
@@ -92,10 +92,10 @@ Once every motor is on the correct number, check which way each one turns. On th
 Spin each motor from the **Actuators** page and compare its direction against the list above. Make a note of any motor that turns the wrong way.
 
 ```{note}
-Reversing a motor spiining direction with the "Set Spin Direction 1/2" buttons only works when its ESC is running Bluejay, which was flashed in [Initializing the ESCs](dd24-esc-init). On the stock ESC software, without Bluejay configuration firmware, these commands do nothing.
+Reversing a motor spinning direction with the "Set Spin Direction 1/2" buttons only works when its ESC is running Bluejay, which was flashed in [Initializing the ESCs](dd24-esc-init). On the stock ESC software, without Bluejay configuration firmware, these commands do nothing.
 ```
 
-To flip a motor spinning direction, alternatively, send a command to its ESC over PX4 dshot. Open the terminal inside QGroundControl by going to **Analyze Tools** and then **MAVLink Console**. This drops you into the PX4 shell.
+To flip a motor spinning direction, alternatively, send a command to its ESC over PX4 DShot. Open the terminal inside QGroundControl by going to **Analyze Tools** and then **MAVLink Console**. This drops you into the PX4 shell.
 
 ```{figure} ../_images/motors-esc/qGC-mavlink-console.jpg
 :width: 80%

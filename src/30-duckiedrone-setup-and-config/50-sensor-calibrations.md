@@ -28,7 +28,7 @@ Calibrating the gyroscope and accelerometer gives PX4 the sensor offsets it need
 
 ## Method 1: calibration through the Dashboard
 
-On DD24 drones running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS2 and does not require QGroundControl.
+On a Duckiedrone DD24-B running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS and does not require QGroundControl.
 
 ```{attention}
 Remove the propellers before running any flight-controller calibration or arming checks.
@@ -50,7 +50,7 @@ The calibration is complete when the block reports `PX4 accel calibration comple
 
 ## Method 2: ROS 2 service fallback
 
-If the dashboard is unavailable but the ROS 2 stack is running, call the calibration services from a shell connected to the Duckiedrone:
+If the Dashboard is unavailable but the ROS 2 stack is running, call the calibration services from a shell connected to the Duckiedrone:
 
 ```bash
 ssh duckie@ROBOT_NAME.local
@@ -75,7 +75,7 @@ The accelerometer service blocks while you rotate the Duckiedrone through the si
 
 ## Method 3: manual Python fallback on the Raspberry Pi
 
-Use this only when MAVROS2 or rosbridge is not running. From the base station, stop the stacks that may hold the MAVLink port:
+Use this only when MAVROS or rosbridge is not running. From the base station, stop the stacks that may hold the MAVLink port:
 
 ```bash
 dts stack down -H ROBOT_NAME.local ros2/duckiedrone

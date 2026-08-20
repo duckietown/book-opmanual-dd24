@@ -289,12 +289,12 @@ It supports the placement of a breadboard to provide a "playground" for addition
 :name: dd24-breadboard
 :width: 300px
 :align: center
-:alt: Duckiedrone Duckiehut breadboard
+:alt: Duckiedrone HUT breadboard
 
-Duckiedrone Duckiehut breadboard
+Duckiedrone HUT breadboard
 ```
 
-This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-duckiedrone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
+This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiedrone HUT](component-duckietown-duckiedrone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack

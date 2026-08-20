@@ -139,7 +139,7 @@ These containers provide the Duckiedrone's web interfaces and back-end services.
 | `device-proxy` | Makes the device's other APIs and services reachable from one place |
 | `device-health` | Reports on the health of the device |
 | `device-online` | Connects the device to the Duckietown cloud |
-| `wifi-access-point` | Runs the Duckiedrone's own WiFi network |
+| `wifi-access-point` | Runs the Duckiedrone's own Wi-Fi network |
 | `kvstore` | Stores small pieces of data that other containers need to remember |
 | `portainer` | A web interface for managing the containers on the device |
 

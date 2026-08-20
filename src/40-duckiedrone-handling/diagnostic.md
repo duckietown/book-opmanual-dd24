@@ -41,7 +41,7 @@ You can inspect what is running on the Duckiedrone from the Portainer page at `h
 ```
 
 ```{trouble}
-One of the Heartbeats Monitor indicators is red on the dashboard.
+One of the Heartbeats Monitor indicators is red on the Dashboard.
 ---
 A red heartbeat means the corresponding ROS node has stopped publishing. The widget monitors four heartbeats on `/flight_controller_node/heartbeats/*`:
 
@@ -64,7 +64,7 @@ On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/m
 
 - make sure that the flight controller is lighting up. If it is not, the micro USB port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
 
-- from the Duckiedrone shell, check that the mavlink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
+- from the Duckiedrone shell, check that the MAVLink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
 ```
 
 ```{trouble}
@@ -93,11 +93,11 @@ The altitude comes from the ToF driver. Check the Time-of-Flight widget first: i
 ```
 
 ```{trouble}
-The dashboard shows all widgets but nothing updates.
+The Dashboard shows all widgets but nothing updates.
 
 ---
 
-The dashboard communicates with ROS via rosbridge. If the page loads but the widgets never populate, rosbridge on the Duckiedrone is not reachable. From the base station, try `curl -I http://ROBOT_NAME.local:9090` — it should return `101 Switching Protocols`. If not, restart the Duckiedrone containers.
+The Dashboard communicates with ROS via rosbridge. If the page loads but the widgets never populate, rosbridge on the Duckiedrone is not reachable. From the base station, try `curl -I http://ROBOT_NAME.local:9090` — it should return `101 Switching Protocols`. If not, restart the Duckiedrone containers.
 ```
 
 ```{trouble}
@@ -109,7 +109,7 @@ This is typically network latency. If you are running the Duckiedrone in CL (cli
 ```
 
 ```{trouble}
-The motors on the Duckiedrone do not spin when armed from the dashboard.
+The motors on the Duckiedrone do not spin when armed from the Dashboard.
 
 ---
 
@@ -117,7 +117,7 @@ First confirm that the Arm / Disarm widget actually reports `ARMED` — if the t
 
 If the toggle stays on `ARMED` but the motors are silent, check in QGroundControl (see [](qgroundcontrol-connection)) that:
 
-- the ESC/Motor protocol matches the one in the DD24 parameter file,
+- the ESC/Motor protocol matches the one in the supplied Duckiedrone parameter file,
 
 - each motor can be spun up individually from the `Motors` test page,
 

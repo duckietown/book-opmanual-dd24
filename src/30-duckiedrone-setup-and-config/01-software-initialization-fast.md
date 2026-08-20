@@ -36,7 +36,7 @@ Default `ssh` user name: `duckie`
 
 Default `ssh` user password: `quackquack`
 
-Defaul network configuration (robot will connect to this network after the first boot)
+Default network configuration (robot will connect to this network after the first boot)
 
 *   SSID: `duckietown`    
 *   Password: `quackquack`

@@ -9,7 +9,7 @@
 - A computer (laptop, or desktop) with broadband internet connection
 ---
 - Necessary accounts created
-- A function Duckietown Shell installation
+- A functional Duckietown Shell installation
 - A functional Duckiematrix installation
 - Knowledge about virtual Duckiedrones
 - Knowledge on how to get help when needed

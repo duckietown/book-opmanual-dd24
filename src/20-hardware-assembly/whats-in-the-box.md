@@ -55,7 +55,7 @@ What's inside the box (selected components).
 | 1 | LiPo Battery - 1500mAh, 4S, 14.8V, 76x35x33mm, XT60 connector, 10cm cable, 35C peak discharge |
 | 1 | Battery charger - 2-4S Li-Ion/Li-Poly, 25W |
 | 1 | Battery charger adapter - 12V 2A US plug |
-| 1 | Duckiedrone HUT - v1.1 |
+| 1 | Duckiedrone HUT - v1.2 |
 | 1 | Breadboard - Yellow, 45x35mm |
 | 1 | Flight Controller & ESC stack - Mamba F405 MK2 Flight Controller and BLHeli_S 3-6S 60A ESC |
 | 1 | Buzzer - Model 2312, 3V-24V |

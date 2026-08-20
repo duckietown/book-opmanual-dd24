@@ -46,7 +46,7 @@ Spin the props with your finger and make sure there are no wires in the way. If 
 
 Make sure that the Flight Controller USB cable is plugged into the Raspberry Pi (any of the USB ports is fine). Make sure the camera flat cable is fully seated on both the Pi and the camera side.
 
-## Power up and open the dashboard
+## Power up and open the Dashboard
 
 1.  Plug the battery into your Duckiedrone. The Raspberry Pi will boot up.
 1.  Wait ~45 seconds for all the Duckiedrone containers to come up.
@@ -72,7 +72,7 @@ The widget reflects the live state — it polls `/mavros/state` and refreshes it
 
 ### Flight modes
 
-The Duckiedrone runs PX4 through MAVROS. The dashboard exposes four of PX4's flight modes:
+The Duckiedrone runs PX4 through MAVROS. The Dashboard exposes four of PX4's flight modes:
 
 | Mode | PX4 name | When to use |
 |---|---|---|
@@ -181,7 +181,7 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
     1.  Click **OFFBOARD**.
         *   If the flight-mode label flips to `OFFBOARD`, PX4 has accepted external control.
         *   If it snaps back to `LOITER`, the setpoint stream was not running or the setpoint values were outside the accepted envelope.
-    1.  Your controller now owns the Duckiedrone. Monitor altitude and motor PWM from the dashboard.
+    1.  Your controller now owns the Duckiedrone. Monitor altitude and motor PWM from the Dashboard.
     1.  To land, command a descent from your controller and click **DISARM** once the Duckiedrone is grounded.
     :::
 
@@ -206,7 +206,7 @@ Keep the Mission Control page visible while the Duckiedrone is in the air. Usefu
 ```{trouble}
 The ARM toggle snaps back to **DISARM** a second after I click it.
 ---
-PX4 rejected the arming request because a preflight check failed. Typical causes on a DD24:
+PX4 rejected the arming request because a preflight check failed. Typical causes on a Duckiedrone DD24-B:
 
 *   The EKF is still converging — wait 10–15 seconds after plugging in the battery.
 *   The accelerometer bias is out of range — recalibrate the IMU from QGroundControl.
@@ -242,8 +242,8 @@ The motors don't spin at all after arming.
 Check the flight controller initialization ([](dd24-fc-init)). Verify that:
 
 *   The USB cable between the Raspberry Pi and the flight controller is seated.
-*   The ESC/Motor protocol matches what the DD24 parameter file expects.
-*   The arming service returned `success=True` — click **DISARM**, reopen the dashboard, and watch the browser console for error messages.
+*   The ESC/Motor protocol matches what the supplied Duckiedrone parameter file expects.
+*   The arming service returned `success=True` — click **DISARM**, reopen the Dashboard, and watch the browser console for error messages.
 ```
 
 **Congratulations on your first Duckiedrone flight!**
