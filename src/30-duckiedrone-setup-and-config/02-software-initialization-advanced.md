@@ -39,6 +39,12 @@ microSD card adapter
 
 ## Create the image
 
+Before continuing, confirm that `ente` is the active Duckietown Shell profile:
+
+```bash
+dts profile list
+```
+
 Run `dts init_sd_card` with the `duckiedrone` type and the `DD24` configuration:
 
 ```bash
@@ -63,7 +69,7 @@ Additional options are detailed on the [Duckietown Manual](https://docs.duckieto
 Update link above when merging in the Duckietown manual
 ```
 
-(dd24-hostname-contraints)=
+(dd24-hostname-constraints)=
 ### Duckiedrone hostname naming constraints
 ```{attention}
 The `hostname` **must** start with a lower-case letter and may contain **only** lower-case Latin letters and digits. Using special characters will break things and require re-flashing.
@@ -147,5 +153,5 @@ The Duckiedrone does not join my Wi-Fi after the first boot.
 
 *   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
 *   Double-check your network credentials.
-*   If you are still stuck, flash again with the correct flags (see [](first_connection)).
+*   If you are still stuck, flash again with the correct flags shown above.
 ```

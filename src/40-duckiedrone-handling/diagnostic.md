@@ -32,7 +32,7 @@ The flight containers are not running on the Duckiedrone.
 
 The `ente` stack runs the flight code inside Duckietown containers. From the base station, re-pull and restart them with:
 
-    dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
+    dts duckiebot update ROBOT_NAME
 
 You can inspect what is running on the Duckiedrone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `driver-tof-bottom`, `ros2-tof-bottom`, `zenoh-router`, `ros2-mavros`, and `ros2-rosbridge-websocket` are all healthy. See [](duckiedrone-containers) for the complete list of automatic containers.
 ```
@@ -47,7 +47,7 @@ A red heartbeat means the corresponding ROS node has stopped publishing. The wid
 *   `STATE` — the state estimator.
 *   `PID` — the PID controller.
 
-Restart the Duckiedrone containers from Portainer, or rerun `dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME` from the base station.
+Restart the Duckiedrone containers from Portainer, or rerun `dts duckiebot update ROBOT_NAME` from the base station.
 ```
 
 ```{trouble}

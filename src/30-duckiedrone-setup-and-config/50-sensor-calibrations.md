@@ -1,6 +1,6 @@
 ```{seo}
-:description: Learn how to calibrate the PX4 IMU and camera on the Duckiedrone DD24-B for stable flight using the Dashboard, ROS 2 services, or direct MAVLink.
-:keywords: Duckiedrone accelerometer calibration, Duckiedrone camera calibration, PX4 calibration, IMU calibration, flight controller calibration, DD24 setup
+:description: Learn how to calibrate the PX4 gyroscope, accelerometer, and level horizon on the Duckiedrone DD24-B with QGroundControl for stable flight.
+:keywords: Duckiedrone accelerometer calibration, Duckiedrone gyroscope calibration, PX4 calibration, IMU calibration, flight controller calibration, DD24 setup, QGroundControl
 ```
 
 (dd24-sensor-calibration)=
@@ -10,7 +10,7 @@ Sensors produce data. To help make sense of this data and transform it into info
 
 ## Calibrate the sensors
 
-- Open the **Sensors** page from the left panel.
+- Open the **Sensors** page in QGroundControl.
 - **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
 - **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
 - **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.

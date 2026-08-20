@@ -110,7 +110,7 @@ If (and only if) you are on an Ubuntu machine, after flashing the microSD card i
 * `bootfs`: this partition contains important system files. Do not touch.
 * `rootfs`: same as above, do not touch at this stage.
 * `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone:
-    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [constraints on the naming](dd24-hostname-contraints).
+    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [constraints on the naming](dd24-hostname-constraints).
     - `country.txt`: will contain the country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). default is `US`, change to your country if needed.
     - `wifi` folder, containing several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi. Networks can be edited at any time after the first boot too. For additional information, refer to: [](dd24-network-config).
 
@@ -144,23 +144,11 @@ Go to your computer's `System Preferences > Security & Privacy > Files and Folde
 ````
 
 ```{trouble}
-`dts init_sd_card` fails with "unknown robot type duckiedrone".
----
-
-Your Duckietown Shell is out of date or the wrong profile is active. Run:
-
-    dts profile list          # 'ente' must be the active profile
-    pipx upgrade duckietown-shell
-    dts update
-
-then rerun the `dts init_sd_card` command.
-```
-
-```{trouble}
 The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
 
-*   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
-*   Re-insert the microSD card into your base station and inspect `config/wpa_supplicant.conf`. Confirm that your `ssid` and `psk` are correct and that the file has Unix line endings.
-*   If you are still stuck, flash again with the correct flags (see [](first_connection)).
+* Re-insert the microSD card into your base station and open the `configfs` partition.
+* Check `country.txt`. Wi-Fi is disabled when the regulatory domain is unset, so it must contain the correct two-letter country code.
+* Inspect `wifi/00-user.yaml`. Confirm that the network name and password are correct and that its YAML indentation uses spaces, not tabs.
+* If you cannot access `configfs` from Ubuntu or are still stuck, use [](dd24-sw-init-adv) to flash the card with your network credentials.
 ```

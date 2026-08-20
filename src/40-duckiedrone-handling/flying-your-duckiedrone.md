@@ -215,7 +215,7 @@ PX4 rejected the arming request because a preflight check failed. Typical causes
 
 You can read the rejection reason from the Duckiedrone shell:
 
-    docker logs dt-px4 | tail -20
+    docker logs ros2-mavros | tail -20
 ```
 
 ```{trouble}

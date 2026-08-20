@@ -36,7 +36,7 @@ dts desktop update
 Pull the latest Duckiedrone containers onto the Duckiedrone. This can take several minutes the first time.
 
 ```bash
-dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
+dts duckiebot update ROBOT_NAME
 ```
 
 ```{note}
