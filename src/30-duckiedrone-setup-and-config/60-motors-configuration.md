@@ -29,7 +29,7 @@ Make sure the battery is charged, and connect it to the Duckiedrone, since the m
 
 Connect the USB-C cable coming from the flight controller to your base station. You may need to use an extension or an adapter depending on your setup.
 
-Then, on your base station open QGroundControl. After a few seconds it will automatically detect the vehicle, as in the [flight controller initialization](qgroundcontrol-connection) procedure. Wait until the top toolbar shows the vehicle as connected before proceeding.
+Then, on your base station open QGroundControl. After a few seconds it will automatically detect the vehicle, as described in the [flight-controller connection procedure](dd24-b-fc-config-connect). Wait until the top toolbar shows the vehicle as connected before proceeding.
 
 ## 2. Motor Order
 

@@ -9,7 +9,7 @@
 Before you can fly your Duckiedrone, you need an up-to-date software stack running on the Duckiedrone and a browser on your base station that can reach the Duckietown Dashboard.
 
 ```{needget}
-*   A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-fc-init)
+*   A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-b-fc-config)
 *   A base station on the same network as the Duckiedrone (see [](first_connection))
 *   The Duckietown Shell (`dts`) installed on the base station
 ---
@@ -55,7 +55,7 @@ See [](duckiedrone-containers) for the complete list of automatic containers.
 
 On the base station, open a browser and navigate to
 
-```
+```text
 http://ROBOT_NAME.local/
 ```
 

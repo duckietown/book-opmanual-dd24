@@ -7,7 +7,6 @@
 * A base station computer
 * An initialized Flight Controller running PX4
 * ESCs already flashed with Bluejay
-* A charged Duckiedrone battery
 * A USB to USB-C cable with data
 ---
 * A Flight Controller with the Duckiedrone parameters loaded
@@ -16,7 +15,7 @@
 (dd24-b-fc-config)=
 # Configuring the Flight Controller
 
-In the previous step we have prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`).
+In the previous step, we prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`).
 
 By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a Duckietown preset parameters file.
 
