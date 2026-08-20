@@ -9,7 +9,7 @@
 Before you can fly your Duckiedrone, you need an up-to-date software stack running on the Duckiedrone and a browser on your base station that can reach the Duckietown Dashboard.
 
 ```{needget}
-*   A fully assembled `DD24` with a [configured Flight Controller](dd24-fc-init)
+*   A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-fc-init)
 *   A base station on the same network as the Duckiedrone (see [](first_connection))
 *   The Duckietown Shell (`dts`) installed on the base station
 ---
@@ -17,7 +17,7 @@ Before you can fly your Duckiedrone, you need an up-to-date software stack runni
 ```
 
 ```{attention}
-This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You no longer need to `ssh` into the Duckiedrone or start any scripts by hand.
+This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You do not need to SSH into the Duckiedrone to start scripts manually.
 ```
 
 ## 1. Update the Duckietown Shell
@@ -43,11 +43,14 @@ dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image, the hostname is `amelia`.
 ```
 
-Wait for the command to terminate before continuing. When it finishes, the Duckiedrone is running:
+Wait for the command to terminate before continuing. When it finishes, the Duckiedrone's automatic stacks include:
 
 *   `dashboard` — the web UI you will use to fly
+*   `driver-tof-bottom` and `ros2-tof-bottom` — the altitude sensor and its ROS 2 bridge
 *   `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
-*   `mavlink-proxy`, `driver-tof`, `state-estimator`, `pid-controller`, `visual-odometry` — the flight stack
+*   `zenoh-router` and `ros2-rosbridge-websocket` — ROS 2 messaging and Dashboard connectivity
+
+See [](duckiedrone-containers) for the complete list of automatic containers.
 
 ## 3. Open the Duckietown Dashboard
 

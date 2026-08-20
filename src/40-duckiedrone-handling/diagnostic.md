@@ -9,9 +9,6 @@
 ```{trouble}
 The red power light on the Raspberry Pi is blinking or does not turn on.
 
-*   is blinking
-*   does not turn on
-
 ---
 
 The Raspberry Pi is not receiving enough power. 
@@ -37,7 +34,7 @@ The `ente` stack runs the flight code inside Duckietown containers. From the bas
 
     dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 
-You can inspect what is running on the Duckiedrone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller`, and `visual-odometry` are all healthy.
+You can inspect what is running on the Duckiedrone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `driver-tof-bottom`, `ros2-tof-bottom`, `zenoh-router`, `ros2-mavros`, and `ros2-rosbridge-websocket` are all healthy. See [](duckiedrone-containers) for the complete list of automatic containers.
 ```
 
 ```{trouble}
@@ -50,7 +47,7 @@ A red heartbeat means the corresponding ROS node has stopped publishing. The wid
 *   `STATE` — the state estimator.
 *   `PID` — the PID controller.
 
-Find the container for the red node in Portainer and restart it, or rerun `dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME` from the base station.
+Restart the Duckiedrone containers from Portainer, or rerun `dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME` from the base station.
 ```
 
 ```{trouble}
@@ -64,7 +61,7 @@ On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/m
 
 - make sure that the flight controller is lighting up. If it is not, the USB-C port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
 
-- from the Duckiedrone shell, check that the MAVLink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
+- inspect the `ros2-mavros` container logs in Portainer for connection errors.
 ```
 
 ```{trouble}
@@ -89,7 +86,7 @@ The Altitude widget is flat (no reading, or stuck at 0).
 
 ---
 
-The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
+The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof-bottom` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
 ```
 
 ```{trouble}
@@ -97,7 +94,7 @@ The Dashboard shows all widgets but nothing updates.
 
 ---
 
-The Dashboard communicates with ROS via rosbridge. If the page loads but the widgets never populate, rosbridge on the Duckiedrone is not reachable. From the base station, try `curl -I http://ROBOT_NAME.local:9090` — it should return `101 Switching Protocols`. If not, restart the Duckiedrone containers.
+The Dashboard communicates with ROS 2 through `ros2-rosbridge-websocket`. If the page loads but the widgets never populate, make sure that container is healthy in Portainer, then restart the Duckiedrone containers.
 ```
 
 ```{trouble}
@@ -105,7 +102,7 @@ There is a long delay between when you move the Duckiedrone and when the widgets
 
 ---
 
-This is typically network latency. If you are running the Duckiedrone in CL (client) mode on a shared network, take some of the other devices offline or switch to AP mode and fly against the Duckiedrone's own access point.
+This is typically network latency. If you are running the Duckiedrone in CL (client) mode on a shared network, take some of the other devices offline or switch to a less congested Wi-Fi network.
 ```
 
 ```{trouble}

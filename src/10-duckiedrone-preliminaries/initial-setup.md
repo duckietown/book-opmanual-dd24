@@ -37,7 +37,7 @@ Minimum and recommended performance specifications can be found on the [Duckieto
 The Duckiedrone ente version has been tested on:
 
 * (recommended) Native (or dual boot) Ubuntu 24.xx, or
-* macOS (Mx series)
+* macOS (Apple Silicon)
 
 Most functionalities are expected to work with [Duckietown Workspaces](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) on any operating system. 
 
@@ -60,7 +60,7 @@ At this stage, complete the [Duckietown general initial setup](https://docs.duck
 * [Installing the Duckiematrix simulation environment](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
 
 ```{todo}
-TODO: update link above after mergin into the Duckietown manual.
+TODO: update link above after merging into the Duckietown manual.
 ```
 
 ### Duckiematrix and virtual Duckiedrones
