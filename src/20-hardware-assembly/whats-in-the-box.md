@@ -74,10 +74,10 @@ What's inside the box (selected components).
 | 4 | Landing Gear - 3D printed v1.1 |
 | 8 | Rubber Pads |
 | 18 | Metal screws (M3x14) - Steel, Phillips head |
-| 13 | Nylon screws (M2.5x8) - For Pi Hat, ToF sensors |
+| 13 | Nylon screws (M2.5x8) - For Duckiedrone HUT and ToF sensors |
 | 3 | Nylon Standoff (M2.5x40+6 MF) - Battery Plate to Pi |
 | 5 | Nylon Standoff (M2.5x20+6 MF) - Raspberry Pi mounting |
-| 5 | Nylon Standoff (M2.5x15+6 FF) - Pi to Pi Hat |
+| 5 | Nylon Standoff (M2.5x15+6 FF) - Raspberry Pi to Duckiedrone HUT |
 | 6 | Nylon Nuts (M2.5) - ToF sensors |
 | 4 | Nylon screws (M3x10) - Camera mount |
 | 7 | Nylon screws (M2x10) - Camera, Buzzer |

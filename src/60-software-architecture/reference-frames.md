@@ -1,18 +1,18 @@
 ```{seo}
-:description: Understand the different reference frames used by ROS 2 and PX4/Betaflight in the Duckiedrone DD24-B system, including REP 105 and REP 103 conventions.
-:keywords: Duckiedrone reference frames, ROS 2 REP 105, REP 103, PX4 and Betaflight reference frames, DD24 coordinate systems, robotics frames
+:description: Understand the reference frames used by ROS 2 and PX4 in the Duckiedrone DD24-B system, including REP 105 and REP 103 conventions and a comparison with legacy Betaflight.
+:keywords: Duckiedrone reference frames, ROS 2 REP 105, REP 103, PX4 reference frames, legacy Betaflight reference frames, DD24 coordinate systems, robotics frames
 ```
 
 (dd24-reference-frames)=
 # Reference frames
 
-Different reference frames are used by ROS 2 and PX4/Betaflight, the software running on the Raspberry Pi and flight controller, respectively.
+The Duckiedrone DD24-B uses ROS 2 on the Raspberry Pi and PX4 on the flight controller, which use different reference-frame conventions. The diagrams below also compare the legacy Betaflight convention.
 
-## PX4 and Betaflight
+## PX4 and the legacy Betaflight convention
 
-The reference frame used by the PX4 and Betaflight firmware is as follows[^px4-docs]:
+PX4 uses the following reference frame. The diagram includes the legacy Betaflight convention for comparison[^px4-docs]:
 
-![PX4 and Betaflight Reference Frame](../_images/software-architecture/px4-betaflight-ref-frame.png)
+![PX4 and legacy Betaflight reference frames](../_images/software-architecture/px4-betaflight-ref-frame.png)
 
 ## ROS 2
 
@@ -24,6 +24,6 @@ ROS 2 uses the reference frame conventions defined in [REP 105](https://www.ros.
 
 In the image below, you can see a comparison between the two reference frame conventions.[^px4-docs]
 
-![Comparison between the reference frames used in ROS 2 and PX4/Betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
+![Comparison between the reference frames used in ROS 2, PX4, and legacy Betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
 
-[^px4-docs]: [Source px4-docs](https://docs.px4.io)
+[^px4-docs]: [PX4 documentation source](https://docs.px4.io)
