@@ -71,9 +71,9 @@ Navigate to `/config/wifi/00-user.yaml` and add new network credentials followin
 You will see:
 
     network:
-        version: 2
-        wifis:
-            wlan0:
+      version: 2
+      wifis:
+        wlan0:
           dhcp4: true
           optional: true
           access-points:
@@ -83,7 +83,7 @@ You will see:
 
 Replace `my-ssid` and `my-password` with the credentials of a new network. To add multiple networks, follow this structure: 
 
-```shell
+```yaml
 network:
   version: 2
   wifis:
@@ -147,9 +147,9 @@ Navigate to `/etc/netplan/00-user.yaml` and add new network credentials followin
 You will see:
 
     network:
-        version: 2
-        wifis:
-            wlan0:
+      version: 2
+      wifis:
+        wlan0:
           dhcp4: true
           optional: true
           access-points:
@@ -159,7 +159,7 @@ You will see:
 
 Replace `my-ssid` and `my-password` with the credentials of a new network. To add multiple networks, follow this structure: 
 
-```shell
+```yaml
 network:
   version: 2
   wifis:
@@ -206,7 +206,7 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
 
  - Unprotected (Open) Wi-Fi network:
 
-```shell
+```yaml
    ...
       access-points:
         "<ssid>": {{}}
@@ -215,7 +215,7 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
 
  - WPA/WPA2 Wi-Fi network with PSK authentication:
 
-```shell
+```yaml
    ...
       access-points:
         "<ssid>":
@@ -226,7 +226,7 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
 
  - WPA/WPA2 Wi-Fi network with username/password authentication:
 
-```shell
+```yaml
    ...
       access-points:
         "<ssid>":
@@ -240,7 +240,7 @@ If you add Wi-Fi networks manually, follow the example below relative to the net
 
 - WPA3 (SAE) & Enterprise (EAP-TLS) Authentication
 
-```shell
+```yaml
 network:
   version: 2
   renderer: NetworkManager
@@ -261,7 +261,7 @@ network:
 
 - Advanced Client options (Static IP, Frequency settings)
 
-```shell
+```yaml
 network:
   version: 2
   renderer: NetworkManager
