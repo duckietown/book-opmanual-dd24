@@ -10,7 +10,7 @@ This section elaborates on all the `DTPS` and ROS nodes that run on the Duckiedr
 
 ```{figure} ../_images/software-architecture/software-architecture.drawio.png
 :width: 100%
-:alt: Duckiedrone (DD24) software architecture diagram. 
+:alt: Duckiedrone (DD24) software architecture diagram.
 
 Nodes composing the Duckiedrone autonomous flight stack
 ```
@@ -25,7 +25,7 @@ The camera driver interfaces with the camera present on the Duckiedrone, publish
 ### Flight Controller driver
 The Flight Controller driver controls what mode the Duckiedrone should be in based on the user input and safety checks. For example, if any of the heartbeats stop publishing, the Flight Controller driver disarms the Duckiedrone. If the mode is "ARMED" or "DISARMED", the Flight Controller driver sends static command values, but if the mode is "FLYING", then the driver sends `fly_commands` to the flight controller board.
 
-The Flight Controller driver interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the Duckiedrone. 
+The Flight Controller driver interfaces with the flight controller board to extract the IMU and battery data, and to publish the roll, pitch, yaw, and throttle commands, which are used to control the attitude of the Duckiedrone.
 
 ### ToF driver
 The ToF driver interfaces with the ToF sensors, publishing their range measurements.
@@ -79,10 +79,8 @@ The different state estimators available are:
 
 The state typically consists of the `x`, `y`, `z` positions and velocities, and the yaw of the Duckiedrone.
 
-
 ### Optical Flow
 The Optical Flow node computes the optical flow motion vectors, sends them to the ground projector to be scaled based on the height, and publishes the linear velocity calculated from the projected vectors.
-
 
 ### Rigid Transform
 

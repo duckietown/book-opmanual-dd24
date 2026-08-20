@@ -61,8 +61,7 @@ For proper propeller installation:
 :width: 200
 :align: center
 
-RED: **Clockwise** motors   
+RED: **Clockwise** motors
 BLACK: **Counterclockwise** motors
 ```
-
 

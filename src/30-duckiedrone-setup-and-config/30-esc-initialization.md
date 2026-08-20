@@ -52,7 +52,7 @@ You put the board into bootloader mode with the small `BOOT` button on the Fligh
 ```
 
  ```{todo}
-Clarify the connection and initial conditions. Should the RPI be on or off? Can I use the same cable that connects the RPI to the FC, unplugging it temporarily from the Pi, or do I need another cable? 
+Clarify the connection and initial conditions. Should the RPI be on or off? Can I use the same cable that connects the RPI to the FC, unplugging it temporarily from the Pi, or do I need another cable?
    ```
 
 With the board still disconnected, press and hold the `BOOT` button while you connect the USB-C cable to your base station, and then release the button. The board is now waiting in bootloader mode.
@@ -169,7 +169,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    :name: 02-esc-configurator-reading-escs
    :alt: Duckiedrone ESC default factory configuration as read by Bluejay
 
-   The Duckiedrone DD24-B ESCs ship with BLHeli S on JH15 layout. 
+   The Duckiedrone DD24-B ESCs ship with BLHeli S on JH15 layout.
    ```
 
 1. In the firmware selection, set:
@@ -191,7 +191,6 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    Do not disconnect the battery or the USB cable while an ESC is being flashed.
    ```
 
-
 1. When the flashing completes, click `Read Setup` once more and check that all four ESCs now report `Bluejay 0.21.0`.
 
    ```{figure} ../_images/esc-init/04-esc-configurator-after-flashing.jpg
@@ -199,9 +198,8 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    :name: 04-esc-configurator-after-flashing
    :alt: Confirming Bluejay on the Duckiedrone DD24-B ESCs
 
-   Validate that the correct firmware has been successfully flashed. 
+   Validate that the correct firmware has been successfully flashed.
    ```
-
 
 ## (optional) 4. Disable the beacon
 

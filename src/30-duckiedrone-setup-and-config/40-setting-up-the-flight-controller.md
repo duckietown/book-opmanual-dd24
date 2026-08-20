@@ -16,9 +16,9 @@
 
 The Flight Controller (FC) implements several safety-critical low-level behaviors, e.g., attitude stabilization. Correctly configuring the FC is paramount for achieving safe flight.
 
-The `DD24-B` runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target. 
+The `DD24-B` runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target.
 
-PX4 is a popular, open-source flight control software ultimately directed by the [Linux Foundation](https://www.linuxfoundation.org/). 
+PX4 is a popular, open-source flight control software ultimately directed by the [Linux Foundation](https://www.linuxfoundation.org/).
 
 (dd24-fc-setup-steps)=
 ## Flight controller setup steps

@@ -16,7 +16,7 @@
 (dd24-b-fc-config)=
 # Configuring the Flight Controller
 
-In the previous step we have prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`). 
+In the previous step we have prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`).
 
 By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a Duckietown preset parameters file.
 
@@ -25,7 +25,7 @@ Before you begin, **remove the propellers** and **disconnect the battery from th
 ```
 
 (qgroundcontrol-connection)=
-## Installing QGroundControl 
+## Installing QGroundControl
 
    - Go to the [QGroundControl website](http://qgroundcontrol.com/) and download the installer for your operating system (Windows, macOS, or Linux).
    - Follow the installation instructions for your OS:
@@ -49,9 +49,7 @@ Connect to your Duckiedrone over USB:
 
    - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
 
-
 ## Load the Preconfigured Parameter Set
-
 
 1. Open the **Parameters** tab and load the `.params` file:
 
@@ -87,15 +85,11 @@ Connect to your Duckiedrone over USB:
    QGroundControl summary page after uploading FC parameters, before performing calibrations.
    ```
 
-
 ````{admonition} Enabling vision fusion later
 :class: dropdown
 
 The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
 ````
-
-
-
 
 ````{admonition} Why the Radio page stays red
 :class: dropdown
@@ -115,7 +109,6 @@ Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo ca
 
 (dd24-b-fc-config-faq)=
 ## Troubleshooting
-
 
 ```{trouble}
 I am having issues following the instructions!

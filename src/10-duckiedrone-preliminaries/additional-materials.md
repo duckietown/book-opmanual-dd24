@@ -17,7 +17,6 @@
 
 This section details the materials needed to build and fly your Duckiedrone that are not included in the kit.
 
-
 ## Essential Tools and Accessories
 
 The Duckiedrone is designed to require soldering, in the spirit of "when you break it, you will know how to fix it". Here is a list of soldering-related items.
@@ -31,7 +30,7 @@ The Duckiedrone is designed to require soldering, in the spirit of "when you bre
 Soldering iron with base, sponge and solder
 ```
 
-- Soldering iron: capable of reaching a temperature of at least 450-480 degrees Celsius 
+- Soldering iron: capable of reaching a temperature of at least 450-480 degrees Celsius
 - Solder: use only lead-free solder
 - Brass wool or sponge to clean soldering iron
 
@@ -60,4 +59,4 @@ Example of wire stripper
 
 - Multimeter: to verify the build (no shorts during soldering, appropriate voltage where needed)
 - Joypad: not necessary, but nice to have to manually control the Duckiedrone
-- A long (~1m) USB-C to base-station cable **with data**, or, a female USB-A to base station extension cable **with data**: to simplify connecting the flight controller to your computer, for initial configuration. 
+- A long (~1m) USB-C to base-station cable **with data**, or, a female USB-A to base station extension cable **with data**: to simplify connecting the flight controller to your computer, for initial configuration.

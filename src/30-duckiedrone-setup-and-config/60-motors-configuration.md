@@ -22,12 +22,12 @@ Keep the propellers off the entire time while following instructions on this pag
 ```
 
 ```{attention}
-Make sure the battery is charged, and connect it to the Duckiedrone, since the motors need power to spin. 
+Make sure the battery is charged, and connect it to the Duckiedrone, since the motors need power to spin.
 ```
 
 ## 1. Connect the Flight Controller to the base station
 
-Connect the USB-C cable coming from the flight controller to your base station. You may need to use an extension or an adapter depending on your setup. 
+Connect the USB-C cable coming from the flight controller to your base station. You may need to use an extension or an adapter depending on your setup.
 
 Then, on your base station open QGroundControl. After a few seconds it will automatically detect the vehicle, as in the [flight controller initialization](qgroundcontrol-connection) procedure. Wait until the top toolbar shows the vehicle as connected before proceeding.
 
@@ -67,7 +67,7 @@ Motor configuration on the Duckiedrone.
 :alt: QGroundControl motor identification and assignment automatic procedure instructions popup
 :name: dd24-qGC-motor-auto-id
 
-Motors automatic identification procedure. 
+Motors automatic identification procedure.
 ```
 
 Sometimes the identification popup does not appear. If that happens you can do the same thing by hand. Turn on the switch that enables the motor sliders on the **Actuators** page, then move one slider by a small amount and watch which motor on the frame spins. Note the corner that moved and set that slider to the matching motor number in the interface. Repeat for all four motors until every number lines up with the real position on the frame.
@@ -102,7 +102,7 @@ To flip a motor spinning direction, alternatively, send a command to its ESC ove
 :alt: QGroundControl MAVLink Console
 :name: qGC-mavlink-console
 
-QGroundControl MAVLink Console 
+QGroundControl MAVLink Console
 ```
 
 In the shell, reverse a motor by its number. For example, to reverse Motor 3 you run:

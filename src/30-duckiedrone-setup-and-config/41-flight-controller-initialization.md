@@ -69,11 +69,10 @@ macOS does not need udev rules — `dfu-util` accesses USB devices directly via 
 ::::
 :::::
 
-
 ### Checkpoint ✅
 
 ```{testexpect}
-Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with: 
+Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with:
 
 ```shell
 dfu-util --version
@@ -92,7 +91,7 @@ Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 
 - Remove power from your Duckiedrone if it is powered on.
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
-- Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed. 
+- Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
 :alt: Mamba flight controller BOOT button location
@@ -173,7 +172,6 @@ dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bi
 * `-d 0483:df11`: matches the STM32 ROM DFU device.
 * `-D omnibusf4sd_bl.bin`: the file to flash.
 ````
-
 
 ````{admonition} Successful bootloader flashing output (macOS)
 :class: dropdown
@@ -310,8 +308,8 @@ Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the Duckiedrone DD24-B — this is t
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ````
 
-* **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, 
-* confirm it shows up again in `dfu-util -l`, then 
+* **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**,
+* confirm it shows up again in `dfu-util -l`, then
 * flash the firmware to the application offset `0x08008000`:
 
    ```bash

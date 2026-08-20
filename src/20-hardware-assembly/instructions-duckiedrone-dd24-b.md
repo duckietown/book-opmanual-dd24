@@ -28,7 +28,6 @@ Remove this warning when ready to go.
 <iframe src="/assets/webgl/assembly/DD24/?map_location=resources://&map_name=assembly_DD24&start_step=0&stop_step=-1&frame_rate=30&show_tutorial=True" frameborder="0" allowfullscreen>
 </iframe>
 
-
 <style>
 main#main-content {
     max-width: 100%;

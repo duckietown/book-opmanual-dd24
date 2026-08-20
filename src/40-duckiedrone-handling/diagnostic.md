@@ -11,7 +11,7 @@ The red power light on the Raspberry Pi is blinking or does not turn on.
 
 ---
 
-The Raspberry Pi is not receiving enough power. 
+The Raspberry Pi is not receiving enough power.
 
 - Check that the voltage coming out of the UBEC is a constant 5V
 

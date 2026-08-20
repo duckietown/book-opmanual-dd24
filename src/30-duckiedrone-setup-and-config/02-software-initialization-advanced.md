@@ -9,7 +9,7 @@ Change https link to local reference after merging this book in the duckietown m
 
 ```{needget}
 
-* A computer (the “base station”) with an internet connection 
+* A computer (the “base station”) with an internet connection
 * A working Duckietown Shell (`dts`) installation: [Install the Duckietown Shell](https://docs.duckietown.com/ente/duckietown-manual/10-setup/02-software/duckietown-shell-dts-installation.html)
 * A microSD card (64 GB, U3, Class 10 recommended), e.g., the one from your Duckiedrone box
 * A microSD card reader, e.g., the one from your Duckiedrone box
@@ -25,8 +25,6 @@ Change https link to local reference after merging this book in the duckietown m
 ```{vimeo} 1207703689
 :alt: microSD card flashing procedure for a DD24 using `dts init_sd_card`
 ```
-
-
 
 ## Connect the microSD card to the base station
 
@@ -57,9 +55,9 @@ Where:
 *   `--hostname` — the robot name. Follow the naming rules in the box below.
 *   `--type duckiedrone --configuration DD24` — picks the DD24 base image.
 *   `--country` — two-letter country code where the Duckiedrone will fly. A full list of codes can be found, e.g., on Wikipedia: [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-*   `--wifi` — one or more networks in the form `ssid:psw`. Separate multiple networks with commas. 
+*   `--wifi` — one or more networks in the form `ssid:psw`. Separate multiple networks with commas.
 
-Additional options are detailed on the [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/10-setup/03-duckiebot/flashing-sd-card-duckiebot-initialization-complete.html). 
+Additional options are detailed on the [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/10-setup/03-duckiebot/flashing-sd-card-duckiebot-initialization-complete.html).
 
 ```{todo}
 Update link above when merging in the Duckietown manual
@@ -85,7 +83,7 @@ If other Duckiedrones operate in the same environment, make sure your `hostname`
 
 ## Flashing the image
 
-After downloading the base image, `dts init_sd_card` will prompt you to select the target drive to flash the image to. 
+After downloading the base image, `dts init_sd_card` will prompt you to select the target drive to flash the image to.
 
 :::::{tab-set}
 ::::{tab-item} Ubuntu, macOS (native dts installation)

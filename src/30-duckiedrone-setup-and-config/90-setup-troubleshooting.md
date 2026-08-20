@@ -26,7 +26,7 @@ of the GPIO pins [here](https://www.raspberrypi.org/documentation/usage/gpio/).
 Verify that each power pin is receiving 5 volts compared to each ground pin with the multimeter.
 
 Make sure you did not use metal screws to mount the camera to the frame, as they can cause a short.
- 
+
 If your Raspberry Pi is receiving 5 volts on its power/ground pins, but no red
 light turns on, then it might have been fried. This can happen if
 you miswire or short the power/ground pins on it, so try replacing
@@ -60,7 +60,9 @@ If none of this works, connect a keyboard and monitor to the Raspberry Pi during
 
 There may be an error message being printed on the screen that will give more information.
 ```
+
 ## Camera
+
 For current camera diagnostics, including camera-cable checks and Dashboard symptoms, see [](dd24-troubleshooting-faq). The DD24-B uses the `driver-camera` and `ros2-camera` containers rather than GNU Screen and `raspistill`.
 
 ## Flight Controller

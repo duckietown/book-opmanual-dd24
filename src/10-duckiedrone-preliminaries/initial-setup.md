@@ -4,7 +4,6 @@
 :keywords: Duckiedrone, getting started
 ```
 
-
 ```{needget}
 - A computer (laptop, or desktop) with broadband internet connection
 ---
@@ -26,9 +25,9 @@ The Duckiedrone is part of the Duckietown ecosystem. The first steps require set
 
 ## Base Station Computer
 
-To fly the Duckiedrone, you must have a laptop or personal computer (referred to as "base station") that is capable of connecting to the internet. 
+To fly the Duckiedrone, you must have a laptop or personal computer (referred to as "base station") that is capable of connecting to the internet.
 
-A relatively modern commercial laptop computer will suffice for most (non-developer grade) activities, such as building, configuring, and operating the Duckiedrone, both the physical and virtual versions. 
+A relatively modern commercial laptop computer will suffice for most (non-developer grade) activities, such as building, configuring, and operating the Duckiedrone, both the physical and virtual versions.
 
 Minimum and recommended performance specifications can be found on the [Duckietown Manual - Computer and Internet Requirements for Using Duckietown](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/computer-setup.html#computer-and-internet-requirements-for-using-duckietown).
 
@@ -39,7 +38,7 @@ The Duckiedrone ente version has been tested on:
 * (recommended) Native (or dual boot) Ubuntu 24.xx, or
 * macOS (Apple Silicon)
 
-Most functionalities are expected to work with [Duckietown Workspaces](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) on any operating system. 
+Most functionalities are expected to work with [Duckietown Workspaces](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) on any operating system.
 
 Follow the instructions on the [Duckietown Manual - Computer Setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/computer-setup.html#computer-setup) to set up your base station.
 
@@ -49,7 +48,7 @@ TODO: update link above after merging into the Duckietown manual.
 (d24-required-sw-and-accounts)=
 ### Required Software and Accounts
 
-A few programs will be introduced throughout these instructions, when needed. 
+A few programs will be introduced throughout these instructions, when needed.
 
 At this stage, complete the [Duckietown general initial setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/setup-introduction.html) which will guide you through:
 
@@ -65,7 +64,7 @@ TODO: update link above after merging into the Duckietown manual.
 
 ### Duckiematrix and Virtual Duckiedrones
 
-The Duckiematrix is Duckietown's virtual environment, a powerful simulator supporting virtual Duckietown robots. 
+The Duckiematrix is Duckietown's virtual environment, a powerful simulator supporting virtual Duckietown robots.
 
 * [Learn about the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/introduction-to-the-duckiematrix-virtual-environment.html)
 * [Install the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)

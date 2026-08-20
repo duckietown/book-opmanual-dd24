@@ -1,5 +1,5 @@
 (dd24-intro-to-lxs)=
-# Introduction to Learning Experiences 
+# Introduction to Learning Experiences
 
 This section lists all Duckietown learning experiences (`LXs`):
 
