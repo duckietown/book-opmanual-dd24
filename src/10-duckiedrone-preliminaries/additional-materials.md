@@ -1,6 +1,6 @@
 
 ```{seo}
-:description: Learn about additional materials required for building and flying the DD24 Duckiedrone, including base station requirements and essential tools.
+:description: Learn about additional materials required for building and flying the Duckiedrone DD24-B, including base station requirements and essential tools.
 :keywords: Duckiedrone, required materials, soldering tools, base station, Duckietown drone build, autonomous quadcopter tools
 ```
 

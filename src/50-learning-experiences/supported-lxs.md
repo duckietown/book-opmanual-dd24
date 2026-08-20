@@ -1,5 +1,5 @@
 ```{seo}
-:description: Explore supported Duckiedrone (DD24) learning experiences, including Linux, networking, ROS, sensor integration (IMU, Time of Flight, camera), and altitude PID tuning.
+:description: Explore supported Duckiedrone DD24-B learning experiences, including Linux, networking, ROS, sensor integration (IMU, Time of Flight, camera), and altitude PID tuning.
 :keywords: Duckiedrone learning, DD24 Linux, ROS introduction, IMU sensors, Time of Flight sensor, camera integration, altitude PID tuning
 ```
 

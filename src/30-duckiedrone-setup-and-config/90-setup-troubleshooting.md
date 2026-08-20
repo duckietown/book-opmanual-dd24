@@ -1,5 +1,5 @@
 ```{seo}
-:description: Troubleshoot common Duckiedrone (DD24) build issues, including power, Raspberry Pi, camera, flight controller, and flight stability problems.
+:description: Troubleshoot common Duckiedrone DD24-B build issues, including power, Raspberry Pi, camera, flight controller, and flight stability problems.
 :keywords: Duckiedrone troubleshooting, DD24 power issues, Raspberry Pi boot failure, flight controller debugging, camera not working, drone flight stability, motor issues
 ```
 

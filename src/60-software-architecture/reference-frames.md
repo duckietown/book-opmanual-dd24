@@ -1,5 +1,5 @@
 ```{seo}
-:description: Understand the different reference frames used by ROS and Betaflight in the Duckiedrone (DD24) system, including REP 105 and REP 103 conventions.
+:description: Understand the different reference frames used by ROS and Betaflight in the Duckiedrone DD24-B system, including REP 105 and REP 103 conventions.
 :keywords: Duckiedrone reference frames, ROS REP 105, REP 103, Betaflight reference frame, DD24 coordinate systems, robotics frames, PX4 documentation
 ```
 

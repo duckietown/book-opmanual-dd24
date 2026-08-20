@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn about the ROS architecture in the Duckiedrone (DD24), including ROS topics, nodes, messages, publishers, and subscribers.
+:description: Learn about the ROS architecture in the Duckiedrone DD24-B, including ROS topics, nodes, messages, publishers, and subscribers.
 :keywords: Duckiedrone ROS, ROS topics, ROS nodes, ROS messages, ROS publishers, ROS subscribers, DD24 software, robot operating system
 ```
 

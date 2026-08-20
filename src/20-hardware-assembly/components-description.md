@@ -1,5 +1,5 @@
 ```{seo}
-:description: Description of components inside the Duckiedrone DD24 box.
+:description: Description of components inside the Duckiedrone DD24-B box.
 :keywords: duckietown, duckiedrone, dd24, box, components, what is in the box, drone, DIY drone, autonomous drone, fpv drone, quadcopter
 ```
 
@@ -137,7 +137,7 @@ If you try to unscrew the top nuts, you will notice how they have opposite threa
 Brushless DC Motors (Clockwise - CW) 
 ```
 
-The Duckiedrone (`DD24`) mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, and M3 mounting holes, and weigh roughly 28g each. 
+The Duckiedrone DD24-B mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, and M3 mounting holes, and weigh roughly 28g each.
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut. 
 
@@ -447,7 +447,7 @@ The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measure
 Duckiedrone cables
 ```
 
-The Duckiedrone (`DD24`) box includes:
+The Duckiedrone DD24-B box includes:
 
 - 1x USB-A to USB-C cable (with data) - 23cm + length of connectors, angled: FC to Raspberry Pi connection 
 - 1x USB-C power cable (power only) - 8cm wires + 1cm exposed wire + 2cm connector, exposed wires: FC to Raspberry Pi connection

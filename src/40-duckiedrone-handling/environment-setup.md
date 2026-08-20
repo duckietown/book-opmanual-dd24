@@ -1,5 +1,5 @@
 ```{seo}
-:description: Set up your Duckiedrone (DD24) software stack so the Duckietown Dashboard is reachable and ready for flight.
+:description: Set up your Duckiedrone DD24-B software stack so the Duckietown Dashboard is reachable and ready for flight.
 :keywords: Duckiedrone, DD24, Duckietown Dashboard, software setup, mavros, PX4, rosbridge, ente
 ```
 

@@ -1,5 +1,5 @@
 ```{seo}
-:description: Flash the Duckiedrone (DD24) ente image onto a Raspberry Pi 4 or Raspberry Pi 5 using dts init_sd_card.
+:description: Flash the Duckiedrone DD24-B ente image onto a Raspberry Pi 4 or Raspberry Pi 5 using dts init_sd_card.
 :keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5
 ```
 

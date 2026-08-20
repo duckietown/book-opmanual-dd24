@@ -1,5 +1,5 @@
 ```{seo}
-:description: Troubleshooting common issues with the Duckiedrone DD24, including power issues, connectivity problems, motor behavior, and software errors.
+:description: Troubleshooting common issues with the Duckiedrone DD24-B, including power issues, connectivity problems, motor behavior, and software errors.
 :keywords: Duckiedrone, troubleshooting, Raspberry Pi, flight controller, motors, software issues, connectivity, dd24 faq
 ```
 

@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn how to calibrate the PX4 IMU and camera on the Duckiedrone (DD24) for stable flight using the Dashboard, ROS 2 services, or direct MAVLink.
+:description: Learn how to calibrate the PX4 IMU and camera on the Duckiedrone DD24-B for stable flight using the Dashboard, ROS 2 services, or direct MAVLink.
 :keywords: Duckiedrone accelerometer calibration, Duckiedrone camera calibration, PX4 calibration, IMU calibration, flight controller calibration, DD24 setup
 ```
 

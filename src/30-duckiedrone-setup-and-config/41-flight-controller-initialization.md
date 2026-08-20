@@ -1,5 +1,5 @@
 ```{seo}
-:description: Instructions to initialize the flight controller on the Duckietown Duckiedrone model DD24 by flashing the PX4 bootloader and firmware.
+:description: Instructions to initialize the flight controller on the Duckietown Duckiedrone DD24-B by flashing the PX4 bootloader and firmware.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 

@@ -1,5 +1,5 @@
 ```{seo}
-:description: Flash the Bluejay firmware onto the four ESCs of the Duckietown Duckiedrone model DD24 using the esc-configurator.com web tool.
+:description: Flash the Bluejay firmware onto the four ESCs of the Duckietown Duckiedrone DD24-B using the esc-configurator.com web tool.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, ESC, Bluejay, BLHeli_S, esc-configurator, mamba-f405-mk2
 ```
 

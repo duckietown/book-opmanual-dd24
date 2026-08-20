@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn what is inside the Duckiedrone (DD24) box.
+:description: Learn what is inside the Duckiedrone DD24-B box.
 :keywords: duckietown, duckiedrone, dd24, box, what is in the box, drone, DIY drone, autonomous drone, fpv drone
 ```
 
@@ -10,9 +10,9 @@
 ```
 
 (prelim-dd24-box)=
-# What's in the box (`DD24`)
+# What's in the box (`DD24-B`)
 
-What should you expect to find inside a Duckiedrone (`DD24`) box, and what is each component? 
+What should you expect to find inside a Duckiedrone DD24-B box, and what is each component?
 
 First things first: here is how a Duckiedrone box looks like:
 

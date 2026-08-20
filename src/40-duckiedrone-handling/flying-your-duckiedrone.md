@@ -1,5 +1,5 @@
 ```{seo}
-:description: Fly your Duckiedrone (DD24) from the Duckietown Dashboard using the arming widget, the virtual joystick, and the STABILIZED / LOITER / ALTITUDE / OFFBOARD flight-mode selector.
+:description: Fly your Duckiedrone DD24-B from the Duckietown Dashboard using the arming widget, the virtual joystick, and the STABILIZED / LOITER / ALTITUDE / OFFBOARD flight-mode selector.
 :keywords: Duckiedrone, DD24, fly duckiedrone, Duckietown Dashboard, mavros arming, PX4 flight modes, STABILIZED, manual flight, OFFBOARD, ALTCTL, LOITER
 ```
 

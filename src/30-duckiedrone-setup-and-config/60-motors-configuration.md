@@ -1,5 +1,5 @@
 ```{seo}
-:description: Configure the motor order and spinning direction of your Duckietown Duckiedrone (DD24) in QGroundControl, and reverse motors with PX4 dshot.
+:description: Configure the motor order and spinning direction of your Duckietown Duckiedrone DD24-B in QGroundControl, and reverse motors with PX4 dshot.
 :keywords: Duckiedrone, DD24, motor order, motor direction, spin direction, QGroundControl, PX4, dshot, Bluejay, Mamba F405 MK2
 ```
 
