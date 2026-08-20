@@ -30,13 +30,13 @@ Change https link to local reference after merging this book in the duckietown m
 
 ## Connect the SD card to the base station  
 
-Insert the micro SD card into your base station. Use the USB adapter from the Duckiedrone box if your base station does not have a microSD slot.
+Insert the microSD card into your base station. Use the USB adapter from the Duckiedrone box if your base station does not have a microSD slot.
 
 ```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
 :width: 40%
-:alt: Duckietown micro SD card adapter
+:alt: Duckietown microSD card adapter
 :name: duckietown USB to microUSB sd card reader
-Micro SD Card adapter
+microSD card adapter
 ```
 
 ## Create the image
@@ -66,7 +66,7 @@ Update link above when merging in the Duckietown manual
 ```
 
 (dd24-hostname-contraints)=
-### Duckiedrone hostname naming contraints
+### Duckiedrone hostname naming constraints
 ```{attention}
 The `hostname` **must** start with a lower-case letter and may contain **only** lower-case Latin letters and digits. Using special characters will break things and require re-flashing.
 

@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn how to perform the first boot of your Duckiedrone, establish a connection, and perform the firs software update to ensure a smooth startup process.
+:description: Learn how to perform the first boot of your Duckiedrone, establish a connection, and perform the first software update to ensure a smooth startup process.
 :keywords: Duckiedrone first boot, dts duckiebot update, DD24-B setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckiedrone setup
 ```
 
@@ -40,9 +40,9 @@ To get started:
     
 2. **Power**: Prepare a 5V, 2 or 3A wall adapter (preferred), or, if you have already assembled your Duckiedrone, alternatively a fully charged Duckiedrone battery.  
     
-3. **Network**: prepare the network for connecting to the Duckidrone, e.g., by:
-    - having a Wi-Fi on matches the credentials preconfigured on the SD card during the [initialization procedure](dd24-sw-init), or
-    - have the Duckiedrone plugged in via ethernet cable to the router your computer is connected to.
+3. **Network**: Prepare a network connection to the Duckiedrone, for example by:
+    - having a Wi-Fi network that matches the credentials preconfigured on the SD card during the [initialization procedure](dd24-sw-init), or
+    - connecting the Duckiedrone to the router your computer is connected to with an Ethernet cable.
 
 4.  If you have not already, insert the initialized SD card **into the card slot of the Raspberry Pi**.
     

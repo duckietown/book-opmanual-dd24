@@ -155,7 +155,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/01-esc-configurator-battery-plugin.jpg
    :width: 80%
    :name: 01-esc-configurator-battery-plugin
-   :alt: verifying the the battery connection for a duckiedrone with bluejay
+   :alt: Verifying the battery connection for a Duckiedrone with Bluejay
 
    Bluejay will detect the battery when plugged in.
    ```
@@ -167,7 +167,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/02-esc-configurator-reading-escs.jpg
    :width: 80%
    :name: 02-esc-configurator-reading-escs
-   :alt: duckiedrone ESC default factory configuration as read by Bluejay
+   :alt: Duckiedrone ESC default factory configuration as read by Bluejay
 
    The Duckiedrone DD24-B ESCs ship with BLHeli S on JH15 layout. 
    ```
@@ -180,7 +180,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/03-esc-configurator-config-flashing-escs.jpg
    :width: 80%
    :name: 03-esc-configurator-config-flashing-escs
-   :alt: flashing the duckiedrone ESCs with bluejay
+   :alt: Flashing the Duckiedrone ESCs with Bluejay
 
    Upgrading the ESC firmware with specific Bluejay parameters.
    ```
@@ -197,7 +197,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/04-esc-configurator-after-flashing.jpg
    :width: 80%
    :name: 04-esc-configurator-after-flashing
-   :alt: confirming bluejay on the dd24-b escs
+   :alt: Confirming Bluejay on the Duckiedrone DD24-B ESCs
 
    Validate that the correct firmware has been successfully flashed. 
    ```

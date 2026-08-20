@@ -41,8 +41,8 @@ What's inside the box (selected components).
 | Number | Component |
 | :----: | :-------- |
 | 1 | Raspberry Pi 4 - 4GB (or Raspberry Pi 5) |
-| 1 | 64GB MicroSD card - Class 10 U3 |
-| 1 | MicroSD to USB adapter |
+| 1 | 64GB microSD card - Class 10 U3 |
+| 1 | microSD to USB adapter |
 | 1 | RPi Camera (G) - Fisheye lens |
 | 1 | Camera cable - 300mm |
 | 5 | ToF sensor - VL53L1X, Black PCB |

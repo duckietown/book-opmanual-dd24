@@ -31,7 +31,7 @@ The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RA
 The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](sw-initialization).
 
 (component-64gb-microsd-card-class-10-u3)=
-## 64GB MicroSD card - Class 10 U3
+## 64GB microSD card - Class 10 U3
 
 ```{figure} ../_images/components-official-dd24/sd-card-64-class10.jpg
 :name: sd-card-64
@@ -53,7 +53,7 @@ The microSD card is inserted directly in the Raspberry Pi. Do not use the microS
 ```
 
 (component-microsd-to-usb-adapter)=
-## MicroSD to USB adapter
+## microSD to USB adapter
 
 ```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
 :name: sd-card-reader
@@ -78,7 +78,7 @@ Do not plug the microSD card adapter into the Raspberry Pi during flight. The mi
 :name: rpi-camera-and-cable
 :width: 300px
 :align: center
-:alt: RPI camera and fisheye lens
+:alt: Raspberry Pi camera and fisheye lens
 
 Raspberry Pi camera with Fisheye lens, and cable
 ```
@@ -88,18 +88,18 @@ The camera is an important sensor for Duckiedrone autonomous operations, allowin
 This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with a 160-degree field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
-## Time of Flight Sensor
+## Time-of-Flight (ToF) Sensor
 
 ```{figure} ../_images/components-official-dd24/dd24-tof-back-front.png
 :name: tof-sensor-front-back
 :width: 300px
 :align: center
-:alt: Duckietown time of flight sensor v1.4
+:alt: Duckietown Time-of-Flight sensor v1.4
 
-Time of Flight Sensor (back, front)
+Time-of-Flight Sensor (back, front)
 ```
 
-Time of flight (ToF) sensors are distance measurement sensors. The Duckiedrone mounts five, one on each side and one looking down to measure altitude. The principle of operation is the measurement of the return time of light bouncing off obstacles, so we can think of them as 1D lidars.
+Time-of-flight (ToF) sensors are distance measurement sensors. The Duckiedrone mounts five, one on each side and one looking down to measure altitude. The principle of operation is the measurement of the return time of light bouncing off obstacles, so we can think of them as 1D lidars.
 
 The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm and 23cm 4-pin JST 1.5mm cables. 
 
@@ -582,7 +582,7 @@ Other chassis components include:
 :align: center
 :alt: Duckiedrone camera mount
 
-Camera mount with integrated time of flight sensor mounting support 
+Camera mount with integrated Time-of-Flight sensor mounting support
 ```
 
 This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160-degree field of view, it allows the Duckiedrone to see both underneath and in front at the same time. 

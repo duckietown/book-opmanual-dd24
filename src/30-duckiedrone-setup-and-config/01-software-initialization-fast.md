@@ -86,9 +86,9 @@ Download the DD24(-B) system from Google Drive
 
 ## 3. Flash the image to the SD card
 
-Connect the microSD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
+Connect the microSD card to the base station. Use the microSD-to-USB card reader if the base station does not have a microSD slot.
 
-Open Balena Etcher and select the downloaded Duckiedrone image, then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
+Open Balena Etcher and select the downloaded Duckiedrone image, then select the microSD card as the drive to flash. Finally, click the `"Flash"` button.
 
 
 ```{vimeo} 1202216734
@@ -96,7 +96,7 @@ Open Balena Etcher and select the downloaded Duckiedrone image, then select the 
 ```
 
 
-```{warning} **Double check** that the "drive" is your micro SD card.
+```{warning} **Double check** that the "drive" is your microSD card.
 
 You may be prompted to enter the base station password to proceed. This is normal: flashing an SD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
 ```
@@ -116,7 +116,7 @@ If (and only if) you are on an Ubuntu machine, after flashing the SD card it wil
 * `bootfs`: this partition contains important system files. Do not touch. 
 * `rootfs`: same as above, do not touch at this stage. 
 * `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone: 
-    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [contraints on the naming](dd24-hostname-contraints).  
+    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [constraints on the naming](dd24-hostname-contraints).
     - `country.txt`: will contain the country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). default is `US`, change to your country if needed. 
     - `wifi` folder, containing several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi. Networks can be edited at any time after the first boot too. For additional information, refer to: [](dd24-network-config).
 
@@ -135,7 +135,7 @@ Safely eject the `bootfs` partition to safely eject the whole SD card. Remove th
 You are now ready for the [first boot](sec:first-boot). 
 
 ```{note}
-Through this approach, the Duckiedrone will boot searching for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an ethernet cable. Once the first boot is complete, you can add or remove networks by following: [](dd24-network-config).  
+Through this approach, the Duckiedrone will boot searching for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an Ethernet cable. Once the first boot is complete, you can add or remove networks by following: [](dd24-network-config).
 ```
 
 ## Troubleshooting

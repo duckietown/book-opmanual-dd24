@@ -27,7 +27,7 @@ Establishing a connection between the base station and the Duckiedrone is an ess
 
 ### Duckiedrone Wi-Fi
 
-The Duckiedrone will automatically connect upon boot over Wi-Fi to one of these networks, in oder: 
+The Duckiedrone will automatically connect upon boot over Wi-Fi to one of these networks, in order:
 
 1. The network defined during the SD card initialization procedure: [](dd24-sw-init)
 2. The default preset network named `duckietown` with password `quackquack` 
@@ -139,7 +139,7 @@ where `hostname` is the robot name chosen during the [SD card flashing procedure
 If `ping` does not work, nothing else will. 
 
 ```{warning}
-The network must be configured to support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve the `hostname`, and ping to work. This is a prerequisite for any other `dts` command using `hostname` as well. Home networks or phone hotspots typically have `mDNS` active by default. University or corporate network typically do not. In the latter case, ask your network administrators to create a subnet for your class/lab that supports mDNS.  
+The network must be configured to support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve the `hostname`, and ping to work. This is a prerequisite for any other `dts` command using `hostname` as well. Home networks or phone hotspots typically have `mDNS` active by default. University or corporate networks typically do not. In the latter case, ask your network administrators to create a subnet for your class/lab that supports mDNS.
 ```
 
 #### The Dashboard
@@ -164,7 +164,7 @@ If any of these basic interfacing commands are not working, the most likely caus
 - the Duckiedrone's [first boot procedure](sec:first-boot) is not complete yet
 - the network you are trying to use does not have `mDNS` active.
 
-A general alternative networking solution that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone via Ethernet cable to the router, if you have physical access to it.
+A general alternative networking solution that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone via an Ethernet cable to the router, if you have physical access to it.
 
 ```{trouble}
 I cannot ping my Duckiedrone with hostname, but I can with its IP address. 
