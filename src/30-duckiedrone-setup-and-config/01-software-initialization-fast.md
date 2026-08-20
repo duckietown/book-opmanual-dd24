@@ -67,7 +67,7 @@ Download and install the version appropriate for your operating system from [Bal
 By downloading this image you are accepting the [Duckietown Software License](https://duckietown.com/sw-license/), [Terms and Conditions](https://duckietown.com/terms-and-conditions/) and [Privacy Policy](https://duckietown.com/privacy/), as well as robot configuration-specific licenses due to the presence of third party software in the SD card. 
 ```
 
-Download the latest drone ente image to your base station:
+Download the latest Duckiedrone ente image to your base station:
 
 ```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/duckietown-duckiedrone-dd24-b-ente-amelia-image-v2.zip
 :color: primary
@@ -88,7 +88,7 @@ Download the DD24(-B) system from Google Drive
 
 Connect the microSD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
 
-Open Balena Etcher and select the downloaded drone image, then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
+Open Balena Etcher and select the downloaded Duckiedrone image, then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
 
 
 ```{vimeo} 1202216734
@@ -165,7 +165,7 @@ then rerun the `dts init_sd_card` command.
 
 
 ```{trouble}
-The drone does not join my Wi-Fi after the first boot.
+The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
 
 *   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.

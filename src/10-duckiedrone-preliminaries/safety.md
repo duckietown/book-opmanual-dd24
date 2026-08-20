@@ -3,7 +3,7 @@
 :keywords: Duckiedrone safety, soldering safety, LiPo battery handling, drone flying tips, Duckietown, drone assembly guide, drone safety measures, RC devices, dd24, dd-24, Duckiedrone, autonomous quadcopter, drone, autonomous drone
 ```
 
-(prelim-drone-safety)=
+(prelim-duckiedrone-safety)=
 # Safety
 ```{admonition} Read carefully
 :class: danger
@@ -37,7 +37,7 @@ Lithium Polymer (LiPo) batteries are commonly used in RC devices, including Duck
 - Avoid overcharging the battery.
 - Always have a fire extinguisher nearby. If no fire extinguisher is available, water can be used to douse the battery and surrounding area.
 - Inspect the battery regularly for damage, such as punctures or puffiness. Dispose of damaged batteries properly by following [this guide](https://modelaviation.com/lipo4).
-- Install the battery in the drone before securing the second level of the frame.
+- Install the battery in the Duckiedrone before securing the second level of the frame.
 ```
 
 ## Flying
@@ -45,9 +45,9 @@ Lithium Polymer (LiPo) batteries are commonly used in RC devices, including Duck
 The main hazards during flight include the spinning propellers, which can cause injuries or damage upon contact. Broken propellers can also become projectiles if they hit an object. Additionally, if propellers are improperly installed, they may fly off the motors during operation. Follow these guidelines to ensure safety:
 
 ```{danger}
-- Fly your drone in a **spacious** area free of people and fragile objects.
+- Fly your Duckiedrone in a **spacious** area free of people and fragile objects.
 - Always **wear safety goggles** when flying.
-- Verify that the correct propellers are on each motor, propellers are tightly fastened, and motors are securely attached to the drone frame.
+- Verify that the correct propellers are on each motor, propellers are tightly fastened, and motors are securely attached to the Duckiedrone frame.
 ```
 
 ```{tip}

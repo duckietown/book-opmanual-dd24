@@ -56,7 +56,7 @@ Where:
 
 *   `--hostname` — the robot name. Follow the naming rules in the box below.
 *   `--type duckiedrone --configuration DD24` — picks the DD24 base image.
-*   `--country` — two-letter country code where the drone will fly. A full list of codes can be found, e.g., on Wikipedia: [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+*   `--country` — two-letter country code where the Duckiedrone will fly. A full list of codes can be found, e.g., on Wikipedia: [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 *   `--wifi` — one or more networks in the form `ssid:psw`. Separate multiple networks with commas. 
 
 Additional options are detailed on the [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/10-setup/03-duckiebot/flashing-sd-card-duckiebot-initialization-complete.html). 
@@ -73,7 +73,7 @@ The `hostname` **must** start with a lower-case letter and may contain **only** 
 *   ✅ `argo`
 *   ✅ `mydrone01`
 *   ❌ `mydrone_01`
-*   ❌ `My Drone`
+*   ❌ `My Duckiedrone`
 *   ❌ `Argo`
 
 The `hostname` **cannot** be changed after the first boot.
@@ -144,7 +144,7 @@ then rerun the `dts init_sd_card` command.
 ```
 
 ```{trouble}
-The drone does not join my Wi-Fi after the first boot.
+The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
 
 *   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.

@@ -18,15 +18,15 @@ In this section, you will learn about the parameters on the flight controller th
 
 ## Expected Behavior with Proper PID Settings
 
-The Flight Controller (FC) runs high-frequency control loops to stabilize the drone. It utilizes sensors (e.g., IMU and gyroscope) to estimate the drone's state. In **Angle Mode**, the following behavior is expected:
+The Flight Controller (FC) runs high-frequency control loops to stabilize the Duckiedrone. It utilizes sensors (e.g., IMU and gyroscope) to estimate the Duckiedrone's state. In **Angle Mode**, the following behavior is expected:
 
 - **Roll/Pitch Axis:**
   - When commands are issued, the FC attempts to achieve the commanded roll/pitch as quickly as possible while minimizing fluctuations.
-  - When no commands are given, the drone will return to a neutral roll and pitch.
+  - When no commands are given, the Duckiedrone will return to a neutral roll and pitch.
 
 - **Yaw Axis:**
   - When commands are issued, the FC maintains the desired yaw rate.
-  - When no commands are given, the drone should remain stable without unintended rotation.
+  - When no commands are given, the Duckiedrone should remain stable without unintended rotation.
 
 ## PID Control in Drones and Tuning
 
@@ -72,11 +72,11 @@ When adjusting PID settings, only modify `P`, `I`, and `D` for the **Roll**, **P
 
 To refine the manual flight performance of your Duckiedrone, follow this loop:
 
-1. Fly the drone manually and observe any stability issues.
+1. Fly the Duckiedrone manually and observe any stability issues.
 2. Connect the FC to Betaflight.
 3. Adjust the PID values accordingly.
 
-Repeat the process until the drone exhibits smooth, stable, and responsive behavior.
+Repeat the process until the Duckiedrone exhibits smooth, stable, and responsive behavior.
 
 ---
 

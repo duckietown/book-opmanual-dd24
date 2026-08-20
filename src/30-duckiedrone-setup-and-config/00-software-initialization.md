@@ -18,7 +18,7 @@
 
 The Duckiedrone's uses a Raspberry Pi as onboard "companion" computer. The Raspberry Pi requires a (Duckietown-specific) operating system to work, and this section details two ways to do so: 
 
-1. [The "fast" way](dd24-sw-init-fast): simpler, but provides no customization options (unless using Ubuntu as OS). It is appropriate for a single drone setup. If you are planning to connect multiple Duckiedrones to the same network at any time, use the advanced initialization procedure. 
+1. [The "fast" way](dd24-sw-init-fast): simpler, but provides no customization options (unless using Ubuntu as OS). It is appropriate for a single Duckiedrone setup. If you are planning to connect multiple Duckiedrones to the same network at any time, use the advanced initialization procedure. 
 2. [The "complete" way](dd24-sw-init-adv): requires a Duckietown Shell installation on the base station, but offers full customizability. Must use this procedure if planning to use more than one Duckiedrone on the same network at the same time. 
 
 If using Ubuntu, the best of both worlds can be achieved: [](). 

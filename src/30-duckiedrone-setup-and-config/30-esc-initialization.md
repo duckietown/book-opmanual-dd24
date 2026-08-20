@@ -226,7 +226,7 @@ Your ESCs are now running Bluejay. Next, continue to [Initializing the Flight Co
 ```{trouble}
 The ESC Configurator does not detect any ESCs after `Read Setup`.
 ---
-The ESCs are not powered. Check that the LiPo battery is connected to the drone, since the Flight Controller's USB power is not enough to run the ESCs, and then click `Read Setup` again.
+The ESCs are not powered. Check that the LiPo battery is connected to the Duckiedrone, since the Flight Controller's USB power is not enough to run the ESCs, and then click `Read Setup` again.
 ```
 
 ```{trouble}

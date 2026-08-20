@@ -29,7 +29,7 @@ The Raspberry Pi is not receiving enough power.
 ```
 
 ```{trouble}
-The flight containers are not running on the drone.
+The flight containers are not running on the Duckiedrone.
 
 ---
 
@@ -37,7 +37,7 @@ The `ente` stack runs the flight code inside Duckietown containers. From the bas
 
     dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
 
-You can inspect what is running on the drone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller`, and `visual-odometry` are all healthy.
+You can inspect what is running on the Duckiedrone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller`, and `visual-odometry` are all healthy.
 ```
 
 ```{trouble}
@@ -58,13 +58,13 @@ The flight controller does not connect (MAVROS state is not publishing).
 
 ---
 
-On the drone, `ros2-mavros` bridges the flight controller to ROS 2. If `/mavros/state` does not publish:
+On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/mavros/state` does not publish:
 
 - make sure the USB cable is plugged between the Raspberry Pi and the flight controller (any of the four USB ports works).
 
 - make sure that the flight controller is lighting up. If it is not, the micro USB port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
 
-- from the drone shell, check that the mavlink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
+- from the Duckiedrone shell, check that the mavlink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
 ```
 
 ```{trouble}
@@ -97,19 +97,19 @@ The dashboard shows all widgets but nothing updates.
 
 ---
 
-The dashboard communicates with ROS via rosbridge. If the page loads but the widgets never populate, rosbridge on the drone is not reachable. From the base station, try `curl -I http://ROBOT_NAME.local:9090` — it should return `101 Switching Protocols`. If not, restart the drone containers.
+The dashboard communicates with ROS via rosbridge. If the page loads but the widgets never populate, rosbridge on the Duckiedrone is not reachable. From the base station, try `curl -I http://ROBOT_NAME.local:9090` — it should return `101 Switching Protocols`. If not, restart the Duckiedrone containers.
 ```
 
 ```{trouble}
-There is a long delay between when you move the drone and when the widgets change.
+There is a long delay between when you move the Duckiedrone and when the widgets change.
 
 ---
 
-This is typically network latency. If you are running the drone in CL (client) mode on a shared network, take some of the other devices offline or switch to AP mode and fly against the drone's own access point.
+This is typically network latency. If you are running the Duckiedrone in CL (client) mode on a shared network, take some of the other devices offline or switch to AP mode and fly against the Duckiedrone's own access point.
 ```
 
 ```{trouble}
-The motors on the drone do not spin when armed from the dashboard.
+The motors on the Duckiedrone do not spin when armed from the dashboard.
 
 ---
 
@@ -125,11 +125,11 @@ If the toggle stays on `ARMED` but the motors are silent, check in QGroundContro
 ```
 
 ```{trouble}
-The drone does not get off the ground when commanded to take off.
+The Duckiedrone does not get off the ground when commanded to take off.
 
 ---
 
-- make sure that the arrows embossed on the propellers are visible from the top of the drone,
+- make sure that the arrows embossed on the propellers are visible from the top of the Duckiedrone,
 
 - make sure that the arrows on the props are pointing in the correct direction,
 

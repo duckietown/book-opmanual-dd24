@@ -28,5 +28,5 @@ We appreciate your contributions and feedback!
 
 ## Sensors characterization
 
-In the folder `src/sensors_characterization`, you will find a Jupyter notebook and bag files that characterize the sensors on the drone. Additionally, in the same folder, there is a `requirements.txt` file with the dependencies needed to create a virtual environment to execute the notebook.
+In the folder `src/sensors_characterization`, you will find a Jupyter notebook and bag files that characterize the sensors on the Duckiedrone. Additionally, in the same folder, there is a `requirements.txt` file with the dependencies needed to create a virtual environment to execute the notebook.
 

@@ -7,7 +7,7 @@
 * A base station computer with [QGroundControl installed](qgroundcontrol-connection)
 * An initialized Flight Controller running PX4 with the parameters already loaded
 * ESCs already flashed with Bluejay
-* The drone battery and a long USB to USB-C cable
+* The Duckiedrone battery and a long USB to USB-C cable
 ---
 * A Flight Controller that drives the four motors in the correct order, each turning the right way
 ```
@@ -15,14 +15,14 @@
 (dd24-motor-configuration)=
 # Motors configuration
 
-The flight controller needs to know which motor type (CW or CCW) sits where on the frame, and every motor needs to turn in the direction PX4 expects. If either of these is wrong the drone will not fly, and it can flip over the instant it leaves the ground, so work through this page slowly.
+The flight controller needs to know which motor type (CW or CCW) sits where on the frame, and every motor needs to turn in the direction PX4 expects. If either of these is wrong the Duckiedrone will not fly, and it can flip over the instant it leaves the ground, so work through this page slowly.
 
 ```{warning}
 Keep the propellers off the entire time while following instructions on this page.
 ```
 
 ```{attention}
-Make sure the battery is charged, and connect it to the drone, since the motors need power to spin. 
+Make sure the battery is charged, and connect it to the Duckiedrone, since the motors need power to spin. 
 ```
 
 ## 1. Connect to the Flight Controller to the base station
@@ -50,7 +50,7 @@ PX4 has a fixed idea of where each motor belongs on a quadcopter. When it refers
 3. Motor 3 is at the front left.
 4. Motor 4 is at the rear right.
 
-Front is the direction the drone flies forward, which matches the arrow printed on the frame in QGroundControl, and the direction of the camera (and duckie) on the Duckiedrone.
+Front is the direction the Duckiedrone flies forward, which matches the arrow printed on the frame in QGroundControl, and the direction of the camera (and duckie) on the Duckiedrone.
 
 ```{figure} ../_images/motors-esc/dd24-top-view.jpg
 :width: 80%

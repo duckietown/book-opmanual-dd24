@@ -40,7 +40,7 @@ After the first boot, additional networks can be configured following: [](dd24-n
 
 :::{tab-item} Client (CL) mode
 
-Connect to the same network that the drone is connected to if the drone is in CL mode.
+Connect to the same network that the Duckiedrone is connected to if the Duckiedrone is in CL mode.
 
 The default network is `duckietown` (password: `quackquack`)  
 
@@ -60,7 +60,7 @@ ssh duckie@pdrone24.local
 
 :::{tab-item} Access Point (AP) mode
 
-Connect to `duckietown-<hostname>-ap` if the drone is in AP mode, where `<hostname>` is the robot name chosen during the initialization procedure.
+Connect to `duckietown-<hostname>-ap` if the Duckiedrone is in AP mode, where `<hostname>` is the robot name chosen during the initialization procedure.
 
 If you forgot to change it, the default hostname is `amelia`.
 

@@ -7,7 +7,7 @@
 * A base station computer
 * An initialized Flight Controller running PX4
 * ESCs already flashed with Bluejay
-* A charged drone battery
+* A charged Duckiedrone battery
 * A USB to USB-C cable with data
 ---
 * A Flight Controller with the Duckiedrone parameters loaded
@@ -21,7 +21,7 @@ In the previous step we have prepared the flight controller (FC) for configurati
 By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a Duckietown preset parameters file.
 
 ```{attention}
-Before you begin, **remove the propellers** and **disconnect the battery from the drone**.
+Before you begin, **remove the propellers** and **disconnect the battery from the Duckiedrone**.
 ```
 
 (qgroundcontrol-connection)=

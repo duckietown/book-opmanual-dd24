@@ -26,7 +26,7 @@ The Duckiedrone is part of the Duckietown ecosystem. The first steps require set
 
 ## Base Station Computer
 
-To fly the drone, you must have a laptop or personal computer (referred to as "base station") that is capable of connecting to the internet. 
+To fly the Duckiedrone, you must have a laptop or personal computer (referred to as "base station") that is capable of connecting to the internet. 
 
 A relatively modern commercial laptop computer will suffice for most (non-developer grade) activities, such as building, configuring, and operating the Duckiedrone, both the physical and virtual versions. 
 

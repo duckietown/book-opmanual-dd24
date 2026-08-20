@@ -1,6 +1,6 @@
 ```{seo}
 :description: Learn how to perform the first boot of your Duckiedrone, establish a connection, and perform the firs software update to ensure a smooth startup process.
-:keywords: Duckiedrone first boot, dts duckiebot update, DD24-B setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckietown drone setup
+:keywords: Duckiedrone first boot, dts duckiebot update, DD24-B setup, Raspberry Pi startup, Duckiedrone network configuration, robotics initialization, Duckiedrone setup
 ```
 
 ```{needget}
@@ -50,7 +50,7 @@ To get started:
     **Do not** connect the SD card to a USB-A port of the Raspberry Pi through an adapter. 
     ```
 
-5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspnberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the drone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and should be blinking. You should expect it to blink so fast to appear solid green for several minutes.  
+5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspnberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and should be blinking. You should expect it to blink so fast to appear solid green for several minutes.  
         
     ````{seealso}
     ```{vimeo} 728539642
@@ -97,7 +97,7 @@ Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspb
 
     To edit this file, you will need to:
 
-    1. Power off the drone
+    1. Power off the Duckiedrone
     1. Remove the SD card from the SD card slot of the Raspberry Pi
     1. Use the USB-A adapter to connect it back to the base station
     1. Open the `config` disk partition.
@@ -149,10 +149,10 @@ Networks are typically one of the biggest headaches in robotics. We offer differ
 
     :::{tab-item} Client (CL) mode      
     
-    Use this mode to have the drone connect to an existing local area network. This is the go-to choice if you have an existing network and admin access to it in the environment where you are operating.  
+    Use this mode to have the Duckiedrone connect to an existing local area network. This is the go-to choice if you have an existing network and admin access to it in the environment where you are operating.  
 
     1.  Pros:
-        * both your base station and your drone can talk with each other (and other devices on the network), and to the internet.  
+        * both your base station and your Duckiedrone can talk with each other (and other devices on the network), and to the internet.  
 
     2.  Cons:
         * requires admin access to a pre-existing network in your space.  
@@ -173,11 +173,11 @@ Networks are typically one of the biggest headaches in robotics. We offer differ
 
     :::{tab-item} Access Point (AP) mode
     
-    Use this mode to have the drone emit its own Wi-Fi network that your base station can connect to. This is the go-to choice if you do not have a network (WLAN) or admin access to the existing network where you are operating.  
+    Use this mode to have the Duckiedrone emit its own Wi-Fi network that your base station can connect to. This is the go-to choice if you do not have a network (WLAN) or admin access to the existing network where you are operating.  
         
     1.  Pros:
             
-        *   You can connect to your drone without the need for a pre-existing network infrastructure  
+        *   You can connect to your Duckiedrone without the need for a pre-existing network infrastructure  
                 
     2.  Cons:
             

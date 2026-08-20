@@ -15,7 +15,7 @@
 (dd24-prerequisites-other)=
 # Additional Materials
 
-This section details the materials needed to build and fly your drone that are not included in the kit.
+This section details the materials needed to build and fly your Duckiedrone that are not included in the kit.
 
 
 ## Essential tools and accessories

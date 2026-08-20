@@ -90,7 +90,7 @@ Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 (fc-init-dfu-mode-boot)=
 ## 2. Boot the FC in DFU Mode
 
-- Remove power from your drone if it is powered on.
+- Remove power from your Duckiedrone if it is powered on.
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
 - Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed. 
 

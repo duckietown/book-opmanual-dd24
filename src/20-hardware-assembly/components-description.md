@@ -6,7 +6,7 @@
 (prelim-dd24-box-component-description)=
 # Description of Components (`DD24-B`)
 
-Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning to fly, or in flying, the drone. Other components are not functional, but still useful, for example the duckies.
+Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning to fly, or in flying, the Duckiedrone. Other components are not functional, but still useful, for example the duckies.
 
 
 We provide below a brief description of each component in the box.
@@ -42,9 +42,9 @@ The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are
 64GB Class 10 mini SD card
 ```
 
-The microSD card is the core memory of the drone. 
+The microSD card is the core memory of the Duckiedrone. 
 
-While it does look like a regular SD card with 64GB of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the drone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop. 
+While it does look like a regular SD card with 64GB of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the Duckiedrone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop. 
 
 ```{note}
 
@@ -177,7 +177,7 @@ These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv)
 :name: dd24-propellers
 :width: 400px
 :align: center
-:alt: Drone propellers
+:alt: Duckiedrone propellers
 
 Propellers (CW and CCW) 
 ```
@@ -217,7 +217,7 @@ The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on
 Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
 
 ```{attention}
-Before doing anything with the Duckietown battery, read the [Duckietown Safety Guidelines](prelim-drone-safety).
+Before doing anything with the Duckietown battery, read the [Duckietown Safety Guidelines](prelim-duckiedrone-safety).
 ```
 
 ```{warning}
@@ -228,7 +228,7 @@ If for any reason your battery looks punctured or otherwise damaged, do not use 
 You can learn how to safely dispose of a LiPo battery, e.g., here: [Oscar Liang's Guide on Disposing LiPo batteries](https://oscarliang.com/dispose-lipo-battery-safely/). 
 ```
 
-The Duckietown battery connects to the drone through a 10cm long XT60 connector, and should be charged using the provided battery charger.
+The Duckietown battery connects to the Duckiedrone through a 10cm long XT60 connector, and should be charged using the provided battery charger.
 
 (component-battery-charger-2-4s-liion-lipoly-25w)=
 ## Battery charger
@@ -266,19 +266,19 @@ Duckiedrone battery charger adapter (12V, 2A)
 
 This 12V 2A power adapter, provided with a US wall plug, connects to the battery charger to deliver charge to the battery when needed.
 
-(component-duckietown-drone-hut-v1-2)=
-## Duckietown drone HUT - v1.2
+(component-duckietown-duckiedrone-hut-v1-2)=
+## Duckiedrone HUT - v1.2
 
 ```{figure} ../_images/components-official-dd24/dd-hut-v1-2.png
 :name: dd24-hut-v-1-2
 :width: 300px
 :align: center
-:alt: Duckietown drone HUT v1.2
+:alt: Duckiedrone HUT v1.2
 
 The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
 ```
 
-The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the drone, such as sensors and the flight controller, and the onboard Raspberry Pi. 
+The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the Duckiedrone, such as sensors and the flight controller, and the onboard Raspberry Pi. 
 
 It supports the placement of a breadboard to provide a "playground" for additional prototyping or pedagogical experiences, such as adding status LEDs. 
 
@@ -294,7 +294,7 @@ It supports the placement of a breadboard to provide a "playground" for addition
 Duckiedrone Duckiehut breadboard
 ```
 
-This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-drone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
+This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiehut](component-duckietown-duckiedrone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack
@@ -433,7 +433,7 @@ The SpeedyBee flight controller is no longer supported in _ente_ but is still su
 The buzzer notifies the user when the battery voltage is lower than a certain threshold
 ```
 
-The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measured output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the drone when hearing the buzzer buzz. 
+The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measured output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the Duckiedrone when hearing the buzzer buzz. 
 
 (dd24-usb-cables)=
 ## Cables
@@ -518,7 +518,7 @@ This 2.54mm jumper is used to short (i.e., connect) pins on the HUT. This is use
 Velcro strips
 ```
 
-Velcro strips are used for cable management and securing components, such as the battery, to the drone's chassis. The Duckiedrone box contains:
+Velcro strips are used for cable management and securing components, such as the battery, to the Duckiedrone's chassis. The Duckiedrone box contains:
 
 - 2x 25cm black Velcro strips
 
@@ -554,7 +554,7 @@ The chassis has a square design with each side measuring 27.2cm.
 Duckiedrone chassis: top plate   
 ```
 
-The top chassis plate has the same outer dimensions as the bottom plate (27.2cm side), and its main function is to provide structural stability to the drone.
+The top chassis plate has the same outer dimensions as the bottom plate (27.2cm side), and its main function is to provide structural stability to the Duckiedrone.
 
 (component-tof-support-carbon-fiber-25mm)=
 ### Other chassis components 
@@ -585,7 +585,7 @@ Other chassis components include:
 Camera mount with integrated time of flight sensor mounting support 
 ```
 
-This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160-degree field of view, it allows the drone to see both underneath and in front at the same time. 
+This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160-degree field of view, it allows the Duckiedrone to see both underneath and in front at the same time. 
 
 
 (component-landing-gear-3d-printed-v11)=
@@ -720,7 +720,7 @@ Duckietown stickers
 
 Duckietown stickers look great on your laptop, and notify others of your Duckietown training.    
 
-(component-instruction-card-drone-assembly)=
+(component-instruction-card-duckiedrone-assembly)=
 ## Duckiedrone instruction card
 
 ```{figure} ../_images/components-official-dd24/dd24-instructions.jpg

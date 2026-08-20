@@ -8,7 +8,7 @@
 
 It is not uncommon for something to go wrong during the build process, which is why we need to learn how to debug problems. Having a systematic approach is essential to any robotics project.
 
-When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. Your drone will not fly until _everything_ works!
+When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. Your Duckiedrone will not fly until _everything_ works!
 
 ## Power issues
 
@@ -17,7 +17,7 @@ When encountering a problem, rather than simply redoing the build or replacing a
 My Raspberry Pi does not boot.
 ---
 
-You should verify that each part of the drone is receiving power. The
+You should verify that each part of the Duckiedrone is receiving power. The
 Raspberry Pi indicates it has power with a *red* power LED.
 
 If your Raspberry Pi is not powering on, verify with a multimeter that the Raspberry Pi
@@ -107,7 +107,7 @@ your Betaflight configuration.
 
 ## Flight Issues
 
-Before each flight, physically inspect the drone.
+Before each flight, physically inspect the Duckiedrone.
 
 Make sure that:
 
@@ -118,17 +118,17 @@ Make sure that:
 
 Any of these issues could cause poor flight behavior.
 
-If your drone flips the first time you try to take off, the motors are
+If your Duckiedrone flips the first time you try to take off, the motors are
 spinning the wrong way, or the props are on upside-down. If your
-drone makes funny noises when arming, either the props are not
+Duckiedrone makes funny noises when arming, either the props are not
 tightened all the way, or they are striking a wire. Tape everything
 down as much as possible.
 
-If the drone is not stable during flight, you should make sure that
+If the Duckiedrone is not stable during flight, you should make sure that
 the props are all tightened down. Make sure the ESCs have been
 flashed with Bluejay as described in [](dd24-esc-init).
 
-A well-tuned drone can hover at zero velocity with some drifting,
+A well-tuned Duckiedrone can hover at zero velocity with some drifting,
 but not too much. It should be able to hover with position
 hold indefinitely.
 
