@@ -32,7 +32,7 @@ The Duckiedrone will automatically connect upon boot over Wi-Fi to one of these 
 1. The network defined during the microSD card initialization procedure: [](dd24-sw-init)
 2. The default preset network named `duckietown` with password `quackquack`
 
-After the first boot, additional networks can be configured following: [](dd24-network-config).
+After the first boot, you can configure additional networks by following [](dd24-network-config).
 
 <!--
 

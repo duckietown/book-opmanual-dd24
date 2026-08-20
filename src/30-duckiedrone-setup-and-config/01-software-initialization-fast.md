@@ -23,8 +23,8 @@ This procedure consists of downloading a preset image and burning it to the micr
 
 The disadvantages of this procedure are:
 
-- the Duckiedrone has default parameters, listed in the "cheatsheet" below, and the `robotname` cannot be changed
-- since every robot on the network needs to have a unique `robotname`, this procedure should not be used if planning on using several Duckiedrones on the same network at the same time.
+- the Duckiedrone has default parameters, listed in the "cheatsheet" below. The `robotname` can be changed only on Ubuntu before the first boot.
+- Since every robot on the network needs a unique `robotname`, do not use this procedure for several Duckiedrones on the same network at the same time.
 
 ```{admonition} Cheatsheet
 :class: note
@@ -110,9 +110,9 @@ If (and only if) you are on an Ubuntu machine, after flashing the microSD card i
 * `bootfs`: this partition contains important system files. Do not touch.
 * `rootfs`: same as above, do not touch at this stage.
 * `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone:
-    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [constraints on the naming](dd24-hostname-constraints).
-    - `country.txt`: will contain the country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). default is `US`, change to your country if needed.
-    - `wifi` folder, containing several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi. Networks can be edited at any time after the first boot too. For additional information, refer to: [](dd24-network-config).
+    - `hostname.txt`: this is the `robotname`, which defaults to `amelia`. Keep in mind: (a) it cannot be changed after the first boot, and (b) there are [constraints on the naming](dd24-hostname-constraints).
+    - `country.txt`: contains the two-letter country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). The default is `US`; change it to your country if needed.
+    - `wifi` folder: contains several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi network. Networks can also be edited at any time after the first boot. For more information, see [](dd24-network-config).
 
 ```{figure} ../_images/rpi-sw-initialization/dd24-b-image-partitions.png
 :width: 80%
@@ -129,7 +129,7 @@ Safely eject the `bootfs` partition, then remove the microSD card from your base
 You are now ready for the [first boot](sec:first-boot).
 
 ```{note}
-Through this approach, the Duckiedrone will boot searching for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an Ethernet cable. Once the first boot is complete, you can add or remove networks by following: [](dd24-network-config).
+Through this approach, the Duckiedrone will boot and search for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an Ethernet cable. Once the first boot is complete, you can add or remove networks by following [](dd24-network-config).
 ```
 
 ## Troubleshooting

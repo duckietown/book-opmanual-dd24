@@ -158,7 +158,6 @@ Be prepared to hit the **KILL** switch at any moment. The kill switch will disar
 
     1.  In the **Remote Control** widget, make sure the **gimbal** (throttle) is at the **bottom** (`THR: 0`) and centered on yaw.
     1.  In the arming widget, click **STABILIZED**. The `FLIGHT MODE` label should update to `STABILIZED`. If it does not, check that the Remote Control widget is actively publishing.
-    1.  Click **ARM**. The motors will start spinning at idle RPM.
     1.  Slowly raise the **throttle** (push the gimbal up, or hold `↑`) until the Duckiedrone lifts off. PX4 keeps it level while you hold the throttle.
     1.  Steer roll and pitch with `W`/`A`/`S`/`D` and rotate with **yaw** (gimbal left/right, or `←`/`→`).
     1.  There is **no altitude hold**. Manage height with the throttle throughout the flight. The keyboard's hover-threshold ramp (see [above](#keyboard-control)) makes fine trim easier once airborne.

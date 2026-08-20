@@ -64,7 +64,7 @@ With the Flight Controller connected in bootloader mode, the port/target dropdow
 ```{figure} ../_images/esc-init/betaflight_dfu_bootloader_dropdown.png
 :width: 500px
 
-The Flight Controller correctly in bootloader mode, as shown by `DFU - STM32 BOOTLOADER` in Betaflight Configurator.
+The Flight Controller is correctly in bootloader mode, as shown by `DFU - STM32 BOOTLOADER` in Betaflight Configurator.
 ```
 
 If the dropdown does not show `DFU - STM32 BOOTLOADER`, see [](esc_init_troubleshooting).

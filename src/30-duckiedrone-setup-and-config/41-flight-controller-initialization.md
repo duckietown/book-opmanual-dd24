@@ -257,7 +257,7 @@ ls /dev/serial/by-id/
 ```
 
 ```{figure} ../_images/fc-setup/lsusb-output.png
-:alt: lsusb output on Ubuntu after successfull bootloader flashing
+:alt: lsusb output on Ubuntu after successful bootloader flashing
 :width: 90%
 :name: ubuntu-lsusb-output
 
