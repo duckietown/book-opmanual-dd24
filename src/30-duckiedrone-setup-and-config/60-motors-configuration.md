@@ -13,9 +13,9 @@
 ```
 
 (dd24-motor-configuration)=
-# Motors configuration
+# Motor configuration
 
-The flight controller needs to know which motor type (CW or CCW) sits where on the frame, and every motor needs to turn in the direction PX4 expects. If either of these is wrong the Duckiedrone will not fly, and it can flip over the instant it leaves the ground, so work through this page slowly.
+The flight controller needs to know which motor type (CW or CCW) sits where on the frame, and every motor needs to turn in the direction PX4 expects. If either is wrong, the Duckiedrone will not fly and may flip over the instant it leaves the ground. Work through this page slowly.
 
 ```{warning}
 Keep the propellers off the entire time while following instructions on this page.

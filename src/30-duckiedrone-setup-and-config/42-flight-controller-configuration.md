@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn how to perform the flight controller preliminary configuration on a DD24-B Duckiedrone.
+:description: Learn how to configure the flight controller of a Duckiedrone DD24-B.
 :keywords: Duckiedrone, DD24-B, flight controller, FC, QGroundControl, PX4, Mamba F405 MK2, preset parameters
 ```
 
@@ -108,7 +108,5 @@ This is expected. The Duckiedrone has no RC transmitter; the flight controller i
 ```{trouble}
 I am having issues following the instructions!
 ---
-We're happy to help and hear your feedback! Please post a question on our Stack Overflow. You can find the instructions on how to join it [here](https://duckietown.slack.com/archives/CHHQJ0E0H/p1670874390660429).
-
-You can also contact us via Slack in the following channel: [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667)
+We're happy to help and hear your feedback! Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
 ```

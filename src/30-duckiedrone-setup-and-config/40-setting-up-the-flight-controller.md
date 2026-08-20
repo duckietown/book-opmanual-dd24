@@ -1,5 +1,5 @@
 ```{seo}
-:description: Introduction on how to perform the first-time initialization and configuration of the Duckiedrone's flight controller.
+:description: Learn how to initialize and configure the Duckiedrone flight controller for the first time.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 
