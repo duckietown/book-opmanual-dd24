@@ -40,12 +40,10 @@ You can inspect what is running on the Duckiedrone from the Portainer page at `h
 ```{trouble}
 One of the Heartbeats Monitor indicators is red on the Dashboard.
 ---
-A red heartbeat means the corresponding ROS node has stopped publishing. The widget monitors four heartbeats on `/flight_controller_node/heartbeats/*`:
+A red heartbeat means the corresponding ROS node has stopped publishing. The widget monitors two heartbeats:
 
 *   `JOYSTICK` — the base station joystick (or the virtual joystick widget).
 *   `ALTITUDE` — the ToF altitude node.
-*   `STATE` — the state estimator.
-*   `PID` — the PID controller.
 
 Restart the Duckiedrone containers from Portainer, or rerun `dts duckiebot update ROBOT_NAME` from the base station.
 ```
