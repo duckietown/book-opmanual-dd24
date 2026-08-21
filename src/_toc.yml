@@ -53,7 +53,7 @@ parts:
       chapters:
           - file: 40-duckiedrone-handling/10-software-update
           - file: 40-duckiedrone-handling/environment-setup
-          - file: 40-duckiedrone-handling/flying-your-drone
+          - file: 40-duckiedrone-handling/flying-your-duckiedrone
           - file: 40-duckiedrone-handling/duckiedrone-flight-controller-pid-tuning
           - file: 40-duckiedrone-handling/diagnostic
           - file: 40-duckiedrone-handling/70-network-configuration
