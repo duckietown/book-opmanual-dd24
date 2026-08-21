@@ -283,7 +283,7 @@ macOS does **not** populate `/dev/serial/by-id/`. The board is exposed only as `
 ```
 
 ```{todo [DTSW-8047]}
-PX4 bootlader installer - `lsusb` approach does not work on MacOS
+PX4 bootloader installer - `lsusb` approach does not work on macOS
 ```
 
 ::::
