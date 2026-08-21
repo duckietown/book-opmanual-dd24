@@ -8,9 +8,9 @@
 
 It is not uncommon for something to go wrong during the build process, which is why we need to learn how to debug problems. Having a systematic approach is essential to any robotics project.
 
-When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. Your Duckiedrone will not fly until _everything_ works!
+When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. The Duckiedrone will not fly until _everything_ works.
 
-## Power Issues
+## Power issues
 
 ```{trouble}
 

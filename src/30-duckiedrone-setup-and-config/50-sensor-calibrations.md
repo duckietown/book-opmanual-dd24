@@ -17,6 +17,12 @@ Sensors produce data. To help make sense of this data and transform it into info
 - After the sensors are calibrated successfully, the **Sensors** tab should turn green.
 
 ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
+:name: qgc-summary-post-sensors
+:width: 100%
+:align: center
+:alt: QGroundControl summary page with the Sensors section green after calibration
+
+QGroundControl summary page after the sensor calibrations complete.
 ```
 
 <!--

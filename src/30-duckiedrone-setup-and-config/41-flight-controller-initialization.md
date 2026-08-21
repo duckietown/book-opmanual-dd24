@@ -39,8 +39,11 @@ sudo apt update
 sudo apt install dfu-util
 ```
 
+```{todo [DTSW-8044]}
+"Failed to send reload request: No such file or directory" - uncomment after error solved
+```
+
 <!--
-(Optional but recommended) install a udev rule so `dfu-util` does not need `sudo`:
 
 ```bash
 sudo tee /etc/udev/rules.d/45-stm32-dfu.rules > /dev/null <<'EOF'
@@ -279,6 +282,10 @@ ls /dev/tty.usbmodem*         # PX4 bootloader appears as e.g. /dev/tty.usbmodem
 macOS does **not** populate `/dev/serial/by-id/`. The board is exposed only as `/dev/tty.usbmodem*` (and a matching `/dev/cu.usbmodem*`). It can take 1–2 seconds for the node to appear after the board reboots out of DFU.
 ```
 
+```{todo [DTSW-8047]}
+PX4 bootlader installer - `lsusb` approach does not work on MacOS
+```
+
 ::::
 
 :::::
@@ -413,5 +420,5 @@ The most common cause is that the firmware was flashed to `0x08000000` instead o
 ```{trouble}
 I am having issues following the instructions!
 ---
-We're happy to help and hear your feedback! Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
+We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
 ```

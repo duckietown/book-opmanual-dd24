@@ -135,8 +135,6 @@ Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately conn
 
 :::
 
-:::
-
 :::{tab-item} Non-persistent changes
 
 Once you have gained access, navigate to

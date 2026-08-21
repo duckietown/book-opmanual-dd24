@@ -7,7 +7,7 @@
 
 *   An initialized DD24 microSD card: [](dd24-sw-init)
 ---
-*   A live `DD24`
+*   A live Duckiedrone `DD24-B`
 ```
 
 (sec:first-boot)=
@@ -55,7 +55,7 @@ To get started:
     ```{vimeo} 728539642
     :alt: DD24 first boot
     ```
-    Duckiedrone first boot sequence.
+    Duckiedrone (`DD21`) first boot sequence.
     ````  
 
     Once the booting procedure is complete, the Duckiedrone will automatically connect to the default network, or any available network previously set up.

@@ -48,7 +48,7 @@ Connect to your Duckiedrone over USB:
 
    - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
 
-## Load the Preconfigured Parameter Set
+## Load the preconfigured parameter set
 
 1. Open the **Parameters** tab and load the `.params` file:
 
@@ -108,5 +108,5 @@ This is expected. The Duckiedrone has no RC transmitter; the flight controller i
 ```{trouble}
 I am having issues following the instructions!
 ---
-We're happy to help and hear your feedback! Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
+We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
 ```

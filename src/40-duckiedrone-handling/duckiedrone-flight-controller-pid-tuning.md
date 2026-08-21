@@ -3,8 +3,8 @@
 :keywords: Duckiedrone, DD24-B, flight controller, PID tuning, PX4, QGroundControl, flight stability
 ```
 
-(betaflight-pid-settings)=
-# Flight Controller PID Tuning
+(dd24-pid-control)=
+# PID control on the Duckiedrone
 
 ```{needget}
 * A fully operational Duckiedrone DD24-B

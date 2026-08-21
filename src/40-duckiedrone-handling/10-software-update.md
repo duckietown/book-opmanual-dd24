@@ -34,10 +34,16 @@ Run this procedure after the [first boot](sec:first-boot).
 (duckietown-desktop-update)=
 ## How to update your base station
 
-To update the Duckietown Shell (`dts`) commands, run:
+To update the Duckietown Shell (`dts`) itself, run:
 
 ```bash
 pipx upgrade duckietown-shell
+```
+
+To update the Duckietown Shell (`dts`) commands, run:
+
+```bash
+dts update
 ```
 
 To update the Duckietown desktop software, run:

@@ -134,6 +134,7 @@ Your Duckietown Shell is out of date or the wrong profile is active. Run:
 
     dts profile list          # 'ente' must be the active profile
     pipx upgrade duckietown-shell
+    dts update
 
 then rerun the `dts init_sd_card` command.
 ```
