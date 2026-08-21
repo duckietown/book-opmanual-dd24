@@ -11,6 +11,7 @@
 * An up-to-date Duckiedrone
 ```
 
+(dd24-software-update)=
 (duckietown-software-update)=
 # How to update the software
 

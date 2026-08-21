@@ -36,7 +36,6 @@ parts:
             - file: 30-duckiedrone-setup-and-config/02-software-initialization-advanced
           - file: 30-duckiedrone-setup-and-config/10-first-boot
           - file: 30-duckiedrone-setup-and-config/20-first-connection
-          - file: 30-duckiedrone-setup-and-config/21-software-update
           - file: 30-duckiedrone-setup-and-config/30-esc-initialization
           - file: 30-duckiedrone-setup-and-config/40-setting-up-the-flight-controller
             sections:
