@@ -70,7 +70,7 @@ macOS does not need udev rules — `dfu-util` accesses USB devices directly via 
 
 ### Checkpoint ✅
 
-```{testexpect}
+````{testexpect}
 Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with:
 
 ```shell
@@ -83,7 +83,7 @@ Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
 Copyright 2010-2021 Tormod Volden and Stefan Schmidt
 This program is Free Software and has ABSOLUTELY NO WARRANTY
 Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
-```
+````
 
 (fc-init-dfu-mode-boot)=
 ## 2. Boot the FC in DFU Mode
