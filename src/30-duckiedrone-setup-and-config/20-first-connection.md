@@ -101,7 +101,7 @@ SSH always possible: `ssh duckie@amelia.local`
 
 When a successful connection is established, all the following will work:
 
-#### Duckietown Fleet Discovery Tool
+#### Duckietown fleet discovery tool
 
 Open a terminal on the base station and run:
 

@@ -19,7 +19,7 @@ The requirements listed in this section are common to any Duckietown robot. Give
 ```
 
 (dd24-initial-setup)=
-# Initial Setup
+# Initial setup
 
 The Duckiedrone is part of the Duckietown ecosystem. The first steps require setting up the working environment.
 
@@ -43,7 +43,7 @@ Most functionalities are expected to work with [Duckietown Workspaces](https://d
 Follow the instructions on the [Duckietown Manual - Computer Setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/computer-setup.html#computer-setup) to set up your base station.
 
 (dd24-required-sw-and-accounts)=
-### Required Software and Accounts
+### Required software and accounts
 
 A few programs will be introduced throughout these instructions, when needed.
 
@@ -55,7 +55,7 @@ At this stage, complete the [Duckietown general initial setup](https://docs.duck
 * [Installing the Duckietown Shell](https://docs.duckietown.com/ente/duckietown-manual/10-setup/02-software/duckietown-shell-dts-installation.html)
 * [Installing the Duckiematrix simulation environment](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
 
-### Duckiematrix and Virtual Duckiedrones
+### Duckiematrix and virtual Duckiedrones
 
 The Duckiematrix is Duckietown's virtual environment, a powerful simulator supporting virtual Duckietown robots.
 
@@ -65,6 +65,6 @@ The Duckiematrix is Duckietown's virtual environment, a powerful simulator suppo
 * To quickly get started with both the Duckiematrix and virtual Duckiedrones, try the [virtual Duckiedrone ROS 2 takeoff demo](https://docs.duckietown.com/ente/duckietown-manual/25-duckiedrone/demos/duckiedrone-takeoff-ros2.html).
 
 (dd24-how-to-get-help)=
-### Getting Help
+### Getting help
 
 Learn [how to get (and provide) help](https://docs.duckietown.com/ente/duckietown-manual/06-troubleshooting/how-to-get-support.html) through the Duckietown Slack community and Duckietown Archives.

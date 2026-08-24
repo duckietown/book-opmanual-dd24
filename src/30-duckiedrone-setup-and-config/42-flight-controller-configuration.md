@@ -70,7 +70,7 @@ Connect to your Duckiedrone over USB:
    Download the latest pre-set parameters file and upload it to the FC following these steps.
    ```
 
-## Reboot the Vehicle
+## Reboot the vehicle
 
    - After loading the parameters, it is usually necessary to reboot the flight controller for changes to take effect.
    - You can reboot the vehicle by selecting **Reboot Vehicle** from the **Tools** menu.

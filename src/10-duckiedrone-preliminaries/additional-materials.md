@@ -17,7 +17,7 @@
 
 This section details the materials needed to build and fly your Duckiedrone that are not included in the kit.
 
-## Essential Tools and Accessories
+## Essential tools and accessories
 
 The Duckiedrone is designed to require soldering, in the spirit of "when you break it, you will know how to fix it". Here is a list of soldering-related items.
 
@@ -47,7 +47,7 @@ Example of wire stripper
 - Fume extractor: solder only in a well-ventilated environment or use a dedicated fume extractor
 - Helping hands: will dramatically simplify a few soldering passages
 
-## Nice-to-Have Tools and Accessories
+## Nice to have tools and accessories
 
 - A chisel or bevel soldering iron tip: will simplify the passages of soldering to pads
 - Solder remover: either solder sucker or de-soldering wick, to fix potential mistakes
