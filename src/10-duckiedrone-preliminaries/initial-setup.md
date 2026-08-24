@@ -42,7 +42,7 @@ Most functionalities are expected to work with [Duckietown Workspaces](https://d
 
 Follow the instructions on the [Duckietown Manual - Computer Setup](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/computer-setup.html#computer-setup) to set up your base station.
 
-(d24-required-sw-and-accounts)=
+(dd24-required-sw-and-accounts)=
 ### Required Software and Accounts
 
 A few programs will be introduced throughout these instructions, when needed.

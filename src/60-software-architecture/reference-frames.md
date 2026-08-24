@@ -10,7 +10,7 @@ The Duckiedrone DD24-B uses ROS 2 on the Raspberry Pi and PX4 on the flight cont
 
 ## PX4 and the legacy Betaflight convention
 
-PX4 uses the following reference frame. The diagram includes the legacy Betaflight convention for comparison[^px4-docs]:
+PX4 uses the following reference frame, which is the same FRD (forward-right-down) body convention the legacy Betaflight firmware used[^px4-docs]:
 
 ![PX4 and legacy Betaflight reference frames](../_images/software-architecture/px4-betaflight-ref-frame.png)
 

@@ -12,7 +12,6 @@
 ```
 
 (dd24-software-update)=
-(duckietown-software-update)=
 # How to update the software
 
 Keep the software on the Duckiedrone and your base station up to date. These procedures synchronize the software stacks on both devices with the latest version.
