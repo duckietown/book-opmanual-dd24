@@ -23,16 +23,16 @@ You are now ready to connect to your Duckiedrone.
 (dd24-how-to-connect)=
 ## Connecting to the Duckiedrone  
 
-Establishing a connection between the base station and the Duckiedrone is an essential step. There are several ways to establish a connection, with the preferred one being over Wi-Fi. To connect over Wi-Fi, both the Duckiedrone and your base station need to be connected to the same network. 
+Establishing a connection between the base station and the Duckiedrone is an essential step. There are several ways to establish a connection, with the preferred one being over Wi-Fi. To connect over Wi-Fi, both the Duckiedrone and your base station need to be connected to the same network.
 
 ### Duckiedrone Wi-Fi
 
-The Duckiedrone will automatically connect upon boot over Wi-Fi to one of these networks, in oder: 
+The Duckiedrone will automatically connect upon boot over Wi-Fi to one of these networks, in order:
 
-1. The network defined during the SD card initialization procedure: [](dd24-sw-init)
-2. The default preset network named `duckietown` with password `quackquack` 
+1. The network defined during the microSD card initialization procedure: [](dd24-sw-init)
+2. The default preset network named `duckietown` with password `quackquack`
 
-After the first boot, additional networks can be configured following: [](dd24-network-config).
+After the first boot, you can configure additional networks by following [](dd24-network-config).
 
 <!--
 
@@ -40,7 +40,7 @@ After the first boot, additional networks can be configured following: [](dd24-n
 
 :::{tab-item} Client (CL) mode
 
-Connect to the same network that the drone is connected to if the drone is in CL mode.
+Connect to the same network that the Duckiedrone is connected to if the Duckiedrone is in CL mode.
 
 The default network is `duckietown` (password: `quackquack`)  
 
@@ -60,14 +60,13 @@ ssh duckie@pdrone24.local
 
 :::{tab-item} Access Point (AP) mode
 
-Connect to `duckietown-<hostname>-ap` if the drone is in AP mode, where `<hostname>` is the robot name chosen during the initialization procedure.
+Connect to `duckietown-<hostname>-ap` if the Duckiedrone is in AP mode, where `<hostname>` is the robot name chosen during the initialization procedure.
 
 If you forgot to change it, the default hostname is `amelia`.
 
 :::
 
 ::::
-
 
 ## Accessing the Duckiedrone functionalities
 
@@ -85,18 +84,18 @@ SSH always possible: `ssh duckie@amelia.local`
 **Default** access point (**AP**) network configuration:
 
 *   SSID: `duckietown-amelia-ap`
-    
+
 *   Password: `quackquack`
-    
+
 
 **Default** client (**CL**) network configuration:
 
 *   SSID: `duckietown`
-    
+
 *   Password: `quackquack`
 ```
 
---> 
+-->
 
 ### Testing the connection
 
@@ -116,7 +115,7 @@ To test if your computer and Duckiedrone are able to communicate over the networ
 
     ping [hostname].local
 
-````{admonition} A succesfull ping example
+````{admonition} A successful ping example
 :class: note
 
 ```bash
@@ -134,47 +133,47 @@ round-trip min/avg/max/stddev = 7.621/19.238/41.965/12.955 ms
 ```
 ````
 
-where `hostname` is the robot name chosen during the [SD card flashing procedure](dd24-sw-init).
+where `hostname` is the robot name chosen during the [microSD card flashing procedure](dd24-sw-init).
 
-If `ping` does not work, nothing else will. 
+If `ping` does not work, nothing else will.
 
 ```{warning}
-The network must be configured to support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve the `hostname`, and ping to work. This is a prerequisite for any other `dts` command using `hostname` as well. Home networks or phone hotspots typically have `mDNS` active by default. University or corporate network typically do not. In the latter case, ask your network administrators to create a subnet for your class/lab that supports mDNS.  
+The network must be configured to support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve the `hostname`, and ping to work. This is a prerequisite for any other `dts` command using `hostname` as well. Home networks or phone hotspots typically have `mDNS` active by default. University or corporate networks typically do not. In the latter case, ask your network administrators to create a subnet for your class/lab that supports mDNS.
 ```
 
 #### The Dashboard
 
 You are able to access the robot's Dashboard at `http://[hostname].local`, or through the command `dts duckiebot dashboard [hostname]`.
 
-Accessing the Duckiedrone's Dashboard provides access to many tools to manage the Duckiedrone. 
+Accessing the Duckiedrone's Dashboard provides access to many tools to manage the Duckiedrone.
 
 ```{todo [DTSW-8178]}
-Create a dedicated duckiedrone dashboard explanation page.
+Create a dedicated Duckiedrone dashboard explanation page.
 ```
 
 #### Secure Shell (`ssh`)
 
-You are able to `ssh` into the Duckiedrone with `ssh duckie@[hostname].local`, using the default password `quackquack`. 
+You are able to `ssh` into the Duckiedrone with `ssh duckie@[hostname].local`, using the default password `quackquack`.
 
 ## Troubleshooting
 
 If any of these basic interfacing commands are not working, the most likely causes are:
 
-- either your computer or robot are not on the same network, 
+- your computer and Duckiedrone are not on the same network,
 - the Duckiedrone's [first boot procedure](sec:first-boot) is not complete yet
 - the network you are trying to use does not have `mDNS` active.
 
-A general alternative networking solution that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone via Ethernet cable to the router, if you have physical access to it.
+A general alternative networking solution that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone via an Ethernet cable to the router, if you have physical access to it.
 
 ```{trouble}
-I cannot ping my Duckiedrone with hostname, but I can with its IP address. 
+I cannot ping my Duckiedrone with hostname, but I can with its IP address.
 ---
-`mdNS` is not activated on your network. Try a simple `duckietown:quackquack` hotspot with your phone and reboot the Duckiedrone to confirm. To solve the problem, activate mDNS on your network through your router settings.
+`mDNS` is not activated on your network. Try a simple `duckietown:quackquack` hotspot with your phone and reboot the Duckiedrone to confirm. To solve the problem, activate mDNS on your network through your router settings.
 ```
 
 ## Other notes on Duckiedrone networking (AP)
 
-The Duckiedrone experimentally supports access point (AP) network configuration too, a setup in which it is the robot itself emitting the network, and the base station connecting to it. This feature is currently disabled until further testing is conducted. These instructions will be updated in due time to document this feature. 
+The Duckiedrone experimentally supports access point (AP) network configuration too, a setup in which it is the robot itself emitting the network, and the base station connecting to it. This feature is currently disabled until further testing is conducted. These instructions will be updated in due time to document this feature.
 
 <!--
 ```{trouble}

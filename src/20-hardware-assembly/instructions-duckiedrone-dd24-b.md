@@ -5,13 +5,13 @@
 
 ```{needget}
 *   A Duckiedrone `DD24-B` box: [get a Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24)
-*   A `DD24` initialized SD card: [](dd24-sw-init)
+*   An initialized DD24 microSD card: [](dd24-sw-init)
 ---
 *   An assembled Duckiedrone model `DD24-B`
 ```
 
 ```{warning}
-🚧 This manual describes the _ente_ software version of the latest Duckiedrone build, and is currently work in progress. 🚧 
+🚧 This manual describes the _ente_ software version of the latest Duckiedrone build and is currently a work in progress. 🚧
 
 Pages marked with this warning are actively being worked on.
 
@@ -19,7 +19,7 @@ The stable release to date is the [_daffy_ Duckiedrone operation manual](https:/
 ```
 
 ```{todo}
-Remove this warning when ready to go.  
+Remove this warning when ready to go.
 ```
 
 (duckiedrone-dd24-b-assembly-instructions)=
@@ -27,7 +27,6 @@ Remove this warning when ready to go.
 
 <iframe src="/assets/webgl/assembly/DD24/?map_location=resources://&map_name=assembly_DD24&start_step=0&stop_step=-1&frame_rate=30&show_tutorial=True" frameborder="0" allowfullscreen>
 </iframe>
-
 
 <style>
 main#main-content {

@@ -1,5 +1,5 @@
 ```{seo}
-:description: Troubleshooting common issues with the Duckiedrone DD24, including power issues, connectivity problems, motor behavior, and software errors.
+:description: Troubleshooting common issues with the Duckiedrone DD24-B, including power issues, connectivity problems, motor behavior, and software errors.
 :keywords: Duckiedrone, troubleshooting, Raspberry Pi, flight controller, motors, software issues, connectivity, dd24 faq
 ```
 
@@ -7,14 +7,11 @@
 # Common issues
 
 ```{trouble}
-The red light on the Raspberry Pi:
-
-*   is blinking
-*   does not turn on
+The red power light on the Raspberry Pi is blinking or does not turn on.
 
 ---
 
-The Raspberry Pi is not receiving enough power. 
+The Raspberry Pi is not receiving enough power.
 
 - Check that the voltage coming out of the UBEC is a constant 5V
 
@@ -29,28 +26,26 @@ The Raspberry Pi is not receiving enough power.
 ```
 
 ```{trouble}
-The flight containers are not running on the drone.
+The flight containers are not running on the Duckiedrone.
 
 ---
 
 The `ente` stack runs the flight code inside Duckietown containers. From the base station, re-pull and restart them with:
 
-    dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME
+    dts duckiebot update ROBOT_NAME
 
-You can inspect what is running on the drone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `ros2-mavros`, `mavlink-proxy`, `state-estimator`, `pid-controller`, and `visual-odometry` are all healthy.
+You can inspect what is running on the Duckiedrone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `driver-tof-bottom`, `ros2-tof-bottom`, `zenoh-router`, `ros2-mavros`, and `ros2-rosbridge-websocket` are all healthy. See [](duckiedrone-containers) for the complete list of automatic containers.
 ```
 
 ```{trouble}
-One of the Heartbeats Monitor indicators is red on the dashboard.
+One of the Heartbeats Monitor indicators is red on the Dashboard.
 ---
-A red heartbeat means the corresponding ROS node has stopped publishing. The widget monitors four heartbeats on `/flight_controller_node/heartbeats/*`:
+A red heartbeat means the corresponding ROS node has stopped publishing. The widget monitors two heartbeats:
 
 *   `JOYSTICK` — the base station joystick (or the virtual joystick widget).
 *   `ALTITUDE` — the ToF altitude node.
-*   `STATE` — the state estimator.
-*   `PID` — the PID controller.
 
-Find the container for the red node in Portainer and restart it, or rerun `dts duckiebot update -t duckiedrone --distro=ente -f ROBOT_NAME` from the base station.
+Restart the Duckiedrone containers from Portainer, or rerun `dts duckiebot update ROBOT_NAME` from the base station.
 ```
 
 ```{trouble}
@@ -58,13 +53,13 @@ The flight controller does not connect (MAVROS state is not publishing).
 
 ---
 
-On the drone, `ros2-mavros` bridges the flight controller to ROS 2. If `/mavros/state` does not publish:
+On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/mavros/state` does not publish:
 
 - make sure the USB cable is plugged between the Raspberry Pi and the flight controller (any of the four USB ports works).
 
-- make sure that the flight controller is lighting up. If it is not, the micro USB port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
+- make sure that the flight controller is lighting up. If it is not, the USB-C port on the flight controller may be broken — try a different cable or port, and if the FC still never lights up it may need replacement.
 
-- from the drone shell, check that the mavlink endpoint is reachable: `docker logs dt-px4 | tail` should show `INFO  [commander] Ready for takeoff!` once the FC is connected.
+- inspect the `ros2-mavros` container logs in Portainer for connection errors.
 ```
 
 ```{trouble}
@@ -89,27 +84,27 @@ The Altitude widget is flat (no reading, or stuck at 0).
 
 ---
 
-The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
+The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof-bottom` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
 ```
 
 ```{trouble}
-The dashboard shows all widgets but nothing updates.
+The Dashboard shows all widgets but nothing updates.
 
 ---
 
-The dashboard communicates with ROS via rosbridge. If the page loads but the widgets never populate, rosbridge on the drone is not reachable. From the base station, try `curl -I http://ROBOT_NAME.local:9090` — it should return `101 Switching Protocols`. If not, restart the drone containers.
+The Dashboard communicates with ROS 2 through `ros2-rosbridge-websocket`. If the page loads but the widgets never populate, make sure that container is healthy in Portainer, then restart the Duckiedrone containers.
 ```
 
 ```{trouble}
-There is a long delay between when you move the drone and when the widgets change.
+There is a long delay between when you move the Duckiedrone and when the widgets change.
 
 ---
 
-This is typically network latency. If you are running the drone in CL (client) mode on a shared network, take some of the other devices offline or switch to AP mode and fly against the drone's own access point.
+This is typically network latency. If you are running the Duckiedrone in CL (client) mode on a shared network, take some of the other devices offline or switch to a less congested Wi-Fi network.
 ```
 
 ```{trouble}
-The motors on the drone do not spin when armed from the dashboard.
+The motors on the Duckiedrone do not spin when armed from the Dashboard.
 
 ---
 
@@ -117,23 +112,23 @@ First confirm that the Arm / Disarm widget actually reports `ARMED` — if the t
 
 If the toggle stays on `ARMED` but the motors are silent, check in QGroundControl (see [](qgroundcontrol-connection)) that:
 
-- the ESC/Motor protocol matches the one in the DD24 parameter file,
+- the ESC/Motor protocol matches the one in the supplied Duckiedrone parameter file,
 
-- each motor can be spun up individually from the `Motors` test page,
+- each motor can be spun up individually from the **Actuators** page,
 
-- motor 1 is mapped to the bottom-right motor, and the remaining motors are mapped accordingly.
+- motor 1 is mapped to the front-right motor (as viewed from above with the camera facing forward), and the remaining motors are mapped accordingly.
 ```
 
 ```{trouble}
-The drone does not get off the ground when commanded to take off.
+The Duckiedrone does not get off the ground when commanded to take off.
 
 ---
 
-- make sure that the arrows embossed on the propellers are visible from the top of the drone,
+- make sure that the arrows embossed on the propellers are visible from the top of the Duckiedrone,
 
 - make sure that the arrows on the props are pointing in the correct direction,
 
-- remove the propellers, plug the battery back in, and from QGroundControl's motor test tab, spin each motor individually to verify the direction,
+- remove the propellers, plug the battery back in, and from QGroundControl's **Actuators** page, spin each motor individually to verify the direction,
 
-- make sure that when you spin up motor 1, the bottom-right motor spins. Do this check for all four motors.
+- make sure that when you spin up motor 1, the front-right motor spins. Do this check for all four motors.
 ```

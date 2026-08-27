@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn what is inside the Duckiedrone (DD24) box.
+:description: Learn what is inside the Duckiedrone DD24-B box.
 :keywords: duckietown, duckiedrone, dd24, box, what is in the box, drone, DIY drone, autonomous drone, fpv drone
 ```
 
@@ -10,9 +10,9 @@
 ```
 
 (prelim-dd24-box)=
-# What's in the box (`DD24`)
+# What's in the box (`DD24-B`)
 
-What should you expect to find inside a Duckiedrone (`DD24`) box, and what is each component? 
+What should you expect to find inside a Duckiedrone DD24-B box, and what is each component?
 
 First things first: here is how a Duckiedrone box looks like:
 
@@ -41,8 +41,8 @@ What's inside the box (selected components).
 | Number | Component |
 | :----: | :-------- |
 | 1 | Raspberry Pi 4 - 4GB (or Raspberry Pi 5) |
-| 1 | 64GB MicroSD card - Class 10 U3 |
-| 1 | MicroSD to USB adapter |
+| 1 | 64GB microSD card - Class 10 U3 |
+| 1 | microSD to USB adapter |
 | 1 | RPi Camera (G) - Fisheye lens |
 | 1 | Camera cable - 300mm |
 | 5 | ToF sensor - VL53L1X, Black PCB |
@@ -55,7 +55,7 @@ What's inside the box (selected components).
 | 1 | LiPo Battery - 1500mAh, 4S, 14.8V, 76x35x33mm, XT60 connector, 10cm cable, 35C peak discharge |
 | 1 | Battery charger - 2-4S Li-Ion/Li-Poly, 25W |
 | 1 | Battery charger adapter - 12V 2A US plug |
-| 1 | Duckietown drone HUT - v1.1 |
+| 1 | Duckiedrone HUT - v1.2 |
 | 1 | Breadboard - Yellow, 45x35mm |
 | 1 | Flight Controller & ESC stack - Mamba F405 MK2 Flight Controller and BLHeli_S 3-6S 60A ESC |
 | 1 | Buzzer - Model 2312, 3V-24V |
@@ -74,10 +74,10 @@ What's inside the box (selected components).
 | 4 | Landing Gear - 3D printed v1.1 |
 | 8 | Rubber Pads |
 | 18 | Metal screws (M3x14) - Steel, Phillips head |
-| 13 | Nylon screws (M2.5x8) - For Pi Hat, ToF sensors |
+| 13 | Nylon screws (M2.5x8) - For Duckiedrone HUT and ToF sensors |
 | 3 | Nylon Standoff (M2.5x40+6 MF) - Battery Plate to Pi |
 | 5 | Nylon Standoff (M2.5x20+6 MF) - Raspberry Pi mounting |
-| 5 | Nylon Standoff (M2.5x15+6 FF) - Pi to Pi Hat |
+| 5 | Nylon Standoff (M2.5x15+6 FF) - Raspberry Pi to Duckiedrone HUT |
 | 6 | Nylon Nuts (M2.5) - ToF sensors |
 | 4 | Nylon screws (M3x10) - Camera mount |
 | 7 | Nylon screws (M2x10) - Camera, Buzzer |
@@ -94,10 +94,9 @@ What's inside the box (selected components).
 | 1 | Camera Calibration pattern |
 | 2 | Rubber Duckies - Duckietown swag |
 | 2 | Duckietown Stickers - Duckietown swag |
-| 1 | Instruction card - Drone assembly |
+| 1 | Instruction card - Duckiedrone assembly |
 | 1 | Internal Packaging Skin |
 | 1 | Duckiedrone box |
 | 1 | Shipping Package box |
 
-
-In the following section [](prelim-dd24-box-component-description) we provide a brief description of each component. 
+In the following section [](prelim-dd24-box-component-description) we provide a brief description of each component.

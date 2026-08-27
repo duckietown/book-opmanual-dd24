@@ -4,13 +4,12 @@
 :keywords: Duckiedrone, multimeter usage, continuity check, DC voltage check, electronics testing, multimeter guide, Duckietown, circuit troubleshooting
 ```
 
-
 (multimeter-tips)=
 # How to Use Multimeters
 
-This guide explains how to use multimeters for performing continuity and voltage checks.    
+This guide explains how to use multimeters for performing continuity and voltage checks.
 
-A multimeter, also known as a *VOM* (volt-ohm-milliammeter), is an electronic measuring instrument that combines several functions, such as measuring voltage, current, and resistance. 
+A multimeter, also known as a *VOM* (volt-ohm-milliammeter), is an electronic measuring instrument that combines several functions, such as measuring voltage, current, and resistance.
 
 ```{seealso}
 [This tutorial](https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter/all) provides a general overview of multimeters.
@@ -43,11 +42,10 @@ Performing a continuity check is a safe method for identifying shorts without re
 
 1. **Select the Continuity Function**  
    - Turn the multimeter dial to the continuity test position. Press the `"FUNC."` button to enable continuity test mode (indicated by a sound wave icon).  
-   
+
    | Continuity test dial position | Continuity test mode |
    |:-----------------------------:|:---------------------:|
    | ![](../_images/multimeters/multimeter_dial_continuity_inked.jpg) | ![](../_images/multimeters/multimeter_continuity_mode_inked.jpg) |
-
 
    - Test the mode by touching the multimeter leads together. A continuous beep confirms the mode is active.
 

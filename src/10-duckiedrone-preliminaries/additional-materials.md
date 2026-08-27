@@ -1,6 +1,6 @@
 
 ```{seo}
-:description: Learn about additional materials required for building and flying the DD24 Duckiedrone, including base station requirements and essential tools.
+:description: Learn about additional materials required for building and flying the Duckiedrone DD24-B, including base station requirements and essential tools.
 :keywords: Duckiedrone, required materials, soldering tools, base station, Duckietown drone build, autonomous quadcopter tools
 ```
 
@@ -15,12 +15,11 @@
 (dd24-prerequisites-other)=
 # Additional Materials
 
-This section details the materials needed to build and fly your drone that are not included in the kit.
-
+This section details the materials needed to build and fly your Duckiedrone that are not included in the kit.
 
 ## Essential tools and accessories
 
-The Duckiedrone is designed to require soldering, in the spirit of "when you will brake it, you will know how to fix it". Here is a list of soldering-related items.
+The Duckiedrone is designed to require soldering, in the spirit of "when you break it, you will know how to fix it". Here is a list of soldering-related items.
 
 ```{figure} ../_images/tools/Soldering_iron_and_accessories.jpg
 :name: soldering-iron
@@ -31,7 +30,7 @@ The Duckiedrone is designed to require soldering, in the spirit of "when you wil
 Soldering iron with base, sponge and solder
 ```
 
-- Soldering iron: capable of reaching a temperature of at least 450-480 degrees Celsius 
+- Soldering iron: capable of reaching a temperature of at least 450-480 degrees Celsius
 - Solder: use only lead-free solder
 - Brass wool or sponge to clean soldering iron
 
@@ -45,7 +44,7 @@ Example of wire stripper
 ```
 
 - Safety goggles: it is good practice to wear them while soldering
-- Fume extractor: only solder in a well ventilated environment, or using a dedicated fume extractor
+- Fume extractor: solder only in a well-ventilated environment or use a dedicated fume extractor
 - Helping hands: will dramatically simplify a few soldering passages
 
 ## Nice to have tools and accessories
@@ -60,4 +59,4 @@ Example of wire stripper
 
 - Multimeter: to verify the build (no shorts during soldering, appropriate voltage where needed)
 - Joypad: not necessary, but nice to have to manually control the Duckiedrone
-- A long (~1m) USB-C to base-station cable **with data**, or, a female USB-A to base station extension cable **with data**: to simplify connecting the flight controller to your computer, for initial configuration. 
+- A long (~1m) USB-C to base-station cable **with data**, or, a female USB-A to base station extension cable **with data**: to simplify connecting the flight controller to your computer, for initial configuration.

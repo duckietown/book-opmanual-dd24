@@ -106,4 +106,3 @@ This issue occurs when the solder is not fully melting due to:
 3. A malfunctioning soldering iron station.
 4. Using non-rosin core solder. Apply soldering flux to the wire or try a different solder type.
 ```
-

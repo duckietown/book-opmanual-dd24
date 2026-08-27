@@ -1,35 +1,35 @@
 ```{seo}
-:description: Configure the motor order and spinning direction of your Duckietown Duckiedrone (DD24) in QGroundControl, and reverse motors with PX4 dshot.
-:keywords: Duckiedrone, DD24, motor order, motor direction, spin direction, QGroundControl, PX4, dshot, Bluejay, Mamba F405 MK2
+:description: Configure the motor order and spinning direction of your Duckietown Duckiedrone DD24-B in QGroundControl, and reverse motors with PX4 DShot.
+:keywords: Duckiedrone, DD24, motor order, motor direction, spin direction, QGroundControl, PX4, DShot, Bluejay, Mamba F405 MK2
 ```
 
 ```{needget}
 * A base station computer with [QGroundControl installed](qgroundcontrol-connection)
 * An initialized Flight Controller running PX4 with the parameters already loaded
 * ESCs already flashed with Bluejay
-* The drone battery and a long USB to USB-C cable
+* The Duckiedrone battery and a long USB to USB-C cable
 ---
 * A Flight Controller that drives the four motors in the correct order, each turning the right way
 ```
 
 (dd24-motor-configuration)=
-# Motors configuration
+# Motor configuration
 
-The flight controller needs to know which motor type (CW or CCW) sits where on the frame, and every motor needs to turn in the direction PX4 expects. If either of these is wrong the drone will not fly, and it can flip over the instant it leaves the ground, so work through this page slowly.
+The flight controller needs to know which motor type (CW or CCW) sits where on the frame, and every motor needs to turn in the direction PX4 expects. If either is wrong, the Duckiedrone will not fly and may flip over the instant it leaves the ground. Work through this page slowly.
 
 ```{warning}
 Keep the propellers off the entire time while following instructions on this page.
 ```
 
 ```{attention}
-Make sure the battery is charged, and connect it to the drone, since the motors need power to spin. 
+Make sure the battery is charged, and connect it to the Duckiedrone, since the motors need power to spin.
 ```
 
-## 1. Connect to the Flight Controller to the base station
+## 1. Connect the Flight Controller to the base station
 
-Connect the USB-C cable coming from the flight controller to your base station. You may need to use an extension or an adapter depending on your setup. 
+Connect the USB-C cable coming from the flight controller to your base station. You may need to use an extension or an adapter depending on your setup.
 
-Then, on your base station open QGroundControl. After a few seconds it will automatically detect the vehicle, as in the [flight controller initialization](qgroundcontrol-connection) procedure. Wait until the top toolbar shows the vehicle as connected before proceeding.
+Then, on your base station open QGroundControl. After a few seconds it will automatically detect the vehicle, as described in the [flight-controller connection procedure](dd24-b-fc-config-connect). Wait until the top toolbar shows the vehicle as connected before proceeding.
 
 ## 2. Motor Order
 
@@ -50,7 +50,7 @@ PX4 has a fixed idea of where each motor belongs on a quadcopter. When it refers
 3. Motor 3 is at the front left.
 4. Motor 4 is at the rear right.
 
-Front is the direction the drone flies forward, which matches the arrow printed on the frame in QGroundControl, and the direction of the camera (and duckie) on the Duckiedrone.
+Front is the direction the Duckiedrone flies forward, which matches the arrow printed on the frame in QGroundControl, and the direction of the camera (and duckie) on the Duckiedrone.
 
 ```{figure} ../_images/motors-esc/dd24-top-view.jpg
 :width: 80%
@@ -67,7 +67,7 @@ Motor configuration on the Duckiedrone.
 :alt: QGroundControl motor identification and assignment automatic procedure instructions popup
 :name: dd24-qGC-motor-auto-id
 
-Motors automatic identification procedure. 
+Motors automatic identification procedure.
 ```
 
 Sometimes the identification popup does not appear. If that happens you can do the same thing by hand. Turn on the switch that enables the motor sliders on the **Actuators** page, then move one slider by a small amount and watch which motor on the frame spins. Note the corner that moved and set that slider to the matching motor number in the interface. Repeat for all four motors until every number lines up with the real position on the frame.
@@ -77,32 +77,32 @@ Move the sliders only a little and keep the propellers off. You need just enough
 ```
 
 ```{reminder}
-The motors will spin only if the Duckiebattery is plugged in. 
+The motors will spin only if the Duckiedrone battery is plugged in.
 ```
 
 ## 3. Motor Spin Direction
 
 Once every motor is on the correct number, check which way each one turns. On the Duckiedrone, the "props-in" motor layout expects:
 
-1. Motor 1: front right, black nut, spins counter clockwise.
-2. Motor 2: rear left, black nut, spins counter clockwise.
+1. Motor 1: front right, black nut, spins counter-clockwise.
+2. Motor 2: rear left, black nut, spins counter-clockwise.
 3. Motor 3: front left, red nut, turns clockwise.
 4. Motor 4: rear right, red nut, turns clockwise.
 
 Spin each motor from the **Actuators** page and compare its direction against the list above. Make a note of any motor that turns the wrong way.
 
 ```{note}
-Reversing a motor spiining direction with the "Set Spin Direction 1/2" buttons only works when its ESC is running Bluejay, which was flashed in [Initializing the ESCs](dd24-esc-init). On the stock ESC software, without Bluejay configuration firmware, these commands do nothing.
+Reversing a motor spinning direction with the "Set Spin Direction 1/2" buttons only works when its ESC is running Bluejay, which was flashed in [Initializing the ESCs](dd24-esc-init). On the stock ESC software, without Bluejay configuration firmware, these commands do nothing.
 ```
 
-To flip a motor spinning direction, alternatively, send a command to its ESC over PX4 dshot. Open the terminal inside QGroundControl by going to **Analyze Tools** and then **MAVLink Console**. This drops you into the PX4 shell.
+To flip a motor spinning direction, alternatively, send a command to its ESC over PX4 DShot. Open the terminal inside QGroundControl by going to **Analyze Tools** and then **MAVLink Console**. This drops you into the PX4 shell.
 
 ```{figure} ../_images/motors-esc/qGC-mavlink-console.jpg
 :width: 80%
 :alt: QGroundControl MAVLink Console
 :name: qGC-mavlink-console
 
-QGroundControl MAVLink Console 
+QGroundControl MAVLink Console
 ```
 
 In the shell, reverse a motor by its number. For example, to reverse Motor 3 you run:

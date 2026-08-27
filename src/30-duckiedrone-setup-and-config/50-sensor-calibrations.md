@@ -1,6 +1,6 @@
 ```{seo}
-:description: Learn how to calibrate the PX4 IMU and camera on the Duckiedrone (DD24) for stable flight using the Dashboard, ROS 2 services, or direct MAVLink.
-:keywords: Duckiedrone accelerometer calibration, Duckiedrone camera calibration, PX4 calibration, IMU calibration, flight controller calibration, DD24 setup
+:description: Learn how to calibrate the PX4 gyroscope, accelerometer, and level horizon on the Duckiedrone DD24-B with QGroundControl for stable flight.
+:keywords: Duckiedrone accelerometer calibration, Duckiedrone gyroscope calibration, PX4 calibration, IMU calibration, flight controller calibration, DD24 setup, QGroundControl
 ```
 
 (dd24-sensor-calibration)=
@@ -8,27 +8,33 @@
 
 Sensors produce data. To help make sense of this data and transform it into information, it is useful to calibrate sensors.
 
+## Calibrate the sensors
 
-5. Sensor Calibration:
-   - Open the **Sensors** page from the Left Tab.
-   - **Gyroscope:** start the gyroscope calibration and leave the drone still on a level surface until it completes.
-   - **Accelerometer:** start the accelerometer calibration and hold the drone in the 6 different orientations requested by the on-screen prompts.
-   - **Level Horizon:** leave the drone still on a level surface until this completes.
-   - After the sensors are calibrated successfully, the **Sensors** tab should turn green.
+- Open the **Sensors** page in QGroundControl.
+- **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
+- **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
+- **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
+- After the sensors are calibrated successfully, the **Sensors** tab should turn green.
 
-   ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
-   ```
+```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
+:name: qgc-summary-post-sensors
+:width: 100%
+:align: center
+:alt: QGroundControl summary page with the Sensors section green after calibration
+
+QGroundControl summary page after the sensor calibrations complete.
+```
 
 <!--
 ## PX4 IMU calibration
 
 The IMU is embedded in the flight controller and includes a gyroscope and an accelerometer, which respectively produce angular rate (in degrees/second) and linear acceleration measurements (normalized to gravitational acceleration at sea level $g = 9.81 \frac{m}{s^2}$).
 
-Calibrating the gyroscope and accelerometer gives PX4 the sensor offsets it needs to pass preflight checks and stabilize the drone during flight.
+Calibrating the gyroscope and accelerometer gives PX4 the sensor offsets it needs to pass preflight checks and stabilize the Duckiedrone during flight.
 
 ## Method 1: calibration through the Dashboard
 
-On DD24 drones running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS2 and does not require QGroundControl.
+On a Duckiedrone DD24-B running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS and does not require QGroundControl.
 
 ```{attention}
 Remove the propellers before running any flight-controller calibration or arming checks.
@@ -42,7 +48,7 @@ Remove the propellers before running any flight-controller calibration or arming
    ```
 3. Navigate to {bdg-warning}`Robot` > {bdg-dark-line}`Mission Control`.
 4. Find the `IMU - Orientation` block.
-5. Place the drone on a level surface, hold it still, and click {bdg-secondary-line}`GYRO`.
+5. Place the Duckiedrone on a level surface, hold it still, and click {bdg-secondary-line}`GYRO`.
 6. When the gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
 7. Follow the live `[cal]` prompts shown in the block. PX4 will ask for six stable orientations: level/top-up, on-back/top-down, nose-down, nose-up, left-side-down, and right-side-down. Hold each orientation still until PX4 accepts it.
 
@@ -50,7 +56,7 @@ The calibration is complete when the block reports `PX4 accel calibration comple
 
 ## Method 2: ROS 2 service fallback
 
-If the dashboard is unavailable but the ROS 2 stack is running, call the calibration services from a shell connected to the drone:
+If the Dashboard is unavailable but the ROS 2 stack is running, call the calibration services from a shell connected to the Duckiedrone:
 
 ```bash
 ssh duckie@ROBOT_NAME.local
@@ -71,11 +77,11 @@ export ROS_DOMAIN_ID=42
 ros2 topic echo /px4_calibration/status std_msgs/msg/String
 ```
 
-The accelerometer service blocks while you rotate the drone through the six orientations.
+The accelerometer service blocks while you rotate the Duckiedrone through the six orientations.
 
 ## Method 3: manual Python fallback on the Raspberry Pi
 
-Use this only when MAVROS2 or rosbridge is not running. From the base station, stop the stacks that may hold the MAVLink port:
+Use this only when MAVROS or rosbridge is not running. From the base station, stop the stacks that may hold the MAVLink port:
 
 ```bash
 dts stack down -H ROBOT_NAME.local ros2/duckiedrone

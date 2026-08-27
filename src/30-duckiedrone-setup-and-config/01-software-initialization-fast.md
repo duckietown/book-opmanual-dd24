@@ -1,5 +1,5 @@
 ```{seo}
-:description: 
+:description: Flash the Duckiedrone DD24-B image to a microSD card with Balena Etcher for a quick, single-device setup.
 :keywords: Duckiedrone, software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5, quick start
 ```
 
@@ -16,16 +16,15 @@
 (dd24-sw-init-fast)=
 # The Fast Way
 
-This procedure consists of downloading a preset image, and burning it to the SD card using [Balena Etcher](https://etcher.balena.io/). The advantages of going the "fast" way are that: 
+This procedure consists of downloading a preset image and burning it to the microSD card using [Balena Etcher](https://etcher.balena.io/). The advantages of going the "fast" way are that:
 
 - it works on any operating system
 - all important configuration parameters are pre-set
 
-The disadvantages of this procedure are: 
+The disadvantages of this procedure are:
 
-- the Duckiedrone has default parameters, listed in the "cheatsheet" below, and the `robotname` cannot be changed
-- since every robot on the network needs to have a unique `robotname`, this procedure should not be used if planning on using several Duckiedrones on the same network at the same time. 
-
+- the Duckiedrone has default parameters, listed in the "cheatsheet" below. The `robotname` can be changed only on Ubuntu before the first boot.
+- Since every robot on the network needs a unique `robotname`, do not use this procedure for several Duckiedrones on the same network at the same time.
 
 ```{admonition} Cheatsheet
 :class: note
@@ -36,9 +35,9 @@ Default `ssh` user name: `duckie`
 
 Default `ssh` user password: `quackquack`
 
-Defaul network configuration (robot will connect to this network after the first boot)
+Default network configuration (robot will connect to this network after the first boot)
 
-*   SSID: `duckietown`    
+*   SSID: `duckietown`
 *   Password: `quackquack`
 ```
 
@@ -47,33 +46,31 @@ Defaul network configuration (robot will connect to this network after the first
 
 *   SSID: `duckietown-amelia-ap`
 *   Password: `quackquack`
-    
 
 **Default** client (**CL**) network configuration:
 -->
 
 ## 1. Install Balena Etcher
 
-Balena Etcher is a program to flash disk images to drives. 
+Balena Etcher is a program to flash disk images to drives.
 
 Download and install the version appropriate for your operating system from [Balena Etcher's website](https://etcher.balena.io/#download-etcher).
 
 ## 2. Download the Duckietown image
 
-
 ```{admonition} Legalities
 :class: note
 
-By downloading this image you are accepting the [Duckietown Software License](https://duckietown.com/sw-license/), [Terms and Conditions](https://duckietown.com/terms-and-conditions/) and [Privacy Policy](https://duckietown.com/privacy/), as well as robot configuration-specific licenses due to the presence of third party software in the SD card. 
+By downloading this image you are accepting the [Duckietown Software License](https://duckietown.com/sw-license/), [Terms and Conditions](https://duckietown.com/terms-and-conditions/) and [Privacy Policy](https://duckietown.com/privacy/), as well as robot configuration-specific licenses due to the presence of third-party software on the microSD card.
 ```
 
-Download the latest drone ente image to your base station:
+Download the latest Duckiedrone ente image to your base station:
 
 ```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/duckietown-duckiedrone-dd24-b-ente-amelia-image-v2.zip
 :color: primary
 :shadow:
 
-Download the DD24(-B) image from AWS 
+Download the DD24(-B) image from AWS
 ```
 
 ```{button-link} https://drive.google.com/file/d/1ziNpkxCpMd4B9EWIItZvr8deJgolN5JB/view?usp=sharing
@@ -83,59 +80,56 @@ Download the DD24(-B) image from AWS
 Download the DD24(-B) system from Google Drive
 ```
 
+## 3. Flash the image to the microSD card
 
-## 3. Flash the image to the SD card
+Connect the microSD card to the base station. Use the microSD-to-USB card reader if the base station does not have a microSD slot.
 
-Connect the microSD card to the base station. Use the micro SD to USB card reader if the base station does not have a micro SD port.
-
-Open Balena Etcher and select the downloaded drone image, then select the micro SD card as the drive to flash. Finally, click the `"Flash"` button.
-
+Open Balena Etcher and select the downloaded Duckiedrone image, then select the microSD card as the drive to flash. Finally, click the `"Flash"` button.
 
 ```{vimeo} 1202216734
-:alt: sd card flashing procedure for a dd24 using balena etcher
+:alt: microSD card flashing procedure for a DD24 using Balena Etcher
 ```
 
+```{warning} **Double-check** that the "drive" is your microSD card.
 
-```{warning} **Double check** that the "drive" is your micro SD card.
-
-You may be prompted to enter the base station password to proceed. This is normal: flashing an SD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
+You may be prompted to enter the base station password to proceed. This is normal: flashing a microSD card deletes everything that is on it, so Etcher is making sure this process is OK with you.
 ```
 
-```{note} 
+```{note}
 Flashing will take 15 - 20 minutes.
 ```
 
 ## 3.1 (Ubuntu only) Country, Wi-Fi and hostname customization
 
 ```{attention}
-This option works only prior to the [first boot](sec:first-boot). 
+This option works only prior to the [first boot](sec:first-boot).
 ```
 
-If (and only if) you are on an Ubuntu machine, after flashing the SD card it will mount three drives:
+If (and only if) you are on an Ubuntu machine, after flashing the microSD card it will mount three drives:
 
-* `bootfs`: this partition contains important system files. Do not touch. 
-* `rootfs`: same as above, do not touch at this stage. 
-* `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone: 
-    - `hostname.txt`: this is the robotname, and the default is `amelia`. Keep in mind (a) this cannot be changed after the first boot, (b) there are [contraints on the naming](dd24-hostname-contraints).  
-    - `country.txt`: will contain the country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). default is `US`, change to your country if needed. 
-    - `wifi` folder, containing several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi. Networks can be edited at any time after the first boot too. For additional information, refer to: [](dd24-network-config).
+* `bootfs`: this partition contains important system files. Do not touch.
+* `rootfs`: same as above, do not touch at this stage.
+* `configfs`: this partition contains configuration files you can edit to customize important features of your Duckiedrone:
+    - `hostname.txt`: this is the `robotname`, which defaults to `amelia`. Keep in mind: (a) it cannot be changed after the first boot, and (b) there are [constraints on the naming](dd24-hostname-constraints).
+    - `country.txt`: contains the two-letter country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). The default is `US`; change it to your country if needed.
+    - `wifi` folder: contains several files that allow for Wi-Fi network customization. You can edit `00-user.yaml` to add a custom Wi-Fi network. Networks can also be edited at any time after the first boot. For more information, see [](dd24-network-config).
 
 ```{figure} ../_images/rpi-sw-initialization/dd24-b-image-partitions.png
 :width: 80%
-:alt: Configuration partition for the Duckiedrone SD card
+:alt: Configuration partition for the Duckiedrone microSD card
 :name: dd24-b-image-partitions
 
-Image configuration partition accessible through Ubuntu. 
+Image configuration partition accessible through Ubuntu.
 ```
 
 ## 4. Proceed to the first boot
 
-Safely eject the `bootfs` partition to safely eject the whole SD card. Remove the SD card from your base station and insert it in the SD card adapter of your Raspberry Pi. 
+Safely eject the `bootfs` partition, then remove the microSD card from your base station and insert it into the Raspberry Pi's microSD card slot.
 
-You are now ready for the [first boot](sec:first-boot). 
+You are now ready for the [first boot](sec:first-boot).
 
 ```{note}
-Through this approach, the Duckiedrone will boot searching for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an ethernet cable. Once the first boot is complete, you can add or remove networks by following: [](dd24-network-config).  
+Through this approach, the Duckiedrone will boot and search for the default network. It is recommended to set up a `duckietown:quackquack` network before the first boot, or to connect the Duckiedrone to your router with an Ethernet cable. Once the first boot is complete, you can add or remove networks by following [](dd24-network-config).
 ```
 
 ## Troubleshooting
@@ -149,26 +143,12 @@ Go to your computer's `System Preferences > Security & Privacy > Files and Folde
 ![](../_images/rpi-sw-initialization/mac_troubleshooting.png)
 ````
 
-
 ```{trouble}
-`dts init_sd_card` fails with "unknown robot type duckiedrone".
+The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
 
-Your Duckietown Shell is out of date or the wrong profile is active. Run:
-
-    dts profile list          # 'ente' must be the active profile
-    pipx upgrade duckietown-shell
-    dts update
-
-then rerun the `dts init_sd_card` command.
-```
-
-
-```{trouble}
-The drone does not join my Wi-Fi after the first boot.
----
-
-*   Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
-*   Re-insert the SD card into your base station and inspect `config/wpa_supplicant.conf`. Confirm that your `ssid` and `psk` are correct and that the file has Unix line endings.
-*   If you are still stuck, flash again with the correct flags (see [](first_connection)).
+* Re-insert the microSD card into your base station and open the `configfs` partition.
+* Check `country.txt`. Wi-Fi is disabled when the regulatory domain is unset, so it must contain the correct two-letter country code.
+* Inspect `wifi/00-user.yaml`. Confirm that the network name and password are correct and that its YAML indentation uses spaces, not tabs.
+* If you cannot access `configfs` from Ubuntu or are still stuck, use [](dd24-sw-init-adv) to flash the card with your network credentials.
 ```

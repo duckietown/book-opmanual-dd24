@@ -1,5 +1,5 @@
 ```{seo}
-:description: Troubleshoot common Duckiedrone (DD24) build issues, including power, Raspberry Pi, camera, flight controller, and flight stability problems.
+:description: Troubleshoot common Duckiedrone DD24-B build issues, including power, Raspberry Pi, camera, flight controller, and flight stability problems.
 :keywords: Duckiedrone troubleshooting, DD24 power issues, Raspberry Pi boot failure, flight controller debugging, camera not working, drone flight stability, motor issues
 ```
 
@@ -8,7 +8,7 @@
 
 It is not uncommon for something to go wrong during the build process, which is why we need to learn how to debug problems. Having a systematic approach is essential to any robotics project.
 
-When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. Your drone will not fly until _everything_ works!
+When encountering a problem, rather than simply redoing the build or replacing a part, try to identify which parts are working and which are not. The Duckiedrone will not fly until _everything_ works.
 
 ## Power issues
 
@@ -17,7 +17,7 @@ When encountering a problem, rather than simply redoing the build or replacing a
 My Raspberry Pi does not boot.
 ---
 
-You should verify that each part of the drone is receiving power. The
+You should verify that each part of the Duckiedrone is receiving power. The
 Raspberry Pi indicates it has power with a *red* power LED.
 
 If your Raspberry Pi is not powering on, verify with a multimeter that the Raspberry Pi
@@ -26,7 +26,7 @@ of the GPIO pins [here](https://www.raspberrypi.org/documentation/usage/gpio/).
 Verify that each power pin is receiving 5 volts compared to each ground pin with the multimeter.
 
 Make sure you did not use metal screws to mount the camera to the frame, as they can cause a short.
- 
+
 If your Raspberry Pi is receiving 5 volts on its power/ground pins, but no red
 light turns on, then it might have been fried. This can happen if
 you miswire or short the power/ground pins on it, so try replacing
@@ -50,48 +50,21 @@ Most of the next debugging steps require getting into your Raspberry Pi using `s
 My Raspberry Pi is receiving power and turning the red light on, but it doesn't boot.
 
 ---
-Something might be wrong with your SD card.
+Something might be wrong with your microSD card.
 
-*   Verify that your SD card has the correct image flashed on it.
+*   Verify that your microSD card has the correct image flashed on it.
 
-*   Check that the SD card is inserted in the Raspberry Pi so that it can boot.
+*   Check that the microSD card is inserted in the Raspberry Pi so that it can boot.
 
-If all this does not work, find a keyboard and
-monitor to plug into the Raspberry Pi during boot, to see what is going on
-during the boot process.
+If none of this works, connect a keyboard and monitor to the Raspberry Pi during boot to see what is happening.
 
 There may be an error message being printed on the screen that will give more information.
 ```
+
 ## Camera
-Now verify that the camera is working. 
 
-```{trouble}
-I'm in the Screen session, but the camera node is not
-starting.
+For current camera diagnostics, including camera-cable checks and Dashboard symptoms, see [](dd24-troubleshooting-faq). The DD24-B uses the `driver-camera` and `ros2-camera` containers rather than GNU Screen and `raspistill`.
 
----
-
-Use `raspistill` to verify that it is plugged in.
-
-You can try `raspi-config` and make sure it is enabled.
-Also, it is very common for the camera cable to be plugged in backwards, or
-plugged into the wrong slot on the Raspberry Pi. (There are two possible slots
-that fit the cable.) Make sure it is plugged into the slot marked
-`"camera"`, and that the cable is facing the right way. (The metal pins
-of the cable should be facing the pins in the slot.) Make sure it
-is seated all the way.
-
-If none of these things make `raspistill` work, try plugging someone else's camera
-into your Raspberry Pi, and your camera into someone else's Raspberry Pi,
-and try all of the above debugging steps. You can also check if
-the cable is bad. For example, if you bend the cable too much, it will
-fatigue and then break the wires; or if a prop strikes the cable, it
-might cause the cable to break.
-
-If your Raspberry Pi and cable work with someone else's camera but not yours,
-try replacing the camera. If your camera and cable work with someone
-else's Raspberry Pi but not yours, try replacing the Raspberry Pi.
-```
 ## Flight Controller
 
 Finally, check the Flight Controller. When the Flight Controller
@@ -101,13 +74,11 @@ have power, and then the "low, high", indicating the Flight Controller
 can talk to them. If that doesn't work, check the connection between
 the Flight Controller, ESCs, and motors.
 
-On the Raspberry Pi, make sure you can calibrate the accelerometer, and run
-the Flight Controller Node. If those don't work, go back and recheck
-your Betaflight configuration.
+Calibrate the accelerometer as described in [](dd24-sensor-calibration). For PX4 and MAVROS flight-controller connection diagnostics, see [](dd24-troubleshooting-faq). The DD24-B uses PX4, so Betaflight configuration does not apply to this workflow.
 
 ## Flight Issues
 
-Before each flight, physically inspect the drone.
+Before each flight, physically inspect the Duckiedrone.
 
 Make sure that:
 
@@ -118,18 +89,16 @@ Make sure that:
 
 Any of these issues could cause poor flight behavior.
 
-If your drone flips the first time you try to take off, the motors are
-spinning the wrong way, or the props are on upside-down. If your
-drone makes funny noises when arming, either the props are not
+If your Duckiedrone flips the first time you try to take off, the motors are
+spinning the wrong way, or the props are installed upside down. If your
+Duckiedrone makes funny noises when arming, either the props are not
 tightened all the way, or they are striking a wire. Tape everything
 down as much as possible.
 
-If the drone is not stable during flight, you should make sure that
+If the Duckiedrone is not stable during flight, you should make sure that
 the props are all tightened down. Make sure the ESCs have been
 flashed with Bluejay as described in [](dd24-esc-init).
 
-A well-tuned drone can hover at zero velocity with some drifting,
+A well-tuned Duckiedrone can hover at zero velocity with some drifting,
 but not too much. It should be able to hover with position
 hold indefinitely.
-
-## Network issues

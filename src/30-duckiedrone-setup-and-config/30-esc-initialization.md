@@ -1,5 +1,5 @@
 ```{seo}
-:description: Flash the Bluejay firmware onto the four ESCs of the Duckietown Duckiedrone model DD24 using the esc-configurator.com web tool.
+:description: Flash the Bluejay firmware onto the four ESCs of the Duckietown Duckiedrone DD24-B using the esc-configurator.com web tool.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, ESC, Bluejay, BLHeli_S, esc-configurator, mamba-f405-mk2
 ```
 
@@ -24,10 +24,10 @@ The four Electronic Speed Controllers (ESCs) translate the Flight Controller's c
 ## 1. (skip if not necessary) Flash Betaflight onto the Flight Controller (FC)
 
  ```{attention}
-This step should not be necessary as the `DD24-B` ships with Betaflight 4.3.2 BTFL, Target DIAT/FURYF4OSD(STM32F405) already installed on the FC. Follow this step only if this is not the case.
+This step should not be necessary because the `DD24-B` ships with Betaflight `BTFL 4.3.2` for the `MAMBAF405_2022B` target already installed on the FC. Follow this step only if this is not the case.
 ```
 
-The ESC configuration tool does not talk to the ESCs directly, but reaches them by through the FC. For this to work, **Betaflight** (target firmware `BTFL 4.3.2`) needs to be flashed on the FC. If the Duckiedrone's FC does not alredy have Betaflight installed, go ahead and flash it.
+The ESC configuration tool does not talk to the ESCs directly, but reaches them through the FC. For this to work, **Betaflight** (target firmware `BTFL 4.3.2`) needs to be flashed on the FC. If the Duckiedrone's FC does not already have Betaflight installed, go ahead and flash it.
 
 Start by installing [Betaflight Configurator **v10.9.0**](https://github.com/betaflight/betaflight-configurator/releases/tag/10.9.0) on your base station and opening it.
 
@@ -51,11 +51,9 @@ You put the board into bootloader mode with the small `BOOT` button on the Fligh
 `BOOT` button location on the Mamba F405 MK2 Flight Controller.
 ```
 
- ```{todo}
-Clarify the connection and initial conditions. Should the RPI be on or off? Can I use the same cable that connects the RPI to the FC, unplugging it temporarily from the Pi, or do I need another cable? 
-   ```
+Remove power from the Duckiedrone if it is powered on. Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side. You will use this USB-A cable to connect the Flight Controller to your base station.
 
-With the board still disconnected, press and hold the `BOOT` button while you connect the USB-C cable to your base station, and then release the button. The board is now waiting in bootloader mode.
+With the board still disconnected, press and hold the `BOOT` button while you connect the USB-A cable to your base station, and then release the button. The board is now waiting in bootloader mode.
 
  ```{admonition} Check
 :class: seealso
@@ -66,7 +64,7 @@ With the Flight Controller connected in bootloader mode, the port/target dropdow
 ```{figure} ../_images/esc-init/betaflight_dfu_bootloader_dropdown.png
 :width: 500px
 
-The Flight Controller correctly in bootloader mode, as shown by `DFU - STM32 BOOTLOADER` in Betaflight Configurator.
+The Flight Controller is correctly in bootloader mode, as shown by `DFU - STM32 BOOTLOADER` in Betaflight Configurator.
 ```
 
 If the dropdown does not show `DFU - STM32 BOOTLOADER`, see [](esc_init_troubleshooting).
@@ -141,7 +139,7 @@ Use a Chrome-based browser (Google Chrome, Microsoft Edge, and so on).
    ```{figure} ../_images/esc-init/esc-config-unique-id.png
    :width: 80%
    :name: esc-config-unique-id
-   :alt: verifying the unique device ID received message when first connecting to the duckiedrone's ESCs
+   :alt: Verifying the unique device ID received message when first connecting to the Duckiedrone's ESCs
 
    Verify a Unique device ID has been received.
    ```
@@ -155,7 +153,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/01-esc-configurator-battery-plugin.jpg
    :width: 80%
    :name: 01-esc-configurator-battery-plugin
-   :alt: verifying the the battery connection for a duckiedrone with bluejay
+   :alt: Verifying the battery connection for a Duckiedrone with Bluejay
 
    Bluejay will detect the battery when plugged in.
    ```
@@ -167,9 +165,9 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/02-esc-configurator-reading-escs.jpg
    :width: 80%
    :name: 02-esc-configurator-reading-escs
-   :alt: duckiedrone ESC default factory configuration as read by Bluejay
+   :alt: Duckiedrone ESC default factory configuration as read by Bluejay
 
-   The Duckiedrone DD24-B ESCs ship with BLHeli S on JH15 layout. 
+   The Duckiedrone DD24-B ESCs ship with BLHeli S on JH15 layout.
    ```
 
 1. In the firmware selection, set:
@@ -180,7 +178,7 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    ```{figure} ../_images/esc-init/03-esc-configurator-config-flashing-escs.jpg
    :width: 80%
    :name: 03-esc-configurator-config-flashing-escs
-   :alt: flashing the duckiedrone ESCs with bluejay
+   :alt: Flashing the Duckiedrone ESCs with Bluejay
 
    Upgrading the ESC firmware with specific Bluejay parameters.
    ```
@@ -191,17 +189,15 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    Do not disconnect the battery or the USB cable while an ESC is being flashed.
    ```
 
-
 1. When the flashing completes, click `Read Setup` once more and check that all four ESCs now report `Bluejay 0.21.0`.
 
    ```{figure} ../_images/esc-init/04-esc-configurator-after-flashing.jpg
    :width: 80%
    :name: 04-esc-configurator-after-flashing
-   :alt: confirming bluejay on the dd24-b escs
+   :alt: Confirming Bluejay on the Duckiedrone DD24-B ESCs
 
-   Validate that the correct firmware has been successfully flashed. 
+   Validate that the correct firmware has been successfully flashed.
    ```
-
 
 ## (optional) 4. Disable the beacon
 
@@ -226,7 +222,7 @@ Your ESCs are now running Bluejay. Next, continue to [Initializing the Flight Co
 ```{trouble}
 The ESC Configurator does not detect any ESCs after `Read Setup`.
 ---
-The ESCs are not powered. Check that the LiPo battery is connected to the drone, since the Flight Controller's USB power is not enough to run the ESCs, and then click `Read Setup` again.
+The ESCs are not powered. Check that the LiPo battery is connected to the Duckiedrone, since the Flight Controller's USB power is not enough to run the ESCs, and then click `Read Setup` again.
 ```
 
 ```{trouble}

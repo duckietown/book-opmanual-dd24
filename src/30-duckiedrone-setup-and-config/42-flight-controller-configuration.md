@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn how to perform the flight controller preliminary configuration on a DD24-B Duckiedrone.
+:description: Learn how to configure the flight controller of a Duckiedrone DD24-B.
 :keywords: Duckiedrone, DD24-B, flight controller, FC, QGroundControl, PX4, Mamba F405 MK2, preset parameters
 ```
 
@@ -7,7 +7,6 @@
 * A base station computer
 * An initialized Flight Controller running PX4
 * ESCs already flashed with Bluejay
-* A charged drone battery
 * A USB to USB-C cable with data
 ---
 * A Flight Controller with the Duckiedrone parameters loaded
@@ -16,16 +15,16 @@
 (dd24-b-fc-config)=
 # Configuring the Flight Controller
 
-In the previous step we have prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`). 
+In the previous step, we prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the specifics of the Duckiedrone (`DD24-B`).
 
 By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a Duckietown preset parameters file.
 
 ```{attention}
-Before you begin, **remove the propellers** and **disconnect the battery from the drone**.
+Before you begin, **remove the propellers** and **disconnect the battery from the Duckiedrone**.
 ```
 
 (qgroundcontrol-connection)=
-## Installing QGroundControl 
+## Installing QGroundControl
 
    - Go to the [QGroundControl website](http://qgroundcontrol.com/) and download the installer for your operating system (Windows, macOS, or Linux).
    - Follow the installation instructions for your OS:
@@ -38,10 +37,10 @@ Before you begin, **remove the propellers** and **disconnect the battery from th
 ## Connecting to the Flight Controller
 
 Connect to your Duckiedrone over USB:
-   - Connect a USB-C cable from your computer to the flight controller. If your 
+   - Connect a USB-C cable from your computer to the flight controller.
    - Open QGroundControl on your computer.
    - QGroundControl **auto-detects the flight controller over USB and connects automatically**.
-   - Wait for a few moments; the top toolbar should show the vehicle as connected, then arrive at this summary page.
+   - Wait a few moments for the top toolbar to show that the vehicle is connected. QGroundControl will then display the summary page.
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
    :width: 100%
@@ -49,24 +48,22 @@ Connect to your Duckiedrone over USB:
 
    - Here you can see many sections such as **Airframe** and **Sensors** are red, indicating that they need to be configured.
 
+## Load the preconfigured parameter set
 
-## Load the preconfigured parameters set
-
-
-3. Open Parameters and load the `.params` file:
+1. Open the **Parameters** tab and load the `.params` file:
 
    ```{important}
    Import **exactly** this file: {download}`duckiedrone-px4-v4.params <../_static/dd24-b-fc-parameters/duckiedrone-px4-v4.params>`
    ```
 
    - Click the **Parameters** tab from the left panel to view the configurable parameters for your vehicle.
-   - In the Parameters screen, click on the **Tools** menu in the top right corner.
+   - In the Parameters screen, click on the **Tools** menu in the top-right corner.
    - Select **Load from file for review…** from the dropdown menu.
    - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
    - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
 
    ```{figure} ../_images/fc-setup/dd24-b/fc-params-load-dd24-b.jpg
-   :alt: uploading parameters to the Duckiedrone's flight controller
+   :alt: Uploading parameters to the Duckiedrone's flight controller
    :width: 100%
    :name: fc-params-load-dd24-b
 
@@ -80,22 +77,18 @@ Connect to your Duckiedrone over USB:
    - After rebooting, reconnect to the vehicle. You will then see a summary page similar to the one below:
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
-   :alt: state of the duckiedrone after reboot
+   :alt: State of the Duckiedrone after reboot
    :width: 100%
    :name: qgc-summary-post-params
 
    QGroundControl summary page after uploading FC parameters, before performing calibrations.
    ```
 
-
 ````{admonition} Enabling vision fusion later
 :class: dropdown
 
 The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision pos + vel) or `15` (also fuse vision yaw — recommended on this magless airframe).
 ````
-
-
-
 
 ````{admonition} Why the Radio page stays red
 :class: dropdown
@@ -104,7 +97,7 @@ This is expected. The Duckiedrone has no RC transmitter; the flight controller i
 ````
 
 ```{todo}
-Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGC).
+Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo capture targeted ArduPilot/QGroundControl).
 ```
 
 (dd24-b-fc-config-tips)=
@@ -116,11 +109,8 @@ Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo ca
 (dd24-b-fc-config-faq)=
 ## Troubleshooting
 
-
 ```{trouble}
 I am having issues following the instructions!
 ---
-We're happy to help and hear your feedback! Please post a question on our Stack Overflow. You can find the instructions on how to join it [here](https://duckietown.slack.com/archives/CHHQJ0E0H/p1670874390660429).
-
-You can also contact us via Slack in the following channel: [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667)
+We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
 ```

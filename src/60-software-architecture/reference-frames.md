@@ -1,22 +1,22 @@
 ```{seo}
-:description: Understand the different reference frames used by ROS and Betaflight in the Duckiedrone (DD24) system, including REP 105 and REP 103 conventions.
-:keywords: Duckiedrone reference frames, ROS REP 105, REP 103, Betaflight reference frame, DD24 coordinate systems, robotics frames, PX4 documentation
+:description: Understand the reference frames used by ROS 2 and PX4 in the Duckiedrone DD24-B system, including REP 105 and REP 103 conventions and a comparison with legacy Betaflight.
+:keywords: Duckiedrone reference frames, ROS 2 REP 105, REP 103, PX4 reference frames, legacy Betaflight reference frames, DD24 coordinate systems, robotics frames
 ```
 
 (dd24-reference-frames)=
 # Reference frames
 
-Different reference frames are used by ROS and Betaflight (i.e., by the software running on the Raspberry Pi and the one on the flight controller, respectively).
+The Duckiedrone DD24-B uses ROS 2 on the Raspberry Pi and PX4 on the flight controller, which use different reference-frame conventions. The diagrams below also compare the legacy Betaflight convention.
 
-## Betaflight
+## PX4 and the legacy Betaflight convention
 
-The reference frame used by the Betaflight firmware is as follows[^px4-docs]:
+PX4 uses the following reference frame, which is the same FRD (forward-right-down) body convention the legacy Betaflight firmware used[^px4-docs]:
 
-![Betaflight Reference Frame](../_images/software-architecture/px4-betaflight-ref-frame.png)
+![PX4 and legacy Betaflight reference frames](../_images/software-architecture/px4-betaflight-ref-frame.png)
 
-## Robot Operating System (ROS)
+## ROS 2
 
-ROS uses the reference frame conventions defined in [REP 105](https://www.ros.org/reps/rep-0105.html). Specifically for mobile robots (and thus the Duckiedrone), the _preferred_ axis orientation is defined in [REP 103](https://www.ros.org/reps/rep-0103.html) as having the _body axes_ as:
+ROS 2 uses the reference frame conventions defined in [REP 105](https://www.ros.org/reps/rep-0105.html). Specifically for mobile robots (and thus the Duckiedrone), the _preferred_ axis orientation is defined in [REP 103](https://www.ros.org/reps/rep-0103.html) as having the _body axes_ as:
 
 - `x` forward
 - `y` left
@@ -24,6 +24,6 @@ ROS uses the reference frame conventions defined in [REP 105](https://www.ros.or
 
 In the image below, you can see a comparison between the two reference frame conventions.[^px4-docs]
 
-![Comparison between the reference frames used in ROS and PX4/Betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
+![Comparison between the reference frames used in ROS 2, PX4, and legacy Betaflight](../_images/software-architecture/px4-vs-ros-ref-frames.png)
 
-[^px4-docs]: [Source px4-docs](https://docs.px4.io)
+[^px4-docs]: [PX4 documentation source](https://docs.px4.io)

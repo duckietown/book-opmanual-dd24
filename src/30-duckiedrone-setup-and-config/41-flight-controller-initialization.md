@@ -1,5 +1,5 @@
 ```{seo}
-:description: Instructions to initialize the flight controller on the Duckietown Duckiedrone model DD24 by flashing the PX4 bootloader and firmware.
+:description: Instructions to initialize the flight controller on the Duckietown Duckiedrone DD24-B by flashing the PX4 bootloader and firmware.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 
@@ -14,7 +14,7 @@
 (dd24-fc-init)=
 # Initializing the Flight Controller
 
-To make the flashing process as deterministic as possible, it is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/). In this way sthe procedure is fully scriptable and does not depend on internal mechanics of a graphical flasher.
+To make the flashing process as deterministic as possible, it is performed entirely from the command line with [`dfu-util`](https://dfu-util.sourceforge.net/). In this way the procedure is fully scriptable and does not depend on internal mechanics of a graphical flasher.
 
 ```{note}
 The flashing is a two-stage process:
@@ -44,7 +44,6 @@ sudo apt install dfu-util
 ```
 
 <!--
-(Optional but recommended) install a udev rule so `dfu-util` does not need `sudo`:
 
 ```bash
 sudo tee /etc/udev/rules.d/45-stm32-dfu.rules > /dev/null <<'EOF'
@@ -69,11 +68,10 @@ macOS does not need udev rules — `dfu-util` accesses USB devices directly via 
 ::::
 :::::
 
-
 ### Checkpoint ✅
 
-```{testexpect}
-Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with: 
+````{testexpect}
+Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with:
 
 ```shell
 dfu-util --version
@@ -85,17 +83,17 @@ Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
 Copyright 2010-2021 Tormod Volden and Stefan Schmidt
 This program is Free Software and has ABSOLUTELY NO WARRANTY
 Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
-```
+````
 
 (fc-init-dfu-mode-boot)=
 ## 2. Boot the FC in DFU Mode
 
-- Remove power from your drone if it is powered on.
+- Remove power from your Duckiedrone if it is powered on.
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
-- Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed. 
+- Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
-:alt: mamba flight controller boot button location
+:alt: Mamba flight controller BOOT button location
 :width: 50%
 :name: mamba-boot-button
 
@@ -174,8 +172,7 @@ dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bi
 * `-D omnibusf4sd_bl.bin`: the file to flash.
 ````
 
-
-````{admonition} Successful bootloader flashing output (MacOS)
+````{admonition} Successful bootloader flashing output (macOS)
 :class: dropdown
 
 ```
@@ -263,7 +260,7 @@ ls /dev/serial/by-id/
 ```
 
 ```{figure} ../_images/fc-setup/lsusb-output.png
-:alt: lsusb output on Ubuntu after successfull bootloader flashing
+:alt: lsusb output on Ubuntu after successful bootloader flashing
 :width: 90%
 :name: ubuntu-lsusb-output
 
@@ -286,7 +283,7 @@ macOS does **not** populate `/dev/serial/by-id/`. The board is exposed only as `
 ```
 
 ```{todo [DTSW-8047]}
-PX4 bootlader installer - `lsusb` approach does not work on MacOS 
+PX4 bootloader installer - `lsusb` approach does not work on macOS
 ```
 
 ::::
@@ -305,20 +302,20 @@ curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-ma
 ````{admonition} Which firmware build to use
 :class: dropdown
 
-Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the DD24 — this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the Duckiedrone DD24-B — this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ````
 
-* **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**, 
-* confirm it shows up again in `dfu-util -l`, then 
+* **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**,
+* confirm it shows up again in `dfu-util -l`, then
 * flash the firmware to the application offset `0x08008000`:
 
    ```bash
    dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
    ```
 
-````{admonition} Successful PX4 firmware flashing output (MacOS)
+````{admonition} Successful PX4 firmware flashing output (macOS)
 :class: dropdown
 
 ```
@@ -423,7 +420,5 @@ The most common cause is that the firmware was flashed to `0x08000000` instead o
 ```{trouble}
 I am having issues following the instructions!
 ---
-We're happy to help and hear your feedback! Please post a question on our Stack Overflow. You can find the instructions on how to join it [here](https://duckietown.slack.com/archives/CHHQJ0E0H/p1670874390660429).
-
-You can also contact us via Slack in the following channel: [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667)
+We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
 ```
