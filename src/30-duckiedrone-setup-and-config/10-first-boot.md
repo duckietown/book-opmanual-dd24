@@ -124,6 +124,10 @@ Sometimes things go awry during the first boot. It is possible that the Wi-Fi de
 :::
 -->
 
+```{todo}
+Verify AP mode works on DD24-B before uncommenting the instructions below.
+```
+
 <!--
 Networks are typically one of the biggest headaches in robotics. We offer different network configurations to minimize these headaches. If you are not sure which choice to make, the right answer typically is: if you are in a university, go for AP mode. If you are at home, go for CL mode. In both cases, you need to place the jumper accordingly on your `P7` & `P11` pins before getting started.  
 
@@ -195,3 +199,7 @@ Networks are typically one of the biggest headaches in robotics. We offer differ
 update sd card image to DD24
 ```
 -->
+
+```{todo}
+Update first boot video for DD24.
+```

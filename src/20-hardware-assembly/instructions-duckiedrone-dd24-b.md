@@ -18,6 +18,10 @@ Pages marked with this warning are actively being worked on.
 The stable release to date is the [_daffy_ Duckiedrone operation manual](https://docs.duckietown.com/daffy/opmanual-dd24/intro.html).  
 ```
 
+```{todo}
+Remove this warning when ready to go.
+```
+
 (duckiedrone-dd24-b-assembly-instructions)=
 # Duckiedrone `DD24-B` assembly instructions
 

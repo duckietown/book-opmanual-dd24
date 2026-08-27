@@ -3,6 +3,10 @@
 :keywords: Duckiedrone, advanced software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5
 ```
 
+```{todo}
+Change https link to local reference after merging this book in the Duckietown manual.
+```
+
 ```{needget}
 
 * A computer (the “base station”) with an internet connection
@@ -60,6 +64,10 @@ Where:
 *   `--wifi` — one or more networks in the form `ssid:psw`. Separate multiple networks with commas.
 
 Additional options are detailed on the [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/10-setup/03-duckiebot/flashing-sd-card-duckiebot-initialization-complete.html).
+
+```{todo}
+Update link above when merging in the Duckietown manual.
+```
 
 (dd24-hostname-constraints)=
 ### Duckiedrone hostname naming constraints
