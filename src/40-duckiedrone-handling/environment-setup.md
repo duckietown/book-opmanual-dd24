@@ -9,11 +9,13 @@
 Before you can fly your Duckiedrone, you need an up-to-date software stack running on the Duckiedrone and a browser on your base station that can reach the Duckietown Dashboard.
 
 ```{needget}
-*   A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-b-fc-config)
-*   A base station on the same network as the Duckiedrone (see [](first_connection))
-*   The Duckietown Shell (`dts`) installed on the base station
+- A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-b-fc-config)
+
+- A base station on the same network as the Duckiedrone (see [](first_connection))
+
+- The Duckietown Shell (`dts`) installed on the base station
 ---
-*   A Duckiedrone ready to fly from the Duckietown Dashboard
+- A Duckiedrone ready to fly from the Duckietown Dashboard
 ```
 
 ```{attention}
@@ -45,10 +47,13 @@ Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the 
 
 Wait for the command to terminate before continuing. When it finishes, the Duckiedrone's automatic stacks include:
 
-*   `dashboard` — the web UI you will use to fly
-*   `driver-tof-bottom` and `ros2-tof-bottom` — the altitude sensor and its ROS 2 bridge
-*   `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
-*   `zenoh-router` and `ros2-rosbridge-websocket` — ROS 2 messaging and Dashboard connectivity
+- `dashboard` — the web UI you will use to fly
+
+- `driver-tof-bottom` and `ros2-tof-bottom` — the altitude sensor and its ROS 2 bridge
+
+- `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
+
+- `zenoh-router` and `ros2-rosbridge-websocket` — ROS 2 messaging and Dashboard connectivity
 
 See [](duckiedrone-containers) for the complete list of automatic containers.
 
@@ -73,18 +78,24 @@ On the robot info page, click **Mission Control** in the top navigation bar. The
 ```{figure} ../_images/flying/mission_control_overview.png
 :align: center
 :width: 700px
+:alt: Duckietown Dashboard Mission Control page showing heartbeat, motor PWM, remote-control, arm/disarm, altitude, Time-of-Flight, and IMU widgets
 
 The default Duckiedrone mission, before arming.
 ```
 
 Before the first flight, confirm:
 
-*   **Heartbeats Monitor** (top left) — the `JOYSTICK` and `ALTITUDE` indicators are both green. A red indicator means the matching node is not publishing.
-*   **Motors PWM** — four bars are visible, all close to the minimum (~1000). If no bars appear, the Flight Controller node is not streaming motor commands.
-*   **Altitude** — the blue trace updates as you gently move the Duckiedrone up and down.
-*   **Time-of-Flight** — the distance reading (in meters) reacts to your hand passing under the Duckiedrone.
-*   **IMU – Orientation** — the attitude indicator tilts when you tilt the Duckiedrone.
-*   **Camera** — the image stream shows what the Duckiedrone sees.
+- **Heartbeats Monitor** (top left) — the `JOYSTICK` and `ALTITUDE` indicators are both green. A red indicator means the matching node is not publishing.
+
+- **Motors PWM** — four bars are visible, all close to the minimum (~1000). If no bars appear, check that `ros2-mavros` is healthy and that the Dashboard is receiving flight-controller data.
+
+- **Altitude** — the blue trace updates as you gently move the Duckiedrone up and down.
+
+- **Time-of-Flight** — the distance reading (in meters) reacts to your hand passing under the Duckiedrone.
+
+- **IMU – Orientation** — the attitude indicator tilts when you tilt the Duckiedrone.
+
+- **Camera** — the image stream shows what the Duckiedrone sees.
 
 ```{tip}
 If the **Arm / Disarm** widget shows nothing under `FLIGHT MODE`, it means `/mavros/state` has not published yet. Reload the page after a few seconds; if the issue persists, see [](dd24-troubleshooting-faq).

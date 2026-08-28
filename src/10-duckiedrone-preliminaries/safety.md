@@ -5,10 +5,11 @@
 
 (prelim-duckiedrone-safety)=
 # Safety
+
 ```{admonition} Read carefully
 :class: danger
 
-Building your Duckiedrone can be lots of fun; however, you'll be handling some tools that can be dangerous if used improperly. **Carefully read** this page to understand how to handle them correctly to minimize risks!
+Building your Duckiedrone can be lots of fun; however, you will be handling some tools that can be dangerous if used improperly. **Carefully read** this page to understand how to handle them correctly to minimize risks.
 ```
 
 ## Soldering
@@ -19,24 +20,34 @@ A significant part of building your Duckiedrone involves soldering. Soldering ca
 Always follow these safety guidelines when soldering:
 
 - Solder in a **well-ventilated** space and use a fume extractor to avoid inhaling fumes.
+
 - Always **wear safety goggles** to prevent solder splashes from reaching your eyes and to minimize exposure to fumes.
+
 - Ensure the soldering iron stand is sturdy and secure before plugging in the soldering iron.
+
 - **Never** touch the metal part of the soldering iron when plugged in; it can cause severe burns.
+
 - If you feel light-headed after soldering for extended periods, take a break and get some fresh air.
+
 - Wash your hands thoroughly with soap after soldering, as the solder may contain lead.
 ```
 
 (sec:battery_safety)=
 ## Battery
 
-Lithium Polymer (LiPo) batteries are commonly used in RC devices, including Duckiedrones and cell phones. However, improper handling of these batteries can lead to fires or explosions. It’s essential to handle them with care. Please [read this article](https://www.getfpv.com/learn/fpv-essentials/drone-battery-safety/) for more details on proper LiPo battery care.
+Lithium Polymer (LiPo) batteries are commonly used in RC devices, including Duckiedrones and cell phones. However, improper handling of these batteries can lead to fires or explosions. It is essential to handle them with care. See [GetFPV's drone battery safety guide](https://www.getfpv.com/learn/fpv-essentials/drone-battery-safety/) for more information about proper LiPo battery care.
 
 ```{danger}
 - **Never** leave a LiPo battery charging unattended.
+
 - If the battery or charger starts smoking during charging, unplug it immediately and replace both.
+
 - Avoid overcharging the battery.
+
 - Always have a fire extinguisher nearby. If no fire extinguisher is available, water can be used to douse the battery and surrounding area.
-- Inspect the battery regularly for damage, such as punctures or puffiness. Dispose of damaged batteries properly by following [this guide](https://modelaviation.com/lipo4).
+
+- Inspect the battery regularly for damage, such as punctures or puffiness. Dispose of damaged batteries properly by following the [LiPo battery disposal guide](https://modelaviation.com/lipo4).
+
 - Install the battery in the Duckiedrone before securing the second level of the frame.
 ```
 
@@ -46,13 +57,16 @@ The main hazards during flight include the spinning propellers, which can cause 
 
 ```{danger}
 - Fly your Duckiedrone in a **spacious** area free of people and fragile objects.
+
 - Always **wear safety goggles** when flying.
+
 - Verify that the correct propellers are on each motor, propellers are tightly fastened, and motors are securely attached to the Duckiedrone frame.
 ```
 
 ```{tip}
 For proper propeller installation:
 - **Black nuts** should be used with counterclockwise motors/propellers.
+
 - **Red nuts** should be used with clockwise motors/propellers to prevent them from unscrewing during operation.
 ```
 
@@ -60,8 +74,7 @@ For proper propeller installation:
 :name: fig-propeller-nut-colors
 :width: 200
 :align: center
+:alt: Four red motors fitted with red and black propeller nuts
 
-RED: **Clockwise** motors
-BLACK: **Counterclockwise** motors
+RED: **Clockwise** motors; BLACK: **Counterclockwise** motors.
 ```
-

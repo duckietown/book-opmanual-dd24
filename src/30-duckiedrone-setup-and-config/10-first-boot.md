@@ -4,10 +4,9 @@
 ```
 
 ```{needget}
-
-*   An initialized DD24 microSD card: [](dd24-sw-init)
+- An initialized DD24 microSD card: [](dd24-sw-init)
 ---
-*   A live Duckiedrone `DD24-B`
+- A live Duckiedrone DD24-B
 ```
 
 (sec:first-boot)=
@@ -20,13 +19,13 @@ There is only one first time you can connect to your Duckiedrone. Savor the expe
 The first time a newly flashed microSD card is inserted into the Duckiedrone, a special "first boot" procedure is executed.
 
 ```{attention}
-The first boot procedure will take roughly 10-15 minutes, during which your Raspberry Pi might look unresponsive. Do not interrupt the first boot procedure, e.g., by removing power to the Raspberry Pi. It will likely corrupt the microSD card. A corrupted microSD card will have to be flashed again.
+The first boot procedure will take roughly `10-15 min`, during which your Raspberry Pi might look unresponsive. Do not interrupt the first boot procedure, e.g., by removing power to the Raspberry Pi. It will likely corrupt the microSD card. A corrupted microSD card will have to be flashed again.
 ```
 
 During this process, the Duckiedrone will require a stable power source.
 
 ```{tip}
-Make sure you have a wall outlet power adapter, e.g., a phone charger (5V, 2-3A) or a fully charged Duckiedrone battery before starting the process.
+Make sure you have a `5 V`, `3 A` wall adapter or a fully charged Duckiedrone battery before starting the process.
 ```
 
 Do not power on the Raspberry Pi just yet.
@@ -35,32 +34,34 @@ Do not power on the Raspberry Pi just yet.
 
 To get started:
 
-1. **Computer**: Make sure the Raspberry Pi is **not powered.**  
+1. **Computer**: Make sure the Raspberry Pi is **not powered.**
 
-2. **Power**: Prepare a 5V, 2 or 3A wall adapter (preferred), or, if you have already assembled your Duckiedrone, alternatively a fully charged Duckiedrone battery.  
+2. **Power**: Prepare a `5 V`, `3 A` wall adapter (preferred) or, if you have already assembled your Duckiedrone, a fully charged Duckiedrone battery.
 
 3. **Network**: Prepare a network connection to the Duckiedrone, for example by:
     - having a Wi-Fi network that matches the credentials preconfigured on the microSD card during the [initialization procedure](dd24-sw-init), or
+
     - connecting the Duckiedrone to the router your computer is connected to with an Ethernet cable.
 
-4.  If you have not already, insert the initialized microSD card **into the card slot of the Raspberry Pi**.
+4. If you have not already done so, insert the initialized microSD card **into the microSD card slot of the Raspberry Pi**.
 
     ```{attention}
     **Do not** connect the microSD card to a USB-A port of the Raspberry Pi through an adapter.
     ```
 
-5.  **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. You will see the Raspberry Pi's red and green LEDs turn on. The green LED shows computation usage and will blink so quickly that it appears solid green for several minutes.
+5. **Power on the Raspberry Pi**: Insert the charger into the USB-C port of the Raspberry Pi, or plug in the Duckiedrone battery to the XT60 connector if the Duckiedrone is already assembled. On the standard Raspberry Pi 4 configuration, the red power LED turns on and the green activity LED flashes when the microSD card is accessed. On a Raspberry Pi 5, the single bicolor LED turns green as startup progresses and flashes off during microSD-card activity.
 
     ````{seealso}
     ```{vimeo} 728539642
-    :alt: DD24 first boot
+    :alt: Duckiedrone DD21 first boot
     ```
-    Duckiedrone (`DD21`) first boot sequence.
-    ````  
 
-    Once the booting procedure is complete, the Duckiedrone will automatically connect to the default network, or any available network previously set up.
+    Duckiedrone DD21 first boot sequence.
+    ````
 
-    You will be able to monitor the process through the `STATUS` column in `dts fleet discover` command output:
+    Once the boot procedure is complete, the Duckiedrone will automatically connect to the default network or any available network previously set up.
+
+    You can monitor the process through the `Status` column in the `dts fleet discover` command output:
 
     ```bash
            |    Hardware    |    Type     | Model |  Status  |   Hostname  
@@ -68,7 +69,7 @@ To get started:
     amelia | raspberry_pi_64 | duckiedrone |  DD24 |  Ready   | amelia.local
     ```
 
-    The `STATUS` field will read `BOOTING`, and then `READY` when the first boot process is about to finish.
+    The `Status` field will first read `Booting`, then `Ready` when the first-boot process has completed.
 
     To confirm the first boot has completed successfully, [connect to your Duckiedrone](first_connection).
 
@@ -95,9 +96,12 @@ Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspb
     To edit this file, you will need to:
 
     1. Power off the Duckiedrone
-    1. Remove the SD card from the SD card slot of the Raspberry Pi
-    1. Use the USB-A adapter to connect it back to the base station
-    1. Open the `config` disk partition.
+
+    2. Remove the SD card from the SD card slot of the Raspberry Pi
+
+    3. Use the USB-A adapter to connect it back to the base station
+
+    4. Open the `config` disk partition.
     ```
 
     :::
@@ -113,7 +117,6 @@ Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspb
     :::
 
     ::::
-
 -->
 
 <!--
@@ -146,16 +149,16 @@ Networks are typically one of the biggest headaches in robotics. We offer differ
     Use this mode to have the Duckiedrone connect to an existing local area network. This is the go-to choice if you have an existing network and admin access to it in the environment where you are operating.  
 
     1.  Pros:
-        * both your base station and your Duckiedrone can talk with each other (and other devices on the network), and to the internet.  
+        - both your base station and your Duckiedrone can talk with each other (and other devices on the network), and to the internet.
 
     2.  Cons:
-        * requires admin access to a pre-existing network in your space.  
+        - requires admin access to a pre-existing network in your space.
 
     3.  How to:
-        * __do not__ short pins `P7` & `P11` on the breadboard by __not__ using the provided jumper.
+        - __do not__ short pins `P7` & `P11` on the breadboard by __not__ using the provided jumper.
 
         ```{tip}
-        Keep the jumper on _one_ pin to avoid misplacing and losing it!
+        Keep the jumper on _one_ pin to avoid misplacing and losing it.
         ```
 
         ```{figure} ../_images/first-boot/wifi_pins_not_shorted.jpg
@@ -171,15 +174,15 @@ Networks are typically one of the biggest headaches in robotics. We offer differ
 
     1.  Pros:
 
-        *   You can connect to your Duckiedrone without the need for a pre-existing network infrastructure  
+        - You can connect to your Duckiedrone without the need for a pre-existing network infrastructure
 
     2.  Cons:
 
-        *   You might not have access to the internet (which is not required, but useful during development), unless your base station has a secondary network adapter (e.g., an Ethernet port) and you bridge the connection.  
+        - You might not have access to the internet (which is not required, but useful during development), unless your base station has a secondary network adapter (e.g., an Ethernet port) and you bridge the connection.
 
     3.  How to:
 
-        * __short__ pins `P7` & `P11` on the breadboard by using the provided jumper.
+        - __short__ pins `P7` & `P11` on the breadboard by using the provided jumper.
 
         ```{figure} ../_images/first-boot/wifi_pins_shorted.jpg
         :width: 500px
@@ -189,7 +192,6 @@ Networks are typically one of the biggest headaches in robotics. We offer differ
 
     :::
     ::::
-
 -->
 
 <!--

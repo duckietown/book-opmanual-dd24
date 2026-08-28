@@ -4,27 +4,30 @@
 ```
 
 ```{needget}
-* A base station computer running Linux (Ubuntu) or macOS
-* "Mamba" (`DD24-B`) Flight Controller
-* USB to USB-C cable with data
+- A base station computer running Linux (Ubuntu) or macOS
+
+- "Mamba" (DD24-B) Flight Controller
+
+- A data-capable USB cable and any required adapter to connect the base station to the Flight Controller's USB-C port
+
+- ESCs already flashed with Bluejay
 ---
-* An up-to-date, initialized "Mamba" FC running PX4
+- A "Mamba" Flight Controller running PX4 with the Duckietown parameters loaded
 ```
 
 (dd24-fc-setup)=
 # Setting up the Flight Controller
 
-The Flight Controller (FC) implements several safety-critical low-level behaviors, e.g., attitude stabilization. Correctly configuring the FC is paramount for achieving safe flight.
+The Flight Controller (FC) handles safety-critical low-level behaviors, such as attitude stabilization. Correct FC setup is essential for safe flight.
 
-The `DD24-B` runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target.
+The Duckiedrone DD24-B runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target.
 
-PX4 is a popular, open-source flight control software ultimately directed by the [Linux Foundation](https://www.linuxfoundation.org/).
+PX4 is an open-source flight-control software platform.
 
 (dd24-fc-setup-steps)=
 ## Flight controller setup steps
 
-To set up the flight controller, we will first initialize and then configure it. Both procedures should be performed only once.
+For a new or re-flashed Flight Controller, first initialize it and then configure it. Repeat either procedure only when you intentionally reinstall the firmware or parameter set.
 
 ```{tableofcontents}
 ```
-

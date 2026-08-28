@@ -4,7 +4,7 @@
 ```
 
 (prelim-dd24-box-component-description)=
-# Description of Components (`DD24-B`)
+# Description of Components (DD24-B)
 
 Most components in the Duckiedrone box are functional, i.e., they serve a purpose in learning to fly, or in flying, the Duckiedrone. Other components are not functional, but still useful, for example the duckies.
 
@@ -17,14 +17,14 @@ We provide below a brief description of each component in the box.
 :name: rpi4
 :width: 400px
 :align: center
-:alt: Raspberry Pi 4 Model B, 4GB RAM
+:alt: Raspberry Pi 4 Model B, 4 GB RAM
 
-Raspberry Pi 4 Model B, 4GB RAM
+Raspberry Pi 4 Model B, `4 GB` RAM.
 ```
 
 The Raspberry Pi 4 - Model B is a well-known credit card-size computer. This little marvel of technology from [Raspberry Pi Ltd.](https://www.raspberrypi.com/) acts as the high-level brain of the Duckiedrone, hosting most of the computation power.
 
-The Duckiedrone `DD24-B` model uses the Raspberry Pi 4 - Model B, with 4GB of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
+The Duckiedrone DD24-B model uses the Raspberry Pi 4 - Model B, with `4 GB` of RAM in its standard configuration. [Technical specifications](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) are available on the Raspberry Pi website.
 
 The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are flashed with the same `ente` image through `dts init_sd_card` — see [](dd24-sw-init).
 
@@ -37,17 +37,15 @@ The Duckiedrone is compatible with the Raspberry Pi 5 as well. Both variants are
 :align: center
 :alt: microSD card
 
-64GB Class 10 microSD card
+`64 GB` Class 10 microSD card.
 ```
 
 The microSD card is the core memory of the Duckiedrone.
 
-While it does look like a regular SD card with 64GB of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the Duckiedrone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop.
+While it does look like a regular SD card with `64 GB` of nominal capacity, Duckietown microSD cards are "fast", i.e., they have rather high minimum read and write speeds. Fast communication between the Duckiedrone "brain" (the Raspberry Pi) and memory is needed to prevent lags in the feedback loop.
 
 ```{note}
-
 The microSD card is inserted directly in the Raspberry Pi. Do not use the microSD adapter below during flight.
-
 ```
 
 (component-microsd-to-usb-adapter)=
@@ -59,11 +57,12 @@ The microSD card is inserted directly in the Raspberry Pi. Do not use the microS
 :align: center
 :alt: microSD-to-USB adapter
 
-microSD-to-USB adapter
+microSD-to-USB adapter.
 ```
+
 This USB-A microSD adapter is included in the box to support the first initialization of the microSD card.
 
-[One of the very first steps](dd24-sw-init) in the assembly process is to insert the microSD card into the adapter, and plug the adapter into your base station (laptop or desktop, not provided in the box) to install the correct software on the Duckiedrone.
+One of the first steps in the [software initialization procedure](dd24-sw-init) is to insert the microSD card into the adapter and plug the adapter into your base station (laptop or desktop, not provided in the box) to install the correct software on the Duckiedrone.
 
 ```{warning}
 Do not plug the microSD card adapter into the Raspberry Pi during flight. The microSD card goes directly into the Raspberry Pi.
@@ -78,12 +77,12 @@ Do not plug the microSD card adapter into the Raspberry Pi during flight. The mi
 :align: center
 :alt: Raspberry Pi camera and fisheye lens
 
-Raspberry Pi camera with Fisheye lens, and cable
+Raspberry Pi camera with Fisheye lens and cable.
 ```
 
 The camera is an important sensor for Duckiedrone autonomous operations, allowing it to perceive the environment visually.
 
-This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with a 160-degree field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a 30cm camera cable.
+This is an OV5647 `5 MP` [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera-G.htm) with a 160-degree field of view, thanks to the included fisheye lens, and (manually) adjustable focus distance. The package includes a `30 cm` camera cable.
 
 (component-tof-sensor-vl53l1x-black-pcb)=
 ## Time-of-Flight (ToF) Sensor
@@ -94,12 +93,12 @@ This is an OV5647 5MP [Raspberry Pi Camera (G)](https://waveshare.com/RPi-Camera
 :align: center
 :alt: Duckietown Time-of-Flight sensor v1.4
 
-Time-of-Flight Sensor (back, front)
+Time-of-Flight Sensor (back and front).
 ```
 
 Time-of-flight (ToF) sensors are distance measurement sensors. The Duckiedrone mounts five, one on each side and one looking down to measure altitude. The principle of operation is the measurement of the return time of light bouncing off obstacles, so we can think of them as 1D lidars.
 
-The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout)) and come with 15cm and 23cm 4-pin JST 1.5mm cables.
+The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](https://www.st.com/en/imaging-and-photonics-solutions/vl53l1x.html)) and come with `15 cm` and `23 cm` 4-pin JST `1.5 mm` cables.
 
 (component-motors-ccw-lhi-dx2205-2300kv)=
 ## Motors (CCW)
@@ -110,10 +109,10 @@ The Duckiedrone ToF sensors mount the VL53L1X module ([VL53L1X specifications](h
 :align: center
 :alt: Brushless DC Motors (Counter-clockwise - CCW)
 
-Brushless DC Motors (Counter-clockwise - CCW)
+Brushless DC Motors (Counter-clockwise - CCW).
 ```
 
-The Duckiedrone mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, M3 mounting holes and weigh roughly 28g each.
+The Duckiedrone mounts four LHI DX2205 brushless DC motors. These racing drone motors feature a motor constant of `2300 KV`, an M5 shaft diameter, M3 mounting holes, and a weight of roughly `28 g` each.
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut.
 
@@ -132,10 +131,10 @@ If you try to unscrew the top nuts, you will notice how they have opposite threa
 :align: center
 :alt: Brushless DC Motors (Clockwise - CW)
 
-Brushless DC Motors (Clockwise - CW)
+Brushless DC Motors (Clockwise - CW).
 ```
 
-The Duckiedrone DD24-B mounts four brushless DC motors, model DX2205. These racing drone motors feature a motor constant of 2300KV, an M5 shaft diameter, M3 mounting holes, and a weight of roughly 28g each.
+The Duckiedrone DD24-B mounts four LHI DX2205 brushless DC motors. These racing drone motors feature a motor constant of `2300 KV`, an M5 shaft diameter, M3 mounting holes, and a weight of roughly `28 g` each.
 
 Note that there are two pairs of motors, distinguishable by the color of the top nut.
 
@@ -164,6 +163,7 @@ These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv)
 **Red** nuts are for motors that spin in the **counter-clockwise (CCW)** direction.
 ```
 -->
+
 (component-propellers-cw-diatone-polycarbonate-4040)=
 ## Propellers (CW and CCW)
 
@@ -173,10 +173,10 @@ These motors are the same model as the [](component-motors-cw-lhi-dx2205-2300kv)
 :align: center
 :alt: Duckiedrone propellers
 
-Propellers (CW and CCW)
+Propellers (CW and CCW).
 ```
 
-The Duckiedrone mounts four Diatone Polycarbonate 4040, 4x4 (in) three-bladed propellers ("props"), each weighing 3.5g.
+The Duckiedrone mounts four Diatone polycarbonate 4040, `4 x 4 in` three-bladed propellers ("props"), each weighing `3.5 g`.
 
 The box contains a full spare set, i.e., 2x CW and 2x CCW props.
 
@@ -191,9 +191,9 @@ To distinguish CW from CCW propellers, find the arrows embossed on the backside,
 :name: dd24-battery
 :width: 300px
 :align: center
-:alt: Duckietown Duckiedrone DD24 LiPo battery
+:alt: Duckiedrone DD24 LiPo battery
 
-The Duckiedrone battery
+The Duckiedrone battery.
 ```
 
 The battery provides power for the Duckiedrone to operate, and is therefore essential to autonomous operations.
@@ -201,16 +201,21 @@ The battery provides power for the Duckiedrone to operate, and is therefore esse
 The Duckiedrone battery is a Lithium-Ion Polymer (LiPo) battery ([LiPo basics on Wikipedia](https://en.wikipedia.org/wiki/Lithium_polymer_battery)) with the following technical specifications:
 
 - Cells: 4
-- Output Voltage: 14.8V
-- Capacity: 1500mAh
-- Discharge Rating: 35C
-- Weight: 178g
-- Dimensions: 76x35x33mm
 
-Here is a good external guide to learn about what each number means: [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide).
+- Output Voltage: `14.8 V`
+
+- Capacity: `1500 mAh`
+
+- Discharge Rating: `35C`
+
+- Weight: `178 g`
+
+- Dimensions: `76 x 35 x 33 mm`
+
+See the [Rogers Hobby Center LiPo Guide](https://www.rogershobbycenter.com/lipoguide) to learn what each number means.
 
 ```{attention}
-Before doing anything with the Duckietown battery, read the [Duckietown Safety Guidelines](prelim-duckiedrone-safety).
+Before doing anything with the Duckietown battery, see the [Duckietown Safety Guidelines](prelim-duckiedrone-safety).
 ```
 
 ```{warning}
@@ -221,7 +226,7 @@ If for any reason your battery looks punctured or otherwise damaged, do not use 
 You can learn how to safely dispose of a LiPo battery, e.g., here: [Oscar Liang's Guide on Disposing LiPo batteries](https://oscarliang.com/dispose-lipo-battery-safely/).
 ```
 
-The Duckietown battery connects to the Duckiedrone through a 10cm long XT60 connector, and should be charged using the provided battery charger.
+The Duckietown battery connects to the Duckiedrone through a `10 cm` long XT60 connector and should be charged using the provided battery charger.
 
 (component-battery-charger-2-4s-liion-lipoly-25w)=
 ## Battery charger
@@ -232,18 +237,24 @@ The Duckietown battery connects to the Duckiedrone through a 10cm long XT60 conn
 :align: center
 :alt: Battery charger
 
-Lithium-Ion battery charger
+Lithium-Ion battery charger.
 ```
 
 This battery charger provides a safe charging interface for the [LiPo battery](component-lipo-battery-1500mah-4s-148v-xt60). It connects on one side to the battery and on the other to a stable power source (e.g., a wall outlet) through the [battery charger adapter](component-battery-charger-adapter-12v-2a-us-plug).
 
-- Operating Voltage Range: 9V-16V DC
+- Operating Voltage Range: `9-16 V DC`
+
 - Cell Type Supported: 2-4 cells Li-Ion/Li-Poly
-- Max Charge Power: 25W
-- Charge Current: 1500mA
-- Charge Accuracy: ±10mV
-- Balance Current: 1000mA
-- Material: Metal Case & Voltage Display
+
+- Max Charge Power: `25 W`
+
+- Charge Current: `1500 mA`
+
+- Charge Accuracy: `±10 mV`
+
+- Balance Current: `1000 mA`
+
+- Material: Metal Case and Voltage Display
 
 (component-battery-charger-adapter-12v-2a-us-plug)=
 ## Battery charger adapter - 12V 2A US plug
@@ -252,12 +263,12 @@ This battery charger provides a safe charging interface for the [LiPo battery](c
 :name: dd21-dd24-battery-charger-adapter-plug
 :width: 300px
 :align: center
-:alt: Duckiedrone battery charger adapter (12V, 2A)
+:alt: Duckiedrone battery charger adapter (12 V, 2 A)
 
-Duckiedrone battery charger adapter (12V, 2A)
+Duckiedrone battery charger adapter (`12 V`, `2 A`).
 ```
 
-This 12V 2A power adapter, provided with a US wall plug, connects to the battery charger to deliver charge to the battery when needed.
+This `12 V`, `2 A` power adapter, provided with a US wall plug, connects to the battery charger to deliver charge to the battery when needed.
 
 (component-duckietown-duckiedrone-hut-v1-2)=
 ## Duckiedrone HUT - v1.2
@@ -268,7 +279,7 @@ This 12V 2A power adapter, provided with a US wall plug, connects to the battery
 :align: center
 :alt: Duckiedrone HUT v1.2
 
-The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.  
+The Duckiedrone HUT connects the Duckiedrone embedded systems to the Raspberry Pi, and provides a playground for circuit testing.
 ```
 
 The Duckiedrone HUT (yes, HUT, not HAT) is a board that acts as a hub for connections between the various peripherals of the Duckiedrone, such as sensors and the flight controller, and the onboard Raspberry Pi.
@@ -284,31 +295,32 @@ It supports the placement of a breadboard to provide a "playground" for addition
 :align: center
 :alt: Duckiedrone HUT breadboard
 
-Duckiedrone HUT breadboard
+Duckiedrone HUT breadboard.
 ```
 
-This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiedrone HUT](component-duckietown-duckiedrone-hut-v1-2). To learn more about how to use breadboards, check, e.g., the [Breadboard Wikipedia](https://en.wikipedia.org/wiki/Breadboard) page.
+This is a prototyping breadboard with two-sided tape on the back. Attach it in the appropriate empty region on the top of the [Duckiedrone HUT](component-duckietown-duckiedrone-hut-v1-2). See [Wikipedia's breadboard article](https://en.wikipedia.org/wiki/Breadboard) for more information about using breadboards.
 
 (component-flight-controller-esc-stack-speedybee-f405-v3)=
 ## Flight Controller & ESC stack
 
 ### The Flight Controller (FC) and Electronic Speed Controller (ESC) - foreword
 
-The **Flight Controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC also hosts sensors such as the Inertial Measurement Unit (IMU), which measures linear and angular accelerations at high frequency (~200Hz), and a barometer, which indirectly measures height through variations in atmospheric pressure.
+The **Flight Controller (FC)** is the low-level brain of the Duckiedrone, tasked with transforming high-level decisions, e.g., "go faster", into actual commands to the motors. The FC hosts an Inertial Measurement Unit (IMU), which measures linear acceleration and angular velocity at high frequency (~`200 Hz`). Depending on the board, it may also include a barometer, which estimates altitude from atmospheric pressure.
 
 Overall, the FC is an essential component of every drone, even when another computational unit is available onboard (e.g., the Raspberry Pi, as in the case of the Duckiedrone). This is because the dynamics of a drone are much faster than the capability of a Raspberry Pi to deliver commands, e.g., to execute route corrections, especially when the Raspberry Pi is tasked with many other processes as well, such as visual perception.
 
 The Electronic Speed Controller board, which stacks with the FC and is conveniently included in this same box, transforms speed signals for the motors from the FC into lower-level (PWM) signals that make the motors spin.
 
-This FC+ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals.
+This FC and ESC stack includes the power distribution circuitry as well, receiving power directly from the battery through an XT60 connector and appropriately regulating (adjusting voltage output and stability) it before providing it to various peripherals.
 
 ```{note}
-There are two flight‑controller + ESC stacks for the Duckiedrone `DD24` family:
+There are two flight-controller and ESC stack options for the Duckiedrone DD24 family:
 
-* **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**`DD24`**) revision kits.  
-* **Mamba F405 MK2 V2 (60 A)** – shipped with the second (**`DD24‑B`**) revision kits.
+- **SpeedyBee F405 V3/V4 (50 A/55 A)** – shipped with the first (**DD24**) revision kits.
 
-Both boards share similar functionalities. In this manual, which is dedicated to the _ente_ software distribution for the Duckiedrone, we assume that you are flying one of the latest `DD24-B` revisions.
+- **Mamba F405 MK2 V2 (60 A)** – shipped with the second (**DD24‑B**) revision kits.
+
+Both boards share similar functionalities. In this manual, which is dedicated to the _ente_ software distribution for the Duckiedrone, we assume that you are flying one of the latest Duckiedrone DD24-B revisions.
 
 **The SpeedyBee flight controller is no longer supported in _ente_ but is still supported in [_daffy_](https://docs.duckietown.com/daffy/opmanual-dd24/).**
 
@@ -319,7 +331,7 @@ Before starting the assembly of your Duckiedrone, make sure to [identify which f
 
 ::::{tab-item} Mamba FC (DD24-B)
 
-The `DD24-B` uses a Mamba F405 MK2 V2 flight controller with a BLHeli_S 3-6S ESC, with details provided in [](flight-controller-and-esc-stack-mamba-bheli-specs).
+The Duckiedrone DD24-B uses a Mamba F405 MK2 V2 flight controller with a BLHeli_S 3-6S 60A ESC, with details provided in [](flight-controller-and-esc-stack-mamba-bheli-specs).
 
 ```{figure} ../_images/components-official-dd24/mamba-fc-1-wb.jpg
 :name: flight-controller-and-esc-stack-mamba-bheli
@@ -327,7 +339,7 @@ The `DD24-B` uses a Mamba F405 MK2 V2 flight controller with a BLHeli_S 3-6S ESC
 :align: center
 :alt: The Duckiedrone DD24-B flight controller (FC) and electronic speed controllers (ESC) stack
 
-The Mamba FC and BLHeli_S ESC stack
+The Mamba FC and BLHeli_S ESC stack.
 ```
 
 ```{figure} ../_images/components-official-dd24/MambaFC+BHELI-S_ESC-dd24-b-datasheet.jpg
@@ -336,20 +348,20 @@ The Mamba FC and BLHeli_S ESC stack
 :align: center
 :alt: The Duckiedrone DD24-B flight controller (FC) and electronic speed controllers (ESC) datasheet
 
-The Mamba FC and BLHeli_S ESC datasheet
+The Mamba FC and BLHeli_S ESC datasheet.
 ```
 
-* [Download the Mamba F405mk2 v2 & FC BLHeli_S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
+- [Download the Mamba F405 MK2 V2 flight controller and BLHeli_S 3-6S 60A ESC stack datasheet](https://drive.google.com/file/d/1_hS58KD7dkHBgAmRQ5_TxxtFOJwhhqPy/view?usp=sharing)
 
 ```{attention}
-The motor naming convention shown in the datasheet will change once `PX4` software is installed. Refer to [](dd24-motor-configuration) for details.
+The motor naming convention shown in the datasheet will change once `PX4` software is installed. See [](dd24-motor-configuration) for details.
 ```
 
 ::::
 
 ::::{tab-item} SpeedyBee FC (DD24)
 
-The `DD24` uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
+The Duckiedrone DD24 uses a [SpeedyBee F405 V3 50A](https://www.speedybee.com/speedybee-f405-v3-bls-50a-30x30-fc-esc-stack/), with details provided in [](fig-dd24-fc-esc-405v3-specs).
 
 ```{attention}
 The SpeedyBee flight controller is no longer supported in _ente_ but is still supported in [_daffy_](https://docs.duckietown.com/daffy/opmanual-dd24/).
@@ -361,7 +373,7 @@ The SpeedyBee flight controller is no longer supported in _ente_ but is still su
 :align: center
 :alt: The Duckiedrone DD24 Flight Controller (FC) and Electronic Speed Controller (ESC) stack
 
-The Flight Controller (FC) and Electronic Speed Controller (ESC) stack
+The Flight Controller (FC) and Electronic Speed Controller (ESC) stack.
 ```
 
 ```{figure} ../_images/components-official-dd24/f405-V3-specification-8.jpg
@@ -370,11 +382,12 @@ The Flight Controller (FC) and Electronic Speed Controller (ESC) stack
 :align: center
 :alt: Duckiedrone DD24 flight controller and ESC specifications (SpeedyBee F405 V3)
 
-The FC+ESC F405 V3 stack box components and specifications
+The F405 V3 flight controller and ESC stack box components and specifications.
 ```
 
-* [Download the F405v3 50A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
-* [Download the F405v4 55A FC&ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
+- [Download the SpeedyBee F405 V3 50A FC and ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V3_Stack/SpeedyBee_f405_v3_stack_manual_en.pdf)
+
+- [Download the SpeedyBee F405 V4 55A FC and ESC stack technical manual](https://store-fhxxhuiq8q.mybigcommerce.com/product_images/img_SpeedyBee_F405_V4_Stack/SpeedyBee_F405_V4_Stack_Manual_EN.pdf)
 
 ::::
 
@@ -389,7 +402,7 @@ The FC+ESC F405 V3 stack box components and specifications
 :align: center
 :alt: SpeedyBee F405 V3/V4 – top view
 
-SpeedyBee F405 V3/V4 (top view)
+SpeedyBee F405 V3/V4 (top view).
 ```
 
 ```{figure} ../_images/components-official-dd24/dd24-fc-esc-stack-mamba-f405-mk2-v2.png
@@ -398,13 +411,14 @@ SpeedyBee F405 V3/V4 (top view)
 :align: center
 :alt: Mamba F405 MK2 V2 – top view
 
-Mamba F405 MK2 V2 (top view)
+Mamba F405 MK2 V2 (top view).
 ```
 
-Use the connector layout and the soldering pads type to recognize your board:
+Use the connector layout and the type of soldering pads to recognize your board:
 
-* **SpeedyBee** – only surface soldering pads.
-* **Mamba** – through-hole soldering pads.
+- **SpeedyBee** – only surface soldering pads.
+
+- **Mamba** – through-hole soldering pads.
 
 ```{attention}
 The SpeedyBee flight controller is no longer supported in _ente_ but is still supported in [_daffy_](https://docs.duckietown.com/daffy/opmanual-dd24/).
@@ -419,7 +433,7 @@ The SpeedyBee flight controller is no longer supported in _ente_ but is still su
 :align: center
 :alt: Duckiedrone buzzer
 
-The buzzer notifies the user when the battery voltage is lower than a certain threshold
+The buzzer notifies the user when the battery voltage is lower than a certain threshold.
 ```
 
 The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measured output battery voltage is less than a certain threshold, indicating that the battery is about to be completely discharged. It is a good idea to land the Duckiedrone when hearing the buzzer buzz.
@@ -433,15 +447,18 @@ The Duckiedrone box includes a buzzer. Buzzers emit loud noises when the measure
 :align: center
 :alt: Duckiedrone cables
 
-Duckiedrone cables
+Duckiedrone cables.
 ```
 
 The Duckiedrone DD24-B box includes:
 
-- 1x USB-A to USB-C cable (with data) - 23cm + length of connectors, angled: FC to Raspberry Pi connection
-- 1x USB-C power cable (power only) - 8cm wires + 1cm exposed wire + 2cm connector, exposed wires: FC to Raspberry Pi connection
-- 4x 4-pin JST 1.5mm connectors (both ends) - 15cm: ToF sensor to HUT connections
-- 1x 4-pin JST 1.5mm connectors (both ends) - 23cm: ToF sensor to HUT connection
+- 1x USB-A-to-USB-C cable (with data) - `23 cm` plus the length of its connectors, angled: FC to Raspberry Pi connection
+
+- 1x USB-C power cable (power only) - `8 cm` wires plus a `1 cm` exposed wire and `2 cm` connector: FC to Raspberry Pi connection
+
+- 4x 4-pin JST `1.5 mm` connectors (both ends) - `15 cm`: ToF sensor to HUT connections
+
+- 1x 4-pin JST `1.5 mm` connectors (both ends) - `23 cm`: ToF sensor to HUT connection
 
 (component-heat-sink-kit-multiple-sizes)=
 ## Heat sink kit
@@ -450,9 +467,9 @@ The Duckiedrone DD24-B box includes:
 :name: fig-rpi-heat-sinks
 :width: 300px
 :align: center
-:alt: Heat sinks for DD24 Raspberry Pi
+:alt: Heat sinks for a Duckiedrone DD24 Raspberry Pi
 
-Heat sinks mount on the Raspberry Pi and help dissipate heat and lower the temperature of the board
+Heat sinks mount on the Raspberry Pi and help dissipate heat and lower the temperature of the board.
 ```
 
 Heat sinks are simple passive convective elements that stick to specific locations on the Raspberry Pi. Heat sinks help reduce the temperature of the Raspberry Pi, preventing it from automatically going into protection mode and partially shutting down computational resources.
@@ -466,14 +483,16 @@ Heat sinks are simple passive convective elements that stick to specific locatio
 :align: center
 :alt: Duckiedrone PWM fan for Raspberry Pi temperature control
 
-PWM fan for Raspberry Pi temperature control
+PWM fan for Raspberry Pi temperature control.
 ```
 
 This fan is used to cool down the Raspberry Pi. It is a PWM fan, meaning the speed at which it spins can be controlled.
 
- - PWM speed control, 3-pin Dupont connectors
- - Size: 40x40x10mm
- - 85mm long cables
+- PWM speed control, 3-pin Dupont connectors
+
+- Size: `40 x 40 x 10 mm`
+
+- `85 mm` long cables
 
 <!--
 (component-40mm-gpio-fan-reference-model)=
@@ -489,10 +508,10 @@ This fan is used to cool down the Raspberry Pi. It is a PWM fan, meaning the spe
 :align: center
 :alt: Jumper for Wi-Fi mode toggling
 
-Jumper for Wi-Fi mode manual toggling
+Jumper for Wi-Fi mode manual toggling.
 ```
 
-This 2.54mm jumper is used to short (i.e., connect) pins on the HUT. This is useful, e.g., to activate different Wi-Fi modes.
+This `2.54 mm` jumper is used to short (i.e., connect) pins on the HUT. This is useful, e.g., to activate different Wi-Fi modes.
 
 (component-velcro-strips-10inch-black)=
 ## Velcro strips
@@ -503,32 +522,33 @@ This 2.54mm jumper is used to short (i.e., connect) pins on the HUT. This is use
 :align: center
 :alt: Duckiedrone velcro strips
 
-Velcro strips
+Velcro strips.
 ```
 
 Velcro strips are used for cable management and securing components, such as the battery, to the Duckiedrone's chassis. The Duckiedrone box contains:
 
-- 2x 25cm black Velcro strips
+- 2x `25 cm` black Velcro strips
 
 (dd24-chassis)=
 ## Chassis
 
-The Duckiedrone's chassis is a custom-designed 2.5mm thick carbon fiber sandwich design, with the following components.  
+The Duckiedrone's chassis is a custom-designed `2.5 mm`-thick carbon-fiber sandwich design with the following components.
 
 (component-bottom-plate-carbon-fiber-25mm)=
 ### Bottom Plate
+
 ```{figure} ../_images/components-official-dd24/chassis-bottom.jpg
 :name: fig-dd24-chassis-bottom
 :width: 300px
 :align: center
 :alt: Duckiedrone chassis bottom plate
 
-Duckiedrone chassis: bottom plate  
+Duckiedrone chassis: bottom plate.
 ```
 
 The bottom part of the chassis provides the main surface for mounting components, such as the motors, the electronics, the battery, and more.
 
-The chassis has a square design with each side measuring 27.2cm.
+The chassis has a square design with each side measuring `27.2 cm`.
 
 (component-top-plate-carbon-fiber-25mm)=
 ### Top Plate
@@ -539,10 +559,10 @@ The chassis has a square design with each side measuring 27.2cm.
 :align: center
 :alt: Duckiedrone chassis top plate
 
-Duckiedrone chassis: top plate
+Duckiedrone chassis: top plate.
 ```
 
-The top chassis plate has the same outer dimensions as the bottom plate (27.2cm side), and its main function is to provide structural stability to the Duckiedrone.
+The top chassis plate has the same outer dimensions as the bottom plate (`27.2 cm` per side), and its main function is to provide structural stability to the Duckiedrone.
 
 (component-tof-support-carbon-fiber-25mm)=
 ### Other chassis components
@@ -553,12 +573,15 @@ The top chassis plate has the same outer dimensions as the bottom plate (27.2cm 
 :align: center
 :alt: Duckiedrone chassis other components
 
-Duckiedrone chassis: other components
+Duckiedrone chassis: other components.
 ```
+
 Other chassis components include:
 
 - 2x ToF sensor vertical supports: for mounting side viewing ToF sensors
+
 - 2x Fan duct walls: to improve thermal control efficiency of the fan
+
 - 1x Battery support plate: to hold the battery.
 
 (component-camera-tof-mount-abs-material)=
@@ -570,7 +593,7 @@ Other chassis components include:
 :align: center
 :alt: Duckiedrone camera mount
 
-Camera mount with integrated Time-of-Flight sensor mounting support
+Camera mount with integrated Time-of-Flight sensor mounting support.
 ```
 
 This chassis component mounts on the bottom plate and is used to hold the Duckiedrone's camera and front-facing ToF sensor. It places the camera at a 60-degree angle. Coupled with the camera's 160-degree field of view, it allows the Duckiedrone to see both underneath and in front at the same time.
@@ -584,7 +607,7 @@ This chassis component mounts on the bottom plate and is used to hold the Duckie
 :align: center
 :alt: Duckiedrone landing gear
 
-Landing gear
+Landing gear.
 ```
 
 Landing gears mount under each motor and support the Duckiedrone when landing.
@@ -598,7 +621,7 @@ Landing gears mount under each motor and support the Duckiedrone when landing.
 :align: center
 :alt: Duckiedrone rubber landing pads
 
-Rubber landing pads
+Rubber landing pads.
 ```
 
 These rubber landing pads mount under the landing gears and provide a softer landing experience.
@@ -612,28 +635,40 @@ These rubber landing pads mount under the landing gears and provide a softer lan
 :align: center
 :alt: Duckiedrone screws, nuts, standoffs
 
-Screws, nuts and standoffs
+Screws, nuts and standoffs.
 ```
 
 The Duckiedrone box includes a host of "bits and pieces", including spares of each:
 
-- **Screws** (number + spares)
+- **Screws** (number and spares)
   - (22+2)x Nylon (M3x6) - 16x chassis, 2x securing battery, 4x forward battery supports
+
   - (3+1)x Nylon (M3x10) - 3x camera mount
-  - (16+2)x Metal (M3x14) - 16x motors + landing gears
+
+  - (16+2)x Metal (M3x14) - 16x motors and landing gears
+
   - (4+1)x Metal (M3x20) - 4x FC
+
   - (11+2)x Nylon (M2.5x8) - 4x HUT, 5x ToF sensors, 2x aft battery supports, 2x Raspberry Pi stack
+
   - (6+1)x Nylon (M2x10) - 4x camera, 2x buzzer
 - **Nuts**
   - (5+1)x Nylon (M2.5) - 5x ToF sensors
+
   - (6+1)x Nylon (M2) - 4x camera, 2x buzzer
+
   - (5+1)x Nylon (M3) - 2x securing battery, 3x camera mount
 - **Standoffs**
   - (2+1)x Nylon (M2.5x40+6 MF) - 2x battery plate and Raspberry Pi standoffs
+
   - (4+1)x Nylon (M2.5x20+6 MF) - 4x Raspberry Pi and bottom plate
+
   - (4+1)x Nylon (M2.5x15+6 FF) - 4x Raspberry Pi and HUT
+
   - (8+2)x Nylon (M3x35+6 FF) - 8x chassis
+
   - (2+1)x Nylon (M3x40+6 FF) - 2x forward battery supports
+
   - (2+1)x Nylon (M3x6+6 MF) - 2x fan
 
 (component-8mm-wrench-motor-check)=
@@ -643,12 +678,12 @@ The Duckiedrone box includes a host of "bits and pieces", including spares of ea
 :name: fig-dd24-wrench
 :width: 300px
 :align: center
-:alt: 8mm wrench
+:alt: 8 mm wrench
 
-Wrench (8mm) for tightening motor top nuts
+Wrench (`8 mm`) for tightening motor top nuts.
 ```
 
-This 8mm wrench is provided to tighten up the motor-prop nuts. We really do not want those to go off while flying.
+This `8 mm` wrench is provided to tighten the motor-prop nuts. We really do not want those to come off while flying.
 
 (component-screwdriver-cross)=
 ## Screwdriver - Cross
@@ -659,9 +694,10 @@ This 8mm wrench is provided to tighten up the motor-prop nuts. We really do not 
 :align: center
 :alt: Cross screwdriver
 
-Cross screwdriver  
+Cross screwdriver.
 ```
-This simple cross screwdriver drives all the screws in the box.  
+
+This simple cross screwdriver drives all the screws in the box.
 
 (component-camera-calibration-pattern)=
 ## Camera Calibration pattern
@@ -672,21 +708,21 @@ This simple cross screwdriver drives all the screws in the box.
 :align: center
 :alt: Duckiedrone and Duckiebot camera calibration pattern
 
-Duckiedrone (and Duckiebot) camera calibration pattern
+Duckiedrone (and Duckiebot) camera calibration pattern.
 ```
 
 This checkerboard pattern is used to calibrate the Duckiedrone camera.
 
-(component-rubber-duckies-duckietown-swag)=
-## Rubber Duckies
+(component-duckietown-duckies-duckietown-swag)=
+## Duckietown Duckies
 
 ```{figure} ../_images/components-official-dd24/duckies.jpg
 :name: fig-duckietown-duckies
 :width: 300px
 :align: center
-:alt: Duckietown Duckies
+:alt: Duckietown duckies
 
-Duckietown duckies
+Duckietown duckies.
 ```
 
 Duckietown duckies are non-functional yet essential to the operations of the Duckiedrone. Make sure to always have at least one duckie onboard.
@@ -700,7 +736,7 @@ Duckietown duckies are non-functional yet essential to the operations of the Duc
 :align: center
 :alt: Duckietown stickers
 
-Duckietown stickers
+Duckietown stickers.
 ```
 
 Duckietown stickers look great on your laptop, and notify others of your Duckietown training.
@@ -714,7 +750,7 @@ Duckietown stickers look great on your laptop, and notify others of your Duckiet
 :align: center
 :alt: Duckiedrone DD24 instructions card
 
-Duckiedrone DD24 instruction card
+Duckiedrone DD24 instruction card.
 ```
 
 This instruction card provides links to the [Duckietown website](https://duckietown.com) and the [Duckietown get started page](https://duckietown.com/get-started/).

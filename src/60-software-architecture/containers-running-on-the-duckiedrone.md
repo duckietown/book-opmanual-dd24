@@ -1,5 +1,5 @@
 ```{seo}
-:description: Reference for every Docker container running on a Duckiedrone (DD24-B), the stack each one belongs to, and how to enable the underlying code.
+:description: Reference for the current and legacy Duckiedrone DD24-B Docker containers, their stacks, and how the standard updater deploys them.
 :keywords: duckiedrone, containers, docker, stacks, tof, sensors, dts
 ```
 
@@ -10,7 +10,7 @@ The Duckiedrone software is not a single monolithic program. It is a set of smal
 
 Each of those programs is delivered as a Docker **image**, and a running copy of an image is called a **container**, so the software on a Duckiedrone is a set of containers rather than an installed application. This modular architecture and reliance on containerization improve reproducibility.
 
-Containers are grouped into Docker Compose files called **stacks**. Three stacks start automatically at boot up and include everything required for the Duckiedrone to fly. The rest hold optional sensors and tools, and start only when asked.
+Containers are grouped into Docker Compose files called **stacks**. A newly flashed Raspberry Pi image provisions `robot/basics`. The standard `dts duckiebot update ROBOT_NAME` command then runs `stack up` for `robot/basics`, `duckietown/duckiedrone`, and `ros2/duckiedrone`. The remaining stacks are optional, separate, or legacy.
 
 To see what is running, log into the Duckiedrone and list the containers:
 
@@ -19,17 +19,20 @@ ssh duckie@ROBOT_NAME.local
 docker ps
 ```
 
-Every container from the three automatic stacks should appear in that list.
+After a standard update, this list normally includes the containers from the three default stacks, plus containers from any separately started stacks.
 
 ## Stacks
 
-| Stack | Contents | Starts |
+| Stack | Contents | Deployment |
 | :--- | :--- | :--- |
-| `robot/basics` | Container management and the key-value store | Automatically |
-| `duckietown/duckiedrone` | Message backbone, sensor drivers, flight control, device services | Automatically |
-| `ros2/duckiedrone` | ROS 2 transport and the ROS 2 bridges | Automatically |
+| `robot/basics` | Container management and the key-value store | Fresh image and standard update |
+| `duckietown/duckiedrone` | Message backbone, sensor drivers, simulation support, device services | Standard update |
+| `ros2/duckiedrone` | ROS 2 transport and bridges | Standard update |
+| `ros2-core/duckiedrone` | Altitude functionality | Separate stack; not selected by the standard update |
 | `duckiedrone/extra_sensors` | The front, left, right and top ToF sensors | On request only |
 | `duckiedrone/extra_tools` | Tools for inspecting the Duckiedrone | On request only |
+| `ros1/duckiedrone` | Legacy ROS 1 interface, rosbridge, and command multiplexer | Legacy; not selected by the current updater |
+| `core/duckiedrone` | Legacy PID, state-estimation, and visual-odometry services | Legacy; not selected by the current updater |
 
 The containers started by each stack are grouped below:
 
@@ -60,6 +63,9 @@ ros2/duckiedrone
   ros2-px4-calibration
   ros2-rosbridge-websocket
 
+ros2-core/duckiedrone (separate, not selected by the standard update)
+  altitude
+
 duckiedrone/extra_sensors (on request only)
   driver-tof-front
   driver-tof-left
@@ -72,9 +78,19 @@ duckiedrone/extra_sensors (on request only)
 
 duckiedrone/extra_tools (on request only)
   ros2-foxglove-bridge
+
+ros1/duckiedrone (legacy)
+  ros-interface
+  ros1-rosbridge-websocket
+  fly_commands_mux
+
+core/duckiedrone (legacy)
+  pid-controller
+  state-estimator
+  visual-odometry
 ```
 
-Stacks are started and stopped from the computer running the Duckietown Shell, not from the Duckiedrone itself. To bring one up:
+Run the following stack-management commands from a base station with the Duckietown Shell. They manage the Duckiedrone through its remote Docker endpoint. To bring one up:
 
 ```bash
 dts stack up -H ROBOT_NAME -d duckiedrone/extra_sensors
@@ -90,12 +106,12 @@ The `-H` flag names the Duckiedrone and `-d` detaches, so the command returns in
 
 ## Message backbone
 
-Two containers carry data between all the others, and everything else depends on them.
+Two containers provide the message backbones used by the current stacks.
 
 | Container | Role |
 | :--- | :--- |
-| `dtps` | The switchboard. Drivers publish their readings into it and everything else reads them out |
-| `zenoh-router` | Connects the ROS 2 containers so they can find and talk to each other. Every ROS 2 container is set to the same `ROS_DOMAIN_ID`, 42, so that they all connect through this router |
+| `dtps` | A switchboard used by drivers and other DTPS-enabled containers to exchange data |
+| `zenoh-router` | Connects the ROS 2 containers. The current Duckiedrone ROS 2 containers use `ROS_DOMAIN_ID=42` to communicate through this router |
 
 ## Sensor drivers
 
@@ -103,8 +119,8 @@ Driver containers read the Duckiedrone's sensors. Each one reads a device and pu
 
 | Container | Role |
 | :--- | :--- |
-| `driver-camera` | Captures raw frames from the camera, does some basic processing on them, and publishes them for the rest of the system to use |
-| `driver-tof-bottom` | Reads the downward-facing ToF sensor, which measures height above the ground. The altitude controller needs this reading to work, so it is the one sensor required for flight |
+| `driver-camera` | Captures camera data and publishes it through DTPS |
+| `driver-tof-bottom` | Reads the downward-facing ToF sensor, which measures height above the ground, and publishes it through DTPS. PX4 uses this sensor as its configured height source |
 
 ## ROS 2 bridges
 
@@ -115,17 +131,17 @@ The switchboard is not ROS 2. These containers translate: each one reads from th
 | `ros2-camera` | Republishes the camera feed as a ROS 2 topic |
 | `ros2-tof-bottom` | Republishes the downward ToF sensor reading as a ROS 2 topic |
 | `ros2-mavros` | Talks to the flight controller and exposes it to ROS 2. Used to read the Duckiedrone's state, send it commands, and arm it |
-| `ros2-px4-calibration` | Runs the calibration steps triggered from the Dashboard, such as calibrating the gyroscope or leveling the horizon |
+| `ros2-px4-calibration` | Provides PX4 calibration workflows, including gyroscope and level-horizon calibration |
 | `ros2-rosbridge-websocket` | Lets the Dashboard, running in a browser, talk to ROS 2 |
 
 ## Simulation
 
-Two containers exist for virtual Duckiedrones only. A physical Duckiedrone has a real flight controller board, so on real hardware both containers just sit idle.
+The base stack declares two simulation-related containers. `dt-px4` is explicitly for virtual Duckiedrones; the role of `mavlink-proxy` depends on the deployed robot configuration.
 
 | Container | Role |
 | :--- | :--- |
-| `dt-px4` | The flight controller software, PX4, running on a computer instead of a physical board. It is the virtual Duckiedrone's flight controller and connects to the simulator for its physics |
-| `mavlink-proxy` | Carries flight-controller traffic between the simulated flight controller and the rest of the software |
+| `dt-px4` | Runs PX4 in software for a virtual Duckiedrone instead of using a physical flight controller |
+| `mavlink-proxy` | Routes MAVLink traffic where the deployed configuration uses it |
 
 ## Device services
 
@@ -146,7 +162,7 @@ These containers provide the Duckiedrone's web interfaces and back-end services.
 (duckiedrone-optional-sensors)=
 ## Optional sensors
 
-A Duckiedrone can fly using the downward-facing sensor alone, so `driver-tof-bottom` and `ros2-tof-bottom` are the only ToF containers that start on their own. The front, left, right and top sensors are not needed to fly, so they stay off by default and only start when asked for.
+A Duckiedrone's standard PX4 configuration uses the downward-facing sensor as its height source, so `driver-tof-bottom` and `ros2-tof-bottom` are included in the default stack set. The front, left, right, and top sensors are not included by default and start only when requested.
 
 | Container | Role |
 | :--- | :--- |
@@ -165,7 +181,7 @@ To start them:
 dts stack up -H ROBOT_NAME -d duckiedrone/extra_sensors
 ```
 
-Once started, they keep running and come back automatically after a reboot, until stopped.
+The containers in this stack use Docker's `unless-stopped` restart policy. After creation, they restart after a reboot unless explicitly stopped or the stack is taken down.
 
 To stop them:
 
@@ -176,7 +192,7 @@ dts stack down -H ROBOT_NAME duckiedrone/extra_sensors
 (duckiedrone-optional-tools)=
 ## Optional tools
 
-Some containers are useful while developing or debugging, but neither flying the Duckiedrone nor serving the Dashboard needs them. They stay off by default and only start when asked for.
+Some containers are useful while developing or debugging, but neither flying the Duckiedrone nor serving the Dashboard needs them. They are not selected by the standard update and start only when requested.
 
 | Container | Role |
 | :--- | :--- |
