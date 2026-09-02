@@ -20,7 +20,7 @@ Remove the propellers before calibrating the flight controller.
 
 - **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
 
-- **Level Horizon:** if the artificial horizon is not level after accelerometer calibration, leave the Duckiedrone still on a level surface until this calibration completes.
+- **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
 
 - After the sensors are calibrated successfully, the **Sensors** section should turn green.
 
