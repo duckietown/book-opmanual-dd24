@@ -40,6 +40,26 @@ To inspect the current Netplan configuration:
 sudo netplan get
 ```
 
+The command prints the merged Netplan configuration. For a Duckiedrone configured with one Wi-Fi network, the output resembles:
+
+```yaml
+network:
+  version: 2
+  wifis:
+    wlan0:
+      dhcp4: true
+      optional: true
+      access-points:
+        "my-network":
+          password: "<redacted>"
+```
+
+`netplan get` can print Wi-Fi names and passwords. Redact them before sharing its output. If it warns that the permissions for a file in `/etc/netplan` are too open, restrict the named runtime configuration file:
+
+```bash
+sudo chmod 600 /etc/netplan/<file>.yaml
+```
+
 (dd24-network-config-edit)=
 ## How to add, remove or edit networks
 
