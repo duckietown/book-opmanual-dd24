@@ -7,32 +7,27 @@
 # Common issues
 
 ```{trouble}
-The red power light on the Raspberry Pi is blinking or does not turn on.
-
+The Raspberry Pi power indicator is off or behaves unexpectedly.
 ---
+The Raspberry Pi may not be receiving enough power. On a Raspberry Pi 4, the red power LED should be on; on a Raspberry Pi 5, the bicolor LED turns green as startup progresses.
 
-The Raspberry Pi is not receiving enough power.
-
-- Check that the voltage coming out of the UBEC is a constant 5V
+- Check that the voltage coming out of the UBEC is a steady `5 V`.
 
 - Make sure that the HUT is attached to the Raspberry Pi all the way (there is no gap between the GPIO pins and the HUT pin header).
 
-- Make sure that the `OUTPUT` side of the UBEC is attached to the HUT, and the `INPUT` side is soldered to the PDB
+- Make sure that the `OUTPUT` side of the UBEC is attached to the HUT and the `INPUT` side is soldered to the PDB.
 
 - Make sure that there is not a short between the power and ground rails on the HUT.
 
-- Make sure there are no stray wire hairs that are shorting out the `5V` and the `GND` rails on the HUT
-
+- Make sure there are no stray wire hairs that are shorting out the `5V` and `GND` rails on the HUT.
 ```
 
 ```{trouble}
 The flight containers are not running on the Duckiedrone.
-
 ---
-
 The `ente` stack runs the flight code inside Duckietown containers. From the base station, re-pull and restart them with:
 
-    dts duckiebot update ROBOT_NAME
+		dts duckiebot update ROBOT_NAME
 
 You can inspect what is running on the Duckiedrone from the Portainer page at `http://ROBOT_NAME.local:9000`. Make sure the containers `dashboard`, `driver-tof-bottom`, `ros2-tof-bottom`, `zenoh-router`, `ros2-mavros`, and `ros2-rosbridge-websocket` are all healthy. See [](duckiedrone-containers) for the complete list of automatic containers.
 ```
@@ -42,17 +37,16 @@ One of the Heartbeats Monitor indicators is red on the Dashboard.
 ---
 A red heartbeat means the corresponding ROS node has stopped publishing. The widget monitors two heartbeats:
 
-*   `JOYSTICK` — the base station joystick (or the virtual joystick widget).
-*   `ALTITUDE` — the ToF altitude node.
+- `JOYSTICK` — the base station joystick (or the virtual joystick widget).
+
+- `ALTITUDE` — the ToF altitude node.
 
 Restart the Duckiedrone containers from Portainer, or rerun `dts duckiebot update ROBOT_NAME` from the base station.
 ```
 
 ```{trouble}
 The flight controller does not connect (MAVROS state is not publishing).
-
 ---
-
 On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/mavros/state` does not publish:
 
 - make sure the USB cable is plugged between the Raspberry Pi and the flight controller (any of the four USB ports works).
@@ -65,12 +59,11 @@ On the Duckiedrone, `ros2-mavros` bridges the flight controller to ROS 2. If `/m
 ```{trouble}
 The Camera widget is blank.
 ---
-
 If the camera image never appears, the issue is typically the physical connection between the camera and the Raspberry Pi:
 
-- make sure that the sunny flap is shut (push on the small silver rectangle on the front of the camera and make sure it is attached firmly).
+- make sure that the camera-side FFC connector latch is closed.
 
-- make sure that the camera flat cable (FFC) is fully inserted into the camera and into the Raspberry Pi.
+- make sure that the camera flat cable (FFC) is fully inserted at both the camera and the Raspberry Pi.
 
 - On the Raspberry Pi, make sure the blue side of the FFC is facing towards the USB ports.
 
@@ -81,36 +74,32 @@ If the camera image never appears, the issue is typically the physical connectio
 
 ```{trouble}
 The Altitude widget is flat (no reading, or stuck at 0).
-
 ---
-
 The altitude comes from the ToF driver. Check the Time-of-Flight widget first: if it also shows no value, the `driver-tof-bottom` container is down or the sensor is unplugged. Restart the container from Portainer, and if the reading is still missing, verify the I²C connection to the ToF board.
 ```
 
 ```{trouble}
 The Dashboard shows all widgets but nothing updates.
-
 ---
-
 The Dashboard communicates with ROS 2 through `ros2-rosbridge-websocket`. If the page loads but the widgets never populate, make sure that container is healthy in Portainer, then restart the Duckiedrone containers.
 ```
 
 ```{trouble}
 There is a long delay between when you move the Duckiedrone and when the widgets change.
-
 ---
-
-This is typically network latency. If you are running the Duckiedrone in CL (client) mode on a shared network, take some of the other devices offline or switch to a less congested Wi-Fi network.
+This is typically network latency. On a shared Wi-Fi network, reduce traffic from other devices or switch to a less congested network.
 ```
 
 ```{trouble}
 The motors on the Duckiedrone do not spin when armed from the Dashboard.
-
 ---
+Before testing motors in QGroundControl, remove all propellers and keep them off throughout the test.
 
 First confirm that the Arm / Disarm widget actually reports `ARMED` — if the toggle snaps back off, PX4 rejected the arming request (see the troubleshooting list in [](flying_your_drone)).
 
 If the toggle stays on `ARMED` but the motors are silent, check in QGroundControl (see [](qgroundcontrol-connection)) that:
+
+- the Duckiedrone battery is connected; the motors need battery power to spin,
 
 - the ESC/Motor protocol matches the one in the supplied Duckiedrone parameter file,
 
@@ -121,14 +110,14 @@ If the toggle stays on `ARMED` but the motors are silent, check in QGroundContro
 
 ```{trouble}
 The Duckiedrone does not get off the ground when commanded to take off.
-
 ---
-
-- make sure that the arrows embossed on the propellers are visible from the top of the Duckiedrone,
+- make sure that the arrows embossed on the propellers are visible from above,
 
 - make sure that the arrows on the props are pointing in the correct direction,
 
-- remove the propellers, plug the battery back in, and from QGroundControl's **Actuators** page, spin each motor individually to verify the direction,
+- remove all propellers before using QGroundControl to test motor direction, and keep them off throughout the test,
+
+- connect the battery, then use QGroundControl's **Actuators** page to spin each motor individually and verify the direction,
 
 - make sure that when you spin up motor 1, the front-right motor spins. Do this check for all four motors.
 ```

@@ -1,4 +1,4 @@
-# Flight controller settings for the DD24-B Duckiedrone (PX4).
+# Flight controller settings for the Duckiedrone DD24-B (PX4).
 #
 # This file holds all the settings the drone's flight controller needs in order
 # to fly: what shape the frame is, where the motors are and which way they spin,

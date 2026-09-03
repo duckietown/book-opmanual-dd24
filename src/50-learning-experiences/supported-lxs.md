@@ -7,15 +7,16 @@
 # Supported Learning Experiences
 
 ```{needget}
-* An internet connection
-* A computer with the Duckietown Shell (`dts`) [installed and correctly set up](dd24-initial-setup)
-* Duckietown token correctly set up
+- An internet connection
+
+- A computer with the Duckietown Shell (`dts`) [installed and correctly set up](dd24-initial-setup)
+
+- A Duckietown token configured on the computer
 ---
-* Knowledge
-* Skills
+- Access to the Duckiedrone Altitude PID Tuning learning experience
 ```
 
-Learning experiences for the Duckiedrone are hosted on GitHub. The following experience is currently available; its repository `README` includes setup instructions:
+Learning experiences for the Duckiedrone are hosted on GitHub. The following experience is currently available; its repository's `README` includes setup instructions:
 
 <!-- Not yet ported to the new DD24 format:
 - [Linux and Networking](https://github.com/duckietown/duckietown-lx/tree/duckiedrone-lxs/linux-and-networking)
@@ -23,4 +24,4 @@ Learning experiences for the Duckiedrone are hosted on GitHub. The following exp
 -->
 - [Duckiedrone Altitude PID Tuning](https://github.com/duckietown/dd24-pid-tuning)
 
-The IMU, Time-of-Flight, and camera learning experiences do not currently have public learner repositories.
+The IMU, Time-of-Flight, and camera learning experiences do not yet have public learner repositories.

@@ -10,11 +10,19 @@ Sensors produce data. To help make sense of this data and transform it into info
 
 ## Calibrate the sensors
 
-- Open the **Sensors** page in QGroundControl.
+```{attention}
+Remove the propellers before calibrating the flight controller.
+```
+
+- Open the **Sensors** section in QGroundControl.
+
 - **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
+
 - **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
+
 - **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
-- After the sensors are calibrated successfully, the **Sensors** tab should turn green.
+
+- After the sensors are calibrated successfully, the **Sensors** section should turn green.
 
 ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
 :name: qgc-summary-post-sensors
@@ -41,15 +49,22 @@ Remove the propellers before running any flight-controller calibration or arming
 ```
 
 1. Connect to the Dashboard ([](first_connection)).
+
 2. Start the Duckiedrone stacks if they are not already running:
+
    ```bash
    dts stack up -H ROBOT_NAME.local duckietown/duckiedrone -d
    dts stack up -H ROBOT_NAME.local ros2/duckiedrone -d
    ```
+
 3. Navigate to {bdg-warning}`Robot` > {bdg-dark-line}`Mission Control`.
+
 4. Find the `IMU - Orientation` block.
+
 5. Place the Duckiedrone on a level surface, hold it still, and click {bdg-secondary-line}`GYRO`.
+
 6. When the gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
+
 7. Follow the live `[cal]` prompts shown in the block. PX4 will ask for six stable orientations: level/top-up, on-back/top-down, nose-down, nose-up, left-side-down, and right-side-down. Hold each orientation still until PX4 accepts it.
 
 The calibration is complete when the block reports `PX4 accel calibration complete` or an equivalent PX4 completion message.

@@ -1,4 +1,3 @@
-
 ```{seo}
 :description: Learn essential skills for building your Duckiedrone, including wire stripping, tinning, soldering, and troubleshooting techniques.
 :keywords: Duckiedrone, soldering guide, wire stripping, tinning wires, drone building, troubleshooting soldering, Duckietown, soldering tips
@@ -30,6 +29,7 @@ Watch the following tutorial to learn how to tin and join two wires:
 ```{note}
 Some parts may arrive pre-tinned by the manufacturer. You can identify pre-tinned wires by:
 1. The "shininess" of the wire tip.
+
 2. The inability to fray the wire strands at the tip.
 
 However, pre-tinned tips are often ineffective. Cut off pre-tinned tips, then strip and tin the wire yourself.
@@ -42,15 +42,19 @@ Soldering involves joining two metal components by melting solder, which acts as
 
 ```{danger}
 - Use **long-nose pliers** or helping hands to hold wires and components, as they become hot quickly during soldering.
-- Avoid touching the soldering iron tip or other heated metal parts to prevent burns. If burned, rinse the area immediately with cold water.
+
+- Avoid touching the soldering iron tip or other heated metal parts to prevent burns. If burned, cool the affected area under cool running water for `15-30 min`.
+
 - Do not use the soldering iron on unintended surfaces; the heat can cause melting or damage.
-- Always use a **fume extractor** to avoid inhaling fumes.
+
+- Solder in a well-ventilated area and use a **fume extractor** to avoid inhaling fumes.
 ```
 
 ### Resources
 
-- For a quick soldering overview, watch [this YouTube tutorial](https://www.youtube.com/watch?v=Qps9woUGkvI).
-- For a more detailed introduction, review [this article](https://www.circuitrework.com/guides/7-1-1.html).
+- For a quick soldering overview, watch [this soldering tutorial on YouTube](https://www.youtube.com/watch?v=Qps9woUGkvI).
+
+- For a more detailed introduction, see the [Circuit Rework soldering guide](https://www.circuitrework.com/guides/7-1-1.html).
 
 (build-troubleshooting)=
 ## Troubleshooting
@@ -86,9 +90,9 @@ Remove the loose clip, pinch the end tighter with pliers, and reattach.
 ```
 
 ```{trouble}
-I burned some insulator onto my wire while tinning.
+I burned some insulation onto my wire while tinning.
 ---
-Small amounts of insulator burn are fine. For significant damage, carefully cut off the burned section or replace the wire.
+Small amounts of burned insulation are usually acceptable. For significant damage, carefully cut off the burned section or replace the wire.
 ```
 
 ```{trouble}
@@ -102,7 +106,10 @@ My solder keeps forming into a sphere instead of sticking to the wire.
 ---
 This issue occurs when the solder is not fully melting due to:
 1. A worn-out soldering iron tip.
+
 2. Expired solder.
+
 3. A malfunctioning soldering iron station.
+
 4. Using non-rosin core solder. Apply soldering flux to the wire or try a different solder type.
 ```

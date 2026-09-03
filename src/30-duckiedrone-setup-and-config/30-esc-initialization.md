@@ -1,15 +1,18 @@
 ```{seo}
-:description: Flash the Bluejay firmware onto the four ESCs of the Duckietown Duckiedrone DD24-B using the esc-configurator.com web tool.
+:description: Flash the Bluejay firmware onto the four ESCs of the Duckiedrone DD24-B using the esc-configurator.com web tool.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, ESC, Bluejay, BLHeli_S, esc-configurator, mamba-f405-mk2
 ```
 
 ```{needget}
-* A base station computer with a Chrome-based browser
-* Flight Controller
-* USB-A to USB-C cable
-* A charged LiPo battery
+- A base station computer with a Chrome-based browser
+
+- Flight Controller
+
+- USB-A-to-USB-C cable
+
+- A charged LiPo battery
 ---
-* Four ESCs running the Bluejay firmware
+- Four ESCs running the Bluejay firmware
 ```
 
 (dd24-esc-init)=
@@ -24,19 +27,20 @@ The four Electronic Speed Controllers (ESCs) translate the Flight Controller's c
 ## 1. (skip if not necessary) Flash Betaflight onto the Flight Controller (FC)
 
  ```{attention}
-This step should not be necessary because the `DD24-B` ships with Betaflight `BTFL 4.3.2` for the `MAMBAF405_2022B` target already installed on the FC. Follow this step only if this is not the case.
+This step should not be necessary because the Duckiedrone DD24-B ships with Betaflight `BTFL 4.3.2` for the `MAMBAF405_2022B` target already installed on the FC. Follow this step only if this is not the case.
 ```
 
 The ESC configuration tool does not talk to the ESCs directly, but reaches them through the FC. For this to work, **Betaflight** (target firmware `BTFL 4.3.2`) needs to be flashed on the FC. If the Duckiedrone's FC does not already have Betaflight installed, go ahead and flash it.
 
 Start by installing [Betaflight Configurator **v10.9.0**](https://github.com/betaflight/betaflight-configurator/releases/tag/10.9.0) on your base station and opening it.
 
-Next, open the `Firmware Flasher` tab from the left sidebar and set the options to match your board, as shown below. The Duckiedrone uses the Mamba F405 MK2, so select the `MAMBAF405_2022B` target and the `BTFL 4.3.2` firmware version.
+Next, open the `Firmware Flasher` tab from the left sidebar and set the options to match your board, as shown below. The Duckiedrone uses the Mamba F405 MK2 V2, so select the `MAMBAF405_2022B` target and the `BTFL 4.3.2` firmware version.
 
 ```{figure} ../_images/esc-init/flasher_parameters_mamba.png
 :width: 500px
+:alt: Betaflight Configurator Firmware Flasher settings with MAMBAF405_2022B selected and firmware version 4.3.2
 
-`Firmware Flasher` settings for the Mamba F405 MK2 (`BTFL 4.3.2`)
+`Firmware Flasher` settings for the Mamba F405 MK2 V2 (`BTFL 4.3.2`).
 ```
 
 ### Connecting the Flight Controller and loading it into bootloader mode
@@ -47,8 +51,9 @@ You put the board into bootloader mode with the small `BOOT` button on the Fligh
 
 ```{figure} ../_images/esc-init/mamba_boot_button.png
 :width: 500px
+:alt: Mamba F405 MK2 V2 Flight Controller with the BOOT button outlined in red
 
-`BOOT` button location on the Mamba F405 MK2 Flight Controller.
+`BOOT` button location on the Mamba F405 MK2 V2 Flight Controller.
 ```
 
 Remove power from the Duckiedrone if it is powered on. Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side. You will use this USB-A cable to connect the Flight Controller to your base station.
@@ -58,11 +63,12 @@ With the board still disconnected, press and hold the `BOOT` button while you co
  ```{admonition} Check
 :class: seealso
 
-With the Flight Controller connected in bootloader mode, the port/target dropdown in the top toolbar of Betaflight Configurator reads `DFU - STM32 BOOTLOADER`, and the `Connect` button is greyed out, since the board is not reachable over the normal serial link while in DFU mode.
+With the Flight Controller connected in bootloader mode, the port/target dropdown in the top toolbar of Betaflight Configurator reads `DFU - STM32 BOOTLOADER`, and the `Connect` button is grayed out, since the board is not reachable over the normal serial link while in DFU mode.
    ```
 
 ```{figure} ../_images/esc-init/betaflight_dfu_bootloader_dropdown.png
 :width: 500px
+:alt: Betaflight Configurator toolbar with the port dropdown set to DFU - STM32 BOOTLOADER
 
 The Flight Controller is correctly in bootloader mode, as shown by `DFU - STM32 BOOTLOADER` in Betaflight Configurator.
 ```
@@ -79,7 +85,7 @@ Now that the board is in bootloader mode, download the firmware and write it:
 
 1. Click `Load Firmware [Online]` in the bottom-right corner. Betaflight Configurator fetches the `BTFL 4.3.2` firmware for the target you selected and confirms it is ready to flash.
 
-1. Click `Flash Firmware`, also in the bottom-right corner, and watch the progress bar as it works through the write.
+2. Click `Flash Firmware`, also in the bottom-right corner, and watch the progress bar as it works through the write.
 
    ```{admonition} Check
    :class: seealso
@@ -95,9 +101,9 @@ A freshly flashed board comes up with the stock Betaflight defaults, which do no
 
 1. With the Flight Controller connected in Betaflight Configurator (click `"Connect"` if it is not connected already), open the `CLI` tab from the left sidebar.
 
-1. Open [`MAMBAF405MK2V2.conf`](https://raw.githubusercontent.com/duckietown/pidrone_pkg/b859bf21a5b2e0457daecfe08896a9cd2a6de88f/MAMBAF405MK2V2.conf) and copy its entire contents.
+2. Open [`MAMBAF405MK2V2.conf`](https://raw.githubusercontent.com/duckietown/pidrone_pkg/b859bf21a5b2e0457daecfe08896a9cd2a6de88f/MAMBAF405MK2V2.conf) and copy its entire contents.
 
-1. Paste the contents into the CLI command box and press `Enter`. The commands run as a batch, and the file ends with `save`, so the board writes the settings and reboots on its own.
+3. Paste the contents into the CLI command box and press `Enter`. The commands run as a batch, and the file ends with `save`, so the board writes the settings and reboots on its own.
 
    ```{attention}
    Do not disconnect the USB cable while the batch is running.
@@ -119,43 +125,44 @@ Use a Chrome-based browser (Google Chrome, Microsoft Edge, and so on).
 
 1. Make sure the motors **do not** have propellers attached.
 
-1. Check that the ESC board is wired to the Flight Controller. The ESC tool reaches the ESCs only through this connection, so the ribbon connector between the ESC board and the Flight Controller has to be fully seated at both ends, with all four motor leads attached to the ESC board.
+2. Check that the ESC board is wired to the Flight Controller. The ESC tool reaches the ESCs only through this connection, so the ribbon connector between the ESC board and the Flight Controller has to be fully seated at both ends, with all four motor leads attached to the ESC board.
 
-1. Disconnect Betaflight (if on), or any other programs that might be using the serial port the flight controller is connected to.
+3. Disconnect Betaflight (if connected), or any other programs that might be using the serial port connected to the Flight Controller.
 
-1. In Chrome, go to the [ESC Configurator](https://esc-configurator.com/) web tool.
+4. In your browser, go to the [ESC Configurator](https://esc-configurator.com/) web tool.
 
-1. Click `Select Serial Port` in the top-right corner. In the prompt that appears, select the serial port whose name contains `Betaflight STM32F405`. If multiple USB serial devices are connected, unplug the Flight Controller and observe which port disappears, then reconnect it and select the port that reappears.
+5. Click `Select Serial Port` in the top-right corner. In the prompt that appears, select the serial port that belongs to the Flight Controller. Its name varies by operating system and board. If multiple USB serial devices are connected, unplug the Flight Controller and observe which port disappears, then reconnect it and select the port that reappears.
 
-1. Once the port is identified, select it and click `Connect`.
+6. Once the port is identified, select it and click `Connect`.
 
    ```{figure} ../_images/esc-init/esc-config-serial-port-selection.png
+   :alt: Browser serial-port picker listing the SpeedyBee F405 V3 port as ttyACM0
 
    Serial port selection prompt.
    ```
 
-1. Verify the message "Unique device ID received" appears (this means your FC can talk to the ESC).
+7. Verify that the message `Unique device ID received` appears. This confirms that the ESC Configurator is connected to the Flight Controller.
 
    ```{figure} ../_images/esc-init/esc-config-unique-id.png
    :width: 80%
    :name: esc-config-unique-id
-   :alt: Verifying the unique device ID received message when first connecting to the Duckiedrone's ESCs
+   :alt: ESC Configurator status bar showing Unique device ID received after connecting to the Flight Controller
 
-   Verify a Unique device ID has been received.
+   The ESC Configurator has received the Flight Controller's unique device ID.
    ```
 
-```{attention}
-The ESCs cannot draw power from the Flight Controller over USB. You have to connect the LiPo battery for them to power up and accept programming. If this is the first time you are plugging in the battery, be particularly careful to notice if anything is becoming particularly hot, and be ready to unplug the battery if so.
-```
+   ```{attention}
+   The ESCs cannot draw power from the Flight Controller over USB. You have to connect the LiPo battery for them to power up and accept programming. If this is the first time you are plugging in the battery, be particularly careful to notice if anything is becoming particularly hot, and be ready to unplug the battery if so.
+   ```
 
-1. Connect the LiPo battery to the Duckiedrone. Bluejay will detect it:
+8. Connect the LiPo battery to the Duckiedrone. The ESCs are now powered and ready to be read:
 
    ```{figure} ../_images/esc-init/01-esc-configurator-battery-plugin.jpg
    :width: 80%
    :name: 01-esc-configurator-battery-plugin
-   :alt: Verifying the battery connection for a Duckiedrone with Bluejay
+   :alt: ESC Configurator after the LiPo battery is connected to power the ESCs
 
-   Bluejay will detect the battery when plugged in.
+   The LiPo battery powers the ESCs for the following configuration steps.
    ```
 
 ## 3. Flash Bluejay
@@ -167,13 +174,13 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    :name: 02-esc-configurator-reading-escs
    :alt: Duckiedrone ESC default factory configuration as read by Bluejay
 
-   The Duckiedrone DD24-B ESCs ship with BLHeli S on JH15 layout.
+   The Duckiedrone DD24-B ESCs ship with BLHeli_S on J-H-15 layout.
    ```
 
-1. In the firmware selection, set:
-   * **Firmware:** `Bluejay`
-   * **Version:** `0.21.0`
-   * **PWM frequency:** `48 kHz`
+2. In the firmware selection, set:
+   - **Firmware:** `Bluejay`
+   - **Version:** `0.21.0`
+   - **PWM frequency:** `48 kHz`
 
    ```{figure} ../_images/esc-init/03-esc-configurator-config-flashing-escs.jpg
    :width: 80%
@@ -183,13 +190,13 @@ The ESCs cannot draw power from the Flight Controller over USB. You have to conn
    Upgrading the ESC firmware with specific Bluejay parameters.
    ```
 
-1. Click `Flash All` and wait for all four ESCs to finish.
+3. Click `Flash All` and wait for all four ESCs to finish.
 
    ```{attention}
    Do not disconnect the battery or the USB cable while an ESC is being flashed.
    ```
 
-1. When the flashing completes, click `Read Setup` once more and check that all four ESCs now report `Bluejay 0.21.0`.
+4. When the flashing completes, click `Read Setup` once more and check that all four ESCs now report `Bluejay 0.21.0`.
 
    ```{figure} ../_images/esc-init/04-esc-configurator-after-flashing.jpg
    :width: 80%
@@ -206,11 +213,12 @@ By default the ESCs give off a beep after a while without commands, which quickl
 1. In the `Beacon Delay` drop-down menu, select `Infinite`.
 
    ```{figure} ../_images/esc-init/esc-config-disable-beacon.png
+   :alt: ESC Configurator showing the Beacon Delay setting outlined in red
 
    Set `Beacon Delay` to `Infinite` to disable the beacon sound.
    ```
 
-1. Click `Write Settings` in the bottom-right corner to save.
+2. Click `Write Settings` in the bottom-right corner to save.
 
 Disconnect the LiPo battery from the Duckiedrone.
 
@@ -228,7 +236,7 @@ The ESCs are not powered. Check that the LiPo battery is connected to the Duckie
 ```{trouble}
 On Linux, the ESC Configurator cannot open the serial port (`Failed to open serial port`).
 ---
-This is a serial-port permission issue. Add your user to the `dialout` group by running `sudo usermod -a -G dialout <username>` (replacing `<username>` with your base station username), then reboot for the change to take effect. If that does not help, run `sudo chmod 0777 /dev/ttyACM0` (substituting the port you are using) while the tool is open; this has to be repeated each time the Flight Controller is reconnected.
+This is a serial-port permission issue. On Ubuntu, add your user to the `dialout` group by running `sudo usermod -a -G dialout "$USER"`, then sign out and sign back in (or reboot) for the change to take effect. If that does not help, inspect the group that owns the device with `ls -l /dev/ttyACM0` (substituting the port you are using) and add your user to that group instead of changing the device permissions for every user.
 ```
 
 ```{trouble}
@@ -240,5 +248,5 @@ The board booted into its regular firmware instead of the bootloader. Unplug the
 ```{trouble}
 Other issues.
 ---
-We are happy to support! Please contact our hardware team via email: [hardware@duckietown.com](mailto:hardware@duckietown.com)
+Contact our hardware team via email: [hardware@duckietown.com](mailto:hardware@duckietown.com)
 ```

@@ -13,68 +13,52 @@ When encountering a problem, rather than simply redoing the build or replacing a
 ## Power issues
 
 ```{trouble}
-
 My Raspberry Pi does not boot.
 ---
+First verify that power reaches the Raspberry Pi. On a Raspberry Pi 4, the red power LED should be lit; a Raspberry Pi 5 uses a single bicolor status LED instead.
 
-You should verify that each part of the Duckiedrone is receiving power. The
-Raspberry Pi indicates it has power with a *red* power LED.
+With a multimeter set to DC voltage, measure between a `5V` pin and a `GND` pin on the Raspberry Pi's 40-pin header. The header has two `5V` pins and several ground pins; do not probe the `3.3V` or signal GPIO pins. See the [Raspberry Pi GPIO pinout](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio).
 
-If your Raspberry Pi is not powering on, verify with a multimeter that the Raspberry Pi
-pins are receiving the right voltage on input. You can find a mapping
-of the GPIO pins [here](https://www.raspberrypi.org/documentation/usage/gpio/).
-Verify that each power pin is receiving 5 volts compared to each ground pin with the multimeter.
+If the voltage is absent or unstable, check the UBEC output and HUT power connections described in [](dd24-troubleshooting-faq).
 
 Make sure you did not use metal screws to mount the camera to the frame, as they can cause a short.
 
-If your Raspberry Pi is receiving 5 volts on its power/ground pins, but no red
-light turns on, then it might have been fried. This can happen if
-you miswire or short the power/ground pins on it, so try replacing
-the Raspberry Pi.
+If the Raspberry Pi has a stable `5 V` supply but shows no power/status LED or boot activity, disconnect power and inspect the wiring for a short. A Raspberry Pi that remains unresponsive after these checks may need replacement.
 ```
 
 ```{trouble}
 The motors do not turn on.
 ---
-The motors indicate they are receiving power by beeping once. You can also check each
-part with the multimeter. Verify that there is a 12-volt connection
-between power and ground on the power distribution board. Also verify
-that the Raspberry Pi is receiving 5 volts from the UBEC.
+Remove the propellers before troubleshooting motor power. USB power does not power the ESCs, so connect the LiPo battery before testing them. ESC startup tones vary; do not rely on a particular beep sequence.
+
+With a multimeter set to DC voltage, verify that the battery input to the FC/ESC stack's power-distribution circuitry matches the 4S battery voltage (`14.8 V` nominal), not `12 V`. Also verify that the Raspberry Pi receives a stable `5 V` supply from the UBEC.
 ```
 
 ## Raspberry Pi Issues
 
-Most of the next debugging steps require getting into your Raspberry Pi using `ssh`. Check the [](first_connection) chapter if you are not connected.
+For software-specific checks, connect to your Raspberry Pi using `ssh`. See [](first_connection) if you are not connected.
 
 ```{trouble}
-My Raspberry Pi is receiving power and turning the red light on, but it doesn't boot.
-
+My Raspberry Pi is receiving power but does not boot.
 ---
 Something might be wrong with your microSD card.
 
-*   Verify that your microSD card has the correct image flashed on it.
+- Verify that the microSD card was initialized using [](dd24-sw-init).
 
-*   Check that the microSD card is inserted in the Raspberry Pi so that it can boot.
+- Check that the microSD card is fully inserted in the Raspberry Pi.
 
-If none of this works, connect a keyboard and monitor to the Raspberry Pi during boot to see what is happening.
-
-There may be an error message being printed on the screen that will give more information.
+If the problem persists, connect a keyboard and monitor during boot. Error messages on the display can help identify the fault.
 ```
 
 ## Camera
 
-For current camera diagnostics, including camera-cable checks and Dashboard symptoms, see [](dd24-troubleshooting-faq). The DD24-B uses the `driver-camera` and `ros2-camera` containers rather than GNU Screen and `raspistill`.
+For current camera diagnostics, including camera-cable checks and Dashboard symptoms, see [](dd24-troubleshooting-faq). The Duckiedrone DD24-B uses the `driver-camera` and `ros2-camera` containers rather than GNU Screen and `raspistill`.
 
 ## Flight Controller
 
-Finally, check the Flight Controller. When the Flight Controller
-connects to the motors, it will make a "low beep, high beep" sound.
-So, verify you hear the "do do do" from the motors, indicating they
-have power, and then the "low, high", indicating the Flight Controller
-can talk to them. If that doesn't work, check the connection between
-the Flight Controller, ESCs, and motors.
+Check the Flight Controller, ESCs, and motors. With the propellers removed and the battery disconnected, inspect the FC-to-ESC connector and all motor leads. Reconnect the battery to confirm that the ESCs power up; startup tones vary by ESC firmware. If an ESC does not power up, check the battery connection and the FC/ESC wiring. Then use QGroundControl's **Actuators** page to verify motor order and direction as described in [](dd24-motor-configuration).
 
-Calibrate the accelerometer as described in [](dd24-sensor-calibration). For PX4 and MAVROS flight-controller connection diagnostics, see [](dd24-troubleshooting-faq). The DD24-B uses PX4, so Betaflight configuration does not apply to this workflow.
+Calibrate the sensors as described in [](dd24-sensor-calibration). For PX4 and MAVROS flight-controller connection diagnostics, see [](dd24-troubleshooting-faq). The Duckiedrone DD24-B uses PX4, so Betaflight configuration does not apply to this workflow.
 
 ## Flight Issues
 
@@ -82,23 +66,20 @@ Before each flight, physically inspect the Duckiedrone.
 
 Make sure that:
 
-* your camera is mounted firmly, pointed downwards.
-* the range sensor is pointed downwards and has not been rotated.
-* the Flight Controller board is level and firmly attached; otherwise, the IMU and gyroscope will return incorrect readings.
-* each propeller is tightened down all the way.
+- the camera is mounted firmly in its 60-degree holder and faces the front of the Duckiedrone.
+
+- the downward-facing ToF sensor points down and has not been rotated.
+
+- the Flight Controller board is level and firmly attached; otherwise, the IMU and gyroscope will return incorrect readings.
+
+- each propeller is tightened down all the way.
 
 Any of these issues could cause poor flight behavior.
 
-If your Duckiedrone flips the first time you try to take off, the motors are
-spinning the wrong way, or the props are installed upside down. If your
-Duckiedrone makes funny noises when arming, either the props are not
-tightened all the way, or they are striking a wire. Tape everything
-down as much as possible.
+If your Duckiedrone flips on its first takeoff, disarm it immediately and check the motor order, motor direction, and propeller orientation described in [](dd24-motor-configuration). If it makes unusual noises while arming, disarm it and inspect the propellers and surrounding wiring. Secure loose wires outside the propeller arc.
 
 If the Duckiedrone is not stable during flight, you should make sure that
 the props are all tightened down. Make sure the ESCs have been
 flashed with Bluejay as described in [](dd24-esc-init).
 
-A well-tuned Duckiedrone can hover at zero velocity with some drifting,
-but not too much. It should be able to hover with position
-hold indefinitely.
+A stable Duckiedrone should not show persistent oscillation or uncontrolled drift. Position hold depends on a valid position estimate and the selected flight mode; it is not available in `STABILIZED` mode.

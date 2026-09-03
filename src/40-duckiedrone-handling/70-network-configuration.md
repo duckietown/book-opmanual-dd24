@@ -4,53 +4,66 @@
 ```
 
 ```{needget}
-* A flashed microSD card: [](dd24-sw-init)
+- A flashed microSD card: [](dd24-sw-init)
 ---
-* Knowledge of how to manage networks on a Duckiedrone
+- Knowledge of how to manage networks on a Duckiedrone
 ```
 
 (dd24-network-config)=
 # Network management
 
-The Duckiedrone network is managed through `netplan`. To add, remove or edit Wi-Fi networks, you will need to first establish a way to connect to your Duckiedrone's microSD card.
+The Duckiedrone network is managed through `netplan`. To add, remove, or edit Wi-Fi networks, access the running Duckiedrone through SSH or remove its microSD card and mount it on your base station.
 
 Any of the following methods work:
 
 1. SSH into your Duckiedrone if you are already on the same network.
+
 2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router with an Ethernet cable, then connect to it with SSH.
-3. Use the base station directly: remove the microSD card from the Duckiedrone and connect it to your base station. You will then be able to access the microSD card's files. After modifying the network configuration files as described below, place the card back in the Duckiedrone.
+
+3. Use the base station directly: power down the Duckiedrone, remove its microSD card, and connect it to your base station. After modifying the network configuration files as described below, return the card to the Duckiedrone before powering it on.
+
 4. Create a network with SSID `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect your base station to the same network, then connect to the Duckiedrone with SSH.
+
 5. Reflash the microSD card: use this only as a last resort. If all else fails, reflash your microSD card using [the advanced way](dd24-sw-init-adv) and specify your network credentials.
 
 To SSH into your Duckiedrone:
 
 ```bash
-ssh duckie@robotname.local
+ssh duckie@ROBOT_NAME.local
 ```
 
 The default password is `quackquack`.
 
-To check which networks are currently defined:
+To inspect the current Netplan configuration:
 
 ```bash
-sudo wpa_cli list_networks
+sudo netplan get
 ```
 
-This yields, for example:
+The command prints the merged Netplan configuration. For a Duckiedrone configured with one Wi-Fi network, the output resembles:
 
-```text
-duckie@amelia:/etc/netplan $ sudo wpa_cli list_networks
-Selected interface 'wlan0'
-network id / ssid / bssid / flags
-0       duckietown      any     [CURRENT]
-1       duckietown2     any
-2       duckietown-devel        any
+```yaml
+network:
+  version: 2
+  wifis:
+    wlan0:
+      dhcp4: true
+      optional: true
+      access-points:
+        "my-network":
+          password: "<redacted>"
+```
+
+`netplan get` can print Wi-Fi names and passwords. Redact them before sharing its output. If it warns that the permissions for a file in `/etc/netplan` are too open, restrict the named runtime configuration file:
+
+```bash
+sudo chmod 600 /etc/netplan/<file>.yaml
 ```
 
 (dd24-network-config-edit)=
 ## How to add, remove or edit networks
 
-Depending on whether you want your network modifications to survive a Duckiedrone reboot, select the appropriate tab below.
+Choose **Persistent changes** to retain network additions after a reboot, or **Non-persistent changes** to use them only until the next reboot.
 
 ::::{tab-set}
 
@@ -62,11 +75,15 @@ Once you have gained access, navigate to
 cd /config/wifi
 ```
 
+`/config/wifi` stores the persistent Wi-Fi configuration. Changes made here take effect after the Duckiedrone reboots.
+
 There are three main files there:
 
-* `00-user.yaml`: edit this file to manage new networks.
-* `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
-* `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
+- `00-user.yaml`: edit this file to manage new networks.
+
+- `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
+
+- `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
 
 ```{note}
 `00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
@@ -112,25 +129,26 @@ network:
         "Phone Hotspot":
           password: "hotspot-password"
 
-        "Duckietown":
+        "duckietown":
           password: "quackquack"
 ```
 
 Note that:
 
-* Indentation matters (2 spaces throughout, no tabs).
-* The Raspberry Pi will automatically connect to any known network that is in range. You do not need to specify a priority in the common case.
-* If two known networks are available simultaneously, `wpa_supplicant` will choose according to its own selection logic (signal quality, security, etc.).
+- Indentation matters (2 spaces throughout, no tabs).
 
-Save and exit `nano`, then:
+- The Raspberry Pi will automatically connect to any known network that is in range. You do not need to specify a priority in the common case.
+
+- If several known networks are in range, the active networking backend selects one according to its configuration and the networks' availability.
+
+Save and exit `nano`, then reboot the Duckiedrone:
 
 ```bash
-sudo netplan apply
 sudo reboot
 ```
 
 ```{warning}
-Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately connect to a different known network. If you are connected over SSH, your session will be interrupted. Ensure your computer is connected to the same Wi-Fi network as the Duckiedrone before reconnecting.
+Restarting with a new Wi-Fi configuration may connect the Duckiedrone to a different known network. If you are connected over SSH, your session will be interrupted. Ensure your computer is connected to the same Wi-Fi network as the Duckiedrone before reconnecting.
 ```
 
 :::
@@ -143,11 +161,15 @@ Once you have gained access, navigate to
 cd /etc/netplan
 ```
 
+`/etc/netplan` holds the runtime Netplan configuration. Changes made here are discarded on the next reboot.
+
 There are three main files there:
 
-* `00-user.yaml`: edit this file to manage new networks.
-* `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
-* `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
+- `00-user.yaml`: edit this file to manage new networks.
+
+- `98-auto.yaml`: edit this file to modify network credentials provided during the `dts init_sd_card` procedure.
+
+- `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
 
 ```{note}
 `00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
@@ -193,25 +215,26 @@ network:
         "Phone Hotspot":
           password: "hotspot-password"
 
-        "Duckietown":
+        "duckietown":
           password: "quackquack"
 ```
 
 Note that:
 
-* Indentation matters (2 spaces throughout, no tabs).
-* The Raspberry Pi will automatically connect to any known network that is in range. You do not need to specify a priority in the common case.
-* If two known networks are available simultaneously, `wpa_supplicant` will choose according to its own selection logic (signal quality, security, etc.).
+- Indentation matters (2 spaces throughout, no tabs).
 
-Save and exit `nano`, then:
+- The Raspberry Pi will automatically connect to any known network that is in range. You do not need to specify a priority in the common case.
+
+- If several known networks are in range, the active networking backend selects one according to its configuration and the networks' availability.
+
+Save and exit `nano`, then test the new configuration:
 
 ```bash
-sudo netplan apply
-sudo reboot
+sudo netplan try
 ```
 
 ```{warning}
-Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately connect to a different known network. If you are connected over SSH, your session will be interrupted. Ensure your computer is connected to the same Wi-Fi network as the Duckiedrone before reconnecting.
+`netplan try` waits for confirmation and rolls back automatically if you do not confirm it. It may interrupt an SSH session if the Duckiedrone connects to a different network. Ensure your computer can reach the replacement network before confirming the change.
 ```
 
 :::
@@ -220,70 +243,66 @@ Applying a new Wi-Fi configuration may cause the Duckiedrone to immediately conn
 (dd24-network-config-info)=
 ### Additional network settings
 
-If you add Wi-Fi networks manually, follow the example below relative to the network authentication you have:
+If you add Wi-Fi networks manually, use the example that matches your network's authentication:
 
-* Unprotected (Open) Wi-Fi network:
-
-```yaml
-   ...
-      access-points:
-        "<ssid>": {{}}
-```
-
-* WPA/WPA2 Wi-Fi network with PSK authentication:
+- Unprotected (Open) Wi-Fi network:
 
 ```yaml
-   ...
-      access-points:
-        "<ssid>":
-          key-management: psk
-          password: "<wifi_password>"
+access-points:
+  "<ssid>": {}
 ```
 
-* WPA/WPA2 Wi-Fi network with username/password authentication:
+- WPA Personal Wi-Fi network with PSK authentication:
 
 ```yaml
-   ...
-      access-points:
-        "<ssid>":
-          auth:
-            key-management: eap
-            identity: "<username>"
-            password: "<password>"
-            method: peap
-            phase2-auth: MSCHAPV2
+access-points:
+  "<ssid>":
+    auth:
+      key-management: psk
+      password: "<wifi_password>"
 ```
 
-* WPA3 (SAE) & Enterprise (EAP-TLS) Authentication
+- WPA Enterprise Wi-Fi network with PEAP authentication:
+
+```yaml
+access-points:
+  "<ssid>":
+    auth:
+      key-management: eap
+      identity: "<username>"
+      password: "<password>"
+      method: peap
+      phase2-auth: mschapv2
+```
+
+- WPA Enterprise Wi-Fi network with EAP-TLS authentication:
 
 ```yaml
 network:
   version: 2
-  renderer: NetworkManager
   wifis:
     wlan0:
-      dhcp4: yes
+      dhcp4: true
       access-points:
-        "WPA3_Enterprise_Network":
+        "<ssid>":
           auth:
             key-management: eap
             method: tls
-            identity: "username@yourdomain.com"
+            identity: "<username>"
             ca-certificate: "/etc/ssl/certs/ca-cert.pem"
             client-certificate: "/etc/ssl/certs/client-cert.pem"
             client-key: "/etc/ssl/private/client-key.pem"
             client-key-password: "client-key-passphrase"
 ```
 
-* Advanced Client options (Static IP, Frequency settings)
+- Advanced client options (static IP and Wi-Fi frequency settings):
 
 ```yaml
 network:
   version: 2
-  renderer: NetworkManager
   wifis:
     wlan0:
-      dhcp4: no
+      dhcp4: false
       addresses: [192.168.1.50/24]
       routes:
         - to: default

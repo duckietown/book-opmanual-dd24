@@ -1,14 +1,16 @@
 ```{seo}
-:description: Instructions to initialize the flight controller on the Duckietown Duckiedrone DD24-B by flashing the PX4 bootloader and firmware.
+:description: Instructions to initialize the flight controller on the Duckiedrone DD24-B by flashing the PX4 bootloader and firmware.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 
 ```{needget}
-* A base station computer running Linux (Ubuntu) or macOS
-* "Mamba" (`DD24-B`) Flight Controller
-* USB to USB-C cable with data
+- A base station computer running Linux (Ubuntu) or macOS
+
+- "Mamba" (DD24-B) Flight Controller
+
+- A data-capable USB-A-to-USB-C cable
 ---
-* An up-to-date, initialized "Mamba" FC running PX4
+- A "Mamba" Flight Controller running PX4
 ```
 
 (dd24-fc-init)=
@@ -19,7 +21,8 @@ To make the flashing process as deterministic as possible, it is performed entir
 ```{note}
 The flashing is a two-stage process:
 
-1. **Flash the PX4 bootloader** (the [`omnibusf4sd_bl`](https://github.com/PX4/PX4-Bootloader) bootloader, which is the canonical bootloader for STM32F405-based boards using PX4 board ID `42`, including the Diatone Mamba F405 MK2).
+1. **Flash the PX4 bootloader** (the [`omnibusf4sd_bl`](https://github.com/PX4/PX4-Bootloader) bootloader, which is the canonical bootloader for STM32F405-based boards using PX4 board ID `42`, including the Diatone Mamba F405 MK2 V2).
+
 2. **Flash the PX4 firmware** built for the `mamba-f405-mk2` target on top of the bootloader.
 
 Both stages are performed via `dfu-util` while the FC is in STM32 DFU mode.
@@ -75,6 +78,7 @@ Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on 
 
 ```shell
 dfu-util --version
+```
 ---
 ```shell
 dfu-util 0.11
@@ -83,13 +87,16 @@ Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
 Copyright 2010-2021 Tormod Volden and Stefan Schmidt
 This program is Free Software and has ABSOLUTELY NO WARRANTY
 Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+```
 ````
 
 (fc-init-dfu-mode-boot)=
 ## 2. Boot the FC in DFU Mode
 
 - Remove power from your Duckiedrone if it is powered on.
+
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
+
 - Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
@@ -101,6 +108,7 @@ Mamba DD24-B flight controller BOOT button location.
 ```
 
 - After a couple of seconds, release the BOOT button.
+
 - Verify that the board is enumerated as an STM32 DFU device:
 
 ```bash
@@ -110,6 +118,7 @@ dfu-util -l
 You should see one or more interfaces with the vendor/product ID `0483:df11` ("STMicroelectronics STM Device in DFU Mode"), as in the following image:
 
 ```{figure} ../_images/fc-setup/dfu-util-devices-list.png
+:alt: Terminal output from dfu-util -l showing STM32 DFU interfaces with vendor/product ID 0483:df11
 
 Output of `dfu-util -l` with the FC in DFU mode.
 ```
@@ -166,10 +175,13 @@ dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bi
 ````{admonition} Explanation of the dfu-util command
 :class: dropdown
 
-* `-a 0`: selects the first DFU alternate setting (the internal flash).
-* `--dfuse-address 0x08000000:leave`: writes to the start of flash and reboots the board into the freshly written image after the write completes.
-* `-d 0483:df11`: matches the STM32 ROM DFU device.
-* `-D omnibusf4sd_bl.bin`: the file to flash.
+- `-a 0`: selects the first DFU alternate setting (the internal flash).
+
+- `--dfuse-address 0x08000000:leave`: writes to the start of flash and reboots the board into the freshly written image after the write completes.
+
+- `-d 0483:df11`: matches the STM32 ROM DFU device.
+
+- `-D omnibusf4sd_bl.bin`: the file to flash.
 ````
 
 ````{admonition} Successful bootloader flashing output (macOS)
@@ -200,9 +212,9 @@ DFU mode device DFU version 011a
 Device returned transfer size 2048
 DfuSe interface name: "Internal Flash  "
 Downloading element to address = 0x08000000, size = 9612
-Erase   	[=========================] 100%         9612 bytes
+Erase           [=========================] 100%         9612 bytes
 Erase    done.
-Download	[=========================] 100%         9612 bytes
+Download        [=========================] 100%         9612 bytes
 Download done.
 File downloaded successfully
 Submitting leave request...
@@ -238,9 +250,9 @@ DFU mode device DFU version 011a
 Device returned transfer size 2048
 DfuSe interface name: "Internal Flash  "
 Downloading element to address = 0x08000000, size = 9612
-Erase   	[=========================] 100%         9612 bytes
+Erase           [=========================] 100%         9612 bytes
 Erase    done.
-Download	[=========================] 100%         9612 bytes
+Download        [=========================] 100%         9612 bytes
 Download done.
 File downloaded successfully
 Submitting leave request...
@@ -264,7 +276,7 @@ ls /dev/serial/by-id/
 :width: 90%
 :name: ubuntu-lsusb-output
 
-Example successful `lsusb` output on Ubuntu
+Example successful `lsusb` output on Ubuntu.
 ```
 
 ::::
@@ -302,14 +314,16 @@ curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-ma
 ````{admonition} Which firmware build to use
 :class: dropdown
 
-Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the Duckiedrone DD24-B — this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The v2 hardware variant of the Mamba F405 MK2 ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the Duckiedrone DD24-B — this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The Mamba F405 MK2 V2 hardware variant ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ````
 
-* **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**,
-* confirm it shows up again in `dfu-util -l`, then
-* flash the firmware to the application offset `0x08008000`:
+- **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**,
+
+- confirm it shows up again in `dfu-util -l`, then
+
+- flash the firmware to the application offset `0x08008000`:
 
    ```bash
    dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
@@ -343,9 +357,9 @@ DFU mode device DFU version 011a
 Device returned transfer size 2048
 DfuSe interface name: "Internal Flash  "
 Downloading element to address = 0x08008000, size = 968296
-Erase   	[=========================] 100%       968296 bytes
+Erase           [=========================] 100%       968296 bytes
 Erase    done.
-Download	[=========================] 100%       968296 bytes
+Download        [=========================] 100%       968296 bytes
 Download done.
 File downloaded successfully
 Submitting leave request...
@@ -381,9 +395,9 @@ DFU mode device DFU version 011a
 Device returned transfer size 2048
 DfuSe interface name: "Internal Flash  "
 Downloading element to address = 0x08008000, size = 968296
-Erase   	[=========================] 100%       968296 bytes
+Erase           [=========================] 100%       968296 bytes
 Erase    done.
-Download	[=========================] 100%       968296 bytes
+Download        [=========================] 100%       968296 bytes
 Download done.
 File downloaded successfully
 Submitting leave request...
@@ -420,5 +434,5 @@ The most common cause is that the firmware was flashed to `0x08000000` instead o
 ```{trouble}
 I am having issues following the instructions!
 ---
-We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. Follow [these instructions](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html) to join the Duckietown Slack workspace.
+We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. See [instructions for joining the Duckietown Slack workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html).
 ```
