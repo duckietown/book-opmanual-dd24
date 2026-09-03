@@ -34,6 +34,7 @@ parts:
             sections:
             - file: 30-duckiedrone-setup-and-config/01-software-initialization-fast
             - file: 30-duckiedrone-setup-and-config/02-software-initialization-advanced
+            - file: 30-duckiedrone-setup-and-config/03-updating-initialized-microsd-card
           - file: 30-duckiedrone-setup-and-config/10-first-boot
           - file: 30-duckiedrone-setup-and-config/20-first-connection
           - file: 30-duckiedrone-setup-and-config/30-esc-initialization

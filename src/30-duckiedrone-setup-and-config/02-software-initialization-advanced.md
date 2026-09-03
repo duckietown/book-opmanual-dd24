@@ -1,5 +1,5 @@
 ```{seo}
-:description: Flash a Duckiedrone DD24-B ente image to a microSD card with dts init_sd_card.
+:description: Flash a Duckiedrone DD24-B ente image to a microSD card with dts sd_card init.
 :keywords: Duckiedrone, advanced software initialization, SD card, flashing, Duckietown, dts, ente, Raspberry Pi 4, Raspberry Pi 5
 ```
 
@@ -25,7 +25,7 @@ Change https link to local reference after merging this book in the Duckietown m
 # The Complete Way
 
 ```{vimeo} 1207703689
-:alt: microSD card flashing procedure for a Duckiedrone DD24 using `dts init_sd_card`
+:alt: microSD card flashing procedure for a Duckiedrone DD24 using `dts sd_card init`
 ```
 
 ## Connect the microSD card to the base station
@@ -48,10 +48,10 @@ Before continuing, confirm that `ente` is the active Duckietown Shell profile:
 dts profile list
 ```
 
-Run `dts init_sd_card` with the `duckiedrone` type and the `DD24` configuration:
+Run `dts sd_card init` with the `duckiedrone` type and the `DD24` configuration:
 
 ```bash
-dts init_sd_card \
+dts sd_card init \
     --hostname MY_ROBOT_NAME \
     --type duckiedrone \
     --configuration DD24 \
@@ -100,7 +100,7 @@ If other Duckiedrones operate in the same environment, make sure your `hostname`
 
 ## Flashing the image
 
-After downloading the base image, `dts init_sd_card` will prompt you to select the target drive to flash the image to.
+After downloading the base image, `dts sd_card init` will prompt you to select the target drive to flash the image to.
 
 :::::{tab-set}
 ::::{tab-item} Ubuntu, macOS (native dts installation)
@@ -122,7 +122,7 @@ Inside a Duckietown Workspace the system will not be able to detect your microSD
 
 When prompted to enter the microSD card capacity, write any number, e.g., `64`. When prompted to list all possibilities, enter `y`, then write the complete path to the image file, e.g., `/image-file-name.img`.
 
-The `dts init_sd_card` process will proceed to create the image file.
+The `dts sd_card init` process will proceed to create the image file.
 
 Once complete, switch to the host machine, open Balena Etcher, and flash `image-file-name.img` to your microSD card.
 ::::
@@ -143,7 +143,7 @@ The screenshot shows the same setting for Balena Etcher; select your terminal ap
 ````
 
 ```{trouble}
-`dts init_sd_card` fails with "unknown robot type duckiedrone".
+`dts sd_card init` fails with "unknown robot type duckiedrone".
 ---
 Your Duckietown Shell is out of date or the wrong profile is active. Run:
 
@@ -151,13 +151,13 @@ Your Duckietown Shell is out of date or the wrong profile is active. Run:
         pipx upgrade duckietown-shell
         dts update
 
-then rerun the `dts init_sd_card` command.
+then rerun the `dts sd_card init` command.
 ```
 
 ```{trouble}
 The Duckiedrone does not join my Wi-Fi after the first boot.
 ---
-- Double-check the `--country` flag you passed to `dts init_sd_card`. Wi-Fi is disabled by default if the regulatory domain is unset.
+- Double-check the `--country` flag you passed to `dts sd_card init`. Wi-Fi is disabled by default if the regulatory domain is unset.
 
 - Double-check your network credentials.
 
