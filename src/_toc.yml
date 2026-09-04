@@ -80,6 +80,7 @@ parts:
             #- file: 50-learning-experiences/supported-lxs/estimation-unscented-kalman-filter-ukf
             #- file: 50-learning-experiences/supported-lxs/localization-slam
             #- file: 50-learning-experiences/supported-lxs/position-control
+          - file: 50-learning-experiences/lx-general-procedure
           
     - caption: Software Architecture
       maxdepth: 2
