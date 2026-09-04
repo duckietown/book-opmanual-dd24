@@ -65,6 +65,7 @@ parts:
       chapters:
           - file: 50-learning-experiences/index
           - file: 50-learning-experiences/supported-lxs
+          - file: 50-learning-experiences/lx-general-procedure
           
     - caption: Software Architecture
       maxdepth: 2
