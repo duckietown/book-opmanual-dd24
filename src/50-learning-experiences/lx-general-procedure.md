@@ -203,8 +203,25 @@ To activate the Duckiematrix window, click anywhere on it and press <kbd>ENTER</
 
 While the window is active, the point of view is moved with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys, and the viewing angle with the mouse. All available keyboard commands are summarized in the "Settings" tab at the bottom left of the Duckiematrix window.
 
+(dd24-lx-attach-vdrone)=
+#### 3. Attaching the virtual Duckiedrone to the Duckiematrix
+
+The virtual Duckiedrone and the Duckiematrix run as separate entities, and are connected with:
+
+```bash
+dts matrix attach [VDRONE] map_0/vehicle_0
+```
+
+where `[VDRONE]` is the name of the virtual Duckiedrone, and `map_0/vehicle_0` is the name of the Duckiedrone entity in the `sandbox_drone` map. Once attached, the sensor data produced by the Duckiematrix reaches the robot, and the commands produced by the robot move the Duckiedrone in the simulation.
+
 (dd24-lx-stop-list-vdrone)=
 #### Other useful virtual Duckiedrone commands
+
+To disconnect the virtual Duckiedrone from the Duckiematrix without stopping it:
+
+```bash
+dts matrix detach [VDRONE]
+```
 
 Once the work session is over, stop the virtual robot:
 
