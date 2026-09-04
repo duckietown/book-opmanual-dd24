@@ -24,6 +24,8 @@ The Duckiedrone uses a Raspberry Pi as an onboard "companion" computer. It requi
 
 2. [The "complete" way](dd24-sw-init-adv): requires a Duckietown Shell installation on the base station, but offers full customization. You must use this procedure if you plan to use more than one Duckiedrone on the same network at the same time.
 
+After initializing a microSD card and completing the [first boot](sec:first-boot), you can change settings such as the hostname or Wi-Fi configuration without reflashing it. Follow the [](dd24-update-initialized-sd-card) instructions for `dts sd_card update`.
+
 ```{note}
 The legacy pre-built image for the Raspberry Pi 4 (`dt-amelia-DD24-brown2022-sd-card-*.zip`) is no longer supported on the `ente` distribution. If you used it before, re-flash with one of the procedures linked above.
 ```
