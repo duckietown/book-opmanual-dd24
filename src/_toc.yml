@@ -65,6 +65,21 @@ parts:
       chapters:
           - file: 50-learning-experiences/index
           - file: 50-learning-experiences/supported-lxs
+            sections:
+            #- file: 50-learning-experiences/supported-lxs/duckiedrone-safety
+            #- file: 50-learning-experiences/supported-lxs/middlewares-ros2
+            #- file: 50-learning-experiences/supported-lxs/linux-and-networking
+            #- file: 50-learning-experiences/supported-lxs/docker-basics
+            - file: 50-learning-experiences/supported-lxs/sensors-inertial-measurement-unit-imu
+            #- file: 50-learning-experiences/supported-lxs/sensors-time-of-flight
+            #- file: 50-learning-experiences/supported-lxs/sensors-camera
+            #- file: 50-learning-experiences/supported-lxs/actuators-motors
+            - file: 50-learning-experiences/supported-lxs/pid-altitude-control
+            #- file: 50-learning-experiences/supported-lxs/optical-flow
+            #- file: 50-learning-experiences/supported-lxs/pid-velocity-control
+            #- file: 50-learning-experiences/supported-lxs/estimation-unscented-kalman-filter-ukf
+            #- file: 50-learning-experiences/supported-lxs/localization-slam
+            #- file: 50-learning-experiences/supported-lxs/position-control
           
     - caption: Software Architecture
       maxdepth: 2
