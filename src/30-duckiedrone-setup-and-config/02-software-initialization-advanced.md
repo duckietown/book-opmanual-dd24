@@ -63,6 +63,8 @@ Where:
 
 - `--hostname` — the robot name. Follow the naming rules in the box below.
 
+- During initialization, DTS prompts you to enter and confirm the password for the `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks. The characters you enter are not displayed. There is no default account password.
+
 - `--type duckiedrone --configuration DD24` — picks the Duckiedrone DD24 base image.
 
 - `--country` — two-letter country code where the Duckiedrone will fly. A full list of codes can be found, e.g., on Wikipedia: [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).

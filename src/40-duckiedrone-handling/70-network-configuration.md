@@ -32,7 +32,7 @@ To SSH into your Duckiedrone:
 ssh duckie@ROBOT_NAME.local
 ```
 
-The default password is `quackquack`.
+Enter the password you set while preparing the microSD card.
 
 To inspect the current Netplan configuration:
 
