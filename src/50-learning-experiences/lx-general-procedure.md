@@ -32,7 +32,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
     Find and press the "Fork" button on the top right:
 
-    ```{figure} ../_images/learning-experiences/lx-forking.png
+    ```{figure} ../_images/lxs/duckietown-lx-forking.png
     :alt: how to fork a Duckietown LX repository
     :width: 90%
     :name: dd24-lx-forking-fig
@@ -190,7 +190,7 @@ This command must be run from a local terminal and not from inside a Duckietown 
 
 The Unity-based Duckiematrix simulator starts up in the `sandbox_drone` map, which contains a single Duckiedrone. For more details about using the Duckiematrix see the [Duckiematrix manual](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/introduction-to-the-duckiematrix-virtual-environment.html).
 
-```{figure} ../_images/learning-experiences/duckiematrix-drone-sandbox.png
+```{figure} ../_images/lxs/duckiematrix-drone-sandbox.png
 :alt: the Duckiedrone in the Duckiematrix sandbox map
 :width: 80%
 :name: dd24-lx-matrix-sandbox-fig
