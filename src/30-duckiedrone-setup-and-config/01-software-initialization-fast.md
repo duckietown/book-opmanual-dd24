@@ -4,7 +4,8 @@
 ```
 
 ```{needget}
-- A computer (the “base station”) with an internet connection
+
+- A working Duckietown Shell (`dts`) installation: [Install the Duckietown Shell](https://docs.duckietown.com/ente/duckietown-manual/10-setup/02-software/duckietown-shell-dts-installation.html)
 
 - A microSD card (`64 GB`, U3, Class 10 recommended), e.g., the one from your Duckiedrone box
 
@@ -20,7 +21,7 @@ This procedure consists of downloading a preset image and burning it to the micr
 
 - it works on any operating system
 
-- all important configuration parameters are pre-set
+- most important configuration parameters are pre-set; set the `duckie` account password before the first boot
 
 The disadvantages of this procedure are:
 
@@ -35,7 +36,7 @@ Default robot name: `amelia`
 
 Default `ssh` user name: `duckie`
 
-Default `ssh` user password: `quackquack`
+`ssh` account password: set in step 3.1; there is no default account password
 
 Default network configuration (robot will connect to this network after the first boot)
 
@@ -102,7 +103,17 @@ You may be prompted to enter the base station password to proceed. This is norma
 Flashing will take `15-20 min`.
 ```
 
-## 3.1 (Ubuntu only) Country, Wi-Fi and hostname customization
+## 3.1 Set the `duckie` account password
+
+Before the first boot, use `dts sd_card update` to set the password for the `duckie` account:
+
+```shell
+dts sd_card update --type duckiedrone --configuration DD24 --password
+```
+
+DTS prompts you to enter and confirm the password. It must contain at least eight characters and cannot contain colons or line breaks. The characters you enter are not displayed. The password update takes effect when the Duckiedrone next boots. There is no default account password.
+
+## 3.2 (Ubuntu only) Country, Wi-Fi and hostname customization
 
 ```{attention}
 This option works only prior to the [first boot](sec:first-boot).

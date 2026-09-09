@@ -26,10 +26,12 @@
 To update an initialized Duckiedrone DD24 microSD card, run the following command. `HOSTNAME` is the new robot name, `WIFI` is a comma-separated list of Wi-Fi networks, and `COUNTRY` is the new two-letter Wi-Fi country code:
 
 ```shell
-dts sd_card update --type duckiedrone --configuration DD24 [--hostname HOSTNAME] [--wifi WIFI] [--country COUNTRY]
+dts sd_card update --type duckiedrone --configuration DD24 [--hostname HOSTNAME] [--wifi WIFI] [--country COUNTRY] [--password]
 ```
 
-At least one of `--hostname`, `--wifi`, or `--country` is required. DTS changes only the settings you supply. Some disk images store Wi-Fi and country settings together, in which case you must provide both `--wifi` and `--country` in the same command.
+At least one of `--hostname`, `--wifi`, `--country`, or `--password` is required. DTS changes only the settings you supply. Some disk images store Wi-Fi and country settings together, in which case you must provide both `--wifi` and `--country` in the same command.
+
+`--password` prompts you to enter and confirm a new password for the `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks. The characters you enter are not displayed. A password update is applied when the Duckiedrone next boots. If DTS reports that the disk image does not support setting a password, use a current supported image version.
 
 ```{attention}
 Updating the `WIFI` configuration replaces the existing data.

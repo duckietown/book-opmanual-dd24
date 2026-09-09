@@ -159,7 +159,7 @@ Create a dedicated Duckiedrone dashboard explanation page.
 
 #### Secure Shell (`ssh`)
 
-You can `ssh` into the Duckiedrone with `ssh duckie@<hostname>.local`, using the default password `quackquack`.
+You can `ssh` into the Duckiedrone with `ssh duckie@<hostname>.local`, using the password set while preparing the microSD card.
 
 ## Troubleshooting
 

@@ -187,7 +187,7 @@ If you have not done so already (e.g., for a different LX), you can create a vir
 dts duckiebot virtual create -t duckiedrone -c DD24 [VBOT]
 ```
 
-where `[VBOT]` is the hostname. It can be anything you like, subject to the [same naming constraints of physical Duckiedrone](setup-db-sd-card-flashing-complete).
+When you run the command, DTS prompts you to enter and confirm the password for the virtual Duckiedrone's `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks; the characters you enter are not displayed. `[VBOT]` is the hostname. It can be anything you like, subject to the [same naming constraints of physical Duckiedrone](setup-db-sd-card-flashing-complete).
 
 Then you can start your virtual robot with the command:
 
