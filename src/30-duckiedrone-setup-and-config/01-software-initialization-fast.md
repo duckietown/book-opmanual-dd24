@@ -32,7 +32,7 @@ The disadvantages of this procedure are:
 ```{admonition} Cheatsheet
 :class: note
 
-Default robot name: `amelia`
+Default robot name: `amelia02`
 
 Default `ssh` user name: `duckie`
 
@@ -70,14 +70,14 @@ By downloading this image you are accepting the [Duckietown Software License](ht
 
 Download the latest Duckiedrone ente image to your base station:
 
-```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/disk_image/duckietown-duckiedrone-dd24-b-ente-amelia-image-v2.zip
+```{button-link} https://cutt.ly/amelia02-dd24-b-image-aws
 :color: primary
 :shadow:
 
 Download the Duckiedrone DD24(-B) image from AWS
 ```
 
-```{button-link} https://drive.google.com/file/d/1ziNpkxCpMd4B9EWIItZvr8deJgolN5JB/view?usp=sharing
+```{button-link} https://cutt.ly/dd24-b-amelia02-image
 :color: info
 :shadow:
 
