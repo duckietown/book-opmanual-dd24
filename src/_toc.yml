@@ -66,21 +66,20 @@ parts:
           - file: 50-learning-experiences/index
           - file: 50-learning-experiences/supported-lxs
             sections:
-            #- file: 50-learning-experiences/supported-lxs/duckiedrone-safety
-            #- file: 50-learning-experiences/supported-lxs/middlewares-ros2
-            #- file: 50-learning-experiences/supported-lxs/linux-and-networking
-            #- file: 50-learning-experiences/supported-lxs/docker-basics
-            - file: 50-learning-experiences/supported-lxs/sensors-inertial-measurement-unit-imu
-            #- file: 50-learning-experiences/supported-lxs/sensors-time-of-flight
-            #- file: 50-learning-experiences/supported-lxs/sensors-camera
-            #- file: 50-learning-experiences/supported-lxs/actuators-motors
-            - file: 50-learning-experiences/supported-lxs/pid-altitude-control
-            #- file: 50-learning-experiences/supported-lxs/optical-flow
-            #- file: 50-learning-experiences/supported-lxs/pid-velocity-control
+            #- file: 50-learning-experiences/supported-lxs/duckiedrone-safety #[Stefanie]
+            #- file: 50-learning-experiences/supported-lxs/middlewares-ros2 #[LiamJr]
+            #- file: 50-learning-experiences/supported-lxs/linux-and-networking #[LiamJr]
+            #- file: 50-learning-experiences/supported-lxs/docker-basics #[LiamJr]
+            - file: 50-learning-experiences/supported-lxs/sensors-inertial-measurement-unit-imu #[Jatin]
+            #- file: 50-learning-experiences/supported-lxs/sensors-time-of-flight #[Jatin]
+            #- file: 50-learning-experiences/supported-lxs/sensors-camera #[Jatin]
+            #- file: 50-learning-experiences/supported-lxs/actuators-motors #[Jatin - low priority]
+            - file: 50-learning-experiences/supported-lxs/pid-altitude-control 
+            #- file: 50-learning-experiences/supported-lxs/optical-flow #[Jatin]
+            #- file: 50-learning-experiences/supported-lxs/pid-velocity-control #[Jatin]
             #- file: 50-learning-experiences/supported-lxs/estimation-unscented-kalman-filter-ukf
             #- file: 50-learning-experiences/supported-lxs/localization-slam
             #- file: 50-learning-experiences/supported-lxs/position-control
-          - file: 50-learning-experiences/lx-general-procedure
           
     - caption: Software Architecture
       maxdepth: 2

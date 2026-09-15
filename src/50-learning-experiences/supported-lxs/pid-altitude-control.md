@@ -27,7 +27,7 @@ Welcome to the PID - Altitude Control LX!
 
 ```{admonition} Intended Learning Outcomes
 :class: tip
-After this learning experience, you will learn:
+Through this learning experience, you will learn:
 - Discrete-time PID control theory (proportional, integral, derivative terms)
 - How PX4's OFFBOARD mode works and why the heartbeat rate matters
 - How the setpoint_attitude MAVROS2 plugin lets a companion computer command normalized thrust and attitude
