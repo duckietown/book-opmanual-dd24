@@ -65,6 +65,7 @@ parts:
       chapters:
           - file: 50-learning-experiences/index
           - file: 50-learning-experiences/supported-lxs
+          - file: 50-learning-experiences/lx-general-procedure
             sections:
             #- file: 50-learning-experiences/supported-lxs/duckiedrone-safety #[Stefanie]
             #- file: 50-learning-experiences/supported-lxs/middlewares-ros2 #[LiamJr]
@@ -79,7 +80,9 @@ parts:
             #- file: 50-learning-experiences/supported-lxs/pid-velocity-control #[Jatin]
             #- file: 50-learning-experiences/supported-lxs/estimation-unscented-kalman-filter-ukf
             #- file: 50-learning-experiences/supported-lxs/localization-slam
-            #- file: 50-learning-experiences/supported-lxs/position-control
+            #- file: 50-learning-experiences/supported-lxs/position-control [A->B]  [Jatin]
+            #- file: 50-learning-experiences/supported-lxs/rl-isaac [Stefanie]
+            
           
     - caption: Software Architecture
       maxdepth: 2

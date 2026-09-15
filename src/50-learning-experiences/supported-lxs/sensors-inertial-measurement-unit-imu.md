@@ -27,6 +27,7 @@ Welcome to the Sensors - IMU LX for Duckiedrones!
 
 ```{admonition} Intended Learning Outcomes
 :class: tip
+
 After this learning experience, you will:
 - Understand what accelerometers and gyroscopes measure (and what not)
 - Plot real world IMU data from physical and virtual Duckiedrones
@@ -38,8 +39,8 @@ After this learning experience, you will:
 - Understand Why IMUs cannot measure absolute yaw and what this means for state estimation
 ```
 
-```{info} Available repositories
-:class: info
+```{admonition} Available repositories
+:class: seealso
 
 - 🚧 ⚙️ (work in progress) IMU LX - Learning Experience 🚧 ⚙️ 
 - [IMU LX - Solution](https://github.com/duckietown/lx-dd-sensors-imu-solution)
@@ -48,9 +49,7 @@ After this learning experience, you will:
 Access to the solution repository is reserved to Duckietown instructors. Reach out to [info@duckietown.com](mailto:info@duckietown.com) or [upgrade your plan](https://hub.duckietown.com/plans/?plan=institutional) through the Duckietown Hub. 
 ```
 
-```{warning}
 {{ dt_workspace_matrix_lx_warning.format(dt_workspace_note_prefix) }}
-```
 
 ## About these learning activities
 

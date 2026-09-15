@@ -36,6 +36,98 @@ html:
   extra_navbar: ""
 
 sphinx:
-  extra_extensions: []
+  extra_extensions:
+    - sphinx_sitemap
+  local_extensions:
+  #  manual_binder_accessibility: _extensions
+  #  manual_llms_txt: _extensions
   config:
-    intersphinx_mapping: {}
+    html_baseurl: "https://docs.duckietown.com/ente/opmanual-dd24/"
+    html_extra_path:
+      - robots.txt
+    myst_substitutions:
+      dt_workspace_note_prefix: >-
+        If you are using a [Duckietown Workspace](setup-devcontainer),
+      dt_duckietown_viewer_launch_tabs: |-
+        :::::{{tab-set}}
+        ::::{{tab-item}} Ubuntu
+        To open the `{0}`, run the following command, where the `--browser` flag opens the WebGL (browser) version:
+
+        ```shell
+        dts duckiebot {1} DUCKIEBOT_NAME [--browser]
+        ```
+        ::::
+        ::::{{tab-item}} Duckietown Workspace
+        To open the `{0}`, if `dts` is installed on the host machine, run the following command from a terminal inside the Duckietown Workspace or on the host machine:
+
+        ```shell
+        dts duckiebot {1} DUCKIEBOT_NAME
+        ```
+
+        ```{{note}}
+        This command will be delegated to the host machine if it is run inside the Duckietown Workspace.
+        ```
+
+        ```{{note}}
+        The first time a Duckietown Viewer app is run, a pop-up window may appear and request permission. Enter your password and select "(Always) Allow" to continue.
+        ```
+
+        Alternatively, to open the WebGL (browser) version of the `{0}`, open a terminal inside the Duckietown Workspace or on the host machine (if `dts` is installed on the host machine) and run:
+
+        ```shell
+        dts duckiebot {1} DUCKIEBOT_NAME --browser
+        ```
+        ::::
+        :::::
+      dt_workspace_duckietown_viewer_note: |-
+        ```{{note}}
+        {} you can run this command inside or outside the Duckietown Workspace if `dts` is installed on the host machine.
+        When the command is run inside the Duckietown
+        Workspace, it is automatically delegated to the host machine. To open the
+        WebGL (browser) version of the Duckietown Viewer instead, use
+        `dts duckiebot {} DUCKIEBOT_NAME --browser`.
+        ```
+      dt_workspace_matrix_lx_warning: |-
+        ```{{warning}}
+        {} the WebGL (browser) versions of the Duckietown Viewer and
+        Duckiematrix can be run inside or outside the Duckietown Workspace. If
+        `dts` is installed on the host machine, commands that launch native
+        Duckietown Viewer apps or the Duckiematrix Renderer, such as `dts matrix
+        run`, can also be run in either location. When one of these commands is
+        run inside the Duckietown Workspace, it is automatically delegated to the
+        host machine, where it launches the native UI. The `--standalone` flag
+        starts the Duckiematrix Engine in the environment where the command is run.
+        ```
+      dt_workspace_matrix_lx_note: |-
+        ```{{note}}
+        {} the WebGL (browser) versions of the Duckietown Viewer and
+        Duckiematrix can be run inside or outside the Duckietown Workspace. If
+        `dts` is installed on the host machine, commands that launch native
+        Duckietown Viewer apps or the Duckiematrix Renderer, such as `dts matrix
+        run`, can also be run in either location. When one of these commands is
+        run inside the Duckietown Workspace, it is automatically delegated to the
+        host machine, where it launches the native UI. The `--standalone` flag
+        starts the Duckiematrix Engine in the environment where the command is run.
+        ```
+      dt_workspace_start_matrix_split_note: |-
+        ```{{note}}
+        {} run `dts code start_matrix --no-renderer` inside the Duckietown
+        Workspace. If `dts` is installed on the host machine, then run `dts matrix
+        run` inside or outside the Duckietown Workspace. When the command is run inside the
+        Duckietown Workspace, the command is automatically delegated to the host
+        machine, where it launches the native Renderer.
+        ```
+      dt_workspace_matrix_standalone_note: |-
+        ```{{note}}
+        {} `dts matrix run --standalone` starts the Duckiematrix Engine in the
+        environment where the command is run. If `dts` is installed on the host
+        machine, this command can be run from inside the Duckietown Workspace and
+        is automatically delegated to the host machine, where it launches the
+        native Renderer. For the split Duckietown Workspace workflow, start the
+        Engine separately and run `dts matrix run` inside or outside the
+        Duckietown Workspace.
+        ```
+    intersphinx_mapping:
+      jupyter-book-docs:
+        - "https://jupyterbook.org/en/stable"
+        - null

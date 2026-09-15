@@ -35,8 +35,8 @@ Through this learning experience, you will learn:
 - How to transfer a simulation-tuned controller to real hardware
 ```
 
-```{info} Available repositories
-:class: info
+```{admonition} Available repositories
+:class: seealso
 
 - [PID Altitude control LX](https://github.com/duckietown/lx-dd-altitude-pid-control) 
 - [PID Altitude control LX - Solution](https://github.com/duckietown/lx-dd-altitude-pid-control-solution)
@@ -45,9 +45,9 @@ Through this learning experience, you will learn:
 Access to the solution repository is reserved to Duckietown instructors. Reach out to [info@duckietown.com](mailto:info@duckietown.com) or [upgrade your plan](https://hub.duckietown.com/plans/?plan=institutional) through the Duckietown Hub. 
 ```
 
-```{warning}
+
 {{ dt_workspace_matrix_lx_warning.format(dt_workspace_note_prefix) }}
-```
+
 
 ## About these learning activities
 

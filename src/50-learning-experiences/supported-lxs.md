@@ -24,8 +24,8 @@ Learning experiences for the Duckiedrone are hosted on GitHub. The following exp
 <!-- Not yet ported to the new DD24 format:
 - [Linux and Networking](https://github.com/duckietown/duckietown-lx/tree/duckiedrone-lxs/linux-and-networking)
 - [Introduction to ROS](https://github.com/duckietown/duckietown-lx/tree/duckiedrone-lxs/introduction-to-ros-lx)
--->
 - [Duckiedrone Altitude PID Tuning](https://github.com/duckietown/dd24-pid-tuning)
+-->
 
 ```{tip}
 Check back later, several LXs are work in progress!

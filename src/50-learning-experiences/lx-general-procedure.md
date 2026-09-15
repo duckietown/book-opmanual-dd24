@@ -123,10 +123,8 @@ All `dts code` commands must be executed inside the root directory of the learni
 From inside the directory of the learning experience, open the code editor by running:
 
 ```bash
-dts code editor [--bind 0.0.0.0]
+dts code editor
 ```
-
-The `--bind` flag is used when working in a Duckietown Workspace and the browser does not open the editor automatically.
 
 Wait for a URL to appear on the terminal, then click on it or copy-paste it in the address bar of the browser to access the code editor. The first thing shown in the code editor is a version of these instructions specific to the LX being run. The LX-specific indications shown in the code editor take precedence over this page.
 
@@ -296,4 +294,10 @@ Execute the commands from inside a learning experience folder (e.g., `*/dd24-pid
 The virtual robot (named, e.g., `VDRONE`) hangs indefinitely when trying to update it.
 ---
 Restart it with: `dts duckiebot virtual restart VDRONE`
+```
+
+```{trouble}
+Running `dts code editor` in a Duckietown workspace does not open the notebook on the browser and hangs indefinitely.
+---
+Use `dts code editor --bind 0.0.0.0`. 
 ```
