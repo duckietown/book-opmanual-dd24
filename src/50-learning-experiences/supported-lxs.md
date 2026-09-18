@@ -16,7 +16,7 @@
 - Access to the Duckiedrone Altitude PID Tuning learning experience
 ```
 
-Learning experiences for the Duckiedrone are hosted on GitHub. The following experience is currently available; its repository's `README` includes setup instructions:
+Learning experiences for the Duckiedrone are hosted on GitHub. The following learning experiences are currently available:
 
 ```{tableofcontents}
 ```
