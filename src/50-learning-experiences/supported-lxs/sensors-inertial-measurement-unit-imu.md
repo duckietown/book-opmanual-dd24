@@ -3,13 +3,13 @@
 
 ```{seo}
 :description: Learn about IMUs with hands-on activities with physical and virtual Duckiedrones. 
-:keywords: Duckietown, Duckiedrone, DD24-B, LX, learning experience, intertial measurement unit, IMU, gyroscope, accellerometer, ROS2
+:keywords: Duckietown, Duckiedrone, DD24-B, LX, learning experience, inertial measurement unit, IMU, gyroscope, accelerometer, ROS2
 ```
 
 ```{needget}
 - Computer setup `dts`: [](dd24-initial-setup)
-- (reccomended) A successful Duckiematrix installation: [](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
-- (optional) A "flight ready" Duckiedrone: [](https://docs.duckietown.com/ente/opmanual-dd24/40-duckiedrone-handling/flying-your-duckiedrone.html)
+- (recommended) A successful Duckiematrix installation: [Duckiematrix first steps](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
+- (optional) A "flight ready" Duckiedrone: [](flying_your_drone)
 ---
 - Running the Sensors - IMU learning experience
 ```
@@ -17,34 +17,30 @@
 This Learning Experience introduces Inertial Measurement Units (IMU), and in particular the model equipped on the Duckiedrone (DD24-B). You will learn what an IMU measures, how rotations in 3D are represented, how the Duckiedrone's IMU data flows from the flight controller to a ROS 2 topic via MAVROS2, and how to write a ROS 2 node that reads sensor_msgs/Imu messages in real time.
 
 ```{figure} ../../_images/lxs/imu/imu.png
-:alt: Model intertial measurement unit (IMU)
+:alt: Model inertial measurement unit (IMU)
 :width: 60%
 :name: duckiedrone-lx-sensor-imu
 :align: center
 
-Welcome to the Sensors - IMU LX for Duckiedrones!
+An IMU sensor chip with its three accelerometer axes and three gyroscope axes.
 ```
 
 ```{admonition} Intended Learning Outcomes
 :class: tip
 
-After this learning experience, you will:
-- Understand what accelerometers and gyroscopes measure (and what not)
-- Plot real world IMU data from physical and virtual Duckiedrones
-- Review rotation mathematical representations: Euler angles, rotation matrices, quaternions 
-— Be able to explain gimbal lock to a peer
-- Analyze how IMU data flows on the DD24: from the flight controller → MAVSDK driver → DTPS → MAVROS2 → `/mavros/imu/data`
-- Implement a ROS2 node subscribing to IMU data on the companion robot (Raspberry Pi) side, i.e., through the MAVROS2 `/mavros/imu/data` topic
-- Understand how to convert a `sensor_msgs/Imu` quaternion into roll / pitch / yaw
-- Understand Why IMUs cannot measure absolute yaw and what this means for state estimation
+After completing this learning experience, learners will be able to:
+- Explain what an accelerometer and a gyroscope each measure, and predict what happens to a position estimate built by integrating acceleration over time.
+- Compare Euler angles, rotation matrices and quaternions as ways of writing an orientation, and identify the orientations at which Euler angles break down.
+- Trace an IMU reading from the sensor chip to a ROS 2 topic, naming what changes it at each step and what sets its rate.
+- Write, deploy, and run a ROS 2 node on a Duckiedrone that subscribes to the IMU topic and reports acceleration, angular velocity, and roll, pitch and yaw.
 ```
 
 ```{admonition} Available repositories
 :class: seealso
 
 - 🚧 ⚙️ (work in progress) IMU LX - Learning Experience 🚧 ⚙️ 
+- [IMU LX - Recipe](https://github.com/duckietown/lx-dd-sensors-imu-recipe)
 - [IMU LX - Solution](https://github.com/duckietown/lx-dd-sensors-imu-solution)
-- [IMU - LX Recipe](https://github.com/duckietown/lx-dd-sensors-imu-recipe)  
 
 Access to the solution repository is reserved to Duckietown instructors. Reach out to [info@duckietown.com](mailto:info@duckietown.com) or [upgrade your plan](https://hub.duckietown.com/plans/?plan=institutional) through the Duckietown Hub. 
 ```
@@ -54,11 +50,15 @@ Access to the solution repository is reserved to Duckietown instructors. Reach o
 ## About these learning activities
 
 ```{note}
-This exercise can be run on a virtual Duckiebot in [the Duckiematrix](the-duckiematrix-first-steps), and on a [real Duckiebot](https://get.duckietown.com/products/duckiebot-db21?variant=41543707099311) with off-board agent workflow. On-board agent workflow is work in progress. 
+This learning experience runs on a virtual Duckiedrone in [the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html) and on a [physical Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).
 ```
 
 (lx-forking-dd-sensor-imu)=
 ## Forking the repository
+
+```{important}
+The public `lx-dd-sensors-imu` repository is not published yet. The steps below apply once it is available.
+```
 
 ### 1. Create a fork
 
@@ -111,7 +111,7 @@ You can now push your work to your own repository using the standard GitHub work
     dts profile list
     ```
 
-    To switch to an ente profile, follow the [Duckietown Manual DTS installation instructions](setup-dts).
+    To switch to an ente profile, follow the [Duckietown Shell installation instructions](dd24-required-sw-and-accounts).
 
 - 💻 Pull from the upstream remote to synch your fork with the upstream repo: 
 
@@ -137,13 +137,13 @@ You can now push your work to your own repository using the standard GitHub work
     dts desktop update
     ```
 
-- 🚙 Update your Duckiebot (even if it is a virtual one): 
+- 🚙 Update your Duckiedrone (even if it is a virtual one): 
 
     ```
     dts duckiebot update ROBOTNAME
     ``` 
     
-    (where `ROBOTNAME` is the name of your Duckiebot: real or virtual.)
+    (where `ROBOTNAME` is the name of your Duckiedrone: physical or virtual.)
 
 (lx-code-editor-dd-sensor-imu)=
 ## Launching the Code Editor
@@ -181,15 +181,15 @@ Once you have done that you will need to **build** your code before **testing** 
 To test your code in the Duckiematrix you will need a virtual robot attached to an ongoing session.
 
 (lx-create-vbot-dd-sensor-imu)=
-#### 1. Creating and starting virtual Duckiebot
+#### 1. Creating and starting a virtual Duckiedrone
 
-If you have not done so already (e.g., for a different LX), you can create a virtual Duckiebot with the command:
+If you have not done so already (e.g., for a different LX), you can create a virtual Duckiedrone with the command:
 
 ```
 dts duckiebot virtual create -t duckiedrone -c DD24 [VBOT]
 ```
 
-When you run the command, DTS prompts you to enter and confirm the password for the virtual Duckiedrone's `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks; the characters you enter are not displayed. `[VBOT]` is the hostname. It can be anything you like, subject to the [same naming constraints of physical Duckiedrone](setup-db-sd-card-flashing-complete).
+When you run the command, DTS prompts you to enter and confirm the password for the virtual Duckiedrone's `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks; the characters you enter are not displayed. `[VBOT]` is the hostname. It can be anything you like, subject to the [same naming constraints of physical Duckiedrone](dd24-hostname-constraints).
 
 Then you can start your virtual robot with the command:
 
@@ -211,14 +211,14 @@ Once you are done for the day, do not forget to stop your virtual robot:
 dts duckiebot virtual stop [VBOT]
 ```
 
-If in doubt if any of your virtual Duckiebots in running or not, you can check the status of your virtual scuderia at any time with:
+If in doubt if any of your virtual Duckiedrones is running or not, you can check the status of your virtual scuderia at any time with:
 
 ```
 dts duckiebot virtual list
 ```
 
 (lx-code-matrix-start-dd-sensor-imu)=
-#### 2. Starting the Duckiematrix with the virtual Duckiebot
+#### 2. Starting the Duckiematrix with the virtual Duckiedrone
 
 Now that your virtual robot is ready, you can start the Duckiematrix. From this LX directory:
 
@@ -234,7 +234,16 @@ To run the WebGL (browser) version of the Duckiematrix, add the `--browser` flag
 
 You will see the Unity-based Duckiematrix simulator start up. The startup screen will look like:
 
-Enable the window by clicking on it and press <kbd>ENTER</kbd> to make it become active, and then move the duckie towards the Duckidrone with the <kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, and <kbd>d</kbd> keys. Change the camera angle with the mouse or by using the other hotkeys available through the Duckiematrix settings.  
+```{figure} ../../_images/lxs/duckiematrix-drone-sandbox.png
+:alt: the Duckiedrone in the Duckiematrix sandbox map
+:width: 80%
+:name: dd-lx-sensor-imu-matrix-sandbox
+:align: center
+
+The Duckiedrone in the Duckiematrix sandbox map used by this learning experience.
+```
+
+Enable the window by clicking on it and press <kbd>ENTER</kbd> to make it become active, and then move the duckie towards the Duckiedrone with the <kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, and <kbd>d</kbd> keys. Change the camera angle with the mouse or by using the other hotkeys available through the Duckiematrix settings.  
 
 If you are close enough to your Duckiedrone, you can board it with the <kbd>E</kbd> key.
 
@@ -252,7 +261,7 @@ where `ROBOT_NAME` can be either a physical or virtual robot.
 You should then continue reading the instructions inside the first notebook.
 
 (lx-code-test-dd-sensor-imu)=
-### Testing on a Duckiebot or in the Duckiematrix
+### Testing on a Duckiedrone or in the Duckiematrix
 
 🚙 In general, you can test your code on your real Duckiedrone with:
 
@@ -267,14 +276,6 @@ dts code workbench -m -R VIRTUAL_ROBOT_NAME
 ```
 
 (note the `-m` flag which means that we are running in the `matrix`.)
-
-In another terminal, you can launch the `noVNC` viewer for this exercise and open RViz. 
-
-```
-dts code vnc -R ROBOT_NAME
-```
-
-where `ROBOT_NAME` could be the real or the virtual robot (use whichever you ran the `dts code workbench` and `dts code build` command with).
 
 ## Troubleshooting
 
