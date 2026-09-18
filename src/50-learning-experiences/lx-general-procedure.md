@@ -28,11 +28,11 @@ The recommended way to use the repository of an LX is to make a fork, and then c
 
 Cloning the repository directly also works, at the cost of not being able to push personal changes.
 
-1. **Create a fork**: navigate to the repository of the learning experience, for example [the Duckiedrone altitude PID tuning repository](https://github.com/duckietown/dd24-pid-tuning).
+1. **Create a fork**: navigate to the repository of the learning experience, for example [the Duckiedrone altitude PID control repository](https://github.com/duckietown/lx-dd-altitude-pid-control).
 
     Find and press the "Fork" button on the top right:
 
-    ```{figure} ../_images/lxs/duckietown-lx-forking.png
+    ```{figure} ../_images/lxs/pid-altitude-control/lx-dd-altitude-pid-control-forking.png
     :alt: how to fork a Duckietown LX repository
     :width: 90%
     :name: dd24-lx-forking-fig
@@ -271,6 +271,7 @@ The shell can be used to inspect the running environment and execute commands in
 
 After every change to the learning experience code, stop the workbench, then run `dts code build -R [ROBOT_NAME]` and `dts code workbench -R [ROBOT_NAME]` again to ship the new changes.
 
+(dd24-lx-troubleshooting)=
 ## Troubleshooting
 
 Symptoms encountered while building or running an LX can be looked up below, or in [](dd24-troubleshooting-faq).
@@ -287,7 +288,7 @@ The `dts code` commands must be run from the root directory of the LX.
 ```{trouble}
 Running `dts code editor` returns the error: `dts :  No valid DTProject found at '/path/to/lx'`
 ---
-Execute the commands from inside a learning experience folder (e.g., `*/dd24-pid-tuning/`).
+Execute the commands from inside a learning experience folder (e.g., `*/lx-dd-altitude-pid-control/`).
 ```
 
 ```{trouble}
