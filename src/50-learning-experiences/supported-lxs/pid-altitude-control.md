@@ -8,8 +8,8 @@
 
 ```{needget}
 - Computer setup `dts`: [](dd24-initial-setup)
-- (reccomended) A successful Duckiematrix installation: [](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
-- (optional) A "flight ready" Duckiedrone: [](https://docs.duckietown.com/ente/opmanual-dd24/40-duckiedrone-handling/flying-your-duckiedrone.html)
+- (recommended) A successful Duckiematrix installation: [Duckiematrix first steps](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
+- (optional) A "flight ready" Duckiedrone: [](flying_your_drone)
 ---
 - Running the PID - Altitude Control learning experience
 ```
@@ -19,28 +19,28 @@ This Learning Experience details how to design, implement, and tune a PID altitu
 ```{figure} ../../_images/lxs/pid-altitude-control/pid_controller_block_diagram.png
 :alt: PID control loop
 :width: 90%
-:name: duckiedrone-lx-pid-altritude-control
+:name: duckiedrone-lx-pid-altitude-control
 :align: center
 
-Welcome to the PID - Altitude Control LX!
+Block diagram of a PID controller in a closed control loop.
 ```
 
 ```{admonition} Intended Learning Outcomes
 :class: tip
 Through this learning experience, you will learn:
-- Discrete-time PID control theory (proportional, integral, derivative terms)
-- How PX4's OFFBOARD mode works and why the heartbeat rate matters
+- Discrete-time PID (proportional, integral, derivative) control theory
+- A time-honored PID coefficients tuning strategy: the Ziegler–Nichols method
+- Implementation details such as how PX4's OFFBOARD mode works and why the heartbeat rate matters
 - How the setpoint_attitude MAVROS2 plugin lets a companion computer command normalized thrust and attitude
-- How to tune PID gains systematically using the Ziegler–Nichols method
-- How to transfer a simulation-tuned controller to real hardware
+- How to transfer a simulation-tuned controller to physical hardware
 ```
 
 ```{admonition} Available repositories
 :class: seealso
 
 - [PID Altitude control LX](https://github.com/duckietown/lx-dd-altitude-pid-control) 
+- [PID Altitude control LX - Recipe](https://github.com/duckietown/lx-dd-altitude-pid-control-recipe)
 - [PID Altitude control LX - Solution](https://github.com/duckietown/lx-dd-altitude-pid-control-solution)
-- [PID Altitude control LX - Recipe](https://github.com/duckietown/lx-dd-altitude-pid-control-recipe)  
 
 Access to the solution repository is reserved to Duckietown instructors. Reach out to [info@duckietown.com](mailto:info@duckietown.com) or [upgrade your plan](https://hub.duckietown.com/plans/?plan=institutional) through the Duckietown Hub. 
 ```
@@ -52,7 +52,7 @@ Access to the solution repository is reserved to Duckietown instructors. Reach o
 ## About these learning activities
 
 ```{note}
-This exercise can be run on a virtual Duckiebot in [the Duckiematrix](the-duckiematrix-first-steps), and on a [real Duckiebot](https://get.duckietown.com/products/duckiebot-db21?variant=41543707099311) with off-board agent workflow. On-board agent workflow is work in progress. 
+This learning experience runs on a virtual Duckiedrone in [the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html) and on a [physical Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).
 ```
 
 (lx-forking-dd-pid-altitude-control)=
@@ -60,14 +60,14 @@ This exercise can be run on a virtual Duckiebot in [the Duckiematrix](the-duckie
 
 ### 1. Create a fork
 
-Navigate to [the lx-dd-altitude-pid-control repository](lx-dd-altitude-pid-control).
+Navigate to [the lx-dd-altitude-pid-control repository](https://github.com/duckietown/lx-dd-altitude-pid-control).
 
 Find and press the "Fork" button on the top right:
 
-```{figure} ../../_images/lxs/duckietown-lx-forking.png
+```{figure} ../../_images/lxs/pid-altitude-control/lx-dd-altitude-pid-control-forking.png
 :alt: how to fork a Duckietown LX repository
 :width: 90%
-:name: dd-lx-forking-sensor-imu
+:name: dd-lx-forking-pid-altitude-control
 :align: center
 
 Fork the LX to be able to make local changes while still being able to receive updates.
@@ -109,7 +109,7 @@ You can now push your work to your own repository using the standard GitHub work
     dts profile list
     ```
 
-    To switch to an ente profile, follow the [Duckietown Manual DTS installation instructions](setup-dts).
+    To switch to an ente profile, follow the [Duckietown Shell installation instructions](dd24-required-sw-and-accounts).
 
 - 💻 Pull from the upstream remote to synch your fork with the upstream repo: 
 
@@ -135,13 +135,13 @@ You can now push your work to your own repository using the standard GitHub work
     dts desktop update
     ```
 
-- 🚙 Update your Duckiebot (even if it is a virtual one): 
+- 🚙 Update your Duckiedrone (even if it is a virtual one): 
 
     ```
     dts duckiebot update ROBOTNAME
     ``` 
     
-    (where `ROBOTNAME` is the name of your Duckiebot: real or virtual.)
+    (where `ROBOTNAME` is the name of your Duckiedrone: physical or virtual.)
 
 (lx-code-editor-dd-pid-altitude-control)=
 ## Launching the Code Editor
@@ -179,15 +179,15 @@ Once you have done that you will need to **build** your code before **testing** 
 To test your code in the Duckiematrix you will need a virtual robot attached to an ongoing session.
 
 (lx-create-vbot-dd-pid-altitude-control)=
-#### 1. Creating and starting virtual Duckiebot
+#### 1. Creating and starting a virtual Duckiedrone
 
-If you have not done so already (e.g., for a different LX), you can create a virtual Duckiebot with the command:
+If you have not done so already (e.g., for a different LX), you can create a virtual Duckiedrone with the command:
 
 ```
 dts duckiebot virtual create -t duckiedrone -c DD24 [VBOT]
 ```
 
-When you run the command, DTS prompts you to enter and confirm the password for the virtual Duckiedrone's `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks; the characters you enter are not displayed. `[VBOT]` is the hostname. It can be anything you like, subject to the [same naming constraints of physical Duckiedrone](setup-db-sd-card-flashing-complete).
+When you run the command, DTS prompts you to enter and confirm the password for the virtual Duckiedrone's `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks; the characters you enter are not displayed. `[VBOT]` is the hostname. It can be anything you like, subject to the [same naming constraints of physical Duckiedrone](dd24-hostname-constraints).
 
 Then you can start your virtual robot with the command:
 
@@ -209,14 +209,14 @@ Once you are done for the day, do not forget to stop your virtual robot:
 dts duckiebot virtual stop [VBOT]
 ```
 
-If in doubt if any of your virtual Duckiebots in running or not, you can check the status of your virtual scuderia at any time with:
+If in doubt if any of your virtual Duckiedrones is running or not, you can check the status of your virtual scuderia at any time with:
 
 ```
 dts duckiebot virtual list
 ```
 
 (lx-code-matrix-start-dd-pid-altitude-control)=
-#### 2. Starting the Duckiematrix with the virtual Duckiebot
+#### 2. Starting the Duckiematrix with the virtual Duckiedrone
 
 Now that your virtual robot is ready, you can start the Duckiematrix. From this LX directory:
 
@@ -232,7 +232,16 @@ To run the WebGL (browser) version of the Duckiematrix, add the `--browser` flag
 
 You will see the Unity-based Duckiematrix simulator start up. The startup screen will look like:
 
-Enable the window by clicking on it and press <kbd>ENTER</kbd> to make it become active, and then move the duckie towards the Duckidrone with the <kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, and <kbd>d</kbd> keys. Change the camera angle with the mouse or by using the other hotkeys available through the Duckiematrix settings.  
+```{figure} ../../_images/lxs/duckiematrix-drone-sandbox.png
+:alt: the Duckiedrone in the Duckiematrix sandbox map
+:width: 80%
+:name: dd-lx-pid-altitude-control-matrix-sandbox
+:align: center
+
+The Duckiedrone in the Duckiematrix sandbox map used by this learning experience.
+```
+
+Enable the window by clicking on it and press <kbd>ENTER</kbd> to make it become active, and then move the duckie towards the Duckiedrone with the <kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, and <kbd>d</kbd> keys. Change the camera angle with the mouse or by using the other hotkeys available through the Duckiematrix settings.  
 
 If you are close enough to your Duckiedrone, you can board it with the <kbd>E</kbd> key.
 
@@ -250,7 +259,7 @@ where `ROBOT_NAME` can be either a physical or virtual robot.
 You should then continue reading the instructions inside the first notebook.
 
 (lx-code-test-dd-pid-altitude-control)=
-### Testing on a Duckiebot or in the Duckiematrix
+### Testing on a Duckiedrone or in the Duckiematrix
 
 🚙 In general, you can test your code on your real Duckiedrone with:
 
@@ -265,14 +274,6 @@ dts code workbench -m -R VIRTUAL_ROBOT_NAME
 ```
 
 (note the `-m` flag which means that we are running in the `matrix`.)
-
-In another terminal, you can launch the `noVNC` viewer for this exercise and open RViz. 
-
-```
-dts code vnc -R ROBOT_NAME
-```
-
-where `ROBOT_NAME` could be the real or the virtual robot (use whichever you ran the `dts code workbench` and `dts code build` command with).
 
 ## Troubleshooting
 
