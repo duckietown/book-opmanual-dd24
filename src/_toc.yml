@@ -68,8 +68,8 @@ parts:
           - file: 50-learning-experiences/supported-lxs
             sections:
             #- file: 50-learning-experiences/supported-lxs/duckiedrone-safety #[Stefanie]
+            - file: 50-learning-experiences/supported-lxs/linux-and-networking #[LiamJr]
             #- file: 50-learning-experiences/supported-lxs/middlewares-ros2 #[LiamJr]
-            #- file: 50-learning-experiences/supported-lxs/linux-and-networking #[LiamJr]
             #- file: 50-learning-experiences/supported-lxs/docker-basics #[LiamJr]
             #- file: 50-learning-experiences/supported-lxs/actuators-motors #[Jatin - low priority]
             - file: 50-learning-experiences/supported-lxs/pid-altitude-control 

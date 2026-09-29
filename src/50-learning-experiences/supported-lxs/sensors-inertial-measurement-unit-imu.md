@@ -38,7 +38,7 @@ After completing this learning experience, learners will be able to:
 ```{admonition} Available repositories
 :class: seealso
 
-- 🚧 ⚙️ (work in progress) IMU LX - Learning Experience 🚧 ⚙️ 
+- [IMU LX - Learning Experience](https://github.com/duckietown/lx-dd-sensors-imu-solution)
 - [IMU LX - Recipe](https://github.com/duckietown/lx-dd-sensors-imu-recipe)
 - [IMU LX - Solution](https://github.com/duckietown/lx-dd-sensors-imu-solution)
 
@@ -57,7 +57,7 @@ This learning experience runs on a virtual Duckiedrone in [the Duckiematrix](htt
 ## Forking the Repository
 
 ```{important}
-The public `lx-dd-sensors-imu` repository is not published yet. The steps below apply once it is available.
+The public `lx-dd-sensors-imu` repository is not published yet. The steps below can be applied to the solutions repo instead.
 ```
 
 The recommended way to use the repository of an LX is to make a fork, and then clone that fork. Forking can be done through the GitHub web interface, and creates a personal copy that can still be synchronized with the upstream Duckietown code.
