@@ -65,10 +65,20 @@ On the base station, open a browser and navigate to
 http://ROBOT_NAME.local/
 ```
 
-The landing page is the Duckietown Dashboard. The first time you open it on a freshly-flashed robot, it will show a four-step **setup wizard**. Complete the steps until you land on the robot info page.
+If `.local` does not resolve, use the Duckiedrone's reachable IP address (shown in the `Address` column of `dts fleet discover` when available):
+
+```text
+http://ROBOT_IP/
+```
+
+```{note}
+Older Dashboard images may open by IP but fail to load live data. Full IP-based access requires a Dashboard image with IP-origin support.
+```
+
+The landing page is the Duckietown Dashboard. The first time you open it on a freshly-flashed Duckiedrone, it will show a four-step **setup wizard**. Complete the steps until you reach the **Robot > Info** page.
 
 ```{tip}
-If the page does not load, confirm the Duckiedrone is reachable with `ping ROBOT_NAME.local`. See [](first_connection) for network troubleshooting.
+If the page does not load, confirm the Duckiedrone is reachable with `ping ROBOT_NAME.local` or `ping ROBOT_IP`. See [](first_connection) for network troubleshooting.
 ```
 
 ## 4. Verify the flight stack is healthy

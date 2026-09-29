@@ -111,14 +111,14 @@ Open a terminal on the base station and run:
 dts fleet discover
 ```
 
-If the robot is on the same network, it will appear along with its status.
+If the Duckiedrone is on the same network, it will appear along with its status.
 
 #### `ping`
 
 To test if your computer and Duckiedrone are able to communicate over the network, open a terminal and:
 
 ```bash
-ping <hostname>.local
+ping ROBOT_NAME.local
 ```
 
 ````{admonition} A successful ping example
@@ -139,17 +139,17 @@ round-trip min/avg/max/stddev = 7.621/19.238/41.965/12.955 ms
 ```
 ````
 
-where `<hostname>` is the robot name chosen during the [microSD card flashing procedure](dd24-sw-init).
+where `ROBOT_NAME` is the Duckiedrone name chosen during the [microSD card flashing procedure](dd24-sw-init).
 
-If `<hostname>.local` does not resolve, commands that use that hostname will not work until name resolution is fixed. You can still test network reachability with the Duckiedrone's IP address.
+If `ROBOT_NAME.local` does not resolve, commands that use that name will not work until name resolution is fixed. You can still test the Duckiedrone's network reachability with `ping ROBOT_IP`.
 
 ```{warning}
-The network must support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve `<hostname>.local`; mDNS is not required to ping the Duckiedrone's IP address. Commands that use `<hostname>.local` depend on mDNS. Availability varies by network, so ask your network administrator to enable mDNS on the subnet used by your class or lab.
+The network must support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve `ROBOT_NAME.local`; mDNS is not required to reach the Duckiedrone by IP address. If you need name resolution, ask whoever manages your network about mDNS on your subnet.
 ```
 
 #### The Dashboard
 
-You can access the robot's Dashboard at `http://<hostname>.local`, or through the command `dts duckiebot dashboard <hostname>`.
+You can open the Duckiedrone's Dashboard at `http://ROBOT_NAME.local/` or `http://ROBOT_IP/`, where `ROBOT_IP` is the Duckiedrone's reachable IP address (shown in the `Address` column of `dts fleet discover` when available). You can also run `dts duckiebot dashboard ROBOT_NAME` if the name resolves, or `dts duckiebot dashboard ROBOT_IP` to connect by IP. Commands that accept a target host also support `-H ROBOT_IP`.
 
 Accessing the Duckiedrone's Dashboard provides access to many tools to manage the Duckiedrone.
 
@@ -159,7 +159,7 @@ Create a dedicated Duckiedrone dashboard explanation page.
 
 #### Secure Shell (`ssh`)
 
-You can `ssh` into the Duckiedrone with `ssh duckie@<hostname>.local`, using the password set while preparing the microSD card.
+You can `ssh` into the Duckiedrone with `ssh duckie@ROBOT_NAME.local` or `ssh duckie@ROBOT_IP` if `.local` does not resolve, using the password set while preparing the microSD card.
 
 ## Troubleshooting
 
@@ -169,7 +169,7 @@ If any of these basic interfacing commands are not working, the most likely caus
 
 - The Duckiedrone's [first boot procedure](sec:first-boot) is not complete yet.
 
-- `<hostname>.local` does not resolve through mDNS.
+- `ROBOT_NAME.local` does not resolve through mDNS.
 
 A general alternative networking solution that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone via an Ethernet cable to the router, if you have physical access to it.
 

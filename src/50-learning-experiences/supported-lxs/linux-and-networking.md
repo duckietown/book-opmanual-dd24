@@ -219,10 +219,10 @@ Then start the virtual robot with the command:
 dts duckiebot virtual start [VDRONE]
 ```
 
-The robot appears with status `Booting` and finally `Ready` in the output of `dts fleet discover`:
+The virtual Duckiedrone appears with status `Booting` and finally `Ready` in the output of `dts fleet discover`:
 
 ```
-         | Hardware |    Type     | Model |  Status  |    Hostname
+         | Hardware |    Type     | Model |  Status  |    Address
 -------- | -------- | ----------- | ----- | -------- | --------------
 [VDRONE] |  virtual | duckiedrone | DD24  |  Ready   | [VDRONE].local
 ```
