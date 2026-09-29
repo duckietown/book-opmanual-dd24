@@ -64,7 +64,7 @@ To get started:
     You can monitor the process through the `Status` column in the `dts fleet discover` command output:
 
     ```bash
-           |    Hardware    |    Type     | Model |  Status  |   Hostname  
+           |    Hardware    |    Type     | Model |  Status  |   Address
     ------ | -------------- | ----------- | ----- | -------- | ------------
     amelia | raspberry_pi_64 | duckiedrone |  DD24 |  Ready   | amelia.local
     ```
