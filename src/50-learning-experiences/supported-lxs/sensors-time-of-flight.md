@@ -1,9 +1,9 @@
-(lx-dd-pid-altitude-control)=
-# LX: PID - Altitude Control
+(lx-dd-sensor-tof)=
+# LX: Sensors - Time-of-Flight (ToF)
 
 ```{seo}
-:description: Implement a PID altitude controller for a physical or virtual Duckiedrone. 
-:keywords: Duckietown, Duckiedrone, DD24-B, LX, learning experience, PID, PID Control, Control, altitude control ,ROS2
+:description: Learn about time-of-flight sensors with hands-on activities with physical and virtual Duckiedrones.
+:keywords: Duckietown, Duckiedrone, DD24-B, LX, learning experience, time-of-flight, ToF, VL53L1X, range sensor, ROS2
 ```
 
 ```{needget}
@@ -11,43 +11,41 @@
 - (recommended) A successful Duckiematrix installation: [Duckiematrix first steps](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
 - (optional) A "flight ready" Duckiedrone: [](flying_your_drone)
 ---
-- Running the PID - Altitude Control learning experience
+- Running the Sensors - ToF learning experience
 ```
 
-This Learning Experience details how to design, implement, and tune a PID altitude controller for a Duckiedrone DD24-B, which runs PX4 as its flight controller and communicates with ROS2 via MAVROS2.
+This Learning Experience introduces time-of-flight (ToF) sensors, and in particular the VL53L1X model equipped on the Duckiedrone (DD24-B). You will learn how a ToF sensor turns reflected light into a distance and when it cannot, how the Duckiedrone's ToF readings flow from the sensor to a ROS 2 topic, and how to write a ROS 2 node that reads sensor_msgs/Range messages from all five ToF sensors.
 
-```{figure} ../../_images/lxs/pid-altitude-control/pid_controller_block_diagram.png
-:alt: PID control loop
-:width: 90%
-:name: duckiedrone-lx-pid-altitude-control
+```{figure} ../../_images/lxs/tof/time-of-flight.svg
+:alt: Light leaving a time-of-flight sensor, reflecting off a target and returning
+:width: 60%
+:name: duckiedrone-lx-sensor-tof
 :align: center
 
-Block diagram of a PID controller in a closed control loop.
+The principle of time-of-flight ranging: light leaves the sensor, reflects off the target, and returns, so the time it takes covers the distance twice ([source](https://en.wikipedia.org/wiki/Time-of-flight_camera#/media/File:20200501_Time_of_flight.svg)).
 ```
 
 ```{admonition} Intended Learning Outcomes
 :class: tip
-Through this learning experience, you will learn:
-- Discrete-time PID (proportional, integral, derivative) control theory
-- A time-honored PID coefficients tuning strategy: the Ziegler–Nichols method
-- Implementation details such as how PX4's OFFBOARD mode works and why the heartbeat rate matters
-- How the setpoint_attitude MAVROS2 plugin lets a companion computer command normalized thrust and attitude
-- How to transfer a simulation-tuned controller to physical hardware
+
+After completing this learning experience, learners will be able to:
+- Explain how a time-of-flight sensor recovers a distance, and predict how its maximum range changes with the surface it is pointed at, the ambient light, and its timing budget.
+- Trace a range reading from the sensor chip to a ROS 2 topic, naming what each step changes and what sets its rate.
+- Read a `sensor_msgs/Range` message from a Duckiedrone and tell a usable distance apart from a reading to discard.
+- Write, deploy, and run a ROS 2 node on a Duckiedrone that subscribes to one ToF topic, then to all five.
 ```
 
 ```{admonition} Available repositories
 :class: seealso
 
-- [PID Altitude control LX](https://github.com/duckietown/lx-dd-altitude-pid-control) 
-- [PID Altitude control LX - Recipe](https://github.com/duckietown/lx-dd-altitude-pid-control-recipe)
-- [PID Altitude control LX - Solution](https://github.com/duckietown/lx-dd-altitude-pid-control-solution)
+- [ToF LX - Learning Experience](https://github.com/duckietown/lx-dd-sensors-tof)
+- [ToF LX - Recipe](https://github.com/duckietown/lx-dd-sensors-tof-recipe)
+- [ToF LX - Solution](https://github.com/duckietown/lx-dd-sensors-tof-solution)
 
 Access to the solution repository is reserved to Duckietown instructors. Reach out to [info@duckietown.com](mailto:info@duckietown.com) or [upgrade your plan](https://hub.duckietown.com/plans/?plan=institutional) through the Duckietown Hub. 
 ```
 
-
 {{ dt_workspace_matrix_lx_warning.format(dt_workspace_note_prefix) }}
-
 
 ## About these learning activities
 
@@ -61,37 +59,37 @@ Each notebook includes hands-on learning activities and a checkpoint to self-ass
 
 | Notebook | Topics |
 | --- | --- |
-| 1 | PID control theory and tuning concepts |
-| 2 | The Duckiedrone, PX4, and MAVROS2 flight control architecture |
-| 3 | Implementing and tuning a PID altitude controller in simulation |
-| 4 | Deploying and tuning the controller on a physical Duckiedrone |
+| 1 | What a time-of-flight sensor measures, how the VL53L1X measures it, and when it cannot |
+| 2 | The path from the VL53L1X to `/<robot>/<sensor>_tof_driver_node/range`, and where its settings live |
+| 3 | Writing, deploying, and running a ROS 2 node that reads a ToF topic |
+| 4 | Starting the other four sensors and reading all five with the same node |
 
-(lx-forking-dd-pid-altitude-control)=
+(lx-forking-dd-sensor-tof)=
 ## Forking the Repository
 
 The recommended way to use the repository of an LX is to make a fork, and then clone that fork. Forking can be done through the GitHub web interface, and creates a personal copy that can still be synchronized with the upstream Duckietown code.
 
 Cloning the repository directly also works, at the cost of not being able to push personal changes.
 
-1. **Create a fork**: navigate to [the `lx-dd-altitude-pid-control` repository](https://github.com/duckietown/lx-dd-altitude-pid-control).
+1. **Create a fork**: navigate to [the `lx-dd-sensors-tof` repository](https://github.com/duckietown/lx-dd-sensors-tof).
 
     Find and press the "Fork" button on the top right:
 
-    ```{figure} ../../_images/lxs/pid-altitude-control/lx-dd-altitude-pid-control-forking.png
+    ```{figure} ../../_images/lxs/tof/lx-dd-sensors-tof-forking.png
     :alt: how to fork a Duckietown LX repository
     :width: 90%
-    :name: dd-lx-forking-pid-altitude-control
+    :name: dd-lx-forking-sensor-tof
     :align: center
 
     Fork the LX to be able to make local changes while still being able to receive updates.
     ```
 
-    This creates a new repository at `<your_github_username>/lx-dd-altitude-pid-control`.
+    This creates a new repository at `<your_github_username>/lx-dd-sensors-tof`.
 
 2. **Clone the fork**: clone the fork on the computer, replacing the GitHub username in the command below, and navigate to the new folder:
 
-        git clone git@github.com:<your_github_username>/lx-dd-altitude-pid-control
-        cd lx-dd-altitude-pid-control
+        git clone git@github.com:<your_github_username>/lx-dd-sensors-tof
+        cd lx-dd-sensors-tof
 
 3. **Configure upstream repo**: configure the Duckietown version of this repository as the upstream repository to synchronize with the fork.
 
@@ -101,7 +99,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
     Specify a new remote upstream repository,
 
-        git remote add upstream https://github.com/duckietown/lx-dd-altitude-pid-control
+        git remote add upstream https://github.com/duckietown/lx-dd-sensors-tof
 
     Confirm that the new upstream repository was added to the list,
 
@@ -109,7 +107,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
     Work can now be pushed to the personal repository using the standard GitHub workflow, and the beginning of every exercise prompts a pull from the upstream repository, updating the exercises to the latest version.
 
-(lx-system-update-dd-pid-altitude-control)=
+(lx-system-update-dd-sensor-tof)=
 ## Keeping the System Up To Date
 
 - 💻 These instructions are for `ente` learning experiences. Ensure that the Duckietown Shell is set to an `ente` profile (and not a `daffy` one). The current profile is shown by:
@@ -140,7 +138,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
 - 💻 Update the computer and the Duckiedrone: follow [](dd24-software-update).
 
-(lx-ssl-setup-dd-pid-altitude-control)=
+(lx-ssl-setup-dd-sensor-tof)=
 ## SSL Certificate Setup
 
 ```{note}
@@ -158,7 +156,7 @@ dts setup mkcert
 If a [Duckietown Workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) is in use, install `mkcert` on the host system by following the workspace setup instructions instead of running these commands inside the dev container.
 ```
 
-(lx-code-editor-dd-pid-altitude-control)=
+(lx-code-editor-dd-sensor-tof)=
 ## Launching the Code Editor
 
 ```{important}
@@ -173,7 +171,7 @@ dts code editor
 
 Wait for a URL to appear on the terminal, then click on it or copy-paste it in the address bar of the browser to access the code editor. The first thing shown in the code editor is a version of these instructions. The indications shown in the code editor take precedence over this page.
 
-(lx-navigating-notebooks-dd-pid-altitude-control)=
+(lx-navigating-notebooks-dd-sensor-tof)=
 ## Walkthrough of Notebooks
 
 Inside the code editor, use the navigator sidebar on the left-hand side to navigate to the `notebooks` directory and open the first notebook.
@@ -182,12 +180,12 @@ Follow the instructions on the notebook and work through them in sequence.
 
 In many cases the last notebook instructs the learner to write some code inside the learning experience directory. That code needs to be **built** before **testing** it.
 
-(lx-matrix-testing-dd-pid-altitude-control)=
+(lx-matrix-testing-dd-sensor-tof)=
 ### Testing with the Duckiematrix
 
 Testing code in the Duckiematrix requires a virtual Duckiedrone attached to an ongoing session.
 
-(lx-create-vdrone-dd-pid-altitude-control)=
+(lx-create-vdrone-dd-sensor-tof)=
 #### 1. Creating and starting a virtual Duckiedrone
 
 If this has not been done already (e.g., for a different LX), create a virtual Duckiedrone with the command:
@@ -218,7 +216,7 @@ The virtual Duckiedrone appears with status `Booting` and finally `Ready` in the
 The Duckiedrone software stack runs on ROS 2. When running ROS 2 commands against a virtual or physical Duckiedrone from the computer, the `ROS_DOMAIN_ID` must match the one used by the robot.
 ```
 
-(lx-start-matrix-dd-pid-altitude-control)=
+(lx-start-matrix-dd-sensor-tof)=
 #### 2. Starting the Duckiematrix with the virtual Duckiedrone
 
 Once the virtual robot is ready, start the Duckiedrone simulation environment:
@@ -238,7 +236,7 @@ The Unity-based Duckiematrix simulator starts up in the `sandbox_drone` map, whi
 ```{figure} ../../_images/lxs/duckiematrix-drone-sandbox.png
 :alt: the Duckiedrone in the Duckiematrix sandbox map
 :width: 80%
-:name: dd-lx-pid-altitude-control-matrix-sandbox
+:name: dd-lx-sensor-tof-matrix-sandbox
 :align: center
 
 The Duckiedrone in the Duckiematrix sandbox map used by this learning experience.
@@ -248,7 +246,7 @@ To activate the Duckiematrix window, click anywhere on it and press <kbd>ENTER</
 
 While the window is active, the point of view is moved with the <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, and <kbd>D</kbd> keys, and the viewing angle with the mouse. All available keyboard commands are summarized in the "Settings" tab at the bottom left of the Duckiematrix window.
 
-(lx-attach-vdrone-dd-pid-altitude-control)=
+(lx-attach-vdrone-dd-sensor-tof)=
 #### 3. Attaching the virtual Duckiedrone to the Duckiematrix
 
 The virtual Duckiedrone and the Duckiematrix run as separate entities, and are connected with:
@@ -259,7 +257,7 @@ dts matrix attach [VDRONE] map_0/vehicle_0
 
 where `[VDRONE]` is the name of the virtual Duckiedrone, and `map_0/vehicle_0` is the name of the Duckiedrone entity in the `sandbox_drone` map. Once attached, the sensor data produced by the Duckiematrix reaches the robot, and the commands produced by the robot move the Duckiedrone in the simulation.
 
-(lx-stop-list-vdrone-dd-pid-altitude-control)=
+(lx-stop-list-vdrone-dd-sensor-tof)=
 #### Other useful virtual Duckiedrone commands
 
 To disconnect the virtual Duckiedrone from the Duckiematrix without stopping it:
@@ -280,7 +278,7 @@ The status of all virtual robots can be checked at any time with:
 dts duckiebot virtual list
 ```
 
-(lx-code-build-dd-pid-altitude-control)=
+(lx-code-build-dd-sensor-tof)=
 ### Building the Code
 
 From inside the learning experience root directory, build the code with:
@@ -293,12 +291,8 @@ where `[ROBOT_NAME]` is the name of either a physical or a virtual Duckiedrone.
 
 This command packages the LX code and its dependencies into the image that will run on that Duckiedrone. The image is prepared for the selected robot, but the build command does not deploy it.
 
-(lx-code-test-dd-pid-altitude-control)=
+(lx-code-test-dd-sensor-tof)=
 ### Deploying the code on a (physical or virtual) Duckiedrone
-
-```{warning}
-Deploying an LX on a physical Duckiedrone can make the propellers spin. Before running the commands below on a physical Duckiedrone, review [](prelim-duckiedrone-safety) and [](flying_your_drone), keep the drone in a clear area, and keep the RC transmitter within reach to take over at any moment.
-```
 
 To test the code on the Duckiedrone:
 
@@ -318,7 +312,7 @@ The shell can be used to inspect the running environment and execute commands in
 
 After every change to the learning experience code, stop the workbench, then run `dts code build -R [ROBOT_NAME]` and `dts code workbench -R [ROBOT_NAME]` again to ship the new changes.
 
-(lx-troubleshooting-dd-pid-altitude-control)=
+(lx-troubleshooting-dd-sensor-tof)=
 ## Troubleshooting
 
 For more detailed instructions, refer to [](dd24-lx-general-procedure). For help troubleshooting common problems, refer to [its troubleshooting section](dd24-lx-troubleshooting).
