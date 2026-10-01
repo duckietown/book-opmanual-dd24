@@ -13,7 +13,7 @@
 
 - A Duckietown token configured on the computer
 ---
-- Access to the Duckiedrone Altitude PID Tuning learning experience
+- Access to the supported Duckiedrone learning experiences
 ```
 
 Learning experiences for the Duckiedrone are hosted on GitHub. The following learning experiences are currently available:
@@ -22,13 +22,6 @@ Learning experiences for the Duckiedrone are hosted on GitHub. The following lea
 ```
 
 <!-- Not yet released as public learning experiences:
-- Safety
-  - [Safety LX](https://github.com/duckietown/lx-dd-safety)
-  - [Safety LX - Solution](https://github.com/duckietown/lx-dd-safety-solution)
-  - [Safety LX - Recipe](https://github.com/duckietown/lx-dd-safety-recipe)
-- Linux and Networking
-  - [Linux and Networking LX](https://github.com/duckietown/lx-dd-linux-and-networking)
-  - [Linux and Networking LX - Recipe](https://github.com/duckietown/lx-dd-linux-and-networking-recipe)
 - Docker
   - [Docker LX](https://github.com/duckietown/lx-dd-docker)
   - [Docker LX - Solution](https://github.com/duckietown/lx-dd-docker-solution)
@@ -36,12 +29,6 @@ Learning experiences for the Duckiedrone are hosted on GitHub. The following lea
 - Middleware: ROS 2
   - [ROS 2 LX](https://github.com/duckietown/lx-dd-middleware-ros2)
   - [ROS 2 LX - Recipe](https://github.com/duckietown/lx-dd-middleware-ros2-recipe)
-- Sensors: IMU
-  - [IMU LX - Solution](https://github.com/duckietown/lx-dd-sensors-imu-solution)
-  - [IMU LX - Recipe](https://github.com/duckietown/lx-dd-sensors-imu-recipe)
-- Sensors: Time-of-Flight
-  - [ToF LX - Solution](https://github.com/duckietown/lx-dd-sensors-tof-solution)
-  - [ToF LX - Recipe](https://github.com/duckietown/lx-dd-sensors-tof-recipe)
 - Sensors: Camera
   - [Camera LX - Solution](https://github.com/duckietown/lx-dd-sensors-camera-solution)
   - [Camera LX - Recipe](https://github.com/duckietown/lx-dd-sensors-camera-recipe)
