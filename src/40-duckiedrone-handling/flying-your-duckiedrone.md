@@ -73,88 +73,9 @@ Make sure that the Flight Controller USB cable is plugged into the Raspberry Pi 
 The Duckiedrone default mission, before arming.
 ```
 
-## Understanding the Arming widget
+## Dashboard controls
 
-The **Arm / Disarm** widget is the primary flight control. It has three elements:
-
-- An **ARM / DISARM** toggle at the top-left of the widget.
-
-- A four-button **FLIGHT MODE** selector: `STABILIZED`, `LOITER`, `ALTITUDE`, `OFFBOARD`.
-
-- A red **KILL** switch that stops motor outputs immediately when clicked.
-
-The widget reflects the live state — it polls `/mavros/state` and refreshes its ARM and FLIGHT MODE indicators whenever the flight controller state changes. If the toggle flips on its own, that reflects a real transition on the flight controller (for example, an auto-disarm).
-
-### Flight modes
-
-PX4 runs on the Duckiedrone's flight controller, and `ros2-mavros` bridges it to ROS 2. The Dashboard exposes four of PX4's flight modes:
-
-| Mode | PX4 name | When to use |
-| --- | --- | --- |
-| `STABILIZED` | `STABILIZED` | PX4 keeps the Duckiedrone level when roll and pitch are neutral, but throttle is controlled directly, with no altitude or position hold. Use this for the first manual flight: it needs only the IMU attitude estimate, so it arms reliably on a GPS-less Duckiedrone. |
-| `LOITER` | `AUTO.LOITER` | Dashboard's disarmed default selection. PX4 cannot arm this automatic mode without a valid position estimate, which the standard Duckiedrone DD24-B configuration does not provide. Use `STABILIZED` or `ALTITUDE` for manual flight. |
-| `ALTITUDE` | `ALTCTL` | PX4 holds altitude when the throttle is centered. Roll and pitch come from the keyboard (`W`/`A`/`S`/`D`); yaw comes from the on-screen gimbal or arrow keys (or from a physical RC). Moving throttle above or below center commands ascent or descent, and horizontal position is not held. |
-| `OFFBOARD` | `OFFBOARD` | PX4 tracks setpoints published by an external node on `/mavros/setpoint_*`. Use this mode when an external controller is publishing setpoints; PX4 retains the control loops required for the selected setpoint type. |
-
-```{important}
-PX4 only **accepts** an `OFFBOARD` request after it has received a supported external-control stream at `>2 Hz` for more than one second. If no setpoints are being published, PX4 will not enter `OFFBOARD` and will stay in its previous mode. Start your setpoint publisher **before** clicking `OFFBOARD`.
-
-The standard Duckiedrone DD24-B configuration does not provide a horizontal position estimate. Do not command local position setpoints until you have configured a valid position source; select a setpoint type compatible with the estimates available to your controller.
-
-`STABILIZED` and `ALTITUDE` require a manual-control input source, such as the Dashboard's Remote Control widget.
-```
-
-```{warning}
-In `STABILIZED` the throttle is **fully manual**. PX4 does not hold height for you, so lowering the throttle makes the Duckiedrone descend. Manage throttle throughout the flight and be ready to hit **KILL**.
-```
-
-### The Remote Control (virtual joystick) widget
-
-Next to the arming widget, the **Remote Control** widget publishes stick values to `/mavros/manual_control/send`:
-
-- **On-screen gimbal** (right side of the widget, mouse- or touch-draggable): yaw (left/right) and throttle (up/down). Throttle rests at the bottom (`0`) and *holds* wherever released; yaw springs back to center.
-
-- **Roll / Pitch indicator** (left side of the widget): shows roll and pitch as arrows, but is keyboard-only. There is no draggable stick for these two axes. Drive them with `W`/`A`/`S`/`D`, see [Keyboard control](#keyboard-control) below.
-
-In `STABILIZED` and `ALTITUDE` modes these fly the Duckiedrone; in `OFFBOARD` mode they are ignored (your setpoint publisher takes over).
-
-### Keyboard control
-
-The **Remote Control** widget also accepts keyboard input. Keyboard and mouse drive the same joystick state and publish to the same `/mavros/manual_control/send` topic, so either can be used at any time, even mid-flight.
-
-| Keys | Axis | Behavior |
-| --- | --- | --- |
-| `W` / `S` | Pitch | Moves fully forward or back while held; returns to center on release. |
-| `A` / `D` | Roll | Moves fully left or right while held; returns to center on release. |
-| `←` / `→` | Yaw | Turns left or right while held; returns to center on release. |
-| `↑` / `↓` | Throttle | Rises or falls gradually while held, and stays at that level once released, the same as the on-screen gimbal. |
-| `Space` | None | Disarms immediately, from anywhere on the page. |
-
-The legend printed at the bottom of the widget repeats these bindings, and hovering over any bar shows the matching tooltip.
-
-#### Throttle ramp: hover threshold and thrust cap
-
-Because the throttle keys ramp rather than jump straight to a value, the widget shows a vertical throttle gauge next to the bars with two calibration fields:
-
-- **Hover**: the throttle value at which this specific Duckiedrone leaves the ground. Below it, `↑` / `↓` step throttle in coarse increments for a quick climb; at or above it, steps become fine for gentle hover trim. Marked as the **blue line** on the gauge.
-
-- **Thrust Cap**: a hard ceiling on throttle. The published throttle value can never exceed it, whatever the keyboard ramp or the joystick asks for. Marked as the **red line** on the gauge.
-
-Both fields are saved in the browser and persist across page reloads, but not across different browsers or devices. Recalibrate when flying from a new machine.
-
-```{warning}
-`Thrust Cap` defaults to half throttle, a conservative safety limit. Raise it only after the hover threshold is confirmed, and only as much as the airframe actually needs.
-```
-
-To calibrate on a new Duckiedrone:
-
-1. Arm in `STABILIZED` (see below) with `Thrust Cap` at its default.
-
-2. Hold `↑` in short bursts and watch the throttle gauge and bar. Note the value at which the Duckiedrone just leaves the ground.
-
-3. Enter that value into **Hover**. The gauge's blue line and the coarse/fine ramp switchover now match this airframe.
-
-4. Raise **Thrust Cap** only if the Duckiedrone needs more than half throttle to fly, and disarm and retest after every change.
+The Arm / Disarm and Remote Control widgets, the flight modes, and the keyboard controls are described in [](dd24-dashboard-overview).
 
 ## First flight
 
@@ -196,7 +117,7 @@ Be prepared to hit the **KILL** switch at any moment. It stops the motor outputs
 
     4. Steer roll and pitch with `W`/`A`/`S`/`D` and rotate with **yaw** (gimbal left/right, or `←`/`→`).
 
-    5. There is **no altitude hold**. Manage height with the throttle throughout the flight. The keyboard's hover-threshold ramp (see [above](#keyboard-control)) makes fine trim easier once airborne.
+    5. There is **no altitude hold**. Manage height with the throttle throughout the flight. The keyboard's hover-threshold ramp (see [](dd24-dashboard-keyboard-control)) makes fine trim easier once airborne.
 
     6. To land, ease the throttle down until the Duckiedrone touches down, then click **DISARM**.
     :::
