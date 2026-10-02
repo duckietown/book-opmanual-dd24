@@ -53,6 +53,7 @@ parts:
       numbered: False
       chapters:
           - file: 40-duckiedrone-handling/environment-setup
+          - file: 40-duckiedrone-handling/dashboard-overview
           - file: 40-duckiedrone-handling/flying-your-duckiedrone
           - file: 40-duckiedrone-handling/duckiedrone-flight-controller-pid-tuning
           - file: 40-duckiedrone-handling/diagnostic
