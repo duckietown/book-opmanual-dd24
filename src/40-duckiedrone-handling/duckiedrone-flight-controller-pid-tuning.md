@@ -30,7 +30,7 @@ In a stable test flight, the Duckiedrone should respond smoothly to roll, pitch,
 
 2. With the propellers removed, complete the gyroscope and accelerometer calibrations in QGroundControl's **Sensors** section. Calibrate the level horizon if the artificial horizon is not level, as described in [](dd24-sensor-calibration).
 
-3. Verify that the Duckiedrone behaves as expected in a controlled test flight, following the safety checks in [](flying_your_drone).
+3. Verify that the Duckiedrone behaves as expected in a controlled test flight, following the safety checks in [](dd24-flying).
 
 ## Further tuning
 

@@ -175,7 +175,7 @@ Keep **Thrust Cap** only slightly above **Hover**. A higher cap lets the throttl
 
 To calibrate on a new Duckiedrone:
 
-1. Arm in `STABILIZED` (see [](flying_your_drone)) with `Thrust Cap` at its default.
+1. Arm in `STABILIZED` (see [](dd24-flying)) with `Thrust Cap` at its default.
 
 2. Raise **Thrust Cap** a little at a time, and after each change hold <kbd>↑</kbd> in short bursts while watching the throttle gauge and bar. Note the value at which the Duckiedrone just leaves the ground.
 

@@ -95,7 +95,7 @@ The motors on the Duckiedrone do not spin when armed from the Dashboard.
 ---
 Before testing motors in QGroundControl, remove all propellers and keep them off throughout the test.
 
-First confirm that the Arm / Disarm widget actually reports `ARMED` — if the toggle snaps back off, PX4 rejected the arming request (see the troubleshooting list in [](flying_your_drone)).
+First confirm that the Arm / Disarm widget actually reports `ARMED` — if the toggle snaps back off, PX4 rejected the arming request (see the troubleshooting list in [](dd24-flying)).
 
 If the toggle stays on `ARMED` but the motors are silent, check in QGroundControl (see [](qgroundcontrol-connection)) that:
 
