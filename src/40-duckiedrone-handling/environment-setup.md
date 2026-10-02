@@ -1,12 +1,12 @@
 ```{seo}
-:description: Update the Duckiedrone DD24-B software stack and check in the Duckietown Dashboard that it is ready for flight.
-:keywords: Duckiedrone, DD24, Duckietown Dashboard, software setup, software update, mavros, PX4, rosbridge, ente
+:description: Update the Duckiedrone DD24-B software stack and check in the Dashboard that it is ready for flight.
+:keywords: Duckiedrone, DD24, Dashboard, software setup, software update, mavros, PX4, rosbridge, ente
 ```
 
 (dd24-environment-setup)=
 # Preparing the software stack
 
-Flying the Duckiedrone requires up-to-date software on both the base station and the Duckiedrone, and a browser on the base station that can reach the Duckietown Dashboard.
+Flying the Duckiedrone requires up-to-date software on both the base station and the Duckiedrone, and a browser on the base station that can reach the Dashboard.
 
 ```{needget}
 - A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-b-fc-config)
@@ -19,11 +19,11 @@ Flying the Duckiedrone requires up-to-date software on both the base station and
 ---
 - Updated Duckiedrone containers and base-station tools
 
-- A Duckiedrone ready to fly from the Duckietown Dashboard
+- A Duckiedrone ready to fly from the Dashboard
 ```
 
 ```{attention}
-This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You do not need to SSH into the Duckiedrone to start scripts manually.
+This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Dashboard. You do not need to SSH into the Duckiedrone to start scripts manually.
 ```
 
 ## 1. Update the base station
@@ -64,7 +64,7 @@ When the update finishes, the Duckiedrone containers start automatically. For ex
 
 See [](duckiedrone-containers) for the complete list.
 
-## 3. Open the Duckietown Dashboard
+## 3. Open the Dashboard
 
 On the base station, open a browser and go to:
 
@@ -86,45 +86,22 @@ After the setup, the Dashboard opens directly on the **Robot > Info** page.
 :name: fig-environment-setup-info-tab
 :align: center
 :width: 700px
-:alt: Duckietown Dashboard Robot Info page showing the robot name, type, configuration, firmware, and temperature, disk, CPU, RAM, frequency, and battery gauges
+:alt: Dashboard Robot Info page showing the robot name, type, configuration, firmware, and temperature, disk, CPU, RAM, frequency, and battery gauges
 
-The **Robot > Info** page of the Duckietown Dashboard.
+The **Robot > Info** page of the Dashboard.
 ```
 
-## 4. Check the flight stack
+## 4. Check the connection
 
-Click the **Mission Control** tab. The default mission is a grid of widgets that show the live state of the Duckiedrone:
+Click the **Mission Control** tab and check that:
 
-```{figure} ../_images/dashboard/mission-control-default.png
-:name: fig-environment-setup-mission-control
-:align: center
-:width: 700px
-:alt: Duckietown Dashboard Mission Control page showing heartbeat, motor PWM, remote-control, arm/disarm, altitude, Time-of-Flight, IMU, and camera widgets
-
-The default Duckiedrone mission, before arming.
-```
-
-Before the first flight, check that:
-
-- The top bar reads **Bridge: Connected**. This means the Dashboard is receiving ROS 2 data from the Duckiedrone.
+- The top bar reads **Bridge: Connected**.
 
 - In **Heartbeats Monitor**, the `JOYSTICK` heart is green.
 
-- **Motors PWM** shows all four motors at `0` while the Duckiedrone is disarmed.
+Together, these show that the Duckiedrone containers are running and the Dashboard is receiving ROS 2 data.
 
-- **Time-of-Flight**: the `Bottom` line in the graph changes when a hand passes under the Duckiedrone.
-
-- **IMU - Orientation**: the `Roll`, `Pitch`, and `Yaw` lines in the graph change when the Duckiedrone is tilted sideways, tilted forward or back, and rotated in place.
-
-- **Arm / Disarm** reads `DISARMED`.
-
-- **Camera** shows a live image from the Duckiedrone camera.
-
-```{note}
-The `ALTITUDE`, `STATE`, and `PID` heartbeats and the **Altitude** widget read from nodes that are not part of the default Duckiedrone software. They stay empty on a healthy default setup.
-```
-
-When all these checks pass, the software stack is ready. Continue to [](dd24-flying).
+The software stack is ready. Next, explore the Dashboard in more detail in [](dd24-dashboard-overview), which explains each tab and every widget used to fly the Duckiedrone.
 
 ## Troubleshooting
 
