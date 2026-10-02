@@ -73,7 +73,7 @@ To get started:
 
     To confirm the first boot has completed successfully, [connect to your Duckiedrone](first_connection).
 
-    After establishing the first connection, make sure to [update your Duckiedrone's software](dd24-software-update).
+    After establishing the first connection, make sure to [update your Duckiedrone's software](environment_setup).
 
 <!--
 Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspberry Pi first boot](https://vimeo.com/728539828/6cbc396872)
