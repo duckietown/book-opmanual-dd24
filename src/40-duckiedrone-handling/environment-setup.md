@@ -3,7 +3,7 @@
 :keywords: Duckiedrone, DD24, Duckietown Dashboard, software setup, software update, mavros, PX4, rosbridge, ente
 ```
 
-(environment-setup)=
+(dd24-environment-setup)=
 # Preparing the software stack
 
 Flying the Duckiedrone requires up-to-date software on both the base station and the Duckiedrone, and a browser on the base station that can reach the Duckietown Dashboard.
@@ -82,7 +82,8 @@ The first time the Dashboard is opened on a freshly flashed Duckiedrone, it show
 
 After the setup, the Dashboard opens directly on the **Robot > Info** page.
 
-```{figure} ../_images/flying/robot_info.png
+```{figure} ../_images/dashboard/info-tab.png
+:name: fig-environment-setup-info-tab
 :align: center
 :width: 700px
 :alt: Duckietown Dashboard Robot Info page showing the robot name, type, configuration, firmware, and temperature, disk, CPU, RAM, frequency, and battery gauges
@@ -94,7 +95,8 @@ The **Robot > Info** page of the Duckietown Dashboard.
 
 Click the **Mission Control** tab. The default mission is a grid of widgets that show the live state of the Duckiedrone:
 
-```{figure} ../_images/flying/mission_control_default.png
+```{figure} ../_images/dashboard/mission-control-default.png
+:name: fig-environment-setup-mission-control
 :align: center
 :width: 700px
 :alt: Duckietown Dashboard Mission Control page showing heartbeat, motor PWM, remote-control, arm/disarm, altitude, Time-of-Flight, IMU, and camera widgets
