@@ -11,7 +11,7 @@
 
 - Charged battery
 
-- Base station with the Duckietown Dashboard reachable (see [](environment-setup))
+- Base station with the Duckietown Dashboard reachable (see [](dd24-environment-setup))
 
 - Safety goggles
 
@@ -63,7 +63,7 @@ Make sure that the Flight Controller USB cable is plugged into the Raspberry Pi 
 
 3. Wait for the widgets in the default mission to populate.
 
-4. Confirm that every widget in the default mission is healthy — see [](environment-setup) for the checklist.
+4. Confirm that every widget in the default mission is healthy — see [](dd24-environment-setup) for the checklist.
 
 ```{figure} ../_images/flying/mission_control_overview.png
 :align: center
