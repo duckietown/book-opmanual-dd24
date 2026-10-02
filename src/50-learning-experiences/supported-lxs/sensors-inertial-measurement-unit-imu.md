@@ -9,7 +9,7 @@
 ```{needget}
 - Computer setup `dts`: [](dd24-initial-setup)
 - (recommended) A successful Duckiematrix installation: [Duckiematrix first steps](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html)
-- (optional) A "flight ready" Duckiedrone: [](flying_your_drone)
+- (optional) A "flight ready" Duckiedrone: [](dd24-flying)
 ---
 - Running the Sensors - IMU learning experience
 ```

@@ -3,7 +3,7 @@
 :keywords: Duckiedrone, DD24, fly duckiedrone, Duckietown Dashboard, mavros arming, PX4 flight modes, STABILIZED, manual flight, OFFBOARD, ALTCTL, LOITER
 ```
 
-(flying_your_drone)=
+(dd24-flying)=
 # Flying your Duckiedrone
 
 ```{needget}

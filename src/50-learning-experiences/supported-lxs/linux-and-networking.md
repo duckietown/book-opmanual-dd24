@@ -8,7 +8,7 @@
 
 ```{needget}
 - Computer setup `dts`: [](dd24-initial-setup)
-- (optional) A Duckiedrone: [](flying_your_drone)
+- (optional) A Duckiedrone: [](dd24-flying)
 - (optional) Review of "[Basics of networking for robotics](https://app-na1.hubspotdocuments.com/documents/8795519/view/717428796?accessId=9a5a79)" slides
 ---
 - An understanding of the basics of Linux and networking, including the command line, file system, and network configuration.

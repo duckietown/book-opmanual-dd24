@@ -250,7 +250,7 @@ This command packages the LX code and its dependencies into the image that will 
 ### Deploying the code on a (physical or virtual) Duckiedrone
 
 ```{warning}
-Deploying an LX on a physical Duckiedrone can make the propellers spin. Before running the commands below on a physical Duckiedrone, review [](prelim-duckiedrone-safety) and [](flying_your_drone), keep the drone in a clear area, and keep the RC transmitter within reach to take over at any moment.
+Deploying an LX on a physical Duckiedrone can make the propellers spin. Before running the commands below on a physical Duckiedrone, review [](prelim-duckiedrone-safety) and [](dd24-flying), keep the drone in a clear area, and keep the RC transmitter within reach to take over at any moment.
 ```
 
 To test the code on the Duckiedrone:

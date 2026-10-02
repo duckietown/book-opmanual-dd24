@@ -124,7 +124,7 @@ Before the first flight, check that:
 The `ALTITUDE`, `STATE`, and `PID` heartbeats and the **Altitude** widget read from nodes that are not part of the default Duckiedrone software. They stay empty on a healthy default setup.
 ```
 
-When all these checks pass, the software stack is ready. Continue to [](flying_your_drone).
+When all these checks pass, the software stack is ready. Continue to [](dd24-flying).
 
 ## Troubleshooting
 
