@@ -3,7 +3,7 @@
 :keywords: Duckiedrone, DD24, Duckietown Dashboard, software setup, software update, mavros, PX4, rosbridge, ente
 ```
 
-(environment_setup)=
+(environment-setup)=
 # Preparing the software stack
 
 Flying the Duckiedrone requires up-to-date software on both the base station and the Duckiedrone, and a browser on the base station that can reach the Duckietown Dashboard.
