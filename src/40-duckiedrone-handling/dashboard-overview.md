@@ -157,6 +157,7 @@ The keyboard is the only input to the **Remote Control** widget. Each key moves 
 
 The legend printed at the bottom of the widget repeats these bindings, and hovering over any bar shows the matching tooltip.
 
+(dd24-dashboard-throttle-ramp)=
 #### Throttle ramp: hover threshold and thrust cap
 
 Because the throttle keys ramp rather than jump straight to a value, the widget shows a vertical throttle gauge next to the bars with two calibration fields, both in percent of full throttle:
@@ -173,15 +174,7 @@ Both fields are saved in the browser and persist across page reloads, but not ac
 Keep **Thrust Cap** only slightly above **Hover**. A higher cap lets the throttle go far beyond what the Duckiedrone needs to hover, and the Duckiedrone is powerful enough to shoot up out of control.
 ```
 
-To calibrate on a new Duckiedrone:
-
-1. Arm in `STABILIZED` (see [](dd24-flying)) with `Thrust Cap` at its default.
-
-2. Raise **Thrust Cap** a little at a time, and after each change hold <kbd>↑</kbd> in short bursts while watching the throttle gauge and bar. Note the value at which the Duckiedrone just leaves the ground.
-
-3. Enter that value into **Hover**. The gauge's blue line and the coarse/fine ramp switchover now match this airframe.
-
-4. Set **Thrust Cap** slightly above the **Hover** value. Disarm and retest after every change.
+Both fields are set during the first flight of each Duckiedrone, as described in [](dd24-flying).
 
 ### Arm / Disarm
 
@@ -202,6 +195,8 @@ The **Arm / Disarm** widget is the primary flight control. It has three elements
 
 - A red **KILL** button that stops the motor outputs immediately when clicked.
 
+No flight mode is selected by default. A flight mode button becomes highlighted only once PX4 has entered that mode, and stays unhighlighted if PX4 refuses it.
+
 The widget shows the live state of the flight controller. It reads `/mavros/state` and updates the ARM and FLIGHT MODE indicators whenever that state changes. If the toggle flips on its own, the flight controller really changed state, for example after an auto-disarm.
 
 #### Flight modes
@@ -211,10 +206,10 @@ PX4 runs on the Duckiedrone flight controller, and `ros2-mavros` bridges it to R
 | Mode | When to use |
 | --- | --- |
 | `STABILIZED` | Manual flight with the **Remote Control** widget. PX4 keeps the Duckiedrone level when roll and pitch are neutral, but the throttle is controlled directly, with no altitude or position hold. It needs only the IMU attitude estimate, so it arms reliably on the Duckiedrone. Use this mode for the first flight. |
-| `OFFBOARD` | Flight driven by an external controller. PX4 tracks the setpoints that an external node publishes on `/mavros/setpoint_*`, and the **Remote Control** widget is ignored. |
+| `OFFBOARD` | Flight driven by an external controller, as in the [PID altitude control learning experience](lx-dd-pid-altitude-control). PX4 tracks the setpoints that an external node publishes on `/mavros/setpoint_*`, and the **Remote Control** widget is ignored. |
 
 ```{important}
-PX4 accepts an `OFFBOARD` request only after it has received a supported setpoint stream at more than `2 Hz` for more than one second. Without it, PX4 stays in the previous mode. Start the setpoint publisher **before** clicking `OFFBOARD`.
+There is no need to click **OFFBOARD**. Once an external setpoint stream is running, the Duckiedrone switches to `OFFBOARD` automatically and the **OFFBOARD** button becomes highlighted. PX4 needs the stream at more than `2 Hz` for more than one second; without it, PX4 stays in the previous mode.
 ```
 
 ```{warning}
