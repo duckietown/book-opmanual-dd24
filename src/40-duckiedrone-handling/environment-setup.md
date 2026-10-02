@@ -1,12 +1,12 @@
 ```{seo}
-:description: Set up your Duckiedrone DD24-B software stack so the Duckietown Dashboard is reachable and ready for flight.
-:keywords: Duckiedrone, DD24, Duckietown Dashboard, software setup, mavros, PX4, rosbridge, ente
+:description: Update the Duckiedrone DD24-B software stack and check in the Duckietown Dashboard that it is ready for flight.
+:keywords: Duckiedrone, DD24, Duckietown Dashboard, software setup, software update, mavros, PX4, rosbridge, ente
 ```
 
 (environment_setup)=
 # Preparing the software stack
 
-Before you can fly your Duckiedrone, you need an up-to-date software stack running on the Duckiedrone and a browser on your base station that can reach the Duckietown Dashboard.
+Flying the Duckiedrone requires up-to-date software on both the base station and the Duckiedrone, and a browser on the base station that can reach the Duckietown Dashboard.
 
 ```{needget}
 - A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-b-fc-config)
@@ -14,7 +14,11 @@ Before you can fly your Duckiedrone, you need an up-to-date software stack runni
 - A base station on the same network as the Duckiedrone (see [](first_connection))
 
 - The Duckietown Shell (`dts`) installed on the base station
+
+- Several minutes; the exact duration depends on the images to download and the network connection
 ---
+- Updated Duckiedrone containers and base-station tools
+
 - A Duckiedrone ready to fly from the Duckietown Dashboard
 ```
 
@@ -22,93 +26,106 @@ Before you can fly your Duckiedrone, you need an up-to-date software stack runni
 This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Duckietown Dashboard. You do not need to SSH into the Duckiedrone to start scripts manually.
 ```
 
-## 1. Update the Duckietown Shell
+## 1. Update the base station
 
-On the base station, make sure you are on the `ente` profile and that `dts` itself is current.
+Check that `ente` is the active Duckietown Shell profile:
 
 ```bash
-dts profile list          # 'ente' should be the active profile
+dts profile list
+```
+
+Then update the Duckietown Shell, its commands, and the Duckietown desktop software, in this order:
+
+```bash
 pipx upgrade duckietown-shell
 dts update
 dts desktop update
 ```
 
-## 2. Update the Duckiedrone software
+## 2. Update the Duckiedrone
 
-Pull the latest Duckiedrone containers onto the Duckiedrone. This can take several minutes the first time.
+Pull the latest containers onto the Duckiedrone, replacing `ROBOT_NAME` with the hostname set during the [microSD card initialization](dd24-sw-init):
 
 ```bash
 dts duckiebot update ROBOT_NAME
 ```
 
-```{note}
-Replace `ROBOT_NAME` with the hostname you assigned to your Duckiedrone. On the default image, the hostname is `amelia`.
-```
+The first update can take several minutes. Wait for the command to finish before continuing.
 
-Wait for the command to terminate before continuing. When it finishes, the Duckiedrone's automatic stacks include:
+When the update finishes, the Duckiedrone containers start automatically. For example:
 
-- `dashboard` — the web UI you will use to fly
+- `dashboard`: the web UI used to fly the Duckiedrone.
 
-- `driver-tof-bottom` and `ros2-tof-bottom` — the altitude sensor and its ROS 2 bridge
+- `ros2-mavros`: passes commands such as arm and disarm to the flight controller, and its state back to ROS 2.
 
-- `ros2-mavros` — the MAVROS bridge between ROS 2 and the PX4 flight controller
+- `driver-tof-bottom` and `ros2-tof-bottom`: the altitude sensor and its ROS 2 bridge.
 
-- `zenoh-router` and `ros2-rosbridge-websocket` — ROS 2 messaging and Dashboard connectivity
+- `driver-camera` and `ros2-camera`: the onboard camera and its ROS 2 bridge.
 
-See [](duckiedrone-containers) for the complete list of automatic containers.
+See [](duckiedrone-containers) for the complete list.
 
 ## 3. Open the Duckietown Dashboard
 
-On the base station, open a browser and navigate to
+On the base station, open a browser and go to:
 
 ```text
 http://ROBOT_NAME.local/
 ```
 
-If `.local` does not resolve, use the Duckiedrone's reachable IP address (shown in the `Address` column of `dts fleet discover` when available):
+If `ROBOT_NAME.local` does not resolve, use the Duckiedrone IP address instead, shown in the `Address` column of `dts fleet discover`:
 
 ```text
 http://ROBOT_IP/
 ```
 
-```{note}
-Older Dashboard images may open by IP but fail to load live data. Full IP-based access requires a Dashboard image with IP-origin support.
-```
+The first time the Dashboard is opened on a freshly flashed Duckiedrone, it shows a four-step **setup wizard**. Complete the steps until the **Robot > Info** page appears.
 
-The landing page is the Duckietown Dashboard. The first time you open it on a freshly-flashed Duckiedrone, it will show a four-step **setup wizard**. Complete the steps until you reach the **Robot > Info** page.
+After the setup, the Dashboard opens directly on the **Robot > Info** page.
 
-```{tip}
-If the page does not load, confirm the Duckiedrone is reachable with `ping ROBOT_NAME.local` or `ping ROBOT_IP`. See [](first_connection) for network troubleshooting.
-```
+## 4. Check the flight stack
 
-## 4. Verify the flight stack is healthy
+Click the **Mission Control** tab. The default mission is a grid of widgets that show the live state of the Duckiedrone:
 
-On the robot info page, click **Mission Control** in the top navigation bar. The default mission is a grid of widgets showing the live state of the Duckiedrone:
-
-```{figure} ../_images/flying/mission_control_overview.png
+```{figure} ../_images/flying/mission_control_default.png
 :align: center
 :width: 700px
-:alt: Duckietown Dashboard Mission Control page showing heartbeat, motor PWM, remote-control, arm/disarm, altitude, Time-of-Flight, and IMU widgets
+:alt: Duckietown Dashboard Mission Control page showing heartbeat, motor PWM, remote-control, arm/disarm, altitude, Time-of-Flight, IMU, and camera widgets
 
 The default Duckiedrone mission, before arming.
 ```
 
-Before the first flight, confirm:
+Before the first flight, check that:
 
-- **Heartbeats Monitor** (top left) — the `JOYSTICK` and `ALTITUDE` indicators are both green. A red indicator means the matching node is not publishing.
+- The top bar reads **Bridge: Connected**. This means the Dashboard is receiving ROS 2 data from the Duckiedrone.
 
-- **Motors PWM** — four bars are visible, all close to the minimum (~1000). If no bars appear, check that `ros2-mavros` is healthy and that the Dashboard is receiving flight-controller data.
+- In **Heartbeats Monitor**, the `JOYSTICK` heart is green.
 
-- **Altitude** — the blue trace updates as you gently move the Duckiedrone up and down.
+- **Motors PWM** shows all four motors at `0` while the Duckiedrone is disarmed.
 
-- **Time-of-Flight** — the distance reading (in meters) reacts to your hand passing under the Duckiedrone.
+- **Time-of-Flight**: the `Bottom` line in the graph changes when a hand passes under the Duckiedrone.
 
-- **IMU – Orientation** — the attitude indicator tilts when you tilt the Duckiedrone.
+- **IMU - Orientation**: the `Roll`, `Pitch`, and `Yaw` lines in the graph change when the Duckiedrone is tilted sideways, tilted forward or back, and rotated in place.
 
-- **Camera** — the image stream shows what the Duckiedrone sees.
+- **Arm / Disarm** reads `DISARMED`.
 
-```{tip}
-If the **Arm / Disarm** widget shows nothing under `FLIGHT MODE`, it means `/mavros/state` has not published yet. Reload the page after a few seconds; if the issue persists, see [](dd24-troubleshooting-faq).
+- **Camera** shows a live image from the Duckiedrone camera.
+
+```{note}
+The `ALTITUDE`, `STATE`, and `PID` heartbeats and the **Altitude** widget read from nodes that are not part of the default Duckiedrone software. They stay empty on a healthy default setup.
 ```
 
-When all widgets are populated, the software stack is healthy and you can proceed to [](flying_your_drone).
+When all these checks pass, the software stack is ready. Continue to [](flying_your_drone).
+
+## Troubleshooting
+
+```{trouble}
+The Dashboard does not load.
+---
+Check that the Duckiedrone is reachable with `ping ROBOT_NAME.local` or `ping ROBOT_IP`. See [](first_connection) for network troubleshooting.
+```
+
+```{trouble}
+The Dashboard opens through `ROBOT_IP` but the widgets show no data.
+---
+Older Dashboard images do not support access by IP address. Update the Duckiedrone as described in step 2.
+```
