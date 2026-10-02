@@ -82,6 +82,14 @@ The first time the Dashboard is opened on a freshly flashed Duckiedrone, it show
 
 After the setup, the Dashboard opens directly on the **Robot > Info** page.
 
+```{figure} ../_images/flying/robot_info.png
+:align: center
+:width: 700px
+:alt: Duckietown Dashboard Robot Info page showing the robot name, type, configuration, firmware, and temperature, disk, CPU, RAM, frequency, and battery gauges
+
+The **Robot > Info** page of the Duckietown Dashboard.
+```
+
 ## 4. Check the flight stack
 
 Click the **Mission Control** tab. The default mission is a grid of widgets that show the live state of the Duckiedrone:
