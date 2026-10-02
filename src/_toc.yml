@@ -52,7 +52,6 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: 40-duckiedrone-handling/10-software-update
           - file: 40-duckiedrone-handling/environment-setup
           - file: 40-duckiedrone-handling/flying-your-duckiedrone
           - file: 40-duckiedrone-handling/duckiedrone-flight-controller-pid-tuning
