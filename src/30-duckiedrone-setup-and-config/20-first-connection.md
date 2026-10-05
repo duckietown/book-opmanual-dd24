@@ -153,9 +153,7 @@ You can open the Duckiedrone's Dashboard at `http://ROBOT_NAME.local/` or `http:
 
 Accessing the Duckiedrone's Dashboard provides access to many tools to manage the Duckiedrone.
 
-```{todo [DTSW-8178]}
-Create a dedicated Duckiedrone dashboard explanation page.
-```
+See [](dd24-dashboard-overview) for what each part of the Dashboard does.
 
 #### Secure Shell (`ssh`)
 
