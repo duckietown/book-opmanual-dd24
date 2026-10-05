@@ -1,5 +1,5 @@
 ```{seo}
-:description: Find the publicly available Duckiedrone DD24-B learning experience and the publication status of the sensor learning experiences.
+:description: Find the supported Duckiedrone DD24-B learning experiences, each with its repository, prerequisites, and instructions.
 :keywords: Duckiedrone learning, DD24 Linux, ROS introduction, IMU sensors, Time-of-Flight sensor, camera integration, altitude PID tuning
 ```
 
@@ -13,7 +13,7 @@
 
 - A Duckietown token configured on the computer
 ---
-- Access to the Duckiedrone Altitude PID Tuning learning experience
+- Access to the supported Duckiedrone learning experiences
 ```
 
 Learning experiences for the Duckiedrone are hosted on GitHub. The following learning experiences are currently available:
@@ -22,13 +22,6 @@ Learning experiences for the Duckiedrone are hosted on GitHub. The following lea
 ```
 
 <!-- Not yet released as public learning experiences:
-- Safety
-  - [Safety LX](https://github.com/duckietown/lx-dd-safety)
-  - [Safety LX - Solution](https://github.com/duckietown/lx-dd-safety-solution)
-  - [Safety LX - Recipe](https://github.com/duckietown/lx-dd-safety-recipe)
-- Linux and Networking
-  - [Linux and Networking LX](https://github.com/duckietown/lx-dd-linux-and-networking)
-  - [Linux and Networking LX - Recipe](https://github.com/duckietown/lx-dd-linux-and-networking-recipe)
 - Docker
   - [Docker LX](https://github.com/duckietown/lx-dd-docker)
   - [Docker LX - Solution](https://github.com/duckietown/lx-dd-docker-solution)
