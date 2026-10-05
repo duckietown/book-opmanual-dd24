@@ -60,23 +60,15 @@ See [](duckiedrone-containers) for what each container does.
 ```{trouble}
 The Raspberry Pi does not power up.
 ---
-First verify that power reaches the Raspberry Pi. On a Raspberry Pi 4, the red power LED should be on. On a Raspberry Pi 5, the bicolor LED turns green as startup progresses.
+First verify that power reaches the Raspberry Pi. The red power LED of the Raspberry Pi should be on.
 
 1. With a multimeter set to DC voltage, measure between a `5V` pin and a `GND` pin on the 40-pin header of the Raspberry Pi. The header has two `5V` pins and several ground pins. Do not probe the `3.3V` or signal GPIO pins. See the [Raspberry Pi GPIO pinout](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio) and [](multimeter-tips).
 
 2. If the voltage is absent or not a steady `5 V`, unplug the battery and check that:
 
-- The voltage coming out of the UBEC is a steady `5 V`.
-
-- The `OUTPUT` side of the UBEC is attached to the HUT, and the `INPUT` side is soldered to the PDB.
-
 - The HUT is attached to the Raspberry Pi all the way, with no gap between the GPIO pins and the HUT pin header.
 
 - There is no short between the power and ground rails on the HUT, and no stray wire strands bridge the `5V` and `GND` rails.
-
-- The camera is not mounted to the frame with metal screws, which can cause a short.
-
-3. If the Raspberry Pi has a steady `5 V` supply but still shows no LED or boot activity, unplug the battery and inspect the wiring for a short. A Raspberry Pi that remains unresponsive after these checks may need replacement.
 ```
 
 ```{trouble}
@@ -135,11 +127,7 @@ Open Portainer as described in [](dd24-troubleshooting-portainer) and check that
 | `driver-tof-bottom` and `ros2-tof-bottom` | **Time-of-Flight** |
 | `driver-camera` and `ros2-camera` | **Camera** |
 
-Restart any container that does not. If a container is missing from the list, pull and restart all of them from the base station:
-
-~~~bash
-dts duckiebot update ROBOT_NAME
-~~~
+Restart any container that does not. If a container is missing or still does not read `healthy`, update the Duckiedrone as described in [](dd24-environment-setup).
 ```
 
 ```{trouble}
@@ -222,9 +210,7 @@ The Camera widget is blank.
 
     - The FFC is fully inserted at both the camera and the Raspberry Pi, and both connector latches are closed.
 
-    - On the Raspberry Pi, the blue side of the FFC faces the USB ports.
-
-    - On the camera, the blue side of the FFC faces up.
+    - The FFC is oriented as shown in the [3D assembly instructions](duckiedrone-dd24-b-assembly-instructions).
 
     - The FFC has no holes or rips. A crash or a soldering iron can damage it, and a damaged FFC must be replaced.
 ```
@@ -251,19 +237,17 @@ First check that the **Arm / Disarm** widget reads `ARMED`. If the toggle snaps 
 
 If the widget reads `ARMED` but the motors are silent:
 
-1. Check that the battery is connected and charged. USB alone does not power the ESCs. The ESC startup tones vary with the ESC firmware, so do not rely on a particular beep sequence.
+1. Check that the battery is connected and charged. USB alone does not power the ESCs.
 
 2. Remove all the propellers, and keep them off for the rest of these checks.
 
 3. With the battery unplugged, inspect the connector between the Flight Controller and the ESC board, and all the motor leads.
 
-4. With a multimeter set to DC voltage, check that the battery input of the Flight Controller and ESC stack matches the voltage of the 4S battery (`14.8 V` nominal), not `12 V`.
+4. Connect QGroundControl as described in [](qgroundcontrol-connection), and check that the ESC protocol matches the supplied Duckiedrone parameter file, as described in [](dd24-b-fc-config).
 
-5. Connect QGroundControl as described in [](qgroundcontrol-connection), and check that the ESC protocol matches the supplied Duckiedrone parameter file, as described in [](dd24-b-fc-config).
+5. On the **Actuators** page, spin each motor individually. Motor 1 is the front-right motor, seen from above with the camera facing forward. See [](dd24-motor-configuration) for the full motor order.
 
-6. On the **Actuators** page, spin each motor individually. Motor 1 is the front-right motor, seen from above with the camera facing forward. See [](dd24-motor-configuration) for the full motor order.
-
-7. If a motor does not spin from the **Actuators** page, check that the ESCs are initialized as described in [](dd24-esc-init).
+6. If a motor does not spin from the **Actuators** page, check that the ESCs are initialized as described in [](dd24-esc-init).
 ```
 
 ```{trouble}
@@ -299,7 +283,7 @@ Unplug the battery and inspect the Duckiedrone:
 
 - Check that the Flight Controller board is level and firmly attached to the frame. Otherwise, the IMU returns incorrect readings.
 
-- Check that the bottom Time-of-Flight sensor points straight down and has not rotated.
+- Check that nothing obstructs the field of view of the bottom Time-of-Flight sensor.
 
 - Check that the camera is mounted firmly in its 60-degree holder and faces the front of the Duckiedrone.
 
