@@ -15,7 +15,6 @@ parts:
             - file: 10-duckiedrone-preliminaries/additional-materials
             - file: 10-duckiedrone-preliminaries/soldering-basics
             - file: 10-duckiedrone-preliminaries/multimeter-usage-guide
-      #  - file: 10-duckiedrone-preliminaries/flying-your-duckiedrone
 
     - caption: Hardware build DD24-B
       maxdepth: 2
@@ -44,7 +43,6 @@ parts:
             - file: 30-duckiedrone-setup-and-config/42-flight-controller-configuration
           - file: 30-duckiedrone-setup-and-config/50-sensor-calibrations
           - file: 30-duckiedrone-setup-and-config/60-motors-configuration
-          - file: 30-duckiedrone-setup-and-config/90-setup-troubleshooting
 
       #    - file: datasheets/index #still has old dd21 files and pics are awfully rendered
 
@@ -52,12 +50,11 @@ parts:
       maxdepth: 2
       numbered: False
       chapters:
-          - file: 40-duckiedrone-handling/environment-setup
+          - file: 40-duckiedrone-handling/preparing-the-software-stack
           - file: 40-duckiedrone-handling/dashboard-overview
-          - file: 40-duckiedrone-handling/flying-your-duckiedrone
-          - file: 40-duckiedrone-handling/duckiedrone-flight-controller-pid-tuning
-          - file: 40-duckiedrone-handling/diagnostic
-          - file: 40-duckiedrone-handling/70-network-configuration
+          - file: 40-duckiedrone-handling/flying-the-duckiedrone
+          - file: 40-duckiedrone-handling/network-management
+          - file: 40-duckiedrone-handling/troubleshooting
 
     - caption: Learning Experiences
       maxdepth: 2
