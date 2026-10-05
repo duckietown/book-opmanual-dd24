@@ -93,7 +93,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
     dts update
     ```
 
-- 💻 Update the computer and the Duckiedrone: follow [](dd24-software-update).
+- 💻 Update the computer and the Duckiedrone: follow [](dd24-environment-setup).
 
 (dd24-lx-ssl-setup)=
 ## SSL Certificate Setup
