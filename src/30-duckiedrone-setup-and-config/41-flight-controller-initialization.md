@@ -42,8 +42,8 @@ sudo apt update
 sudo apt install dfu-util
 ```
 
-```{todo [DTSW-8044]}
-"Failed to send reload request: No such file or directory" - uncomment after error solved
+```{todo}
+DTSW-8044: "Failed to send reload request: No such file or directory" - uncomment after error solved
 ```
 
 <!--
@@ -294,8 +294,8 @@ ls /dev/tty.usbmodem*         # PX4 bootloader appears as e.g. /dev/tty.usbmodem
 macOS does **not** populate `/dev/serial/by-id/`. The board is exposed only as `/dev/tty.usbmodem*` (and a matching `/dev/cu.usbmodem*`). It can take 1–2 seconds for the node to appear after the board reboots out of DFU.
 ```
 
-```{todo [DTSW-8047]}
-PX4 bootloader installer - `lsusb` approach does not work on macOS
+```{todo}
+DTSW-8047: PX4 bootloader installer - `lsusb` approach does not work on macOS
 ```
 
 ::::
