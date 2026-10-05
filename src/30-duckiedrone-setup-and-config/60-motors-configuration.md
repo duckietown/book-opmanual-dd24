@@ -129,3 +129,5 @@ dshot save -m 3
 ```
 
 Finally, disconnect and reconnect the battery to power cycle the ESC. Once it comes back the new direction is locked in. Repeat and save for every motor that was turning the wrong way, then spin all four one last time to confirm they match the nominal layout.
+
+If a setup step does not work as described, see [](dd24-troubleshooting-faq).

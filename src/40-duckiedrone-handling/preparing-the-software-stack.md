@@ -22,17 +22,23 @@ Flying the Duckiedrone requires up-to-date software on both the base station and
 - A Duckiedrone ready to fly from the Dashboard
 ```
 
-```{attention}
-This chapter replaces the legacy `pidrone_pkg` / `screen` workflow. On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Dashboard. You do not need to SSH into the Duckiedrone to start scripts manually.
+```{note}
+On the `ente` distribution, the flight code runs inside Duckietown containers and is controlled from the Dashboard. There is no need to connect to the Duckiedrone through SSH to start scripts manually.
 ```
 
 ## 1. Update the base station
 
 Check that `ente` is the active Duckietown Shell profile:
 
+````{testexpect}
+Run:
+
 ```bash
 dts profile list
 ```
+---
+The `ente` row starts with `>>`, which marks the active profile.
+````
 
 Then update the Duckietown Shell, its commands, and the Duckietown desktop software, in this order:
 
@@ -64,6 +70,30 @@ When the update finishes, the Duckiedrone containers start automatically. For ex
 
 See [](duckiedrone-containers) for the complete list.
 
+### Checkpoint ✅
+
+To verify that the update completed:
+
+````{testexpect}
+On the base station, run:
+
+```bash
+dts fleet discover
+```
+
+Use Ctrl-C to stop the command.
+---
+The `ROBOT_NAME` row reads `duckiedrone` in the `Type` column and `Ready` in the `Status` column.
+````
+
+To verify that the containers are running:
+
+```{testexpect}
+Open Portainer at `http://ROBOT_NAME.local:9000`, click the `primary` endpoint, then click **Containers**.
+---
+Each container listed above reads `healthy` in the **State** column. The list can span several pages.
+```
+
 ## 3. Open the Dashboard
 
 On the base station, open a browser and go to:
@@ -93,17 +123,43 @@ The **Robot > Info** page of the Dashboard.
 
 ## 4. Check the connection
 
-Click the **Mission Control** tab and check that:
-
+```{testexpect}
+Click the **Mission Control** tab.
+---
 - The top bar reads **Bridge: Connected**.
 
 - In **Heartbeats Monitor**, the `JOYSTICK` heart is green.
+```
 
 Together, these show that the Duckiedrone containers are running and the Dashboard is receiving ROS 2 data.
 
 The software stack is ready. Next, explore the Dashboard in more detail in [](dd24-dashboard-overview), which explains each tab and every widget used to fly the Duckiedrone.
 
 ## Troubleshooting
+
+```{trouble}
+`dts profile list` shows `>>` on a profile other than `ente`.
+---
+Switch to it with `dts profile switch ente`, then continue with step 1.
+```
+
+```{trouble}
+The Duckiedrone is missing from `dts fleet discover`, or its `Status` does not read `Ready`.
+---
+`Status` reads `Booting` while the Duckiedrone starts up. Wait for it to change to `Ready`. If the Duckiedrone does not appear at all, see [](first_connection) for network troubleshooting.
+```
+
+```{trouble}
+A container does not read `healthy` in Portainer.
+---
+Update the Duckiedrone again as described in step 2. If the problem persists, see [](dd24-troubleshooting-containers).
+```
+
+```{trouble}
+The top bar does not read **Bridge: Connected**.
+---
+The Dashboard receives ROS 2 data through the `ros2-rosbridge-websocket` container. Check in Portainer that it reads `healthy`, then see [](dd24-troubleshooting-containers).
+```
 
 ```{trouble}
 The Dashboard does not load.

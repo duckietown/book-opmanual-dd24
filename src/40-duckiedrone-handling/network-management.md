@@ -12,27 +12,27 @@
 (dd24-network-config)=
 # Network management
 
-The Duckiedrone network is managed through `netplan`. To add, remove, or edit Wi-Fi networks, access the running Duckiedrone through SSH or remove its microSD card and mount it on your base station.
+The Duckiedrone network is managed through `netplan`. To add, remove, or edit Wi-Fi networks, access the running Duckiedrone through SSH or remove its microSD card and mount it on the base station.
 
 Any of the following methods work:
 
-1. SSH into your Duckiedrone if you are already on the same network.
+1. SSH: connect to the Duckiedrone with SSH if the base station is already on the same network.
 
-2. Ethernet: connect your Duckiedrone's Raspberry Pi to your router with an Ethernet cable, then connect to it with SSH.
+2. Ethernet: connect the Raspberry Pi of the Duckiedrone to the router with an Ethernet cable, then connect to it with SSH.
 
-3. Use the base station directly: power down the Duckiedrone, remove its microSD card, and connect it to your base station. After modifying the network configuration files as described below, return the card to the Duckiedrone before powering it on.
+3. Use the base station directly: power down the Duckiedrone, remove its microSD card, and connect it to the base station. After modifying the network configuration files as described below, return the card to the Duckiedrone before powering it on.
 
-4. Create a network with SSID `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect your base station to the same network, then connect to the Duckiedrone with SSH.
+4. Create a network with SSID `duckietown` and password `quackquack`, e.g., with a smartphone in hotspot mode. Reboot the Duckiedrone and it will connect to it. Connect the base station to the same network, then connect to the Duckiedrone with SSH.
 
-5. Reflash the microSD card: use this only as a last resort. If all else fails, reflash your microSD card using [the advanced way](dd24-sw-init-adv) and specify your network credentials.
+5. Reflash the microSD card: use this only as a last resort. If all else fails, reflash the microSD card using [the advanced way](dd24-sw-init-adv) and specify the network credentials.
 
-To SSH into your Duckiedrone:
+To connect to the Duckiedrone with SSH:
 
 ```bash
 ssh duckie@ROBOT_NAME.local
 ```
 
-Enter the password you set while preparing the microSD card.
+Enter the password set while preparing the microSD card.
 
 To inspect the current Netplan configuration:
 
@@ -69,7 +69,7 @@ Choose **Persistent changes** to retain network additions after a reboot, or **N
 
 :::{tab-item} Persistent changes
 
-Once you have gained access, navigate to
+Once connected, navigate to
 
 ```bash
 cd /config/wifi
@@ -86,16 +86,10 @@ There are three main files there:
 - `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
 
 ```{note}
-`00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
+`00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless the intent is to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
 ```
 
-Navigate to `/config/wifi/00-user.yaml` and add new network credentials following the structure detailed in [](dd24-network-config-info).
-
-```bash
-sudo nano /config/wifi/00-user.yaml
-```
-
-You will see:
+Edit `/config/wifi/00-user.yaml` with `sudo` and add the new network credentials, following the structure detailed in [](dd24-network-config-info). The file contains:
 
 ```yaml
 network:
@@ -141,21 +135,21 @@ Note that:
 
 - If several known networks are in range, the active networking backend selects one according to its configuration and the networks' availability.
 
-Save and exit `nano`, then reboot the Duckiedrone:
+Save the file, then reboot the Duckiedrone:
 
 ```bash
 sudo reboot
 ```
 
 ```{warning}
-Restarting with a new Wi-Fi configuration may connect the Duckiedrone to a different known network. If you are connected over SSH, your session will be interrupted. Ensure your computer is connected to the same Wi-Fi network as the Duckiedrone before reconnecting.
+Restarting with a new Wi-Fi configuration may connect the Duckiedrone to a different known network. An open SSH session is interrupted. Connect the base station to the same Wi-Fi network as the Duckiedrone before reconnecting.
 ```
 
 :::
 
 :::{tab-item} Non-persistent changes
 
-Once you have gained access, navigate to
+Once connected, navigate to
 
 ```bash
 cd /etc/netplan
@@ -172,16 +166,10 @@ There are three main files there:
 - `99-duckietown.yaml`: contains default backup `duckietown` network credentials and is best left untouched.
 
 ```{note}
-`00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless you intentionally want to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
+`00-user.yaml` is reserved for user-managed Wi-Fi networks. Add new networks here and avoid modifying `98-auto.yaml` or `99-duckietown.yaml` unless the intent is to change the networks configured by `dts init_sd_card` or the default Duckietown access point.
 ```
 
-Navigate to `/etc/netplan/00-user.yaml` and add new network credentials following the structure detailed in [](dd24-network-config-info).
-
-```bash
-sudo nano /etc/netplan/00-user.yaml
-```
-
-You will see:
+Edit `/etc/netplan/00-user.yaml` with `sudo` and add the new network credentials, following the structure detailed in [](dd24-network-config-info). The file contains:
 
 ```yaml
 network:
@@ -227,23 +215,51 @@ Note that:
 
 - If several known networks are in range, the active networking backend selects one according to its configuration and the networks' availability.
 
-Save and exit `nano`, then test the new configuration:
+Save the file, then test the new configuration:
 
 ```bash
 sudo netplan try
 ```
 
 ```{warning}
-`netplan try` waits for confirmation and rolls back automatically if you do not confirm it. It may interrupt an SSH session if the Duckiedrone connects to a different network. Ensure your computer can reach the replacement network before confirming the change.
+`netplan try` waits for confirmation and rolls back automatically if it is not confirmed. It may interrupt an SSH session if the Duckiedrone connects to a different network. Make sure the base station can reach the replacement network before confirming the change.
 ```
 
 :::
 ::::
 
+### Checkpoint ✅
+
+To verify that the Duckiedrone joined the new network, connect the base station to that network, then:
+
+````{testexpect}
+Run:
+
+```bash
+ping ROBOT_NAME.local
+```
+
+Use Ctrl-C to stop the command.
+---
+The Duckiedrone replies, with `0% packet loss` in the summary.
+````
+
+To verify that the new network is stored on the Duckiedrone:
+
+````{testexpect}
+Connect to the Duckiedrone with SSH and run:
+
+```bash
+sudo netplan get
+```
+---
+The name of the new network is listed under `access-points`.
+````
+
 (dd24-network-config-info)=
 ### Additional network settings
 
-If you add Wi-Fi networks manually, use the example that matches your network's authentication:
+When adding Wi-Fi networks manually, use the example that matches the authentication of the network:
 
 - Unprotected (Open) Wi-Fi network:
 
@@ -308,11 +324,25 @@ network:
         - to: default
           via: 192.168.1.1
       nameservers:
-        addresses: [192.168.1.1]  # Replace with your DNS server
+        addresses: [192.168.1.1]  # Replace with the DNS server
       access-points:
         "Your_SSID_Name":
           password: "Your_Password"
           bssid: "AA:BB:CC:DD:EE:FF"  # Forces connection to this exact router
           band: 5GHz                 # Restricts band to 5GHz (Options: 5GHz or 2.4GHz)
           channel: 36                # Optional specific channel
+```
+
+## Troubleshooting
+
+```{trouble}
+The Duckiedrone does not reply to `ping` after the network change.
+---
+- If `ROBOT_NAME.local` does not resolve, use the address shown in the `Address` column of `dts fleet discover`.
+
+- Check the new entry in `00-user.yaml` for a wrong network name or password, and for indentation errors. The file uses two spaces per level and no tabs.
+
+- To regain access, use one of the methods at the top of this page, such as the `duckietown` network with password `quackquack`.
+
+See [](first_connection) for network troubleshooting.
 ```

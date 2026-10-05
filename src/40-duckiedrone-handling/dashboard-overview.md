@@ -153,7 +153,7 @@ The keyboard is the only input to the **Remote Control** widget. Each key moves 
 | <kbd>A</kbd> / <kbd>D</kbd> | Roll | Moves fully left or right while held; returns to center on release. |
 | <kbd>←</kbd> / <kbd>→</kbd> | Yaw | Turns left or right while held; returns to center on release. |
 | <kbd>↑</kbd> / <kbd>↓</kbd> | Throttle | Rises or falls gradually while held, and stays at that level once released. |
-| <kbd>Space</kbd> | None | Disarms immediately, from anywhere on the page. |
+| <kbd>Space</kbd> | None | Resets the throttle to `0` and asks PX4 to disarm, from anywhere on the page. PX4 can refuse while the Duckiedrone is in the air; see [](dd24-flying-arm-disarm-test). |
 
 The legend printed at the bottom of the widget repeats these bindings, and hovering over any bar shows the matching tooltip.
 
@@ -175,6 +175,28 @@ Keep **Thrust Cap** only slightly above **Hover**. A higher cap lets the throttl
 ```
 
 Both fields are set during the first flight of each Duckiedrone, as described in [](dd24-flying).
+
+#### Checkpoint ✅
+
+To verify that the keyboard drives the **Remote Control** widget, keep the Duckiedrone disarmed, with **Arm / Disarm** reading `DISARMED`:
+
+```{testexpect}
+1. Hold <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, <kbd>←</kbd>, and <kbd>→</kbd>, one at a time.
+
+2. Hold <kbd>↑</kbd>.
+
+3. Press <kbd>Space</kbd>.
+---
+1. The matching controller moves while the key is held and returns to center on release.
+
+2. The throttle gauge rises and stops at the red **Thrust Cap** line.
+
+3. The throttle gauge returns to `0`.
+```
+
+```{attention}
+The throttle holds its value and is not reset when the Duckiedrone is armed. Bring it back to `0` with <kbd>Space</kbd> or <kbd>↓</kbd> before arming.
+```
 
 ### Arm / Disarm
 
