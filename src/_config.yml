@@ -39,6 +39,7 @@ sphinx:
   extra_extensions:
     - sphinx_sitemap
   local_extensions:
+    manual_repository_links: _extensions
   #  manual_binder_accessibility: _extensions
   #  manual_llms_txt: _extensions
   config:
