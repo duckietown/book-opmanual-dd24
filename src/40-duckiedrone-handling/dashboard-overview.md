@@ -60,7 +60,7 @@ It shows which robot is connected, live gauges for the Raspberry Pi temperature,
 :name: fig-dashboard-mission-control-default
 :align: center
 :width: 700px
-:alt: Dashboard Mission Control page showing heartbeat, motor PWM, remote-control, arm/disarm, altitude, Time-of-Flight, IMU, and camera widgets
+:alt: Dashboard Mission Control page showing camera, arm/disarm, battery, remote-control, motor PWM, heartbeat, altitude, Time-of-Flight, and IMU widgets
 
 The default Duckiedrone mission, before arming.
 ```
@@ -73,7 +73,7 @@ Each widget shows its name and the ROS topic it reads. The ⋮ menu at the top r
 :name: fig-dashboard-mission-control-top-bar
 :align: center
 :width: 90%
-:alt: Mission Control top bar showing Vehicle pdrone24, Mission default, Bridge Connected, and Settings
+:alt: Mission Control top bar showing Vehicle vedrone24, Mission default, Bridge Connected, and Settings
 
 The Mission Control top bar.
 ```
@@ -93,33 +93,71 @@ The mission toolbar.
 
 The toolbar on the left (**New**, **Open**, **Save**, **Save as**, **Add**) creates, loads, and saves missions, and adds widgets to the current one.
 
-### Heartbeats
+### Camera
 
-```{figure} ../_images/dashboard/mission-control-heartbeats.png
-:name: fig-dashboard-mission-control-heartbeats
-:align: center
-:width: 45%
-:alt: Joystick Heartbeat and Heartbeats Monitor widgets
-
-The **Joystick Heartbeat** and **Heartbeats Monitor** widgets.
-```
-
-- **Joystick Heartbeat**: the heartbeat of the virtual joystick in the **Remote Control** widget.
-
-- **Heartbeats Monitor**: one heart per node: `JOYSTICK`, `ALTITUDE`, `STATE`, and `PID`. A heart turns green while its node is publishing. On the default Duckiedrone software, only `JOYSTICK` is running.
-
-### Motors PWM
-
-```{figure} ../_images/dashboard/mission-control-motors-pwm.png
-:name: fig-dashboard-mission-control-motors-pwm
+```{figure} ../_images/dashboard/mission-control-camera.png
+:name: fig-dashboard-mission-control-camera
 :align: center
 :width: 70%
-:alt: Motors PWM widget with one line per motor
+:alt: Camera widget showing the live onboard camera image
 
-The **Motors PWM** widget.
+The **Camera** widget.
 ```
 
-The output sent to each of the four motors, one line per motor. All four read `0` while the Duckiedrone is disarmed.
+The live image from the onboard camera.
+
+### Arm / Disarm
+
+```{figure} ../_images/dashboard/mission-control-arm-disarm.png
+:name: fig-dashboard-mission-control-arm-disarm
+:align: center
+:width: 45%
+:alt: Arm / Disarm widget with the DISARMED toggle, STABILIZED and OFFBOARD flight modes, and KILL button
+
+The **Arm / Disarm** widget.
+```
+
+The **Arm / Disarm** widget is the primary flight control. It has three elements:
+
+- An **ARM / DISARM** toggle on the left of the widget.
+
+- A two-button **FLIGHT MODE** selector: `STABILIZED` and `OFFBOARD`.
+
+- A red **KILL** button that stops the motor outputs immediately when clicked.
+
+No flight mode is selected by default. A flight mode button becomes highlighted only once PX4 has entered that mode, and stays unhighlighted if PX4 refuses it.
+
+The widget shows the live state of the flight controller. It reads `/mavros/state` and updates the ARM and FLIGHT MODE indicators whenever that state changes. If the toggle flips on its own, the flight controller really changed state, for example after an auto-disarm.
+
+#### Flight modes
+
+PX4 runs on the Duckiedrone flight controller, and `ros2-mavros` bridges it to ROS 2. The Dashboard exposes two PX4 flight modes:
+
+| Mode | When to use |
+| --- | --- |
+| `STABILIZED` | Manual flight with the **Remote Control** widget. PX4 keeps the Duckiedrone level when roll and pitch are neutral, but the throttle is controlled directly, with no altitude or position hold. It needs only the IMU attitude estimate, so it arms reliably on the Duckiedrone. Use this mode for the first flight. |
+| `OFFBOARD` | Flight driven by an external controller, as in the [PID altitude control learning experience](lx-dd-pid-altitude-control). PX4 tracks the setpoints that an external node publishes on `/mavros/setpoint_*`, and the **Remote Control** widget is ignored. |
+
+```{important}
+There is no need to click **OFFBOARD**. Once an external setpoint stream is running, the Duckiedrone switches to `OFFBOARD` automatically and the **OFFBOARD** button becomes highlighted. PX4 needs the stream at more than `2 Hz` for more than one second; without it, PX4 stays in the previous mode.
+```
+
+```{warning}
+In `STABILIZED` the throttle is **fully manual**. PX4 does not hold the height, so lowering the throttle makes the Duckiedrone descend. Manage the throttle throughout the flight and be ready to click **KILL**.
+```
+
+### Battery
+
+```{figure} ../_images/dashboard/mission-control-battery.png
+:name: fig-dashboard-mission-control-battery
+:align: center
+:width: 45%
+:alt: Battery widget with a battery icon showing the charge in percent and the voltage
+
+The **Battery** widget.
+```
+
+The battery charge, in percent, and the battery voltage, as reported by the flight controller on `/mavros/battery`. The fill of the battery icon shrinks and changes color as the charge drops, and a `LOW` label appears at `20%` or below. PX4 refuses to arm when the charge is below `20%`. The widget shows `--` when no battery data has arrived for 10 seconds.
 
 ### Remote Control
 
@@ -198,52 +236,40 @@ To verify that the keyboard drives the **Remote Control** widget, keep the Ducki
 The throttle holds its value and is not reset when the Duckiedrone is armed. Bring it back to `0` with <kbd>Space</kbd> or <kbd>↓</kbd> before arming.
 ```
 
-### Arm / Disarm
+### Motors PWM
 
-```{figure} ../_images/dashboard/mission-control-arm-disarm.png
-:name: fig-dashboard-mission-control-arm-disarm
+```{figure} ../_images/dashboard/mission-control-motors-pwm.png
+:name: fig-dashboard-mission-control-motors-pwm
 :align: center
-:width: 45%
-:alt: Arm / Disarm widget with the DISARMED toggle, STABILIZED and OFFBOARD flight modes, and KILL button
+:width: 55%
+:alt: Motors PWM widget with one line per motor
 
-The **Arm / Disarm** widget.
+The **Motors PWM** widget.
 ```
 
-The **Arm / Disarm** widget is the primary flight control. It has three elements:
+The output sent to each of the four motors, one line per motor. All four read `0` while the Duckiedrone is disarmed.
 
-- An **ARM / DISARM** toggle on the left of the widget.
+### Heartbeats
 
-- A two-button **FLIGHT MODE** selector: `STABILIZED` and `OFFBOARD`.
+```{figure} ../_images/dashboard/mission-control-heartbeats.png
+:name: fig-dashboard-mission-control-heartbeats
+:align: center
+:width: 55%
+:alt: Heartbeats Monitor and Joystick Heartbeat widgets
 
-- A red **KILL** button that stops the motor outputs immediately when clicked.
-
-No flight mode is selected by default. A flight mode button becomes highlighted only once PX4 has entered that mode, and stays unhighlighted if PX4 refuses it.
-
-The widget shows the live state of the flight controller. It reads `/mavros/state` and updates the ARM and FLIGHT MODE indicators whenever that state changes. If the toggle flips on its own, the flight controller really changed state, for example after an auto-disarm.
-
-#### Flight modes
-
-PX4 runs on the Duckiedrone flight controller, and `ros2-mavros` bridges it to ROS 2. The Dashboard exposes two PX4 flight modes:
-
-| Mode | When to use |
-| --- | --- |
-| `STABILIZED` | Manual flight with the **Remote Control** widget. PX4 keeps the Duckiedrone level when roll and pitch are neutral, but the throttle is controlled directly, with no altitude or position hold. It needs only the IMU attitude estimate, so it arms reliably on the Duckiedrone. Use this mode for the first flight. |
-| `OFFBOARD` | Flight driven by an external controller, as in the [PID altitude control learning experience](lx-dd-pid-altitude-control). PX4 tracks the setpoints that an external node publishes on `/mavros/setpoint_*`, and the **Remote Control** widget is ignored. |
-
-```{important}
-There is no need to click **OFFBOARD**. Once an external setpoint stream is running, the Duckiedrone switches to `OFFBOARD` automatically and the **OFFBOARD** button becomes highlighted. PX4 needs the stream at more than `2 Hz` for more than one second; without it, PX4 stays in the previous mode.
+The **Heartbeats Monitor** and **Joystick Heartbeat** widgets.
 ```
 
-```{warning}
-In `STABILIZED` the throttle is **fully manual**. PX4 does not hold the height, so lowering the throttle makes the Duckiedrone descend. Manage the throttle throughout the flight and be ready to click **KILL**.
-```
+- **Heartbeats Monitor**: one heart per node: `JOYSTICK`, `ALTITUDE`, `STATE`, and `PID`. A heart turns green while its node is publishing. On the default Duckiedrone software, only `JOYSTICK` is running.
+
+- **Joystick Heartbeat**: the heartbeat of the virtual joystick in the **Remote Control** widget.
 
 ### Altitude
 
 ```{figure} ../_images/dashboard/mission-control-altitude.png
 :name: fig-dashboard-mission-control-altitude
 :align: center
-:width: 70%
+:width: 55%
 :alt: Altitude widget with Altitude and Reference lines
 
 The **Altitude** widget.
@@ -256,7 +282,7 @@ The altitude estimate and its reference, from the altitude node. It stays empty 
 ```{figure} ../_images/dashboard/mission-control-tof.png
 :name: fig-dashboard-mission-control-tof
 :align: center
-:width: 70%
+:width: 55%
 :alt: Time-of-Flight widget with Bottom, Front, Left, Right, and Top lines
 
 The **Time-of-Flight** widget.
@@ -276,16 +302,3 @@ The **IMU - Orientation** widget.
 ```
 
 The `Roll`, `Pitch`, and `Yaw` angles of the Duckiedrone, in degrees, from the flight controller. The **GYRO** and **LEVEL** buttons start the PX4 gyroscope and level-horizon calibrations, as an alternative to [QGroundControl](dd24-sensor-calibration). The bar next to them shows the calibration status.
-
-### Camera
-
-```{figure} ../_images/dashboard/mission-control-camera.png
-:name: fig-dashboard-mission-control-camera
-:align: center
-:width: 90%
-:alt: Camera widget showing the live onboard camera image
-
-The **Camera** widget.
-```
-
-The live image from the onboard camera.
