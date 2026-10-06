@@ -141,7 +141,15 @@ Note that:
 
 - If several known networks are in range, the active networking backend selects one according to its configuration and the networks' availability.
 
-Save and exit `nano`, then reboot the Duckiedrone:
+- Do not repeat an SSID already defined in 98-auto.yaml or 99-duckietown.yaml. Files will be merged, not replaced.
+
+Save and exit `nano`, then validate the entry with:
+
+```bash
+sudo netplan apply
+```
+
+and reboot the Duckiedrone:
 
 ```bash
 sudo reboot
