@@ -135,7 +135,7 @@ After loading the parameter file and [calibrating the sensors](dd24-sensor-calib
 The Betaflight PID tuning workflow and its recommended values do not apply to the Duckiedrone DD24-B. Do not use Betaflight Configurator or copy Betaflight-specific PID values onto the PX4 flight controller.
 ```
 
-The manual does not currently publish a validated per-axis PX4 PID-tuning procedure or replacement values for the Duckiedrone DD24-B. Change individual controller parameters only with a validated project procedure and support from the Duckietown team.
+A validated per-axis PX4 PID-tuning procedure for the Duckiedrone DD24-B is not available yet.
 
 (dd24-b-fc-config-faq)=
 ## Troubleshooting

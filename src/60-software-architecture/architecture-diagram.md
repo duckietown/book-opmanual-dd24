@@ -62,7 +62,7 @@ The default Duckiedrone update starts the `robot/basics`, `duckietown/duckiedron
 
 ### PID
 
-The legacy `core/duckiedrone` stack declares a `pid-controller` service. PX4's built-in control loops manage attitude, yaw rate, and altitude in the current standard stack. The manual does not publish a validated separate PID-controller-node workflow for the Duckiedrone DD24-B; use the supplied PX4 configuration and the guidance in [](dd24-fc-tuning).
+The legacy `core/duckiedrone` stack declares a `pid-controller` service. PX4's built-in control loops manage attitude, yaw rate, and altitude in the current standard stack. A validated separate PID-controller-node workflow for the Duckiedrone DD24-B is not available; use the supplied PX4 configuration and the guidance in [](dd24-fc-tuning).
 
 ### State Estimator
 
