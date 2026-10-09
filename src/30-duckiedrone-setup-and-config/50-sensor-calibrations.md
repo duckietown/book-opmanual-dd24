@@ -3,26 +3,48 @@
 :keywords: Duckiedrone accelerometer calibration, Duckiedrone gyroscope calibration, PX4 calibration, IMU calibration, flight controller calibration, DD24 setup, QGroundControl
 ```
 
-(dd24-sensor-calibration)=
-# Sensor Calibration
+```{needget}
+- A base station computer with [QGroundControl installed](qgroundcontrol-installation)
 
-Sensors produce data. To help make sense of this data and transform it into information, it is useful to calibrate sensors.
+- A Flight Controller with the Duckiedrone parameters loaded: [](dd24-b-fc-config)
+
+- A data-capable USB-A-to-USB-C cable and any required adapter
+
+- A level surface
+---
+- A Flight Controller with a calibrated gyroscope, accelerometer, and level horizon
+```
+
+(dd24-sensor-calibration)=
+# Sensor calibration
+
+The Flight Controller estimates the attitude of the Duckiedrone from its gyroscope and accelerometer. The Duckietown parameter file deliberately contains no calibration values, because they belong to one specific board, so these sensors must be calibrated on the actual Flight Controller before the first flight.
+
+```{danger}
+Remove the propellers before calibrating the Flight Controller.
+```
 
 ## Calibrate the sensors
 
-```{attention}
-Remove the propellers before calibrating the flight controller.
+1. Connect QGroundControl to the Flight Controller over USB, as described in [](dd24-b-fc-config-connect).
+
+2. Open the **Sensors** section in QGroundControl.
+
+3. **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
+
+4. **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
+
+5. **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
+
+### Checkpoint ✅
+
+To verify that the calibrations completed:
+
+```{testexpect}
+Open the summary page of QGroundControl.
+---
+The **Sensors** section is green, as in the figure below.
 ```
-
-- Open the **Sensors** section in QGroundControl.
-
-- **Gyroscope:** start the gyroscope calibration and leave the Duckiedrone still on a level surface until it completes.
-
-- **Accelerometer:** start the accelerometer calibration and hold the Duckiedrone in the six different orientations requested by the on-screen prompts.
-
-- **Level Horizon:** leave the Duckiedrone still on a level surface until this completes.
-
-- After the sensors are calibrated successfully, the **Sensors** section should turn green.
 
 ```{figure} ../_images/fc-setup/qgc-summary-post-sensors.png
 :name: qgc-summary-post-sensors
@@ -33,96 +55,10 @@ Remove the propellers before calibrating the flight controller.
 QGroundControl summary page after the sensor calibrations complete.
 ```
 
-<!--
-## PX4 IMU calibration
+## Recalibrating later
 
-The IMU is embedded in the flight controller and includes a gyroscope and an accelerometer, which respectively produce angular rate (in degrees/second) and linear acceleration measurements (normalized to gravitational acceleration at sea level $g = 9.81 \frac{m}{s^2}$).
+The gyroscope and level-horizon calibrations can be repeated later without QGroundControl, with the **GYRO** and **LEVEL** buttons of the **IMU - Orientation** widget on the Dashboard: see [](dd24-dashboard-overview).
 
-Calibrating the gyroscope and accelerometer gives PX4 the sensor offsets it needs to pass preflight checks and stabilize the Duckiedrone during flight.
+## Next step
 
-## Method 1: calibration through the Dashboard
-
-On a Duckiedrone DD24-B running the `ente` ROS 2 stack, the Dashboard talks to PX4 through MAVROS and does not require QGroundControl.
-
-```{attention}
-Remove the propellers before running any flight-controller calibration or arming checks.
-```
-
-1. Connect to the Dashboard ([](first_connection)).
-
-2. Start the Duckiedrone stacks if they are not already running:
-
-   ```bash
-   dts stack up -H ROBOT_NAME.local duckietown/duckiedrone -d
-   dts stack up -H ROBOT_NAME.local ros2/duckiedrone -d
-   ```
-
-3. Navigate to {bdg-warning}`Robot` > {bdg-dark-line}`Mission Control`.
-
-4. Find the `IMU - Orientation` block.
-
-5. Place the Duckiedrone on a level surface, hold it still, and click {bdg-secondary-line}`GYRO`.
-
-6. When the gyro calibration completes, click {bdg-secondary-line}`ACCEL`.
-
-7. Follow the live `[cal]` prompts shown in the block. PX4 will ask for six stable orientations: level/top-up, on-back/top-down, nose-down, nose-up, left-side-down, and right-side-down. Hold each orientation still until PX4 accepts it.
-
-The calibration is complete when the block reports `PX4 accel calibration complete` or an equivalent PX4 completion message.
-
-## Method 2: ROS 2 service fallback
-
-If the Dashboard is unavailable but the ROS 2 stack is running, call the calibration services from a shell connected to the Duckiedrone:
-
-```bash
-ssh duckie@ROBOT_NAME.local
-docker exec -it ros2-px4-calibration bash
-source /environment.sh
-export ROS_DOMAIN_ID=42
-
-ros2 service call /px4_calibration/calibrate_gyro std_srvs/srv/Trigger
-ros2 service call /px4_calibration/calibrate_accel std_srvs/srv/Trigger
-```
-
-Watch the live orientation prompts in another shell:
-
-```bash
-docker exec -it ros2-px4-calibration bash
-source /environment.sh
-export ROS_DOMAIN_ID=42
-ros2 topic echo /px4_calibration/status std_msgs/msg/String
-```
-
-The accelerometer service blocks while you rotate the Duckiedrone through the six orientations.
-
-## Method 3: manual Python fallback on the Raspberry Pi
-
-Use this only when MAVROS or rosbridge is not running. From the base station, stop the stacks that may hold the MAVLink port:
-
-```bash
-dts stack down -H ROBOT_NAME.local ros2/duckiedrone
-dts stack down -H ROBOT_NAME.local duckietown/duckiedrone
-```
-
-Then connect to the Raspberry Pi and run the direct MAVLink script:
-
-```bash
-ssh duckie@ROBOT_NAME.local
-docker run --rm -it --net host --privileged -v /dev:/dev \
-  duckietown/dt-ros2-interface:ente-arm64v8 \
-  bash -lc 'source /environment.sh && px4_manual_calibration both --port /dev/ttyACM0'
-```
-
-If the flight controller appears on a different device, replace `/dev/ttyACM0` with the correct path. The script sends a ground-control-station heartbeat while it runs, so PX4 emits the `[cal]` status prompts over MAVLink.
-
-(camera-calib)=
-## Camera calibration
-
-Follow the camera calibration procedure described [in the Duckiebot opmanual](book-opmanual-duckiebot:camera-calib), making sure to select the tab `Duckiedrone` if you need to print a new calibration pattern.
-
-## Troubleshooting
-
-If the Dashboard, ROS 2 service, and manual Python methods all fail, calibrate the accelerometer from QGroundControl using the PX4 procedure: [PX4 Accelerometer Calibration](https://docs.px4.io/v1.16/en/config/accelerometer).
-
-Use this only as a recovery path. Close QGroundControl before returning to the Duckiedrone stacks, so it does not keep the MAVLink connection open.
-
--->
+Continue to [](dd24-motor-configuration).
