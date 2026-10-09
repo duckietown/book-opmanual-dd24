@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn how to initialize and configure the Duckiedrone flight controller for the first time.
+:description: Learn how to initialize and configure the Duckiedrone Flight Controller for the first time.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 
@@ -18,16 +18,14 @@
 (dd24-fc-setup)=
 # Setting up the Flight Controller
 
-The Flight Controller (FC) handles safety-critical low-level behaviors, such as attitude stabilization. Correct FC setup is essential for safe flight.
+The Flight Controller handles safety-critical low-level behaviors, such as attitude stabilization. Correct Flight Controller setup is essential for safe flight.
 
-The Duckiedrone DD24-B runs the [PX4 Autopilot](https://px4.io/) firmware, built for the `mamba-f405-mk2` target.
-
-PX4 is an open-source flight-control software platform.
+The Duckiedrone DD24-B runs the [PX4 Autopilot](https://px4.io/) firmware, an open-source flight-control software platform, built for the `mamba-f405-mk2` target.
 
 (dd24-fc-setup-steps)=
-## Flight controller setup steps
+## Flight Controller setup steps
 
-For a new or re-flashed Flight Controller, first initialize it and then configure it. Repeat either procedure only when you intentionally reinstall the firmware or parameter set.
+For a new or re-flashed Flight Controller, first initialize it and then configure it. Repeat either procedure only when the firmware or parameter set is intentionally reinstalled.
 
 ```{tableofcontents}
 ```

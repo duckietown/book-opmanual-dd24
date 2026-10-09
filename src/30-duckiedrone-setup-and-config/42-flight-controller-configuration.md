@@ -1,5 +1,5 @@
 ```{seo}
-:description: Learn how to configure the flight controller of a Duckiedrone DD24-B.
+:description: Configure the Flight Controller of a Duckiedrone DD24-B with QGroundControl and the Duckietown parameter file.
 :keywords: Duckiedrone, DD24-B, flight controller, FC, QGroundControl, PX4, Mamba F405 MK2 V2, preset parameters
 ```
 
@@ -18,43 +18,45 @@
 (dd24-b-fc-config)=
 # Configuring the Flight Controller
 
-In the previous step, we prepared the flight controller (FC) for configuration by flashing the bootloader and installing PX4. It is now time to access the FC and configure it for the Duckiedrone DD24-B.
+In the previous step, the Flight Controller was prepared for configuration by flashing the bootloader and installing PX4. It is now time to access the Flight Controller and configure it for the Duckiedrone DD24-B.
 
-By following these steps, you will be able to install QGroundControl, connect to your flight controller over USB, and configure your vehicle's parameters from a Duckietown preset parameters file.
+This page describes how to install QGroundControl, connect to the Flight Controller over USB, and configure the vehicle parameters from a Duckietown preset parameters file.
 
-```{attention}
-Before you begin, **remove the propellers** and **disconnect the battery from the Duckiedrone**.
+```{danger}
+Before beginning, **remove the propellers** and **disconnect the battery from the Duckiedrone**.
 ```
 
-(qgroundcontrol-connection)=
+(qgroundcontrol-installation)=
 ## Installing QGroundControl
 
-- Go to the [QGroundControl website](https://qgroundcontrol.com/) and download the installer for your operating system (Windows, macOS, or Linux).
+- Go to the [QGroundControl website](https://qgroundcontrol.com/) and download the installer for the base station operating system (Windows, macOS, or Linux).
 
 - **Windows**: Run the installer and follow the prompts.
 
-- **macOS**: Download the `.dmg` file, open it, and drag the QGroundControl icon into your Applications folder.
+- **macOS**: Download the `.dmg` file, open it, and drag the QGroundControl icon into the Applications folder.
 
 - **Linux**: Follow the package manager or AppImage instructions provided on the QGroundControl download page.
 
 - Once installed, launch QGroundControl.
 
+(qgroundcontrol-connection)=
 (dd24-b-fc-config-connect)=
 ## Connecting to the Flight Controller
 
-Connect to your Duckiedrone over USB:
+Connect to the Duckiedrone over USB:
 
-- Connect a data-capable USB-A-to-USB-C cable from your computer to the Flight Controller.
+- Connect a data-capable USB-A-to-USB-C cable from the base station to the Flight Controller.
 
-- Open QGroundControl on your computer.
+- Open QGroundControl on the base station.
 
-- QGroundControl automatically detects and connects to the flight controller over USB.
+- QGroundControl automatically detects and connects to the Flight Controller over USB.
 
 - Wait a few moments for the top toolbar to show that the vehicle is connected. QGroundControl will then display the summary page.
 
    ```{figure} ../_images/fc-setup/qgc-vehicle-setup.png
-   :alt: QGroundControl vehicle setup screen showing red Airframe and Sensors sections
+   :align: center
    :width: 100%
+   :alt: QGroundControl vehicle setup screen showing red Airframe and Sensors sections
    ```
 
 - The **Airframe** and **Sensors** sections are red, indicating that they still need to be configured.
@@ -67,19 +69,20 @@ Connect to your Duckiedrone over USB:
    Import **exactly** this file: {download}`duckiedrone-px4-v4.params <../_static/dd24-b-fc-parameters/duckiedrone-px4-v4.params>`
    ```
 
-   - Click the **Parameters** tab from the left panel to view the configurable parameters for your vehicle.
+   - Click the **Parameters** tab from the left panel to view the configurable parameters for the vehicle.
 
    - In the Parameters screen, click on the **Tools** menu in the top-right corner.
 
    - Select **Load from file for review…** from the dropdown menu.
 
-   - Browse to the location of your `.params` file on your computer, select it, and click **Open**.
+   - Browse to the location of the `.params` file on the base station, select it, and click **Open**.
 
-   - QGroundControl will load and apply the parameters from the file to your vehicle. There should be no errors during this step.
+   - QGroundControl will load and apply the parameters from the file to the vehicle. No errors are reported during this step.
 
    ```{figure} ../_images/fc-setup/dd24-b/fc-params-load-dd24-b.jpg
-   :alt: Uploading parameters to the Duckiedrone's flight controller
+   :align: center
    :width: 100%
+   :alt: Uploading parameters to the Duckiedrone Flight Controller
    :name: fc-params-load-dd24-b
 
    Load the downloaded parameter file by following these steps.
@@ -91,26 +94,27 @@ Connect to your Duckiedrone over USB:
 
 - Select **Reboot Vehicle** from the **Tools** menu.
 
-- After rebooting, reconnect to the vehicle. You will then see a summary page similar to the one below:
+- After rebooting, reconnect to the vehicle. QGroundControl then shows a summary page similar to the one below:
 
    ```{figure} ../_images/fc-setup/qgc-summary-post-params.png
-   :alt: State of the Duckiedrone after reboot
+   :align: center
    :width: 100%
+   :alt: State of the Duckiedrone after reboot
    :name: qgc-summary-post-params
 
-   QGroundControl summary page after uploading FC parameters, before performing calibrations.
+   QGroundControl summary page after uploading the Flight Controller parameters, before performing calibrations.
    ```
 
 ````{admonition} Enabling vision fusion later
 :class: dropdown
 
-The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision position and velocity) or `15` (also fuse vision yaw — recommended on this magless airframe).
+The shipped param file sets `EKF2_EV_CTRL = 0` so the EKF does not try to fuse vision before a VIO is online. Once a VIO publishes `VISION_POSITION_ESTIMATE` / `ODOMETRY` over MAVLink, raise `EKF2_EV_CTRL` to `7` (fuse vision position and velocity) or `15` (also fuse vision yaw, recommended on this magless airframe).
 ````
 
 ````{admonition} Why the Radio page stays red
 :class: dropdown
 
-This is expected. The Duckiedrone has no RC transmitter; the flight controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
+This is expected. The Duckiedrone has no RC transmitter; the Flight Controller is commanded over MAVLink from the Raspberry Pi, so no radio configuration is needed.
 ````
 
 ```{todo}
@@ -118,21 +122,19 @@ Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo ca
 ```
 
 (dd24-b-fc-config-tips)=
-### Additional Tips
+## Next step
 
-- **Check for Errors:** The `duckiedrone-px4-v4.params` file loads cleanly in a single pass. If QGroundControl reports any parameter failing to load, you are on the wrong firmware build or using an outdated param file.
-
-- **On-board calibration is mandatory:** the shipped `.params` file deliberately omits all `CAL_*` (accelerometer/gyro calibration) entries because those are tied to a specific board's sensor IDs. Run the **Sensors** calibration in QGroundControl on the actual flight controller after loading the parameters.
+On-board calibration is mandatory: the shipped `.params` file deliberately omits all `CAL_*` (accelerometer and gyroscope calibration) entries because those are tied to the sensor IDs of a specific board. After loading the parameters, continue to [](dd24-sensor-calibration) to calibrate the sensors on the actual Flight Controller.
 
 (dd24-fc-tuning)=
-## Flight controller tuning
+## Flight Controller tuning
 
-The flight controller stabilizes the Duckiedrone with proportional-integral-derivative (PID) controllers, which use feedback from sensors such as the IMU to follow the commanded attitude and yaw rate. The supplied `duckiedrone-px4-v4.params` file already contains the tuning for the Duckiedrone DD24-B, so no manual tuning is needed.
+The Flight Controller stabilizes the Duckiedrone with proportional-integral-derivative (PID) controllers, which use feedback from sensors such as the IMU to follow the commanded attitude and yaw rate. The supplied `duckiedrone-px4-v4.params` file already contains the tuning for the Duckiedrone DD24-B, so no manual tuning is needed.
 
 After loading the parameter file and [calibrating the sensors](dd24-sensor-calibration), the Duckiedrone should respond smoothly to roll, pitch, and yaw commands in a test flight, without persistent oscillation or unintended rotation. See [](dd24-flying) for the test flight, and [](dd24-troubleshooting-flight) if the Duckiedrone oscillates or drifts.
 
 ```{warning}
-The Betaflight PID tuning workflow and its recommended values do not apply to the Duckiedrone DD24-B. Do not use Betaflight Configurator or copy Betaflight-specific PID values onto the PX4 flight controller.
+The Betaflight PID tuning workflow and its recommended values do not apply to the Duckiedrone DD24-B. Do not use Betaflight Configurator or copy Betaflight-specific PID values onto the PX4 Flight Controller.
 ```
 
 A validated per-axis PX4 PID-tuning procedure for the Duckiedrone DD24-B is not available yet.
@@ -141,7 +143,13 @@ A validated per-axis PX4 PID-tuning procedure for the Duckiedrone DD24-B is not 
 ## Troubleshooting
 
 ```{trouble}
-I am having issues following the instructions.
+QGroundControl reports that a parameter failed to load.
 ---
-We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. See [instructions for joining the Duckietown Slack workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html).
+The `duckiedrone-px4-v4.params` file loads cleanly in a single pass. A parameter that fails to load means that the Flight Controller runs the wrong firmware build, or that an outdated parameter file was used. Flash the firmware build named in [](fc-init-flash-px4), then load `duckiedrone-px4-v4.params` again.
+```
+
+```{trouble}
+The instructions on this page do not work as described.
+---
+The Duckietown team is happy to help and to hear feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. See [instructions for joining the Duckietown Slack workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html).
 ```
