@@ -11,7 +11,7 @@ Flying the Duckiedrone requires up-to-date software on both the base station and
 ```{needget}
 - A fully assembled Duckiedrone DD24-B with a [configured Flight Controller](dd24-b-fc-config)
 
-- A base station on the same network as the Duckiedrone (see [](first_connection))
+- A base station on the same network as the Duckiedrone (see [](dd24-first-connection))
 
 - The Duckietown Shell (`dts`) installed on the base station
 
@@ -146,7 +146,7 @@ Switch to it with `dts profile switch ente`, then continue with step 1.
 ```{trouble}
 The Duckiedrone is missing from `dts fleet discover`, or its `Status` does not read `Ready`.
 ---
-`Status` reads `Booting` while the Duckiedrone starts up. Wait for it to change to `Ready`. If the Duckiedrone does not appear at all, see [](first_connection) for network troubleshooting.
+`Status` reads `Booting` while the Duckiedrone starts up. Wait for it to change to `Ready`. If the Duckiedrone does not appear at all, see [](dd24-first-connection) for network troubleshooting.
 ```
 
 ```{trouble}
@@ -164,7 +164,7 @@ The Dashboard receives ROS 2 data through the `ros2-rosbridge-websocket` contain
 ```{trouble}
 The Dashboard does not load.
 ---
-Check that the Duckiedrone is reachable with `ping ROBOT_NAME.local` or `ping ROBOT_IP`. See [](first_connection) for network troubleshooting.
+Check that the Duckiedrone is reachable with `ping ROBOT_NAME.local` or `ping ROBOT_IP`. See [](dd24-first-connection) for network troubleshooting.
 ```
 
 ```{trouble}

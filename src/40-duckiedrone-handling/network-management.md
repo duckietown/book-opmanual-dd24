@@ -344,5 +344,5 @@ The Duckiedrone does not reply to `ping` after the network change.
 
 - To regain access, use one of the methods at the top of this page, such as the `duckietown` network with password `quackquack`.
 
-See [](first_connection) for network troubleshooting.
+See [](dd24-first-connection) for network troubleshooting.
 ```
