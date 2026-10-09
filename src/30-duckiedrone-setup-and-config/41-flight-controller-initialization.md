@@ -1,5 +1,5 @@
 ```{seo}
-:description: Instructions to initialize the flight controller on the Duckiedrone DD24-B by flashing the PX4 bootloader and firmware.
+:description: Instructions to initialize the Flight Controller on the Duckiedrone DD24-B by flashing the PX4 bootloader and firmware.
 :keywords: Duckiedrone, Duckietown, autonomous drone, uav, flight controller, initialization, PX4, dfu-util, mamba-f405-mk2
 ```
 
@@ -25,13 +25,13 @@ The flashing is a two-stage process:
 
 2. **Flash the PX4 firmware** built for the `mamba-f405-mk2` target on top of the bootloader.
 
-Both stages are performed via `dfu-util` while the FC is in STM32 DFU mode.
+Both stages are performed via `dfu-util` while the Flight Controller is in STM32 DFU mode.
 ```
 
 (fc-init-dfu-util)=
 ## 1. Install `dfu-util`
 
-Install `dfu-util` on your base station. Pick the tab matching your operating system.
+Install `dfu-util` on the base station. Pick the tab matching its operating system.
 
 :::::{tab-set}
 
@@ -65,7 +65,7 @@ brew install dfu-util
 ```
 
 ```{note}
-macOS does not need udev rules — `dfu-util` accesses USB devices directly via IOKit, without requiring `sudo`. Run the `dfu-util` commands in this guide **without** `sudo`.
+macOS does not need udev rules: `dfu-util` accesses USB devices directly via IOKit, without requiring `sudo`. Run the `dfu-util` commands in this guide **without** `sudo`.
 ```
 
 ::::
@@ -74,7 +74,7 @@ macOS does not need udev rules — `dfu-util` accesses USB devices directly via 
 ### Checkpoint ✅
 
 ````{testexpect}
-Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. You can check the downloaded version with:
+Use `dfu-util` version `>= 0.9`. Older versions may silently truncate writes on STM32F4 targets. The Homebrew formula ships `0.11`, which is the version the procedure has been validated on. Check the installed version with:
 
 ```shell
 dfu-util --version
@@ -91,20 +91,21 @@ Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 ````
 
 (fc-init-dfu-mode-boot)=
-## 2. Boot the FC in DFU Mode
+## 2. Boot the Flight Controller in DFU mode
 
-- Remove power from your Duckiedrone if it is powered on.
+- Remove power from the Duckiedrone if it is powered on.
 
 - Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
 
-- Reconnect this USB-A cable to your base station while keeping the **BOOT** button on the side of the flight controller pressed.
+- Reconnect this USB-A cable to the base station while keeping the **BOOT** button on the side of the Flight Controller pressed.
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
-:alt: Mamba flight controller BOOT button location
+:align: center
 :width: 50%
+:alt: Mamba Flight Controller BOOT button location
 :name: mamba-boot-button
 
-Mamba DD24-B flight controller BOOT button location.
+Mamba DD24-B Flight Controller BOOT button location.
 ```
 
 - After a couple of seconds, release the BOOT button.
@@ -115,16 +116,18 @@ Mamba DD24-B flight controller BOOT button location.
 dfu-util -l
 ```
 
-You should see one or more interfaces with the vendor/product ID `0483:df11` ("STMicroelectronics STM Device in DFU Mode"), as in the following image:
+The output lists one or more interfaces with the vendor/product ID `0483:df11` ("STMicroelectronics STM Device in DFU Mode"), as in the following image:
 
 ```{figure} ../_images/fc-setup/dfu-util-devices-list.png
+:align: center
+:width: 90%
 :alt: Terminal output from dfu-util -l showing STM32 DFU interfaces with vendor/product ID 0483:df11
 
-Output of `dfu-util -l` with the FC in DFU mode.
+Output of `dfu-util -l` with the Flight Controller in DFU mode.
 ```
 
 (fc-init-flash-px4-bootloader)=
-## 3. Flash the PX4 Bootloader
+## 3. Flash the PX4 bootloader
 
 Download the prebuilt `omnibusf4sd_bl` bootloader hex shipped with the PX4 user guide and convert it to a raw binary that `dfu-util` can flash. The conversion needs `arm-none-eabi-objcopy` from the ARM bare-metal toolchain:
 
@@ -151,7 +154,7 @@ arm-none-eabi-objcopy -I ihex -O binary omnibusf4sd_bl.hex omnibusf4sd_bl.bin
 ```
 
 ```{tip}
-If you already have the PX4 dev toolchain installed via `brew tap PX4/px4 && brew install px4-dev`, you can skip the cask install — `arm-none-eabi-objcopy` is already on your `PATH`.
+If the PX4 dev toolchain is already installed via `brew tap PX4/px4 && brew install px4-dev`, skip the cask install: `arm-none-eabi-objcopy` is already on the `PATH`.
 ```
 
 ::::
@@ -163,10 +166,10 @@ If you already have the PX4 dev toolchain installed via `brew tap PX4/px4 && bre
 
 The bootloader hash suffix `d52b70cb39` is tracked in the PX4 user guide; if the URL above 404s, re-resolve it from
 [the PX4 bootloader-from-Betaflight page](https://docs.px4.io/main/en/advanced_config/bootloader_update_from_betaflight.html).
-You can also build the bootloader from source with `make omnibusf4sd_bl` from a clone of [`PX4/PX4-Bootloader`](https://github.com/PX4/PX4-Bootloader).
+The bootloader can also be built from source with `make omnibusf4sd_bl` from a clone of [`PX4/PX4-Bootloader`](https://github.com/PX4/PX4-Bootloader).
 ````
 
-With the FC still in DFU mode, flash the bootloader to address `0x08000000`:
+With the Flight Controller still in DFU mode, flash the bootloader to address `0x08000000`:
 
 ```bash
 dfu-util -a 0 --dfuse-address 0x08000000:leave -d 0483:df11 -D omnibusf4sd_bl.bin
@@ -260,7 +263,7 @@ Transitioning to dfuMANIFEST state
 ```
 ````
 
-After the flash completes (this takes a few seconds), the board will reboot. It will now enumerate as a **PX4 bootloader** device under the `26AC` USB vendor ID (e.g., `26AC:0011`). Verify it has come back up:
+After the flash completes (this takes a few seconds), the board will reboot. It will now enumerate as a **PX4 bootloader** device under the `26AC` USB vendor ID (e.g., `26AC:0011`). Verify that it has come back up:
 
 :::::{tab-set}
 
@@ -272,8 +275,9 @@ ls /dev/serial/by-id/
 ```
 
 ```{figure} ../_images/fc-setup/lsusb-output.png
-:alt: lsusb output on Ubuntu after successful bootloader flashing
+:align: center
 :width: 90%
+:alt: lsusb output on Ubuntu after successful bootloader flashing
 :name: ubuntu-lsusb-output
 
 Example successful `lsusb` output on Ubuntu.
@@ -283,7 +287,7 @@ Example successful `lsusb` output on Ubuntu.
 
 ::::{tab-item} macOS
 
-`lsusb` is not shipped with macOS. You can use the built-in tools to enumerate USB and serial devices:
+`lsusb` is not shipped with macOS. Use the built-in tools to enumerate USB and serial devices:
 
 ```bash
 system_profiler SPUSBDataType | grep -A 3 -E "PX4|26AC"
@@ -303,7 +307,7 @@ DTSW-8047: PX4 bootloader installer - `lsusb` approach does not work on macOS
 :::::
 
 (fc-init-flash-px4)=
-## 4. Flash the PX4 Firmware
+## 4. Flash the PX4 firmware
 
 Download the PX4 firmware binary for the `mamba-f405-mk2` target:
 
@@ -314,16 +318,16 @@ curl -L -O https://github.com/duckietown/PX4-Autopilot/releases/download/dd24-ma
 ````{admonition} Which firmware build to use
 :class: dropdown
 
-Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the Duckiedrone DD24-B — this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The Mamba F405 MK2 V2 hardware variant ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
+Use **`dd24-mamba-f405-mk2-v1.15.4-1`** for the Duckiedrone DD24-B: this is the build on which the shipped `duckiedrone-px4-v4.params` file is known to load and save cleanly. The Mamba F405 MK2 V2 hardware variant ships **without** an on-board barometer or magnetometer; the param file restores `SYS_HAS_BARO=0`, `SYS_HAS_MAG=0`, `SYS_HAS_GPS=0`, and `CBRK_SUPPLY_CHK=894281` so preflight does not flag the missing sensors.
 
 A newer `dd24-mamba-f405-mk2-v1.16.1-2` build also exists (with baro/mag drivers stripped at compile time) but currently has an unbisected param-related boot regression. Avoid it for now.
 ````
 
-- **Put the FC back into DFU mode (disconnect, hold BOOT, reconnect)**,
+1. Put the Flight Controller back into DFU mode: disconnect it, hold the BOOT button, and reconnect it.
 
-- confirm it shows up again in `dfu-util -l`, then
+2. Confirm that it shows up again in `dfu-util -l`.
 
-- flash the firmware to the application offset `0x08008000`:
+3. Flash the firmware to the application offset `0x08008000`:
 
    ```bash
    dfu-util -a 0 --dfuse-address 0x08008000:leave -d 0483:df11 -D diatone_mamba-f405-mk2_default.bin
@@ -406,17 +410,19 @@ Transitioning to dfuMANIFEST state
 ````
 
 ```{important}
-The PX4 firmware is loaded **at offset `0x08008000`**, not at `0x08000000`. The first 32 KiB of flash is reserved for the bootloader you wrote in step 3. Writing the firmware to `0x08000000` would overwrite the bootloader.
+The PX4 firmware is loaded **at offset `0x08008000`**, not at `0x08000000`. The first 32 KiB of flash is reserved for the bootloader written in step 3. Writing the firmware to `0x08000000` would overwrite the bootloader.
 ```
 
 After the flash completes, the board reboots and runs PX4. The boot sequence is: STM32 reset → PX4 bootloader at `0x08000000` → PX4 firmware at `0x08008000`.
+
+Next, continue to [](dd24-b-fc-config) to load the Duckiedrone parameters.
 
 ## Troubleshooting
 
 ```{trouble}
 `dfu-util` shows no devices.
 ---
-The FC has not entered DFU mode. Disconnect USB, hold the BOOT button while reconnecting, then run `dfu-util -l` again. On Linux, also confirm there is no kernel driver claiming the device (e.g., `ModemManager`) by checking `dmesg` after plug-in. On macOS, run `system_profiler SPUSBDataType | grep -i stm` and confirm the board enumerates as `STM32 BOOTLOADER` — if it does not, the BOOT button was released too early.
+The Flight Controller has not entered DFU mode. Disconnect USB, hold the BOOT button while reconnecting, then run `dfu-util -l` again. On Linux, also confirm there is no kernel driver claiming the device (e.g., `ModemManager`) by checking `dmesg` after plug-in. On macOS, run `system_profiler SPUSBDataType | grep -i stm` and confirm the board enumerates as `STM32 BOOTLOADER` — if it does not, the BOOT button was released too early.
 ```
 
 ```{trouble}
@@ -432,7 +438,7 @@ The most common cause is that the firmware was flashed to `0x08000000` instead o
 ```
 
 ```{trouble}
-I am having issues following the instructions!
+The instructions on this page do not work as described.
 ---
-We are happy to help and hear your feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. See [instructions for joining the Duckietown Slack workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html).
+The Duckietown team is happy to help and to hear feedback. Ask a question in the [duckietown-sky-help](https://duckietown.slack.com/archives/CJWNCG667) Slack channel. See [instructions for joining the Duckietown Slack workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/01-accounts/duckietown-slack-account.html).
 ```

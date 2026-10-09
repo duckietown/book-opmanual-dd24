@@ -8,13 +8,13 @@ Change https link to local reference after merging this book in the Duckietown m
 ```
 
 ```{needget}
-- A computer (the “base station”) with an internet connection
+- A computer (the "base station") with an internet connection
 
 - A working Duckietown Shell (`dts`) installation: [Install the Duckietown Shell](https://docs.duckietown.com/ente/duckietown-manual/10-setup/02-software/duckietown-shell-dts-installation.html)
 
-- A microSD card (`64 GB`, U3, Class 10 recommended), e.g., the one from your Duckiedrone box
+- A microSD card (`64 GB`, U3, Class 10 recommended), e.g., the one from the Duckiedrone box
 
-- A microSD card reader, e.g., the one from your Duckiedrone box
+- A microSD card reader, e.g., the one from the Duckiedrone box
 
 - `10-20 min`, depending on the internet connection
 ---
@@ -22,20 +22,21 @@ Change https link to local reference after merging this book in the Duckietown m
 ```
 
 (dd24-sw-init-adv)=
-# The Complete Way
+# The complete way
 
-```{vimeo} 1207703689
-:alt: microSD card flashing procedure for a Duckiedrone DD24 using `dts sd_card init`
-```
+This procedure flashes the microSD card with `dts sd_card init`, which sets the robot name, the country and the Wi-Fi networks while it flashes. The video below shows the whole procedure.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CLHg5AR--Ew" title="microSD card flashing procedure for a Duckiedrone DD24 using dts sd_card init" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Connect the microSD card to the base station
 
-Insert the microSD card into your base station. Use the USB adapter from the Duckiedrone box if your base station does not have a microSD slot.
+Insert the microSD card into the base station. Use the USB adapter from the Duckiedrone box if the base station does not have a microSD slot.
 
 ```{figure} ../_images/components-official-dd24/sd-card-reader.jpg
+:align: center
 :width: 40%
 :alt: Duckietown microSD card adapter
-:name: duckietown USB to microUSB sd card reader
+:name: dd24-sd-card-reader
 
 microSD card adapter.
 ```
@@ -61,15 +62,15 @@ dts sd_card init \
 
 Where:
 
-- `--hostname` — the robot name. Follow the naming rules in the box below.
+- `--hostname`: the robot name. Follow the naming rules in the box below.
 
-- During initialization, DTS prompts you to enter and confirm the password for the `duckie` account. It must contain at least eight characters and cannot contain colons or line breaks. The characters you enter are not displayed. There is no default account password.
+- `--type duckiedrone --configuration DD24`: picks the Duckiedrone DD24 base image.
 
-- `--type duckiedrone --configuration DD24` — picks the Duckiedrone DD24 base image.
+- `--country`: two-letter code of the country where the Duckiedrone will fly. A full list of codes can be found, e.g., on Wikipedia: [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 
-- `--country` — two-letter country code where the Duckiedrone will fly. A full list of codes can be found, e.g., on Wikipedia: [ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+- `--wifi`: one or more networks in the form `ssid:psw`. Separate multiple networks with commas.
 
-- `--wifi` — one or more networks in the form `ssid:psw`. Separate multiple networks with commas.
+During initialization, DTS prompts for the password of the `duckie` account and for its confirmation. It must contain at least eight characters and cannot contain colons or line breaks. The characters typed are not displayed. There is no default account password.
 
 Additional options are detailed on the [Duckietown Manual](https://docs.duckietown.com/ente/duckietown-manual/10-setup/03-duckiebot/flashing-sd-card-duckiebot-initialization-complete.html).
 
@@ -97,21 +98,21 @@ The `hostname` **cannot** be changed after the first boot.
 ```
 
 ```{attention}
-If other Duckiedrones operate in the same environment, make sure your `hostname` is unique.
+If other Duckiedrones operate in the same environment, make sure the `hostname` is unique.
 ```
 
-## Flashing the image
+## Flash the image
 
-After downloading the base image, `dts sd_card init` will prompt you to select the target drive to flash the image to.
+After downloading the base image, `dts sd_card init` prompts for the target drive to flash the image to.
 
 :::::{tab-set}
 ::::{tab-item} Ubuntu, macOS (native dts installation)
 
-On Ubuntu or macOS with a native DTS installation, enter the nominal microSD card capacity (e.g., `64` for `64 GB`), and a list of available devices will appear. Select your microSD card and confirm your choice.
+On Ubuntu or macOS with a native DTS installation, enter the nominal microSD card capacity (e.g., `64` for `64 GB`), and a list of available devices will appear. Select the microSD card and confirm the choice.
 
 Once the flashing is complete, safely eject the microSD card from the base station.
 
-````{admonition} Eject your microSD card safely.
+````{admonition} Eject the microSD card safely.
 :class: warning
 
 Do not just unplug the microSD card from the base station.
@@ -120,26 +121,26 @@ Do not just unplug the microSD card from the base station.
 ::::
 ::::{tab-item} Duckietown Workspace
 
-Inside a Duckietown Workspace the system will not be able to detect your microSD card. Therefore, you will flash the image to a file, then burn it to a microSD card with Balena Etcher through the host OS, similarly to the [fast way initialization procedure](dd24-sw-init-fast).
+Inside a [Duckietown Workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html) the system cannot detect the microSD card. Therefore, the image is flashed to a file, then burned to a microSD card with Balena Etcher through the host OS, similarly to the [fast way initialization procedure](dd24-sw-init-fast).
 
 When prompted to enter the microSD card capacity, write any number, e.g., `64`. When prompted to list all possibilities, enter `y`, then write the complete path to the image file, e.g., `/image-file-name.img`.
 
 The `dts sd_card init` process will proceed to create the image file.
 
-Once complete, switch to the host machine, open Balena Etcher, and flash `image-file-name.img` to your microSD card.
+Once complete, switch to the host machine, open Balena Etcher, and flash `image-file-name.img` to the microSD card.
 ::::
 :::::
 
-You are now ready for the [first boot](sec:first-boot).
+The Duckiedrone is now ready for the [first boot](dd24-first-boot).
 
 ## Troubleshooting
 
 ````{trouble}
-I am using a Mac and the flashing step fails for lack of permissions.
+On macOS, the flashing step fails for lack of permissions.
 ---
-Go to `Apple menu > System Settings > Privacy & Security > Files & Folders`, then enable `Removable Volumes` for the terminal application you use to run `dts`.
+Go to `Apple menu > System Settings > Privacy & Security > Files & Folders`, then enable `Removable Volumes` for the terminal application used to run `dts`.
 
-The screenshot shows the same setting for Balena Etcher; select your terminal application instead.
+The screenshot shows the same setting for Balena Etcher; select the terminal application instead.
 
 ![macOS Files & Folders settings showing Balena Etcher allowed to access Removable Volumes](../_images/rpi-sw-initialization/mac_troubleshooting.png)
 ````
@@ -147,7 +148,7 @@ The screenshot shows the same setting for Balena Etcher; select your terminal ap
 ```{trouble}
 `dts sd_card init` fails with "unknown robot type duckiedrone".
 ---
-Your Duckietown Shell is out of date or the wrong profile is active. Run:
+The Duckietown Shell is out of date or the wrong profile is active. Run:
 
         dts profile list          # 'ente' must be the active profile
         pipx upgrade duckietown-shell
@@ -157,11 +158,11 @@ then rerun the `dts sd_card init` command.
 ```
 
 ```{trouble}
-The Duckiedrone does not join my Wi-Fi after the first boot.
+The Duckiedrone does not join the Wi-Fi network after the first boot.
 ---
-- Double-check the `--country` flag you passed to `dts sd_card init`. Wi-Fi is disabled by default if the regulatory domain is unset.
+- Double-check the `--country` flag passed to `dts sd_card init`. Wi-Fi is disabled by default if the regulatory domain is unset.
 
-- Double-check your network credentials.
+- Double-check the network credentials.
 
-- If you are still stuck, flash again with the correct flags shown above.
+- If the problem persists, flash again with the correct flags shown above.
 ```

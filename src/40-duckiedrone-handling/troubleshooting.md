@@ -1,5 +1,5 @@
 ```{seo}
-:description: Troubleshooting the Duckiedrone DD24-B, covering power and boot, connection, containers, Flight Controller, sensors, motors, and flight issues.
+:description: Troubleshooting the Duckiedrone DD24-B, covering setup, power and boot, connection, containers, Flight Controller, sensors, motors, and flight issues.
 :keywords: Duckiedrone, troubleshooting, Raspberry Pi, flight controller, motors, software issues, connectivity, power issues, camera not working, dd24 faq
 ```
 
@@ -11,6 +11,8 @@ This page collects the issues met most often when building and operating a Ducki
 When something does not work, identify which parts work and which do not before redoing the build or replacing a part. The Duckiedrone will not fly until everything works.
 
 If the Raspberry Pi does not power up or boot, go to [](dd24-troubleshooting-power). Otherwise, start with [](dd24-troubleshooting-find) to narrow the issue down to one part of the Duckiedrone, then go to the matching section below.
+
+For an issue met while following the setup pages, such as flashing the microSD card, initializing the ESCs, or flashing and configuring the Flight Controller, go to [](dd24-troubleshooting-setup).
 
 (dd24-troubleshooting-find)=
 ## Finding the failing part
@@ -80,7 +82,7 @@ The issue is typically the microSD card.
 
 - Check that the microSD card is fully inserted in the Raspberry Pi.
 
-- The first boot takes longer than the following ones. Check that it has completed, as described in [](sec:first-boot).
+- The first boot takes longer than the following ones. Check that it has completed, as described in [](dd24-first-boot).
 
 If the problem persists, connect a keyboard and a monitor to the Raspberry Pi during boot. The error messages on the display help identify the fault.
 ```
@@ -99,7 +101,23 @@ The base station cannot reach the Duckiedrone.
 
 - Test the connection with `ping ROBOT_NAME.local`. If the name does not resolve, use the address shown in the `Address` column of `dts fleet discover`, and open the Dashboard at `http://ROBOT_IP/`.
 
-See [](first_connection) for network troubleshooting, and [](dd24-network-config) to change the Wi-Fi network of the Duckiedrone.
+See [](dd24-first-connection) for network troubleshooting, and [](dd24-network-config) to change the Wi-Fi network of the Duckiedrone.
+```
+
+```{trouble}
+The Duckiedrone does not join the Wi-Fi network after the first boot.
+---
+The Wi-Fi settings are written to the microSD card when it is initialized. Wi-Fi stays disabled when the country code is unset, and a wrong network name or password prevents the Duckiedrone from joining.
+
+- If the microSD card was flashed with Balena Etcher, re-insert it into the base station and open the `configfs` partition. Check that `country.txt` contains the correct two-letter country code, and that `wifi/00-user.yaml` holds the correct network name and password and is indented with spaces, not tabs. See [](dd24-sw-init-fast).
+
+- If the microSD card was flashed with `dts sd_card init`, check the `--country` flag and the network credentials that were passed to the command, then flash the card again with the correct values. See [](dd24-sw-init-adv).
+```
+
+```{trouble}
+The Duckiedrone answers `ping` at its IP address, but not at its hostname.
+---
+mDNS is unavailable on the network or is being filtered. To isolate the network issue, create a phone hotspot named `duckietown` with password `quackquack`, then reboot the Duckiedrone. If the hostname resolves on the hotspot, ask the administrator of the original network to allow mDNS on the relevant subnet. See [](dd24-first-connection).
 ```
 
 ```{trouble}
@@ -292,4 +310,71 @@ Unplug the battery and inspect the Duckiedrone:
 - Repeat the sensor calibrations as described in [](dd24-sensor-calibration).
 
 If the issue persists, load the `duckiedrone-px4-v4.params` file again as described in [](dd24-b-fc-config). Do not change individual controller parameters: see [](dd24-fc-tuning). In `STABILIZED` mode the Duckiedrone does not hold its position, so some drift is expected and is corrected with the keyboard.
+```
+
+(dd24-troubleshooting-setup)=
+## Setup and configuration
+
+These issues appear on the base station while following the setup pages, before the Dashboard is available.
+
+```{trouble}
+On macOS, flashing the microSD card fails for lack of permissions.
+---
+Go to `Apple menu > System Settings > Privacy & Security > Files & Folders`, then enable `Removable Volumes` for the application that flashes the card: Balena Etcher for [](dd24-sw-init-fast), or the terminal application that runs `dts` for [](dd24-sw-init-adv).
+```
+
+```{trouble}
+`dts sd_card init` fails with "unknown robot type duckiedrone".
+---
+The Duckietown Shell is out of date or the wrong profile is active. Run:
+
+    dts profile list          # 'ente' must be the active profile
+    pipx upgrade duckietown-shell
+    dts update
+
+Then run the `dts sd_card init` command again, as described in [](dd24-sw-init-adv).
+```
+
+```{trouble}
+The ESC Configurator does not detect any ESCs after `Read Setup`.
+---
+The ESCs are not powered. USB alone does not power the ESCs, so connect the LiPo battery to the Duckiedrone, then click `Read Setup` again. See [](dd24-esc-init).
+```
+
+```{trouble}
+On Linux, the ESC Configurator cannot open the serial port (`Failed to open serial port`).
+---
+This is a serial-port permission issue. On Ubuntu, add the current user to the `dialout` group by running `sudo usermod -a -G dialout "$USER"`, then sign out and sign back in, or reboot, for the change to take effect. See [](dd24-esc-init-troubleshooting) if that does not help.
+```
+
+```{trouble}
+The Flight Controller does not enter DFU mode: `dfu-util -l` shows no devices, or Betaflight Configurator does not show `DFU - STM32 BOOTLOADER`.
+---
+The board booted into its regular firmware instead of the bootloader.
+
+1. Unplug the USB cable from the base station.
+
+2. Press and hold the `BOOT` button on the Flight Controller, reconnect the cable while still holding the button, and release it only once the cable is fully seated.
+
+3. If the board still does not show up, try a different USB cable or port. Some cables are power-only and cannot carry data.
+
+See [](fc-init-dfu-mode-boot).
+```
+
+```{trouble}
+After flashing PX4, the Flight Controller does not enumerate as a PX4 bootloader.
+---
+The most common cause is that the firmware was flashed to `0x08000000` instead of `0x08008000`, which overwrites the bootloader. Boot the Flight Controller in DFU mode again, flash the bootloader as described in [](fc-init-flash-px4-bootloader), then flash the firmware at the correct address as described in [](fc-init-flash-px4).
+```
+
+```{trouble}
+QGroundControl reports that a parameter failed to load.
+---
+The `duckiedrone-px4-v4.params` file loads cleanly in a single pass. A parameter that fails to load means that the Flight Controller runs the wrong firmware build, or that an outdated parameter file was used. Flash the firmware build named in [](fc-init-flash-px4), then load `duckiedrone-px4-v4.params` again as described in [](dd24-b-fc-config).
+```
+
+```{trouble}
+The motor identification popup does not appear in QGroundControl.
+---
+Assign the motors by hand. With the propellers removed, turn on the switch that enables the motor sliders on the **Actuators** page, move one slider by a small amount, and watch which motor spins. Assign that output to the matching motor function, and repeat for all four motors. See [](dd24-motor-order).
 ```
