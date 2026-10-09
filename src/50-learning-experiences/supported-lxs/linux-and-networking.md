@@ -41,7 +41,7 @@ After completing this learning experience, learners will be able to:
 :class: seealso
 
 - [Linux and Networking LX - Learning Experience](https://github.com/duckietown/lx-dd-linux-and-networking)
-- [Linux and Networking LX - Recipe](https://github.com/duckietown/x-dd-linux-and-networking-recipe)
+- [Linux and Networking LX - Recipe](https://github.com/duckietown/lx-dd-linux-and-networking-recipe)
 ```
 
 {{ dt_workspace_matrix_lx_warning.format(dt_workspace_note_prefix) }}
