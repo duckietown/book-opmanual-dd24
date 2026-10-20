@@ -1,31 +1,29 @@
 ```{seo}
-:description: Learn how to connect to your Duckiedrone (DD24-B).
+:description: Connect to a Duckiedrone DD24-B for the first time and check the connection from the base station.
 :keywords: Duckiedrone first connection, DD24 network setup, Duckiedrone Dashboard, Wi-Fi configuration
 ```
 
 ```{needget}
-- A live Duckiedrone: [](sec:first-boot)
-
-- A properly configured Duckiedrone: [](dd24-network-config)
+- A live Duckiedrone: [](dd24-first-boot)
 
 - A properly configured base station: [](dd24-initial-setup)
 
-- A network that supports [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS), or for which you have administrative access
+- A network that supports [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS), or administrative access to the network
 
 - (optional) Physical access to the network router, and an Ethernet cable
 ---
 - A connected Duckiedrone
 ```
 
-(first_connection)=
+(dd24-first-connection)=
 # First connection
 
-You are now ready to connect to your Duckiedrone.
+The Duckiedrone is now ready for its first connection.
 
 (dd24-how-to-connect)=
-## Connecting to the Duckiedrone  
+## Connecting to the Duckiedrone
 
-Establishing a connection between the base station and the Duckiedrone is an essential step. There are several ways to establish a connection, with the preferred one being over Wi-Fi. To connect over Wi-Fi, both the Duckiedrone and your base station need to be connected to the same network.
+Establishing a connection between the base station and the Duckiedrone is an essential step. There are several ways to establish a connection, with the preferred one being over Wi-Fi. To connect over Wi-Fi, both the Duckiedrone and the base station need to be connected to the same network.
 
 ### Duckiedrone Wi-Fi
 
@@ -35,7 +33,7 @@ The Duckiedrone automatically connects at boot to any known Wi-Fi network in ran
 
 2. The default backup network named `duckietown` with password `quackquack`
 
-After the first boot, you can configure additional networks by following [](dd24-network-config).
+After the first boot, additional networks can be configured by following [](dd24-network-config).
 
 <!--
 
@@ -99,32 +97,44 @@ SSH always possible: `ssh duckie@amelia.local`
 
 -->
 
-### Testing the connection
+### Checkpoint ✅
 
-When a successful connection is established, all the following will work:
+When a connection is established, all four checks below pass. Run them in order.
 
-#### Duckietown fleet discovery tool
+`ROBOT_NAME` is the Duckiedrone name chosen during the [microSD card flashing procedure](dd24-sw-init). `ROBOT_IP` is the Duckiedrone IP address, shown in the `Address` column of `dts fleet discover` when available.
 
-Open a terminal on the base station and run:
+To verify that the Duckiedrone is on the same network as the base station:
+
+````{testexpect}
+On the base station, run:
 
 ```bash
 dts fleet discover
 ```
 
-If the Duckiedrone is on the same network, it will appear along with its status.
+Use Ctrl-C to stop the command.
+---
+The `ROBOT_NAME` row appears along with its status.
+````
 
-#### `ping`
+To verify that the base station and the Duckiedrone can communicate over the network:
 
-To test if your computer and Duckiedrone are able to communicate over the network, open a terminal and:
+````{testexpect}
+On the base station, run:
 
 ```bash
 ping ROBOT_NAME.local
 ```
 
+Use Ctrl-C to stop the command.
+---
+A reply arrives for every packet, as in the example below.
+````
+
 ````{admonition} A successful ping example
 :class: note
 
-```bash
+```text
 duckie@basestation ~ % ping amelia.local
 PING amelia.local (192.168.0.81): 56 data bytes
 64 bytes from 192.168.0.81: icmp_seq=0 ttl=64 time=41.965 ms
@@ -139,42 +149,52 @@ round-trip min/avg/max/stddev = 7.621/19.238/41.965/12.955 ms
 ```
 ````
 
-where `ROBOT_NAME` is the Duckiedrone name chosen during the [microSD card flashing procedure](dd24-sw-init).
-
-If `ROBOT_NAME.local` does not resolve, commands that use that name will not work until name resolution is fixed. You can still test the Duckiedrone's network reachability with `ping ROBOT_IP`.
+If `ROBOT_NAME.local` does not resolve, commands that use that name will not work until name resolution is fixed. The network reachability of the Duckiedrone can still be tested with `ping ROBOT_IP`.
 
 ```{warning}
-The network must support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve `ROBOT_NAME.local`; mDNS is not required to reach the Duckiedrone by IP address. If you need name resolution, ask whoever manages your network about mDNS on your subnet.
+The network must support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve `ROBOT_NAME.local`; mDNS is not required to reach the Duckiedrone by IP address. If name resolution is needed, ask whoever manages the network about mDNS on the subnet.
 ```
 
-#### The Dashboard
+To verify that the Dashboard is reachable:
 
-You can open the Duckiedrone's Dashboard at `http://ROBOT_NAME.local/` or `http://ROBOT_IP/`, where `ROBOT_IP` is the Duckiedrone's reachable IP address (shown in the `Address` column of `dts fleet discover` when available). You can also run `dts duckiebot dashboard ROBOT_NAME` if the name resolves, or `dts duckiebot dashboard ROBOT_IP` to connect by IP. Commands that accept a target host also support `-H ROBOT_IP`.
+```{testexpect}
+On the base station, open a browser and go to `http://ROBOT_NAME.local/`, or to `http://ROBOT_IP/` if the name does not resolve.
+---
+The Duckiedrone Dashboard loads.
+```
 
-Accessing the Duckiedrone's Dashboard provides access to many tools to manage the Duckiedrone.
+The Dashboard can also be opened with `dts duckiebot dashboard ROBOT_NAME` if the name resolves, or `dts duckiebot dashboard ROBOT_IP` to connect by IP address. Commands that accept a target host also support `-H ROBOT_IP`.
 
-See [](dd24-dashboard-overview) for what each part of the Dashboard does.
+The Dashboard provides access to many tools to manage the Duckiedrone. See [](dd24-dashboard-overview) for what each part of the Dashboard does.
 
-#### Secure Shell (`ssh`)
+To verify that Secure Shell (`ssh`) access works:
 
-You can `ssh` into the Duckiedrone with `ssh duckie@ROBOT_NAME.local` or `ssh duckie@ROBOT_IP` if `.local` does not resolve, using the password set while preparing the microSD card.
+```{testexpect}
+On the base station, run `ssh duckie@ROBOT_NAME.local`, or `ssh duckie@ROBOT_IP` if `.local` does not resolve. Enter the password set while preparing the microSD card.
+---
+A shell prompt on the Duckiedrone opens.
+```
 
 ## Troubleshooting
 
-If any of these basic interfacing commands are not working, the most likely causes are:
+```{trouble}
+None of the connection checks work.
+---
+The most likely causes are:
 
-- Your computer and Duckiedrone are not on the same network.
+- The base station and the Duckiedrone are not on the same network.
 
-- The Duckiedrone's [first boot procedure](sec:first-boot) is not complete yet.
+- The Duckiedrone [first boot procedure](dd24-first-boot) is not complete yet.
 
 - `ROBOT_NAME.local` does not resolve through mDNS.
 
-A general alternative networking solution that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone via an Ethernet cable to the router, if you have physical access to it.
+A general alternative that bypasses Wi-Fi, and can be useful during debugging, is connecting the Duckiedrone to the router with an Ethernet cable, if the router is physically accessible.
+```
 
 ```{trouble}
-I cannot ping my Duckiedrone with hostname, but I can with its IP address.
+The Duckiedrone answers `ping` at its IP address, but not at its hostname.
 ---
-`mDNS` is unavailable on your network or is being filtered. Try a phone hotspot named `duckietown` with password `quackquack`, then reboot the Duckiedrone to isolate the network issue. If it works, ask the original network's administrator to allow mDNS on the relevant subnet.
+`mDNS` is unavailable on the network or is being filtered. Try a phone hotspot named `duckietown` with password `quackquack`, then reboot the Duckiedrone to isolate the network issue. If it works, ask the administrator of the original network to allow mDNS on the relevant subnet.
 ```
 
 ## Other notes on Duckiedrone networking (AP)

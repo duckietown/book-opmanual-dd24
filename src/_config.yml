@@ -48,7 +48,7 @@ sphinx:
       - robots.txt
     myst_substitutions:
       dt_workspace_note_prefix: >-
-        If you are using a [Duckietown Workspace](setup-devcontainer),
+        If you are using a [Duckietown Workspace](https://docs.duckietown.com/ente/duckietown-manual/10-setup/00-computer/setup-duckietown-workspace.html),
       dt_duckietown_viewer_launch_tabs: |-
         :::::{{tab-set}}
         ::::{{tab-item}} Ubuntu
