@@ -215,7 +215,7 @@ The virtual Duckiedrone appears with status `Booting` and finally `Ready` in the
 ```
 
 ```{note}
-The Duckiedrone software stack runs on ROS 2. When running ROS 2 commands against a virtual or physical Duckiedrone from the computer, the `ROS_DOMAIN_ID` must match the one used by the robot.
+The Duckiedrone software stack runs on ROS 2 on the default ROS domain. Do not set `ROS_DOMAIN_ID` on your computer or in your containers when running ROS 2 commands against a virtual or physical Duckiedrone; a different value hides the robot's topics.
 ```
 
 (lx-start-matrix-dd-pid-altitude-control)=
