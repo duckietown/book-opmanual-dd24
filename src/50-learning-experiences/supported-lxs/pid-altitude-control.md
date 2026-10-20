@@ -2,7 +2,7 @@
 # LX: PID - Altitude Control
 
 ```{seo}
-:description: Implement a PID altitude controller for your physical or virtual Duckiedrone. 
+:description: Implement a PID altitude controller for a physical or virtual Duckiedrone. 
 :keywords: Duckietown, Duckiedrone, DD24-B, LX, learning experience, PID, PID Control, Control, altitude control ,ROS2
 ```
 
@@ -54,6 +54,17 @@ Access to the solution repository is reserved to Duckietown instructors. Reach o
 ```{note}
 This learning experience runs on a virtual Duckiedrone in [the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html) and on a [physical Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).
 ```
+
+## Notebooks
+
+Each notebook includes hands-on learning activities and a checkpoint to self-assess understanding. Work through the notebooks in order, since each one builds on the previous ones.
+
+| Notebook | Topics |
+| --- | --- |
+| 1 | PID control theory and tuning concepts |
+| 2 | The Duckiedrone, PX4, and MAVROS2 flight control architecture |
+| 3 | Implementing and tuning a PID altitude controller in simulation |
+| 4 | Deploying and tuning the controller on a physical Duckiedrone |
 
 (lx-forking-dd-pid-altitude-control)=
 ## Forking the Repository

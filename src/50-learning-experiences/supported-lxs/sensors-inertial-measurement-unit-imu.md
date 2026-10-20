@@ -38,7 +38,7 @@ After completing this learning experience, learners will be able to:
 ```{admonition} Available repositories
 :class: seealso
 
-- [IMU LX - Learning Experience](https://github.com/duckietown/lx-dd-sensors-imu-solution)
+- [IMU LX - Learning Experience](https://github.com/duckietown/lx-dd-sensors-imu)
 - [IMU LX - Recipe](https://github.com/duckietown/lx-dd-sensors-imu-recipe)
 - [IMU LX - Solution](https://github.com/duckietown/lx-dd-sensors-imu-solution)
 
@@ -53,12 +53,19 @@ Access to the solution repository is reserved to Duckietown instructors. Reach o
 This learning experience runs on a virtual Duckiedrone in [the Duckiematrix](https://docs.duckietown.com/ente/duckietown-manual/50-duckiematrix/getting-started/duckiematrix-first-steps.html) and on a [physical Duckiedrone](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24).
 ```
 
+## Notebooks
+
+Each notebook includes hands-on learning activities and a checkpoint to self-assess understanding. Work through the notebooks in order, since each one builds on the previous ones.
+
+| Notebook | Topics |
+| --- | --- |
+| 1 | What an IMU measures, what it cannot, and how fast a position estimate drifts away |
+| 2 | Euler angles, rotation matrices, gimbal lock, and quaternions |
+| 3 | The path from the sensor chip to `/mavros/imu/data`, and where its settings live |
+| 4 | Writing, deploying, and running a ROS 2 node that reads the IMU |
+
 (lx-forking-dd-sensor-imu)=
 ## Forking the Repository
-
-```{important}
-The public `lx-dd-sensors-imu` repository is not published yet. The steps below can be applied to the solutions repo instead.
-```
 
 The recommended way to use the repository of an LX is to make a fork, and then clone that fork. Forking can be done through the GitHub web interface, and creates a personal copy that can still be synchronized with the upstream Duckietown code.
 
@@ -68,7 +75,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
     Find and press the "Fork" button on the top right:
 
-    ```{figure} ../../_images/lxs/duckietown-lx-forking.png
+    ```{figure} ../../_images/lxs/imu/lx-dd-sensors-imu-forking.png
     :alt: how to fork a Duckietown LX repository
     :width: 90%
     :name: dd-lx-forking-sensor-imu
