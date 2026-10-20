@@ -42,6 +42,8 @@ After completing this learning experience, learners will be able to:
 - [Safety LX - Learning Experience](https://github.com/duckietown/lx-dd-safety)
 - [Safety LX - Recipe](https://github.com/duckietown/lx-dd-safety-recipe)
 - [Safety LX - Solution](https://github.com/duckietown/lx-dd-safety-solution)
+
+Access to the solution repository is reserved to Duckietown instructors. Reach out to [info@duckietown.com](mailto:info@duckietown.com) or [upgrade your plan](https://hub.duckietown.com/plans/?plan=institutional) through the Duckietown Hub.
 ```
 
 {{ dt_workspace_matrix_lx_warning.format(dt_workspace_note_prefix) }}
@@ -54,7 +56,7 @@ This learning experience introduces important safety guidelines for operating a 
 
 ## Notebooks
 
-Each notebook includes hands-on learning activities and a checkpoint to self-assess understanding. Most of the notebooks can be used stand-alone, without having to have complete all the previous ones. 
+Each notebook includes hands-on learning activities and a checkpoint to self-assess understanding. Work through the notebooks in order, since each one builds on the previous ones.
 
 | Notebook | Topics |
 | --- | --- |
@@ -72,7 +74,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
     Find and press the "Fork" button on the top right:
 
-    ```{figure} ../../_images/lxs/duckietown-lx-forking.png
+    ```{figure} ../../_images/lxs/safety/lx-dd-safety-forking.png
     :alt: how to fork a Duckietown LX repository
     :width: 90%
     :name: dd-lx-forking-safety

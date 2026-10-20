@@ -41,7 +41,8 @@ After completing this learning experience, learners will be able to:
 :class: seealso
 
 - [Linux and Networking LX - Learning Experience](https://github.com/duckietown/lx-dd-linux-and-networking)
-- [Linux and Networking LX - Recipe](https://github.com/duckietown/x-dd-linux-and-networking-recipe)
+- [Linux and Networking LX - Recipe](https://github.com/duckietown/lx-dd-linux-and-networking-recipe)
+<!-- TODO: once lx-dd-linux-and-networking-solution exists, add its link here and the "Access to the solution repository is reserved to Duckietown instructors" statement used on the other LX pages. -->
 ```
 
 {{ dt_workspace_matrix_lx_warning.format(dt_workspace_note_prefix) }}
@@ -49,12 +50,12 @@ After completing this learning experience, learners will be able to:
 ## About these learning activities
 
 ```{note}
-This learning experience introduces a number of Linux concepts and tools that can be ran on any Ubuntu system. We recommend a native, supported, Ubuntu version installation, or using a Duckietown Workspace. Examples are worked out on [physical](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24) and virtual Duckiedrones. 
+This learning experience introduces a number of Linux concepts and tools that can be run on any Ubuntu system. A native installation of a supported Ubuntu version, or a Duckietown Workspace, is recommended. Examples are worked out on [physical](https://get.duckietown.com/products/autonomous-raspberrypi-quadcopter-duckiedrone-dd24) and virtual Duckiedrones. 
 ```
 
 ## Notebooks
 
-Each notebook includes hands-on learning activities and a checkpoint to self-assess understanding. Most of the notebooks can be used stand-alone, without having to have complete all the previous ones. 
+Each notebook includes hands-on learning activities and a checkpoint to self-assess understanding. Work through the notebooks in order, since each one builds on the previous ones.
 
 | Notebook | Topics |
 | --- | --- |
@@ -92,7 +93,7 @@ Cloning the repository directly also works, at the cost of not being able to pus
 
     Find and press the "Fork" button on the top right:
 
-    ```{figure} ../../_images/lxs/duckietown-lx-forking.png
+    ```{figure} ../../_images/lxs/linux-and-networking/lx-dd-linux-and-networking-forking.png
     :alt: how to fork a Duckietown LX repository
     :width: 90%
     :name: dd-lx-forking-linux-and-networking
@@ -198,7 +199,7 @@ Follow the instructions on the notebook and work through them in sequence.
 (lx-matrix-testing-dd-linux-and-networking)=
 ### Testing with the Duckiematrix
 
-This learning experience explore fundamentals of bash programming and networking. There is no need to spin up the Duckiematrix to complete this learning experience. 
+This learning experience explores the fundamentals of bash programming and networking. The Duckiematrix is not needed to complete this learning experience. The notebooks on virtual Duckiedrone connections only need a virtual Duckiedrone, created and started as follows.
 
 (lx-create-vdrone-dd-linux-and-networking)=
 #### 1. Creating and starting a virtual Duckiedrone
