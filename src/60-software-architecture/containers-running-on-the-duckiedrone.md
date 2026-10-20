@@ -111,7 +111,7 @@ Two containers provide the message backbones used by the current stacks.
 | Container | Role |
 | :--- | :--- |
 | `dtps` | A switchboard used by drivers and other DTPS-enabled containers to exchange data |
-| `zenoh-router` | Connects the ROS 2 containers. The current Duckiedrone ROS 2 containers use `ROS_DOMAIN_ID=42` to communicate through this router |
+| `zenoh-router` | Connects the ROS 2 containers. The Duckiedrone ROS 2 containers run on the default ROS domain and communicate through this router |
 
 ## Sensor drivers
 
