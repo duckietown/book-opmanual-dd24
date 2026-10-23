@@ -131,7 +131,7 @@ On-board calibration is mandatory: the shipped `.params` file deliberately omits
 
 The Flight Controller stabilizes the Duckiedrone with proportional-integral-derivative (PID) controllers, which use feedback from sensors such as the IMU to follow the commanded attitude and yaw rate. The supplied `duckiedrone-px4-v4.params` file already contains the tuning for the Duckiedrone DD24-B, so no manual tuning is needed.
 
-Once the Duckiedrone is fully assembled, its [sensors are calibrated](dd24-sensor-calibration) and its [motors are configured](dd24-motor-configuration), it should respond smoothly to roll, pitch, and yaw commands in a test flight, without persistent oscillation or unintended rotation. See [](dd24-flying) for the test flight, and [](dd24-troubleshooting-flight) if the Duckiedrone oscillates or drifts.
+Once the Duckiedrone is fully assembled, with its [sensors calibrated](dd24-sensor-calibration) and its [motors configured](dd24-motor-configuration), it should respond smoothly to roll, pitch, and yaw commands in a test flight, without persistent oscillation or unintended rotation. See [](dd24-flying) for the test flight, and [](dd24-troubleshooting-flight) if the Duckiedrone oscillates or drifts.
 
 ```{warning}
 The Betaflight PID tuning workflow and its recommended values do not apply to the Duckiedrone DD24-B. Do not copy Betaflight-specific PID values onto the PX4 Flight Controller. Betaflight Configurator is used only in [](dd24-esc-init), before PX4 is installed.

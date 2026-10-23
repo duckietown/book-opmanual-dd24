@@ -275,7 +275,7 @@ By default the ESCs give off a beep after a while without commands, which quickl
 
 ## 5. Disconnect the battery
 
-Disconnect the LiPo battery from the Duckiedrone.
+Disconnect the LiPo battery from the XT60 lead of the PDB.
 
 The ESCs are now running Bluejay. Next, continue to [Initializing the Flight Controller](dd24-fc-init) to flash the PX4 firmware.
 
@@ -285,7 +285,7 @@ The ESCs are now running Bluejay. Next, continue to [Initializing the Flight Con
 ```{trouble}
 The ESC Configurator does not detect any ESCs after `Read Setup`.
 ---
-The ESCs are not powered. Check that the LiPo battery is connected to the Duckiedrone, since the Flight Controller's USB power is not enough to run the ESCs, and then click `Read Setup` again.
+The ESCs are not powered. Check that the LiPo battery is connected to the XT60 lead of the PDB, since the Flight Controller's USB power is not enough to run the ESCs, and then click `Read Setup` again.
 ```
 
 ```{trouble}

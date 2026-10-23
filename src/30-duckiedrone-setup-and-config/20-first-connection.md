@@ -1,6 +1,6 @@
 ```{seo}
 :description: Connect to a Duckiedrone DD24-B for the first time and check the connection from the base station.
-:keywords: Duckiedrone first connection, DD24 network setup, Duckiedrone Dashboard, Wi-Fi configuration
+:keywords: Duckiedrone first connection, DD24 network setup, Wi-Fi configuration
 ```
 
 ```{needget}
