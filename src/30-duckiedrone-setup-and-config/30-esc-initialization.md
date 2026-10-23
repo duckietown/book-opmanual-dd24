@@ -6,7 +6,7 @@
 ```{needget}
 - A base station computer with a Chrome-based browser
 
-- An assembled Duckiedrone DD24-B, with the ESC board wired to the Flight Controller and the four motors attached: [](duckiedrone-dd24-b-assembly-instructions)
+- The Flight Controller stacked on the PDB, with the four motors soldered to the PDB, as built up to step 8 of the [assembly instructions](duckiedrone-dd24-b-assembly-instructions)
 
 - USB-A-to-USB-C cable
 
@@ -18,7 +18,7 @@
 (dd24-esc-init)=
 # Initializing the ESCs
 
-The four Electronic Speed Controllers (ESCs) translate the Flight Controller's commands into the currents that drive the motors. This page describes how to flash the [Bluejay](https://github.com/bird-sanctuary/bluejay) firmware onto the four ESCs using the [esc-configurator.com](https://esc-configurator.com/) web tool.
+The four Electronic Speed Controllers (ESCs) translate the Flight Controller's commands into the currents that drive the motors. On the Duckiedrone DD24-B, each ESC is built into its motor. This page describes how to flash the [Bluejay](https://github.com/bird-sanctuary/bluejay) firmware onto the four ESCs using the [esc-configurator.com](https://esc-configurator.com/) web tool.
 
 Bluejay is required because the stock `BLHeli_S` firmware on the ESCs ignores the DShot commands that PX4 uses to reverse a motor. Without Bluejay, the spin directions cannot be corrected in [](dd24-motor-configuration).
 
@@ -28,13 +28,27 @@ Bluejay is required because the stock `BLHeli_S` firmware on the ESCs ignores th
 
 ## 1. (skip if not necessary) Flash Betaflight onto the Flight Controller (FC)
 
- ```{attention}
-This step should not be necessary because the Duckiedrone DD24-B ships with Betaflight `BTFL 4.3.2` for the `MAMBAF405_2022B` target already installed on the FC. Follow this step only if this is not the case.
-```
-
-The ESC configuration tool does not talk to the ESCs directly, but reaches them through the Flight Controller. For this to work, **Betaflight** (target firmware `BTFL 4.3.2`) needs to be flashed on the Flight Controller. If the Flight Controller does not already have Betaflight installed, go ahead and flash it.
+The ESC configuration tool does not talk to the ESCs directly, but reaches them through the Flight Controller. For this to work, **Betaflight** (target firmware `BTFL 4.3.2`) needs to be running on the Flight Controller.
 
 Start by installing [Betaflight Configurator **v10.9.0**](https://github.com/betaflight/betaflight-configurator/releases/tag/10.9.0) on the base station and opening it.
+
+```{note}
+On Ubuntu 24.04 and later, the `.deb` package fails to install because its `libgconf-2-4` dependency is no longer in the Ubuntu archive. Download `betaflight-configurator_10.9.0_linux64-portable.zip` from the same release page instead, extract it, and run the `betaflight-configurator` file in the extracted `Betaflight Configurator` folder.
+```
+
+### Checking the Flight Controller firmware
+
+The Duckiedrone DD24-B ships with Betaflight `BTFL 4.3.2` for the `MAMBAF405_2022B` target already installed on the Flight Controller. To check the firmware on the board:
+
+````{testexpect}
+Without pressing the `BOOT` button, connect the Flight Controller to the base station with the USB-A-to-USB-C cable. In Betaflight Configurator, select the Flight Controller port in the top toolbar and click `Connect`.
+---
+The top-left corner of Betaflight Configurator reports `BTFL 4.3.2` and `MAMBAF405_2022B`.
+````
+
+- If the board reports `BTFL 4.3.2` and `MAMBAF405_2022B`, click `Disconnect` and skip to [section 2](dd24-esc-init-connect).
+
+- If Betaflight Configurator cannot connect, or reports a different firmware, follow the rest of this section.
 
 Next, open the `Firmware Flasher` tab from the left sidebar and set the options to match the board, as shown below. The Duckiedrone uses the Mamba F405 MK2 V2, so select the `MAMBAF405_2022B` target and the `BTFL 4.3.2` firmware version.
 
@@ -60,7 +74,11 @@ The small `BOOT` button on the Flight Controller puts the board into bootloader 
 `BOOT` button location on the Mamba F405 MK2 V2 Flight Controller.
 ```
 
-Remove power from the Duckiedrone if it is powered on. Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side. This USB-A cable now connects the Flight Controller to the base station.
+Disconnect the LiPo battery if it is connected, and unplug the USB cable from the base station.
+
+```{note}
+On a fully assembled Duckiedrone, the Flight Controller USB cable is plugged into the Raspberry Pi. Unplug it at the Raspberry Pi end and use it to connect the Flight Controller to the base station.
+```
 
 With the board still disconnected, press and hold the `BOOT` button while connecting the USB-A cable to the base station, and then release the button. The board is now waiting in bootloader mode.
 
@@ -122,6 +140,7 @@ A freshly flashed board comes up with the stock Betaflight defaults, which do no
 
 When the configuration is in place, click `Disconnect` so the serial port is free for the ESC tool in the next step.
 
+(dd24-esc-init-connect)=
 ## 2. Connect to the ESCs
 
 ```{note}
@@ -130,7 +149,7 @@ Use a Chrome-based browser (Google Chrome, Microsoft Edge, and so on).
 
 1. Make sure the motors **do not** have propellers attached.
 
-2. Check that the ESC board is wired to the Flight Controller. The ESC tool reaches the ESCs only through this connection, so the ribbon connector between the ESC board and the Flight Controller has to be fully seated at both ends, with all four motor leads attached to the ESC board.
+2. Check that the PDB is wired to the Flight Controller. The ESC tool reaches the ESCs inside the motors only through this connection, so the ribbon connector between the PDB and the Flight Controller has to be fully seated at both ends, with all four motors soldered to the PDB.
 
 3. Disconnect Betaflight (if connected), or any other programs that might be using the serial port connected to the Flight Controller.
 
@@ -161,11 +180,21 @@ Use a Chrome-based browser (Google Chrome, Microsoft Edge, and so on).
 
 8. The ESCs cannot draw power from the Flight Controller over USB: the LiPo battery must be connected for them to power up and accept programming.
 
+   If this is the first time the battery is plugged in, check the solder joints for a short circuit first, with the battery disconnected and the boards on a non-conductive surface:
+
+   ```{testexpect}
+   Set the multimeter to continuity mode, as described in [](continuity_check), and touch the probes to the positive (`+`) and negative (`-`) battery pads on the PDB.
+   ---
+   The multimeter does not beep continuously. A short beep that stops at once is the capacitor charging. A continuous beep means a short circuit: do not connect the battery, and check the solder joints.
+   ```
+
+   Also check that the red wire of the XT60 lead is soldered to the positive (`+`) pad of the PDB, and the black wire to the negative (`-`) pad.
+
    ```{attention}
    If this is the first time the battery is plugged in, watch for anything that becomes hot, and be ready to unplug the battery if so.
    ```
 
-   Connect the LiPo battery to the Duckiedrone. The ESCs are now powered and ready to be read:
+   Connect the LiPo battery to the XT60 lead of the PDB. The ESCs are now powered and ready to be read:
 
    ```{figure} ../_images/esc-init/01-esc-configurator-battery-plugin.jpg
    :align: center
