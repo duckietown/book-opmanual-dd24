@@ -31,7 +31,7 @@ On the `ente` distribution, the flight code runs inside Duckietown containers an
 Check that `ente` is the active Duckietown Shell profile:
 
 ````{testexpect}
-Run:
+On the base station, run:
 
 ```bash
 dts profile list
@@ -40,7 +40,7 @@ dts profile list
 The `ente` row starts with `>>`, which marks the active profile.
 ````
 
-Then update the Duckietown Shell, its commands, and the Duckietown desktop software, in this order:
+Then, on the base station, update the Duckietown Shell, its commands, and the Duckietown desktop software, in this order:
 
 ```bash
 pipx upgrade duckietown-shell
@@ -50,7 +50,7 @@ dts desktop update
 
 ## 2. Update the Duckiedrone
 
-Pull the latest containers onto the Duckiedrone, replacing `ROBOT_NAME` with the hostname set during the [microSD card initialization](dd24-sw-init):
+On the base station, pull the latest containers onto the Duckiedrone, replacing `ROBOT_NAME` with the hostname set during the [microSD card initialization](dd24-sw-init):
 
 ```bash
 dts duckiebot update ROBOT_NAME

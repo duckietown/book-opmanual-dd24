@@ -93,8 +93,6 @@ The `hostname` **must** start with a lower-case letter and may contain **only** 
 - ❌ `My Duckiedrone`
 
 - ❌ `Argo`
-
-The `hostname` **cannot** be changed after the first boot.
 ```
 
 ```{attention}

@@ -99,7 +99,7 @@ SSH always possible: `ssh duckie@amelia.local`
 
 ### Checkpoint ✅
 
-When a connection is established, all four checks below pass. Run them in order.
+When a connection is established, all three checks below pass. Run them in order.
 
 `ROBOT_NAME` is the Duckiedrone name chosen during the [microSD card flashing procedure](dd24-sw-init). `ROBOT_IP` is the Duckiedrone IP address, shown in the `Address` column of `dts fleet discover` when available.
 
@@ -155,18 +155,6 @@ If `ROBOT_NAME.local` does not resolve, commands that use that name will not wor
 The network must support [mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) to resolve `ROBOT_NAME.local`; mDNS is not required to reach the Duckiedrone by IP address. If name resolution is needed, ask whoever manages the network about mDNS on the subnet.
 ```
 
-To verify that the Dashboard is reachable:
-
-```{testexpect}
-On the base station, open a browser and go to `http://ROBOT_NAME.local/`, or to `http://ROBOT_IP/` if the name does not resolve.
----
-The Duckiedrone Dashboard loads.
-```
-
-The Dashboard can also be opened with `dts duckiebot dashboard ROBOT_NAME` if the name resolves, or `dts duckiebot dashboard ROBOT_IP` to connect by IP address. Commands that accept a target host also support `-H ROBOT_IP`.
-
-The Dashboard provides access to many tools to manage the Duckiedrone. See [](dd24-dashboard-overview) for what each part of the Dashboard does.
-
 To verify that Secure Shell (`ssh`) access works:
 
 ```{testexpect}
@@ -174,6 +162,8 @@ On the base station, run `ssh duckie@ROBOT_NAME.local`, or `ssh duckie@ROBOT_IP`
 ---
 A shell prompt on the Duckiedrone opens.
 ```
+
+Type `exit` to close the `ssh` session and return to the base station shell.
 
 ## Troubleshooting
 
