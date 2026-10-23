@@ -22,10 +22,14 @@ The Flight Controller handles safety-critical low-level behaviors, such as attit
 
 The Duckiedrone DD24-B runs the [PX4 Autopilot](https://px4.io/) firmware, an open-source flight-control software platform, built for the `mamba-f405-mk2` target.
 
+```{attention}
+Flashing and configuring the Flight Controller runs directly on a Linux (Ubuntu) or macOS base station, not inside a Duckietown Workspace, because the flashing tools need direct access to the USB port. Windows is not supported for these steps.
+```
+
 (dd24-fc-setup-steps)=
 ## Flight Controller setup steps
 
-For a new or re-flashed Flight Controller, first initialize it and then configure it. Repeat either procedure only when the firmware or parameter set is intentionally reinstalled.
+For a new or re-flashed Flight Controller, first follow [](dd24-fc-init), then [](dd24-b-fc-config). Sensor calibration comes later, once the Duckiedrone is fully assembled. Repeat either procedure only when the firmware or parameter set is intentionally reinstalled.
 
 ```{tableofcontents}
 ```
