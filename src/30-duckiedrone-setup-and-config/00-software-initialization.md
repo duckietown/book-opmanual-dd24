@@ -22,7 +22,9 @@ The Duckiedrone uses a Raspberry Pi as an onboard "companion" computer. It requi
 
 1. [The "fast" way](dd24-sw-init-fast): simpler, works on any operating system, and supports customization only on Ubuntu. It is appropriate for a single Duckiedrone setup. If you plan to connect multiple Duckiedrones to the same network at the same time, use the advanced initialization procedure.
 
-2. [The "complete" way](dd24-sw-init-adv): requires a Duckietown Shell installation on the base station, but offers full customization. You must use this procedure if you plan to use more than one Duckiedrone on the same network at the same time.
+2. [The "complete" way](dd24-sw-init-adv): offers full customization. You must use this procedure if you plan to use more than one Duckiedrone on the same network at the same time.
+
+Both procedures require a Duckietown Shell (`dts`) installation on the base station.
 
 After initializing a microSD card and completing the [first boot](dd24-first-boot), settings such as the hostname, Wi-Fi configuration, or `duckie` account password can be changed without reflashing it. Follow the [](dd24-update-initialized-sd-card) instructions for `dts sd_card update`.
 

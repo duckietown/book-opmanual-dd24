@@ -130,7 +130,7 @@ On Ubuntu, the microSD card will mount three partitions after flashing:
 
 The `configfs` partition includes:
 
-- `hostname.txt`: this is the `robotname`, which defaults to `amelia`. Keep in mind: (a) it cannot be changed after the first boot, and (b) there are [constraints on the naming](dd24-hostname-constraints).
+- `hostname.txt`: this is the `robotname`, which defaults to `amelia`. There are [constraints on the naming](dd24-hostname-constraints).
 
 - `country.txt`: contains the two-letter country [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). The default is `US`; change it to the country where the Duckiedrone will fly if needed.
 

@@ -77,8 +77,6 @@ The `ROBOT_NAME` row appears. Its `Status` column first reads `Booting`, then `R
 
 Once the `Status` column reads `Ready`, [connect to the Duckiedrone](dd24-first-connection).
 
-After establishing the first connection, bring the Duckiedrone software up to date by following [](dd24-environment-setup).
-
 <!--
 Watch a short video of a busy Raspberry Pi booting up for the first time: [Raspberry Pi first boot](https://vimeo.com/728539828/6cbc396872)
 -->
