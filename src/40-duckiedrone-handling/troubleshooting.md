@@ -259,13 +259,13 @@ If the widget reads `ARMED` but the motors are silent:
 
 2. Remove all the propellers, and keep them off for the rest of these checks.
 
-3. With the battery unplugged, inspect the connector between the Flight Controller and the ESC board, and all the motor leads.
+3. With the battery unplugged, inspect the connector between the Flight Controller and the PDB, and all the motor leads.
 
 4. Connect QGroundControl as described in [](qgroundcontrol-connection), and check that the ESC protocol matches the supplied Duckiedrone parameter file, as described in [](dd24-b-fc-config).
 
 5. On the **Actuators** page, spin each motor individually. Motor 1 is the front-right motor, seen from above with the camera facing forward. See [](dd24-motor-configuration) for the full motor order.
 
-6. If a motor does not spin from the **Actuators** page, check that the ESCs are initialized as described in [](dd24-esc-init).
+6. If a motor does not spin from the **Actuators** page, check that the ESCs are initialized as described in [](dd24-esc-init). Initializing the ESCs replaces PX4 with Betaflight on the Flight Controller. Afterwards, repeat [](dd24-fc-init) and [](dd24-b-fc-config).
 ```
 
 ```{trouble}
@@ -305,7 +305,7 @@ Unplug the battery and inspect the Duckiedrone:
 
 - Check that the camera is mounted firmly in its 60-degree holder and faces the front of the Duckiedrone.
 
-- Check that the ESCs are flashed with Bluejay, as described in [](dd24-esc-init).
+- Check that the ESCs are flashed with Bluejay, as described in [](dd24-esc-init). Initializing the ESCs replaces PX4 with Betaflight on the Flight Controller. Afterwards, repeat [](dd24-fc-init) and [](dd24-b-fc-config).
 
 - Repeat the sensor calibrations as described in [](dd24-sensor-calibration).
 
@@ -338,7 +338,7 @@ Then run the `dts sd_card init` command again, as described in [](dd24-sw-init-a
 ```{trouble}
 The ESC Configurator does not detect any ESCs after `Read Setup`.
 ---
-The ESCs are not powered. USB alone does not power the ESCs, so connect the LiPo battery to the Duckiedrone, then click `Read Setup` again. See [](dd24-esc-init).
+The ESCs are not powered. USB alone does not power the ESCs, so connect the LiPo battery to the XT60 lead of the PDB, then click `Read Setup` again. See [](dd24-esc-init).
 ```
 
 ```{trouble}
