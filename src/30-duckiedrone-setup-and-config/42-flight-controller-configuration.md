@@ -23,7 +23,7 @@ In the previous step, the Flight Controller was prepared for configuration by fl
 This page describes how to install QGroundControl, connect to the Flight Controller over USB, and configure the vehicle parameters from a Duckietown preset parameters file.
 
 ```{danger}
-Before beginning, **remove the propellers** and **disconnect the battery from the Duckiedrone**.
+Before beginning, **remove the propellers** and **disconnect the battery from the PDB**.
 ```
 
 (qgroundcontrol-installation)=
@@ -43,7 +43,7 @@ Before beginning, **remove the propellers** and **disconnect the battery from th
 (dd24-b-fc-config-connect)=
 ## Connecting to the Flight Controller
 
-Connect to the Duckiedrone over USB:
+Connect to the Flight Controller over USB:
 
 - Connect a data-capable USB-A-to-USB-C cable from the base station to the Flight Controller.
 
@@ -124,17 +124,17 @@ Re-record the parameter-loading walkthrough video for PX4 (the previous Vimeo ca
 (dd24-b-fc-config-tips)=
 ## Next step
 
-On-board calibration is mandatory: the shipped `.params` file deliberately omits all `CAL_*` (accelerometer and gyroscope calibration) entries because those are tied to the sensor IDs of a specific board. After loading the parameters, continue to [](dd24-sensor-calibration) to calibrate the sensors on the actual Flight Controller.
+On-board calibration is mandatory: the shipped `.params` file deliberately omits all `CAL_*` (accelerometer and gyroscope calibration) entries because those are tied to the sensor IDs of a specific board. Calibrate the sensors in [](dd24-sensor-calibration) once the Duckiedrone is fully assembled, since the level calibration depends on how the Flight Controller sits in the frame.
 
 (dd24-fc-tuning)=
 ## Flight Controller tuning
 
 The Flight Controller stabilizes the Duckiedrone with proportional-integral-derivative (PID) controllers, which use feedback from sensors such as the IMU to follow the commanded attitude and yaw rate. The supplied `duckiedrone-px4-v4.params` file already contains the tuning for the Duckiedrone DD24-B, so no manual tuning is needed.
 
-After loading the parameter file and [calibrating the sensors](dd24-sensor-calibration), the Duckiedrone should respond smoothly to roll, pitch, and yaw commands in a test flight, without persistent oscillation or unintended rotation. See [](dd24-flying) for the test flight, and [](dd24-troubleshooting-flight) if the Duckiedrone oscillates or drifts.
+Once the Duckiedrone is fully assembled, its [sensors are calibrated](dd24-sensor-calibration) and its [motors are configured](dd24-motor-configuration), it should respond smoothly to roll, pitch, and yaw commands in a test flight, without persistent oscillation or unintended rotation. See [](dd24-flying) for the test flight, and [](dd24-troubleshooting-flight) if the Duckiedrone oscillates or drifts.
 
 ```{warning}
-The Betaflight PID tuning workflow and its recommended values do not apply to the Duckiedrone DD24-B. Do not use Betaflight Configurator or copy Betaflight-specific PID values onto the PX4 Flight Controller.
+The Betaflight PID tuning workflow and its recommended values do not apply to the Duckiedrone DD24-B. Do not copy Betaflight-specific PID values onto the PX4 Flight Controller. Betaflight Configurator is used only in [](dd24-esc-init), before PX4 is installed.
 ```
 
 A validated per-axis PX4 PID-tuning procedure for the Duckiedrone DD24-B is not available yet.

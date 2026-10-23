@@ -93,11 +93,13 @@ Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
 (fc-init-dfu-mode-boot)=
 ## 2. Boot the Flight Controller in DFU mode
 
-- Remove power from the Duckiedrone if it is powered on.
+- Disconnect the LiPo battery if it is connected, and unplug the USB cable from the base station.
 
-- Disconnect the USB cable connecting the Flight Controller to the Raspberry Pi on the Raspberry Pi side.
+```{note}
+On a fully assembled Duckiedrone, the Flight Controller USB cable is plugged into the Raspberry Pi. Unplug it at the Raspberry Pi end and use it to connect the Flight Controller to the base station.
+```
 
-- Reconnect this USB-A cable to the base station while keeping the **BOOT** button on the side of the Flight Controller pressed.
+- Connect the Flight Controller to the base station with the USB-A cable while keeping the **BOOT** button on the side of the Flight Controller pressed.
 
 ```{figure} ../_images/fc-setup/mamba-boot-button.png
 :align: center
