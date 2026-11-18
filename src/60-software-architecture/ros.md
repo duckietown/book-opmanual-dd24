@@ -14,7 +14,7 @@ ROS 2 is middleware for exchanging typed data between *nodes*. A node is a named
 
 ### ROS 2 discovery
 
-ROS 2 does not use the ROS 1 master or `roscore`. On the Duckiedrone, ROS 2 components run in Docker containers. The `zenoh-router` container runs `rmw_zenohd`; the current ROS 2 containers use `ROS_DOMAIN_ID=42` and communicate through this router. See [](duckiedrone-containers) for the current container reference.
+ROS 2 does not use the ROS 1 master or `roscore`. On the Duckiedrone, ROS 2 components run in Docker containers. The `zenoh-router` container runs `rmw_zenohd`; the ROS 2 containers run on the default ROS domain (`ROS_DOMAIN_ID` unset) and communicate through this router. See [](duckiedrone-containers) for the current container reference.
 
 ### ROS 2 nodes
 
