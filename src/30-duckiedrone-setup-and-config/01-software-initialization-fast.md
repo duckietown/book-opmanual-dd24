@@ -71,14 +71,14 @@ Downloading this image means accepting the [Duckietown Software License](https:/
 
 Download the latest Duckiedrone ente image to the base station:
 
-```{button-link} https://cutt.ly/amelia02-dd24-b-image-aws
+```{button-link} https://duckietown-public-storage.s3.us-east-1.amazonaws.com/brown/disk_image/amelia02-dd24-v4.1.5.img.zip
 :color: primary
 :shadow:
 
 Download the Duckiedrone DD24(-B) image from AWS
 ```
 
-```{button-link} https://cutt.ly/dd24-b-amelia02-image
+```{button-link} https://drive.google.com/file/d/1nFSKm6rl6Vb6aAV0hZ6LXovUi5uC1Zk7/view?usp=sharing
 :color: info
 :shadow:
 
