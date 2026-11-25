@@ -108,17 +108,17 @@ If `ROBOT_NAME.local` does not resolve, use the Duckiedrone IP address instead, 
 http://ROBOT_IP/
 ```
 
-The first time the Dashboard is opened on a freshly flashed Duckiedrone, it shows a four-step **setup wizard**. Complete the steps until the **Robot > Info** page appears.
+The first time the Dashboard is opened on a freshly flashed Duckiedrone, it shows a four-step **setup wizard**. Complete the steps until the **Overview** tab appears.
 
-After the setup, the Dashboard opens directly on the **Robot > Info** page.
+After the setup, the Dashboard opens directly on the **Overview** tab.
 
 ```{figure} ../_images/dashboard/info-tab.png
 :name: fig-environment-setup-info-tab
 :align: center
 :width: 700px
-:alt: Dashboard Robot Info page showing the robot name, type, configuration, firmware, and temperature, disk, CPU, RAM, frequency, and battery gauges
+:alt: Dashboard Overview tab showing the host, type, configuration, board, model, and firmware, CPU, RAM, and disk bars, temperature, power and thermal status, battery charge, voltage, and current, and the network connection
 
-The **Robot > Info** page of the Dashboard.
+The **Overview** tab of the Dashboard.
 ```
 
 ## 4. Check the connection
@@ -126,9 +126,9 @@ The **Robot > Info** page of the Dashboard.
 ```{testexpect}
 Click the **Mission Control** tab.
 ---
-- The top bar reads **Bridge: Connected**.
+- The top bar reads **Bridge connected**.
 
-- In **Heartbeats Monitor**, the `JOYSTICK` heart is green.
+- In **Heartbeats Monitor**, the `ALTITUDE` tile reads `OK`.
 ```
 
 Together, these show that the Duckiedrone containers are running and the Dashboard is receiving ROS 2 data.
@@ -156,7 +156,7 @@ Update the Duckiedrone again as described in step 2. If the problem persists, se
 ```
 
 ```{trouble}
-The top bar does not read **Bridge: Connected**.
+The top bar does not read **Bridge connected**.
 ---
 The Dashboard receives ROS 2 data through the `ros2-rosbridge-websocket` container. Check in Portainer that it reads `healthy`, then see [](dd24-troubleshooting-containers).
 ```

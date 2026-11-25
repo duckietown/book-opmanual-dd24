@@ -15,6 +15,8 @@
 
 - Knowledge of the Dashboard controls: [](dd24-dashboard-overview)
 
+- A Duckietown account, to sign in to the Dashboard: [](dd24-dashboard-sign-in)
+
 - Safety goggles
 
 - A flat, matte, non-reflective takeoff surface
@@ -87,14 +89,14 @@ With the battery unplugged:
 
 ## Power up and check the Dashboard
 
-Plug the battery into the Duckiedrone and wait until the Dashboard loads at `http://ROBOT_NAME.local/`.
+Plug the battery into the Duckiedrone and wait until the Dashboard loads at `http://ROBOT_NAME.local/`. Sign in as described in [](dd24-dashboard-sign-in). Without signing in, the Duckiedrone ignores every command from the Dashboard.
 
 ```{testexpect}
 Open the Dashboard on the **Mission Control** tab. Pass a hand under the Duckiedrone, then tilt and turn it.
 ---
-- The top bar reads **Bridge: Connected**.
+- The top bar reads **Bridge connected**.
 
-- In **Heartbeats Monitor**, the `JOYSTICK` heart is green.
+- In **Heartbeats Monitor**, the `JOYSTICK` tile reads `OK`.
 
 - **Arm / Disarm** reads `DISARMED`.
 
@@ -115,7 +117,7 @@ See [](dd24-dashboard-overview) for what each widget shows.
 ```{danger}
 There are two ways to stop the motors, and they do not behave the same:
 
-- <kbd>Space</kbd> resets the throttle to `0` and asks PX4 to disarm. The **ARM / DISARM** toggle only asks PX4 to disarm. PX4 can refuse to disarm while the Duckiedrone is in the air. The Dashboard then shows a **Disarming failed** message and the motors keep running.
+- <kbd>Space</kbd> resets the throttle to `0` and asks PX4 to disarm. The **ARM / DISARM** button only asks PX4 to disarm. PX4 can refuse to disarm while the Duckiedrone is in the air. The Dashboard then shows a **Disarming failed** message and the motors keep running.
 
 - **KILL** forces the disarm. The motors stop immediately, so a flying Duckiedrone falls. Use it only in an emergency.
 
@@ -130,14 +132,14 @@ In `STABILIZED` mode, PX4 keeps the Duckiedrone level but does not hold its heig
 
 3. In the **Arm / Disarm** widget, click **STABILIZED**. No flight mode is selected by default. The button becomes highlighted only once PX4 has entered the mode; if it stays unhighlighted, PX4 refused the mode, so do not arm.
 
-4. Click the **ARM / DISARM** toggle. The motors start spinning at idle speed as soon as the Duckiedrone is armed, so keep hands and objects clear of the propellers before clicking.
+4. Click the **ARM / DISARM** button. The motors start spinning at idle speed as soon as the Duckiedrone is armed, so keep hands and objects clear of the propellers before clicking.
     - If the motors spin fast or make strange noises, **immediately** disarm with <kbd>Space</kbd>, or click **KILL** if the Duckiedrone does not respond.
 
     - If the motors do not spin at all, see the troubleshooting at the end of this page.
 
-5. Disarm with the toggle or <kbd>Space</kbd>. The motors stop almost immediately. Arm and disarm once or twice more to check that the Duckiedrone responds.
+5. Disarm with the **ARM / DISARM** button or <kbd>Space</kbd>. The motors stop almost immediately. Arm and disarm once or twice more to check that the Duckiedrone responds.
 
-6. Arm once more and click **KILL**. The motors stop and the toggle returns to `DISARMED`. After **KILL**, the Duckiedrone is disarmed and can be armed again as usual.
+6. Arm once more and click **KILL**. The motors stop and the **ARM / DISARM** button returns to `DISARMED`. After **KILL**, the Duckiedrone is disarmed and can be armed again as usual.
 
 ### Checkpoint 1 ✅
 
@@ -148,11 +150,11 @@ Complete steps 3 to 6 above.
 ---
 - The **STABILIZED** button becomes highlighted.
 
-- After arming, the toggle reads `ARMED`, all four motors spin at idle speed, and the **Motors PWM** lines leave `0`.
+- After arming, the **ARM / DISARM** button reads `ARMED`, all four motors spin at idle speed, and the **Motors PWM** lines leave `0`.
 
-- After <kbd>Space</kbd>, the toggle reads `DISARMED`, the motors stop, and the **Motors PWM** lines return to `0`.
+- After <kbd>Space</kbd>, the **ARM / DISARM** button reads `DISARMED`, the motors stop, and the **Motors PWM** lines return to `0`.
 
-- After **KILL**, the toggle reads `DISARMED` and the motors stop.
+- After **KILL**, the **ARM / DISARM** button reads `DISARMED` and the motors stop.
 ```
 
 ## Monitoring during flight
@@ -165,20 +167,20 @@ Keep the Mission Control page visible while the Duckiedrone is in the air. If an
 
 - The Duckiedrone descends on its own. The battery is critically low and PX4 is landing the Duckiedrone. Let it land, disarm, and charge the battery.
 
-- **Heartbeats Monitor**: the `JOYSTICK` heart stops being green, which means the **Remote Control** widget is no longer publishing.
+- **Heartbeats Monitor**: the `JOYSTICK` tile reads `STALE`, which means the **Remote Control** widget is no longer publishing.
 
 ## First flight in STABILIZED
 
 1. Arm the Duckiedrone again.
 
 2. Take off:
-    - **First flight of this Duckiedrone, or from a new browser**: **Thrust Cap** starts deliberately low, so the Duckiedrone cannot take off yet. Raise **Thrust Cap** a little at a time, and after each change hold <kbd>↑</kbd> in short bursts until the Duckiedrone just leaves the ground. PX4 disarms a Duckiedrone that has not taken off about 10 seconds after arming, so expect to arm again between attempts. Read the percentage printed under the throttle gauge at liftoff, enter it into **Hover**, then set **Thrust Cap** slightly above it. See [](dd24-dashboard-throttle-ramp) for what both fields do.
+    - **First flight of this Duckiedrone, or from a new browser**: **Thrust Cap %** starts deliberately low, so the Duckiedrone cannot take off yet. Raise **Thrust Cap %** a little at a time, and after each change hold <kbd>↑</kbd> in short bursts until the Duckiedrone just leaves the ground. PX4 disarms a Duckiedrone that has not taken off about 10 seconds after arming, so expect to arm again between attempts. Read the percentage printed under the throttle gauge at liftoff, enter it into **Hover %**, then set **Thrust Cap %** slightly above it. See [](dd24-dashboard-throttle-ramp) for what both fields do.
 
     - **Hover and Thrust Cap already set**: hold <kbd>↑</kbd> in short bursts to raise the throttle slowly until the Duckiedrone lifts off.
 
 3. Steer with <kbd>W</kbd>/<kbd>A</kbd>/<kbd>S</kbd>/<kbd>D</kbd> and turn with <kbd>←</kbd>/<kbd>→</kbd>. Keep adjusting the height with <kbd>↑</kbd>/<kbd>↓</kbd>.
 
-4. To land, bring the Duckiedrone down gently: hold <kbd>↓</kbd> in short bursts so it descends slowly, and disarm with the toggle or <kbd>Space</kbd> once it touches down. If the Dashboard shows **Disarming failed**, the Duckiedrone is not yet on the ground: keep lowering the throttle and disarm again.
+4. To land, bring the Duckiedrone down gently: hold <kbd>↓</kbd> in short bursts so it descends slowly, and disarm with the **ARM / DISARM** button or <kbd>Space</kbd> once it touches down. If the Dashboard shows **Disarming failed**, the Duckiedrone is not yet on the ground: keep lowering the throttle and disarm again.
 
 ```{danger}
 Keep hands away from the propellers while the Duckiedrone is armed. Always disarm before approaching it.
@@ -209,13 +211,13 @@ In `OFFBOARD` mode, an external controller flies the Duckiedrone by publishing s
 ## Troubleshooting
 
 ```{trouble}
-The ARM toggle snaps back to DISARMED a second after clicking it.
+The ARM / DISARM button returns to DISARMED a second after clicking it.
 ---
 PX4 rejected the arming request. The Dashboard shows an **Arming failed** message with the reason PX4 reported, such as `Pre-flight checks failed` or `Command denied`. Go through the causes below in order, and retry arming after each one:
 
 1. The throttle is not at zero. PX4 refuses to arm unless the throttle gauge in the **Remote Control** widget reads `0`. Press <kbd>Space</kbd> to reset it.
 
-2. PX4 is not receiving the **Remote Control** commands. Keep the **Mission Control** tab open and in the foreground, and check that the `JOYSTICK` heart in **Heartbeats Monitor** is green.
+2. PX4 is not receiving the **Remote Control** commands. Keep the **Mission Control** tab open and in the foreground, and check that the `JOYSTICK` tile in **Heartbeats Monitor** reads `OK`.
 
 3. No flight mode is active. Click **STABILIZED** and wait for the button to become highlighted before arming.
 
@@ -230,6 +232,12 @@ PX4 rejected the arming request. The Dashboard shows an **Arming failed** messag
 8. The battery charge is below 20%. Charge the battery.
 
 If arming still fails, connect QGroundControl as described in [](qgroundcontrol-connection). It reports which preflight check is failing.
+```
+
+```{trouble}
+The ARM / DISARM button reads ARMED, but the motors do not spin and **Motors PWM** stays at `0`.
+---
+The Dashboard is not signed in, so the Duckiedrone ignores the command. Reload the page, then sign in as described in [](dd24-dashboard-sign-in).
 ```
 
 ```{trouble}
@@ -253,13 +261,13 @@ Disarm immediately. A propeller is on the wrong motor, or a motor is in the wron
 ```{trouble}
 The Duckiedrone does not lift off, even with the throttle at the Thrust Cap.
 ---
-**Thrust Cap** starts deliberately low. Raise it a little at a time as described in the first flight steps. If the Duckiedrone still does not lift off, see [](dd24-troubleshooting-flight).
+**Thrust Cap %** starts deliberately low. Raise it a little at a time as described in the first flight steps. If the Duckiedrone still does not lift off, see [](dd24-troubleshooting-flight).
 ```
 
 ```{trouble}
 The Duckiedrone climbs too fast.
 ---
-**Thrust Cap** is too far above **Hover**. Land, lower **Thrust Cap** until it is only slightly above **Hover**, and raise the throttle in short bursts. See [](dd24-dashboard-throttle-ramp).
+**Thrust Cap %** is too far above **Hover %**. Land, lower **Thrust Cap %** until it is only slightly above **Hover %**, and raise the throttle in short bursts. See [](dd24-dashboard-throttle-ramp).
 ```
 
 ```{trouble}

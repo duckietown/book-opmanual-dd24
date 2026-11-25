@@ -22,11 +22,11 @@ Open the Dashboard on the **Mission Control** tab. Each widget reads from a diff
 | What the Dashboard shows | What it means | Where to go |
 | --- | --- | --- |
 | The Dashboard does not load | The Raspberry Pi is not running, or the base station cannot reach it | [](dd24-troubleshooting-power) and [](dd24-troubleshooting-connection) |
-| The top bar does not read **Bridge: Connected**, or no widget updates | The Dashboard is not receiving ROS 2 data | [](dd24-troubleshooting-containers) |
+| The top bar does not read **Bridge connected**, or no widget updates | The Dashboard is not receiving ROS 2 data | [](dd24-troubleshooting-containers) |
 | **Motors PWM**, **IMU - Orientation**, and **Arm / Disarm** show no data, while **Time-of-Flight** and **Camera** work | The Flight Controller is not connected | [](dd24-troubleshooting-sensors) |
 | **Time-of-Flight** shows no `Bottom` line | The bottom Time-of-Flight sensor or its containers are not working | [](dd24-troubleshooting-sensors) |
 | **Camera** is blank | The camera or its containers are not working | [](dd24-troubleshooting-sensors) |
-| **Altitude** is empty, or the `ALTITUDE`, `STATE`, and `PID` hearts are not green | Nothing is wrong. The default Duckiedrone software does not run these nodes | [](dd24-troubleshooting-containers) |
+| The `STATE` and `PID` tiles of **Heartbeats Monitor** read `STALE` | Nothing is wrong. The default Duckiedrone software does not run these nodes | [](dd24-troubleshooting-containers) |
 | Every widget shows data, but the Duckiedrone does not arm or fly | The issue is in arming, the motors, or the propellers | [](dd24-troubleshooting-flight) |
 
 (dd24-troubleshooting-portainer)=
@@ -46,7 +46,11 @@ The Duckiedrone software runs in containers. Portainer is the web page that show
 
 If several containers are not working, or a restart does not help:
 
-- Reboot the Duckiedrone from the **Power** menu on the Dashboard.
+- Reboot the Duckiedrone from the base station:
+
+    ```bash
+    dts duckiebot reboot ROBOT_NAME
+    ```
 
 - Pull and restart all the containers from the base station:
 
@@ -151,7 +155,7 @@ Restart any container that does not. If a container is missing or still does not
 ```{trouble}
 The Dashboard shows all the widgets, but nothing updates.
 ---
-The top bar of **Mission Control** shows the bridge status. If it does not read **Bridge: Connected**, the Dashboard is not receiving ROS 2 data.
+The top bar of **Mission Control** shows the bridge status. If it does not read **Bridge connected**, the Dashboard is not receiving ROS 2 data.
 
 1. Reload the Dashboard page.
 
@@ -161,19 +165,21 @@ The top bar of **Mission Control** shows the bridge status. If it does not read 
 ```
 
 ```{trouble}
-A heart in the Heartbeats Monitor is not green.
+A tile in the Heartbeats Monitor reads `STALE`.
 ---
-A heart is green while its node is publishing. The widget shows four hearts:
+A tile reads `OK` while its node is publishing. The widget shows four tiles:
 
-- `JOYSTICK`: the **Remote Control** widget of the Dashboard. It must be green to fly. If it is not, reload the Dashboard page and check that the top bar reads **Bridge: Connected**.
+- `JOYSTICK`: the **Remote Control** widget of the Dashboard. It must read `OK` to fly. If it does not, sign in as described in [](dd24-dashboard-sign-in), reload the Dashboard page, and check that the top bar reads **Bridge connected**.
 
-- `ALTITUDE`, `STATE`, and `PID`: the altitude, state-estimation, and PID controller nodes. The default Duckiedrone software does not run them, so these three hearts are not green on a default Duckiedrone, and that is expected.
+- `ALTITUDE`: the altitude node, which runs in the `altitude` container and publishes only while the `Bottom` Time-of-Flight sensor measures a valid distance. If it reads `STALE`, check the `Bottom` line of the **Time-of-Flight** widget, then the container as described in [](dd24-troubleshooting-portainer).
+
+- `STATE` and `PID`: the state-estimation and PID controller nodes. The default Duckiedrone software does not run them, so these two tiles read `STALE` on a default Duckiedrone, and that is expected.
 ```
 
 ```{trouble}
 The Altitude widget is empty.
 ---
-This is expected on the default Duckiedrone software. The widget reads from the altitude node, which belongs to the `ros2-core/duckiedrone` stack and is not installed by the standard update. See [](duckiedrone-containers).
+The widget reads from the altitude node, which runs in the `altitude` container of the `ros2-core/duckiedrone` stack and publishes only while the `Bottom` Time-of-Flight sensor measures a valid distance. Check the `Bottom` line of the **Time-of-Flight** widget, then the container as described in [](dd24-troubleshooting-portainer).
 
 The height above the ground is shown by the `Bottom` line of the **Time-of-Flight** widget.
 ```
@@ -251,7 +257,9 @@ See the troubleshooting section of [](dd24-flying), which lists the causes in th
 ```{trouble}
 The motors do not spin when the Duckiedrone is armed from the Dashboard.
 ---
-First check that the **Arm / Disarm** widget reads `ARMED`. If the toggle snaps back to `DISARMED`, PX4 rejected the arming request: see the troubleshooting section of [](dd24-flying).
+First check that the Dashboard is signed in, as described in [](dd24-dashboard-sign-in). Without signing in, the **Arm / Disarm** widget can read `ARMED` while the Duckiedrone ignores the command.
+
+Then check that the **Arm / Disarm** widget reads `ARMED`. If the button returns to `DISARMED`, PX4 rejected the arming request: see the troubleshooting section of [](dd24-flying).
 
 If the widget reads `ARMED` but the motors are silent:
 
@@ -271,7 +279,7 @@ If the widget reads `ARMED` but the motors are silent:
 ```{trouble}
 The Duckiedrone does not get off the ground.
 ---
-1. Check **Thrust Cap** in the **Remote Control** widget. It starts deliberately low, so the Duckiedrone cannot take off until it is raised. See [](dd24-dashboard-throttle-ramp).
+1. Check **Thrust Cap %** in the **Remote Control** widget. It starts deliberately low, so the Duckiedrone cannot take off until it is raised. See [](dd24-dashboard-throttle-ramp).
 
 2. Check that the battery is charged.
 
